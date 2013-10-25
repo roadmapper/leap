@@ -1,0 +1,31 @@
+<h1>Listing power_recordings</h1>
+
+<table>
+  <tr>
+    <th>Acctnum</th>
+    <th>Readdate</th>
+    <th>Dayselapsed</th>
+    <th>Totalkwh</th>
+    <th>Property</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @power_recordings.each do |power_recording| %>
+  <tr>
+    <td><%= power_recording.acctNum %></td>
+    <td><%= power_recording.readDate %></td>
+    <td><%= power_recording.daysElapsed %></td>
+    <td><%= power_recording.totalKwh %></td>
+    <td><%= power_recording.property %></td>
+    <td><%= link_to 'Show', power_recording %></td>
+    <td><%= link_to 'Edit', edit_power_recording_path(power_recording) %></td>
+    <td><%= link_to 'Destroy', power_recording, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Power recording', new_power_recording_path %>

@@ -1,0 +1,5 @@
+<h1>Welcome to LEAP Data Managment and Visualization</h1>
+
+<%= link_to "Properties CRUD Prototype", properties_path %>
+<%= link_to "Power Recordings CRUD Prototype", power_recordings_path %>
+<%= link_to "Gas_Recordings CRUD Prototype", gas_recordings_path %>

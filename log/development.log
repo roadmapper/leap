@@ -1,0 +1,2020 @@
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (66.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+
+
+Started GET "/leap" for 128.143.63.95 at 2013-10-07 12:38:57 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (18.0ms)
+Completed   in 24ms
+
+ActionView::Template::Error (undefined local variable or method `properties_path' for #<#<Class:0x007f6fd4932650>:0x007f6fd4930be8>):
+    1: <h1>Welcome to LEAP Data Managment and Visualization</h1>
+    2: 
+    3: <%= link_to "Website Home", properties_path %>
+  app/views/home/index.html.erb:3:in `_app_views_home_index_html_erb___2868365545009161825_70059142283860_3816662494281414625'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.0ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 12:50:42 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.8ms)
+Completed   in 10ms
+
+ActionView::Template::Error (undefined local variable or method `properties_path' for #<#<Class:0x00000002aca510>:0x00000002c71c10>):
+    1: <h1>Welcome to LEAP Data Managment and Visualization</h1>
+    2: 
+    3: <%= link_to "Website Home", properties_path %>
+  app/views/home/index.html.erb:3:in `_app_views_home_index_html_erb___2868365545009161825_23299080_3816662494281414625'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.5ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 12:51:51 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.8ms)
+Completed   in 23ms
+
+ActionView::Template::Error (undefined local variable or method `property_path' for #<#<Class:0x007f6fd475d4d8>:0x007f6fd4763b30>):
+    1: <h1>Welcome to LEAP Data Managment and Visualization</h1>
+    2: 
+    3: <%= link_to "Website Home", property_path %>
+  app/views/home/index.html.erb:3:in `_app_views_home_index_html_erb___2868365545009161825_70059141305540_3816662494281414625'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 12:53:41 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.5ms)
+Completed   in 9ms
+
+ActionView::Template::Error (undefined local variable or method `property_path' for #<#<Class:0x007f6fd42804b0>:0x007f6fd427e9d0>):
+    1: <h1>Welcome to LEAP Data Managment and Visualization</h1>
+    2: 
+    3: <%= link_to "Website Home", property_path %>
+  app/views/home/index.html.erb:3:in `_app_views_home_index_html_erb___2868365545009161825_70059138739020_3816662494281414625'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.9ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateProperties (20131007165656)
+  [1m[35mSQL (0.4ms)[0m  CREATE TABLE `properties` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `customer_unique_id` varchar(255), `owner_name` varchar(255), `tenant_name` varchar(255), `street_address` varchar(255), `zipcode` int(11), `plus_four` int(11), `state` varchar(255), `phone` varchar(255), `email` varchar(255), `finish_date` date, `consent_date` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'properties' already exists: CREATE TABLE `properties` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `customer_unique_id` varchar(255), `owner_name` varchar(255), `tenant_name` varchar(255), `street_address` varchar(255), `zipcode` int(11), `plus_four` int(11), `state` varchar(255), `phone` varchar(255), `email` varchar(255), `finish_date` date, `consent_date` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateProperties (20131007165656)
+  [1m[35mSQL (18.8ms)[0m  CREATE TABLE `properties` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `customer_unique_id` varchar(255), `owner_name` varchar(255), `tenant_name` varchar(255), `street_address` varchar(255), `zipcode` int(11), `plus_four` int(11), `state` varchar(255), `phone` varchar(255), `email` varchar(255), `finish_date` date, `consent_date` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131007165656')[0m
+Migrating to CreatePowerRecordings (20131007165735)
+  [1m[35mSQL (20.7ms)[0m  CREATE TABLE `power_recordings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `acctNum` int(11), `readDate` date, `daysElapsed` int(11), `totalKwh` int(11), `propertyId` int(11), `property_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131007165735')[0m
+Migrating to CreateGasRecordings (20131007165755)
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE `gas_recordings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `acctNum` int(11), `name` varchar(255), `address` varchar(255), `readDate` date, `consumption` int(11), `property_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131007165755')[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `gas_recordings`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `gas_recordings`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `power_recordings`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `power_recordings`
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `properties`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `properties`
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 13:00:38 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed   in 3ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"properties"}):
+    1: <h1>Welcome to LEAP Data Managment and Visualization</h1>
+    2: 
+    3: <%= link_to "Website Home", property_path %>
+  app/views/home/index.html.erb:3:in `_app_views_home_index_html_erb___2868365545009161825_70059138979800_3816662494281414625'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.6ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 13:01:12 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.42.80 at 2013-10-07 13:01:13 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.5ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 52ms (Views: 4.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/leap/properties/new" for 172.25.42.80 at 2013-10-07 13:01:16 -0400
+  Processing by PropertiesController#new as HTML
+Rendered properties/_form.html.erb (42.4ms)
+Rendered properties/new.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 71ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/properties" for 172.25.42.80 at 2013-10-07 13:01:46 -0400
+  Processing by PropertiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mK4H/39EB0GED4iGan/eFrIXqtiEcNfZwZ1BbHVYbZw=", "property"=>{"customer_unique_id"=>"1", "owner_name"=>"Jonathon", "tenant_name"=>"Jonathon", "street_address"=>"3171 River Valley Chase", "zipcode"=>"21794", "plus_four"=>"0000", "state"=>"MD", "phone"=>"4437458021", "email"=>"jrb2yk@virginia.edu", "finish_date(1i)"=>"2013", "finish_date(2i)"=>"10", "finish_date(3i)"=>"7", "consent_date(1i)"=>"2013", "consent_date(2i)"=>"10", "consent_date(3i)"=>"7"}, "commit"=>"Create Property"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.8ms)[0m  describe `properties`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`) VALUES ('1', 'Jonathon', 'Jonathon', '3171 River Valley Chase', 21794, 0, 'MD', '4437458021', 'jrb2yk@virginia.edu', '2013-10-07', '2013-10-07', '2013-10-07 17:01:46', '2013-10-07 17:01:46')[0m
+  [1m[35mSQL (0.7ms)[0m  COMMIT
+Redirected to http://pegasus.cs.virginia.edu/leap/properties/1
+Completed 302 Found in 45ms
+
+
+Started GET "/leap/properties/1" for 172.25.42.80 at 2013-10-07 13:01:46 -0400
+  Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProperty Load (0.4ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered properties/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 30ms (Views: 18.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/leap/properties" for 172.25.42.80 at 2013-10-07 13:01:49 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.4ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 24ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/properties" for 172.25.42.80 at 2013-10-07 13:01:58 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 24ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 13:02:00 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 13:03:09 -0400
+  Processing by HomeController#index as HTML
+ERROR: compiling _app_views_home_index_html_erb___2868365545009161825_70059143132720_3816662494281414625 RAISED /home/slp/leap/html/app/views/home/index.html.erb:5: unterminated string meets end of file
+/home/slp/leap/html/app/views/home/index.html.erb:5: syntax error, unexpected $end, expecting ')'
+Function body:           def _app_views_home_index_html_erb___2868365545009161825_70059143132720_3816662494281414625(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "home/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Welcome to LEAP Data Managment and Visualization</h1>
+
+');@output_buffer.append= ( link_to "Properties CRUD Prototype", properties_path );@output_buffer.safe_concat('
+');@output_buffer.append= ( link_to "Power Recordings CRUD Prototype", power_recordings_path );@output_buffer.safe_concat('
+');@output_buffer.append= ( link_to Gas_Recordings CRUD Prototype", gas_recordings_path );@output_buffer.safe_concat('
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `module_eval'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `compile'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `block in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/aaron/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__4542280468186010043__process_action__1959190239942573893__callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `block in action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/methodoverride.rb:24:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `block in call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/sendfile.rb:106:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/runtime.rb:17:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/lock.rb:13:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/lock.rb:13:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/request_handler/thread_handler.rb:140:in `accept_and_process_next_request'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/request_handler/thread_handler.rb:108:in `main_loop'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/request_handler.rb:441:in `block (3 levels) in start_threads'
+Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed   in 3ms
+
+ActionView::Template::Error (/home/slp/leap/html/app/views/home/index.html.erb:5: unterminated string meets end of file
+/home/slp/leap/html/app/views/home/index.html.erb:5: syntax error, unexpected $end, expecting ')'):
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %>
+    4: <%= link_to "Power Recordings CRUD Prototype", power_recordings_path %>
+    5: <%= link_to Gas_Recordings CRUD Prototype", gas_recordings_path %>
+  
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 13:03:28 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.42.80 at 2013-10-07 13:04:04 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/" for 172.25.42.128 at 2013-10-07 13:11:50 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.42.128 at 2013-10-07 13:12:34 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 41ms (Views: 31.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/properties/new" for 172.25.42.128 at 2013-10-07 13:12:37 -0400
+  Processing by PropertiesController#new as HTML
+Rendered properties/_form.html.erb (15.6ms)
+Rendered properties/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 30ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/properties" for 172.25.42.128 at 2013-10-07 13:13:29 -0400
+  Processing by PropertiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OVNsF18cbkTTJikPAu1jqyi/n1TFgyjLDMsirQ7Zq0Y=", "property"=>{"customer_unique_id"=>"QWERTY", "owner_name"=>"Vinay Dandekar", "tenant_name"=>"Vinay", "street_address"=>"516 Brandon Avenue", "zipcode"=>"22903", "plus_four"=>"", "state"=>"Virginia", "phone"=>"1234567890", "email"=>"v@v.com", "finish_date(1i)"=>"2013", "finish_date(2i)"=>"10", "finish_date(3i)"=>"7", "consent_date(1i)"=>"2013", "consent_date(2i)"=>"10", "consent_date(3i)"=>"7"}, "commit"=>"Create Property"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  describe `properties`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`) VALUES ('QWERTY', 'Vinay Dandekar', 'Vinay', '516 Brandon Avenue', 22903, NULL, 'Virginia', '1234567890', 'v@v.com', '2013-10-07', '2013-10-07', '2013-10-07 17:13:29', '2013-10-07 17:13:29')[0m
+  [1m[35mSQL (0.7ms)[0m  COMMIT
+Redirected to http://pegasus.cs.virginia.edu/leap/properties/2
+Completed 302 Found in 24ms
+
+
+Started GET "/leap/properties/2" for 172.25.42.128 at 2013-10-07 13:13:29 -0400
+  Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProperty Load (0.4ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 2) LIMIT 1[0m
+Rendered properties/show.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 35ms (Views: 20.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/leap/properties" for 172.25.42.128 at 2013-10-07 13:13:31 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.4ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 25ms (Views: 16.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap" for 172.25.42.128 at 2013-10-07 13:13:43 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.42.128 at 2013-10-07 13:15:48 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.42.128 at 2013-10-07 13:15:52 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.4ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+Rendered power_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 12ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.25.42.128 at 2013-10-07 13:15:53 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.7ms)
+Rendered power_recordings/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 39ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.42.128 at 2013-10-07 13:16:07 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OVNsF18cbkTTJikPAu1jqyi/n1TFgyjLDMsirQ7Zq0Y=", "power_recording"=>{"acctNum"=>"4238984", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"7", "daysElapsed"=>"30", "totalKwh"=>"34", "propertyId"=>"1", "property"=>"1"}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059141295180) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started GET "/leap" for 172.25.42.128 at 2013-10-07 13:19:53 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.42.128 at 2013-10-07 13:20:36 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.2ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+Rendered power_recordings/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap" for 172.25.42.128 at 2013-10-07 13:20:41 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.42.128 at 2013-10-07 13:20:44 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.4ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+Rendered gas_recordings/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 13ms (Views: 6.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.25.42.128 at 2013-10-07 13:20:45 -0400
+  Processing by GasRecordingsController#new as HTML
+Rendered gas_recordings/_form.html.erb (10.5ms)
+Rendered gas_recordings/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 22ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/gas_recordings" for 172.25.42.128 at 2013-10-07 13:21:01 -0400
+  Processing by GasRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OVNsF18cbkTTJikPAu1jqyi/n1TFgyjLDMsirQ7Zq0Y=", "gas_recording"=>{"acctNum"=>"24892347", "name"=>"Vinay", "address"=>"516 Brandon Avenue", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"7", "consumption"=>"500", "property"=>"2"}, "commit"=>"Create Gas recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059141831520) expected, got String(#8420820)):
+  app/controllers/gas_recordings_controller.rb:43:in `new'
+  app/controllers/gas_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.42.128 at 2013-10-07 13:30:02 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[35mGasRecording Load (0.2ms)[0m  SELECT `gas_recordings`.* FROM `gas_recordings`
+Rendered gas_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap" for 172.25.42.128 at 2013-10-07 13:30:05 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.42.128 at 2013-10-07 13:38:41 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.42.128 at 2013-10-07 13:38:43 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+Rendered power_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.25.42.128 at 2013-10-07 13:38:43 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (13.7ms)
+Rendered power_recordings/new.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 27ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.42.128 at 2013-10-07 13:38:55 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OVNsF18cbkTTJikPAu1jqyi/n1TFgyjLDMsirQ7Zq0Y=", "power_recording"=>{"acctNum"=>"3123213123", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"7", "daysElapsed"=>"30", "totalKwh"=>"500", "propertyId"=>"1", "property"=>"1"}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059141969560) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.9ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.42.128 at 2013-10-07 13:48:00 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OVNsF18cbkTTJikPAu1jqyi/n1TFgyjLDMsirQ7Zq0Y=", "power_recording"=>{"acctNum"=>"3123213123", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"7", "daysElapsed"=>"30", "totalKwh"=>"500", "propertyId"=>"1", "property"=>"1"}, "commit"=>"Create Power recording"}
+Completed   in 22ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059142903440) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started GET "/leap" for 172.25.96.99 at 2013-10-07 14:05:19 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.19.82 at 2013-10-07 18:29:39 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.19.82 at 2013-10-07 19:30:55 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-08 09:07:27 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 128.143.63.95 at 2013-10-08 10:23:46 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-08 12:37:47 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-08 14:42:29 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-08 16:10:38 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-08 17:13:25 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.252.202 at 2013-10-08 20:28:25 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.252.202 at 2013-10-08 20:28:28 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 41ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.252.202 at 2013-10-08 20:28:31 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+Rendered power_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.25.252.202 at 2013-10-08 20:28:33 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.4ms)
+Rendered power_recordings/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.252.202 at 2013-10-08 20:28:43 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+k57mC73QjbFnQwccCZQZ4lTM7HnL8e/lquYuc6b51w=", "power_recording"=>{"acctNum"=>"313434", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"30", "totalKwh"=>"500", "propertyId"=>"1", "property"=>"1"}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#24757480) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.252.202 at 2013-10-08 20:28:51 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+k57mC73QjbFnQwccCZQZ4lTM7HnL8e/lquYuc6b51w=", "power_recording"=>{"acctNum"=>"313434", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"30", "totalKwh"=>"500", "propertyId"=>"1", "property"=>""}, "commit"=>"Create Power recording"}
+Completed   in 38ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059142326640) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.252.202 at 2013-10-08 20:28:57 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+k57mC73QjbFnQwccCZQZ4lTM7HnL8e/lquYuc6b51w=", "power_recording"=>{"acctNum"=>"313434", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"30", "totalKwh"=>"500", "propertyId"=>"", "property"=>""}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059137527460) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.252.202 at 2013-10-08 20:29:06 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+k57mC73QjbFnQwccCZQZ4lTM7HnL8e/lquYuc6b51w=", "power_recording"=>{"acctNum"=>"313434", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"30", "totalKwh"=>"500", "propertyId"=>"", "property"=>"1"}, "commit"=>"Create Power recording"}
+Completed   in 38ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#15662820) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.252.202 at 2013-10-08 20:31:04 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[35mGasRecording Load (0.2ms)[0m  SELECT `gas_recordings`.* FROM `gas_recordings`
+Rendered gas_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.25.252.202 at 2013-10-08 20:31:05 -0400
+  Processing by GasRecordingsController#new as HTML
+Rendered gas_recordings/_form.html.erb (26.5ms)
+Rendered gas_recordings/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 38ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/gas_recordings" for 172.25.252.202 at 2013-10-08 20:31:15 -0400
+  Processing by GasRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+k57mC73QjbFnQwccCZQZ4lTM7HnL8e/lquYuc6b51w=", "gas_recording"=>{"acctNum"=>"2347239847", "name"=>"Vinay", "address"=>"3713 Valley Oaks Drive", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "consumption"=>"3123", "property"=>"1"}, "commit"=>"Create Gas recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059140010980) expected, got String(#8420820)):
+  app/controllers/gas_recordings_controller.rb:43:in `new'
+  app/controllers/gas_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started GET "/leap/" for 172.25.252.202 at 2013-10-08 20:59:15 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.252.202 at 2013-10-08 20:59:17 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.3ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+Rendered power_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.25.252.202 at 2013-10-08 20:59:17 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.4ms)
+Rendered power_recordings/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.252.202 at 2013-10-08 20:59:32 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+k57mC73QjbFnQwccCZQZ4lTM7HnL8e/lquYuc6b51w=", "power_recording"=>{"acctNum"=>"434234", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"29", "totalKwh"=>"3123", "propertyId"=>"1", "property"=>"1"}, "commit"=>"Create Power recording"}
+Completed   in 38ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#17220280) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started GET "/leap/power_recordings/1" for 172.25.252.202 at 2013-10-08 21:01:52 -0400
+  Processing by PowerRecordingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPowerRecording Load (0.4ms)[0m  SELECT `power_recordings`.* FROM `power_recordings` WHERE (`power_recordings`.`id` = 1) LIMIT 1
+Completed   in 8ms
+
+ActiveRecord::RecordNotFound (Couldn't find PowerRecording with ID=1):
+  app/controllers/power_recordings_controller.rb:16:in `show'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.8ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.1ms)
+
+
+Started GET "/leap/" for 172.25.148.144 at 2013-10-08 21:46:54 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.148.144 at 2013-10-08 21:46:55 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.3ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+Rendered power_recordings/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.25.148.144 at 2013-10-08 21:46:56 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.4ms)
+Rendered power_recordings/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 22ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.25.148.144 at 2013-10-08 21:47:15 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+k57mC73QjbFnQwccCZQZ4lTM7HnL8e/lquYuc6b51w=", "power_recording"=>{"acctNum"=>"3294", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"11", "totalKwh"=>"3000", "propertyId"=>"1", "property"=>""}, "commit"=>"Create Power recording"}
+Completed   in 38ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059143289960) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started GET "/leap" for 172.26.17.196 at 2013-10-08 23:25:29 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-09 09:18:46 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:18:49 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.1ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+Rendered power_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:18:51 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.5ms)
+Rendered power_recordings/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:19:10 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "power_recording"=>{"acctNum"=>"2", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"43", "totalKwh"=>"455", "propertyId"=>"0896", "property"=>"Hello"}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059139244540) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:19:16 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.4ms)
+Rendered power_recordings/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:19:20 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "power_recording"=>{"acctNum"=>"2", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"43", "totalKwh"=>"455", "propertyId"=>"0896", "property"=>"44"}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059142181380) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.9ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:19:29 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.5ms)
+Rendered power_recordings/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:19:32 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "power_recording"=>{"acctNum"=>"2", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"43", "totalKwh"=>"455", "propertyId"=>"0896", "property"=>"70059142181380"}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059139373060) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (21.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.8ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:22:55 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (10.5ms)
+Rendered power_recordings/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-09 09:22:57 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.26.234.104 at 2013-10-09 09:22:58 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 41ms (Views: 32.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-09 09:23:17 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:23:18 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.2ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+Rendered power_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:23:19 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (27.0ms)
+Rendered power_recordings/new.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 39ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-09 09:23:28 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/gas_recordings" for 172.26.234.104 at 2013-10-09 09:23:29 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+Rendered gas_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.26.234.104 at 2013-10-09 09:23:39 -0400
+  Processing by GasRecordingsController#new as HTML
+Rendered gas_recordings/_form.html.erb (27.2ms)
+Rendered gas_recordings/new.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 39ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/gas_recordings" for 172.26.234.104 at 2013-10-09 09:24:05 -0400
+  Processing by GasRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "gas_recording"=>{"acctNum"=>"23", "name"=>"Jonathon", "address"=>"455 awesome", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "consumption"=>"567", "property"=>"1"}, "commit"=>"Create Gas recording"}
+Completed   in 22ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059138943580) expected, got String(#8420820)):
+  app/controllers/gas_recordings_controller.rb:43:in `new'
+  app/controllers/gas_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateProperties (20131007165656)
+Migrating to CreatePowerRecordings (20131007165735)
+Migrating to CreateGasRecordings (20131007165755)
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `gas_recordings`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `gas_recordings`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `power_recordings`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `power_recordings`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `properties`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `properties`
+
+
+Started POST "/leap/gas_recordings" for 172.26.234.104 at 2013-10-09 09:27:30 -0400
+  Processing by GasRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "gas_recording"=>{"acctNum"=>"23", "name"=>"Jonathon", "address"=>"455 awesome", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "consumption"=>"567", "property"=>"1"}, "commit"=>"Create Gas recording"}
+Completed   in 39ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059142326540) expected, got String(#8420820)):
+  app/controllers/gas_recordings_controller.rb:43:in `new'
+  app/controllers/gas_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.26.234.104 at 2013-10-09 09:27:32 -0400
+  Processing by GasRecordingsController#new as HTML
+Rendered gas_recordings/_form.html.erb (10.4ms)
+Rendered gas_recordings/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/gas_recordings" for 172.26.234.104 at 2013-10-09 09:27:37 -0400
+  Processing by GasRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "gas_recording"=>{"acctNum"=>"23", "name"=>"Jonathon", "address"=>"455 awesome", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "consumption"=>"567", "property"=>"1"}, "commit"=>"Create Gas recording"}
+Completed   in 38ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#10223140) expected, got String(#8420820)):
+  app/controllers/gas_recordings_controller.rb:43:in `new'
+  app/controllers/gas_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.26.234.104 at 2013-10-09 09:27:47 -0400
+  Processing by GasRecordingsController#new as HTML
+Rendered gas_recordings/_form.html.erb (10.4ms)
+Rendered gas_recordings/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-09 09:31:26 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:31:28 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.3ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+Rendered power_recordings/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:31:29 -0400
+  Processing by PowerRecordingsController#new as HTML
+ERROR: compiling _app_views_power_recordings__form_html_erb__2169329085518621644_70059138954980_604954404509964513 RAISED /home/slp/leap/html/app/views/power_recordings/_form.html.erb:36: syntax error, unexpected ',', expecting '}'
+....collect {|c| [ c.name, c.id ], :include_blank => true) );@o...
+...                               ^
+/home/slp/leap/html/app/views/power_recordings/_form.html.erb:41: syntax error, unexpected keyword_end, expecting '}'
+'); end 
+       ^
+/home/slp/leap/html/app/views/power_recordings/_form.html.erb:43: syntax error, unexpected keyword_ensure, expecting '}'
+/home/slp/leap/html/app/views/power_recordings/_form.html.erb:45: syntax error, unexpected keyword_end, expecting '}'
+Function body:           def _app_views_power_recordings__form_html_erb__2169329085518621644_70059138954980_604954404509964513(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "power_recordings/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@power_recording) do |f| @output_buffer.safe_concat('
+');   if @power_recording.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@power_recording.errors.count, "error") );@output_buffer.safe_concat(' prohibited this power_recording from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @power_recording.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :acctNum );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :acctNum );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :readDate );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.date_select :readDate );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :daysElapsed );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :daysElapsed );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :totalKwh );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :totalKwh );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :propertyId );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :propertyId );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :property_id );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.select(:property_id, Property.find(:all).collect {|c| [ c.name, c.id ], :include_blank => true) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `module_eval'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `compile'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `block in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:333:in `render_partial'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:262:in `block in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:260:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:378:in `_render_partial'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:31:in `render'
+/home/slp/leap/html/app/views/power_recordings/new.html.erb:3:in `_app_views_power_recordings_new_html_erb__3344357699479678984_70059138424580_3816662494281414625'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `block in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/aaron/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/slp/leap/html/app/controllers/power_recordings_controller.rb:29:in `new'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__2803710587268101532__process_action__2136217843244330486__callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `block in action'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/methodoverride.rb:24:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `block in call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/sendfile.rb:106:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/runtime.rb:17:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/lock.rb:13:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.2.8/lib/rack/lock.rb:13:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/rack/thread_handler_extension.rb:77:in `process_request'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/request_handler/thread_handler.rb:140:in `accept_and_process_next_request'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/request_handler/thread_handler.rb:108:in `main_loop'
+/home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/passenger-4.0.14/lib/phusion_passenger/request_handler.rb:441:in `block (3 levels) in start_threads'
+Rendered power_recordings/_form.html.erb (1.0ms)
+Rendered power_recordings/new.html.erb within layouts/application (2.0ms)
+Completed   in 11ms
+
+ActionView::Template::Error (/home/slp/leap/html/app/views/power_recordings/_form.html.erb:36: syntax error, unexpected ',', expecting '}'
+....collect {|c| [ c.name, c.id ], :include_blank => true) );@o...
+...                               ^
+/home/slp/leap/html/app/views/power_recordings/_form.html.erb:41: syntax error, unexpected keyword_end, expecting '}'
+'); end 
+       ^
+/home/slp/leap/html/app/views/power_recordings/_form.html.erb:43: syntax error, unexpected keyword_ensure, expecting '}'
+/home/slp/leap/html/app/views/power_recordings/_form.html.erb:45: syntax error, unexpected keyword_end, expecting '}'):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :property_id %><br />
+    36:     <%= f.select(:property_id, Property.find(:all).collect {|c| [ c.name, c.id ], :include_blank => true) %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/power_recordings/new.html.erb:3:in `_app_views_power_recordings_new_html_erb__3344357699479678984_70059138424580_3816662494281414625'
+  app/controllers/power_recordings_controller.rb:29:in `new'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:32:22 -0400
+  Processing by PowerRecordingsController#new as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered power_recordings/_form.html.erb (50.5ms)
+Rendered power_recordings/new.html.erb within layouts/application (51.7ms)
+Completed   in 61ms
+
+ActionView::Template::Error (undefined method `name' for #<Property:0x00000002e24210>):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :property_id %><br />
+    36:     <%= f.select(:property_id, Property.find(:all).collect {|c| [ c.name, c.id ]}, :include_blank => true) %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/power_recordings/_form.html.erb:36:in `block (2 levels) in _app_views_power_recordings__form_html_erb__2169329085518621644_70059140985320_604954404509964513'
+  app/views/power_recordings/_form.html.erb:36:in `collect'
+  app/views/power_recordings/_form.html.erb:36:in `block in _app_views_power_recordings__form_html_erb__2169329085518621644_70059140985320_604954404509964513'
+  app/views/power_recordings/_form.html.erb:1:in `_app_views_power_recordings__form_html_erb__2169329085518621644_70059140985320_604954404509964513'
+  app/views/power_recordings/new.html.erb:3:in `_app_views_power_recordings_new_html_erb__3344357699479678984_70059141342920_3816662494281414625'
+  app/controllers/power_recordings_controller.rb:29:in `new'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:33:05 -0400
+  Processing by PowerRecordingsController#new as HTML
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered power_recordings/_form.html.erb (50.8ms)
+Rendered power_recordings/new.html.erb within layouts/application (51.9ms)
+Completed   in 61ms
+
+ActionView::Template::Error (undefined method `address' for #<Property:0x00000001bd9a38>):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :property_id %><br />
+    36:     <%= f.select(:property_id, Property.find(:all).collect {|c| [ c.address, c.id ]}, :include_blank => true) %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/power_recordings/_form.html.erb:36:in `block (2 levels) in _app_views_power_recordings__form_html_erb__2169329085518621644_70059143028460_604954404509964513'
+  app/views/power_recordings/_form.html.erb:36:in `collect'
+  app/views/power_recordings/_form.html.erb:36:in `block in _app_views_power_recordings__form_html_erb__2169329085518621644_70059143028460_604954404509964513'
+  app/views/power_recordings/_form.html.erb:1:in `_app_views_power_recordings__form_html_erb__2169329085518621644_70059143028460_604954404509964513'
+  app/views/power_recordings/new.html.erb:3:in `_app_views_power_recordings_new_html_erb__3344357699479678984_70059141667840_3816662494281414625'
+  app/controllers/power_recordings_controller.rb:29:in `new'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:34:18 -0400
+  Processing by PowerRecordingsController#new as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered power_recordings/_form.html.erb (50.9ms)
+Rendered power_recordings/new.html.erb within layouts/application (53.7ms)
+Completed 200 OK in 63ms (Views: 56.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:34:29 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "power_recording"=>{"acctNum"=>"1234", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"32", "totalKwh"=>"23423", "propertyId"=>"1", "property_id"=>"1"}, "commit"=>"Create Power recording"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `power_recordings`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `power_recordings` (`acctNum`, `readDate`, `daysElapsed`, `totalKwh`, `propertyId`, `property_id`, `created_at`, `updated_at`) VALUES (1234, '2013-10-09', 32, 23423, 1, 1, '2013-10-09 13:34:29', '2013-10-09 13:34:29')
+  [1m[36mSQL (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://pegasus.cs.virginia.edu/leap/power_recordings/1
+Completed 302 Found in 19ms
+
+
+Started GET "/leap/power_recordings/1" for 172.26.234.104 at 2013-10-09 09:34:29 -0400
+  Processing by PowerRecordingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPowerRecording Load (0.3ms)[0m  SELECT `power_recordings`.* FROM `power_recordings` WHERE (`power_recordings`.`id` = 1) LIMIT 1
+  [1m[36mProperty Load (0.4ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered power_recordings/show.html.erb within layouts/application (57.2ms)
+Completed 200 OK in 69ms (Views: 60.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:34:46 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.4ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+  [1m[36mProperty Load (0.1ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered power_recordings/index.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 43ms (Views: 36.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.104 at 2013-10-09 09:37:41 -0400
+  Processing by PowerRecordingsController#new as HTML
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered power_recordings/_form.html.erb (33.6ms)
+Rendered power_recordings/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 63ms (Views: 38.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/power_recordings" for 172.26.234.104 at 2013-10-09 09:37:41 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+  [1m[35mProperty Load (0.1ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (49.4ms)
+Completed 200 OK in 58ms (Views: 51.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap" for 172.26.234.104 at 2013-10-09 09:37:42 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/gas_recordings" for 172.26.234.104 at 2013-10-09 09:37:43 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+Rendered gas_recordings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.26.234.104 at 2013-10-09 09:37:44 -0400
+  Processing by GasRecordingsController#new as HTML
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered gas_recordings/_form.html.erb (50.7ms)
+Rendered gas_recordings/new.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 62ms (Views: 55.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/leap/gas_recordings" for 172.26.234.104 at 2013-10-09 09:38:05 -0400
+  Processing by GasRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "gas_recording"=>{"acctNum"=>"12", "name"=>"Jonathon", "address"=>"3171 River Valley Chase", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "consumption"=>"123", "property_id"=>"1"}, "commit"=>"Create Gas recording"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  describe `gas_recordings`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `gas_recordings` (`acctNum`, `name`, `address`, `readDate`, `consumption`, `property_id`, `created_at`, `updated_at`) VALUES (12, 'Jonathon', '3171 River Valley Chase', '2013-10-09', 123, 1, '2013-10-09 13:38:05', '2013-10-09 13:38:05')[0m
+  [1m[35mSQL (0.6ms)[0m  COMMIT
+Redirected to http://pegasus.cs.virginia.edu/leap/gas_recordings/1
+Completed 302 Found in 18ms
+
+
+Started GET "/leap/gas_recordings/1" for 172.26.234.104 at 2013-10-09 09:38:05 -0400
+  Processing by GasRecordingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGasRecording Load (0.3ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings` WHERE (`gas_recordings`.`id` = 1) LIMIT 1[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/show.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 60ms (Views: 50.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/leap/gas_recordings" for 172.26.234.104 at 2013-10-09 09:38:07 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.4ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (48.7ms)
+Completed 200 OK in 57ms (Views: 51.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/leap" for 172.27.98.95 at 2013-10-09 10:00:44 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/gas_recordings" for 172.27.98.95 at 2013-10-09 10:00:56 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.1ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 41ms (Views: 34.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/properties" for 172.27.98.95 at 2013-10-09 10:01:17 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.3ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/gas_recordings" for 172.27.98.95 at 2013-10-09 10:01:21 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[35mGasRecording Load (0.2ms)[0m  SELECT `gas_recordings`.* FROM `gas_recordings`
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered gas_recordings/index.html.erb within layouts/application (49.8ms)
+Completed 200 OK in 58ms (Views: 52.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.27.98.95 at 2013-10-09 10:01:22 -0400
+  Processing by GasRecordingsController#new as HTML
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered gas_recordings/_form.html.erb (33.7ms)
+Rendered gas_recordings/new.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 47ms (Views: 38.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/gas_recordings" for 172.27.98.95 at 2013-10-09 10:02:04 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.3ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 58ms (Views: 34.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/" for 172.25.203.146 at 2013-10-09 10:02:13 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/" for 172.25.203.146 at 2013-10-09 10:02:13 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/gas_recordings/1" for 172.27.98.95 at 2013-10-09 10:02:14 -0400
+  Processing by GasRecordingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings` WHERE (`gas_recordings`.`id` = 1) LIMIT 1[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/show.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 41ms (Views: 33.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.203.146 at 2013-10-09 10:02:14 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (49.6ms)
+Completed 200 OK in 58ms (Views: 51.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.25.203.146 at 2013-10-09 10:02:17 -0400
+  Processing by PowerRecordingsController#new as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered power_recordings/_form.html.erb (33.3ms)
+Rendered power_recordings/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 45ms (Views: 38.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/properties" for 172.25.203.146 at 2013-10-09 10:03:52 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.203.146 at 2013-10-09 10:04:16 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (49.8ms)
+Completed 200 OK in 58ms (Views: 52.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.25.203.146 at 2013-10-09 10:04:25 -0400
+  Processing by PowerRecordingsController#new as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered power_recordings/_form.html.erb (33.4ms)
+Rendered power_recordings/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 45ms (Views: 38.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap" for 172.25.99.182 at 2013-10-09 10:06:08 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.99.182 at 2013-10-09 10:06:12 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/properties/1" for 172.25.99.182 at 2013-10-09 10:06:29 -0400
+  Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered properties/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 25ms (Views: 14.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/properties" for 172.25.99.182 at 2013-10-09 10:06:31 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.99.182 at 2013-10-09 10:08:27 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 58ms (Views: 51.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.99.182 at 2013-10-09 10:08:37 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.1ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 43ms (Views: 36.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.99.182 at 2013-10-09 10:08:57 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.3ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 58ms (Views: 34.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/leap/properties" for 172.25.203.146 at 2013-10-09 10:27:26 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 25ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/properties" for 172.25.99.182 at 2013-10-09 10:27:32 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap" for 172.25.98.228 at 2013-10-09 10:42:59 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.203.146 at 2013-10-09 10:54:30 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.4ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+Rendered power_recordings/index.html.erb within layouts/application (9.9ms)
+Completed   in 20ms
+
+ActionView::Template::Error (undefined method `propertyId' for #<PowerRecording:0x007f6fd4432a38>):
+    19:     <td><%= power_recording.readDate %></td>
+    20:     <td><%= power_recording.daysElapsed %></td>
+    21:     <td><%= power_recording.totalKwh %></td>
+    22:     <td><%= power_recording.propertyId %></td>
+    23:     <td><%= power_recording.property %></td>
+    24:     <td><%= link_to 'Show', power_recording %></td>
+    25:     <td><%= link_to 'Edit', edit_power_recording_path(power_recording) %></td>
+  app/views/power_recordings/index.html.erb:22:in `block in _app_views_power_recordings_index_html_erb__3584437464418418329_70059138772660_3816662494281414625'
+  app/views/power_recordings/index.html.erb:16:in `each'
+  app/views/power_recordings/index.html.erb:16:in `_app_views_power_recordings_index_html_erb__3584437464418418329_70059138772660_3816662494281414625'
+  app/controllers/power_recordings_controller.rb:7:in `index'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.9ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.203.146 at 2013-10-09 10:54:35 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[35mGasRecording Load (0.2ms)[0m  SELECT `gas_recordings`.* FROM `gas_recordings`
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered gas_recordings/index.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 41ms (Views: 34.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/gas_recordings/new" for 172.25.203.146 at 2013-10-09 10:54:40 -0400
+  Processing by GasRecordingsController#new as HTML
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered gas_recordings/_form.html.erb (34.0ms)
+Rendered gas_recordings/new.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 63ms (Views: 38.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.203.146 at 2013-10-09 10:54:45 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (50.1ms)
+Completed 200 OK in 59ms (Views: 52.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.99.182 at 2013-10-09 10:54:46 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+Rendered power_recordings/index.html.erb within layouts/application (7.1ms)
+Completed   in 16ms
+
+ActionView::Template::Error (undefined method `propertyId' for #<PowerRecording:0x007f6fd493fa58>):
+    19:     <td><%= power_recording.readDate %></td>
+    20:     <td><%= power_recording.daysElapsed %></td>
+    21:     <td><%= power_recording.totalKwh %></td>
+    22:     <td><%= power_recording.propertyId %></td>
+    23:     <td><%= power_recording.property %></td>
+    24:     <td><%= link_to 'Show', power_recording %></td>
+    25:     <td><%= link_to 'Edit', edit_power_recording_path(power_recording) %></td>
+  app/views/power_recordings/index.html.erb:22:in `block in _app_views_power_recordings_index_html_erb__3584437464418418329_70059142302700_3816662494281414625'
+  app/views/power_recordings/index.html.erb:16:in `each'
+  app/views/power_recordings/index.html.erb:16:in `_app_views_power_recordings_index_html_erb__3584437464418418329_70059142302700_3816662494281414625'
+  app/controllers/power_recordings_controller.rb:7:in `index'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.99.182 at 2013-10-09 10:54:54 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[35mGasRecording Load (0.2ms)[0m  SELECT `gas_recordings`.* FROM `gas_recordings`
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered gas_recordings/index.html.erb within layouts/application (49.6ms)
+Completed 200 OK in 58ms (Views: 51.9ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateProperties (20131007165656)
+Migrating to CreateGasRecordings (20131007165755)
+Migrating to CreatePowerRecordings (20131009161025)
+  [1m[35mSQL (0.4ms)[0m  CREATE TABLE `power_recordings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `acctNum` int(11), `readDate` date, `daysElapsed` int(11), `totalKwh` int(11), `property_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'power_recordings' already exists: CREATE TABLE `power_recordings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `acctNum` int(11), `readDate` date, `daysElapsed` int(11), `totalKwh` int(11), `property_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+
+
+Started GET "/leap" for 172.26.234.30 at 2013-10-09 12:10:42 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateProperties (20131007165656)
+Migrating to CreateGasRecordings (20131007165755)
+Migrating to CreatePowerRecordings (20131009161025)
+  [1m[35mSQL (24.1ms)[0m  CREATE TABLE `power_recordings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `acctNum` int(11), `readDate` date, `daysElapsed` int(11), `totalKwh` int(11), `property_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131009161025')[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `gas_recordings`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `gas_recordings`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `power_recordings`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `power_recordings`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `properties`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `properties`
+
+
+Started GET "/leap" for 172.26.234.30 at 2013-10-09 12:11:15 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.26.234.30 at 2013-10-09 12:11:16 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.5ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+Rendered power_recordings/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 13ms (Views: 6.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.30 at 2013-10-09 12:11:18 -0400
+  Processing by PowerRecordingsController#new as HTML
+Rendered power_recordings/_form.html.erb (9.8ms)
+Rendered power_recordings/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 22ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/leap/power_recordings" for 172.26.234.30 at 2013-10-09 12:11:30 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "power_recording"=>{"acctNum"=>"112", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"31", "totalKwh"=>"134", "property"=>"as"}, "commit"=>"Create Power recording"}
+Completed   in 38ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#23768600) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+
+
+Started POST "/leap/power_recordings" for 172.26.234.30 at 2013-10-09 12:13:52 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "power_recording"=>{"acctNum"=>"112", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"31", "totalKwh"=>"134", "property"=>"as"}, "commit"=>"Create Power recording"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Property(#70059142930120) expected, got String(#8420820)):
+  app/controllers/power_recordings_controller.rb:43:in `new'
+  app/controllers/power_recordings_controller.rb:43:in `create'
+
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/aaron/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/leap/power_recordings/new" for 172.26.234.30 at 2013-10-09 12:13:54 -0400
+  Processing by PowerRecordingsController#new as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered power_recordings/_form.html.erb (32.9ms)
+Rendered power_recordings/new.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 45ms (Views: 37.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/leap/power_recordings" for 172.26.234.30 at 2013-10-09 12:13:57 -0400
+  Processing by PowerRecordingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBCEDb0HnDHTzzqaESb9qUeSorcP+9MfVMvaMIDIsCE=", "power_recording"=>{"acctNum"=>"112", "readDate(1i)"=>"2013", "readDate(2i)"=>"10", "readDate(3i)"=>"9", "daysElapsed"=>"31", "totalKwh"=>"134", "property_id"=>"1"}, "commit"=>"Create Power recording"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `power_recordings`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `power_recordings` (`acctNum`, `readDate`, `daysElapsed`, `totalKwh`, `property_id`, `created_at`, `updated_at`) VALUES (112, '2013-10-09', 31, 134, 1, '2013-10-09 16:13:57', '2013-10-09 16:13:57')
+  [1m[36mSQL (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://pegasus.cs.virginia.edu/leap/power_recordings/1
+Completed 302 Found in 17ms
+
+
+Started GET "/leap/power_recordings/1" for 172.26.234.30 at 2013-10-09 12:13:57 -0400
+  Processing by PowerRecordingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPowerRecording Load (0.4ms)[0m  SELECT `power_recordings`.* FROM `power_recordings` WHERE (`power_recordings`.`id` = 1) LIMIT 1
+  [1m[36mProperty Load (0.1ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered power_recordings/show.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 48ms (Views: 39.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/leap/power_recordings" for 172.26.234.30 at 2013-10-09 12:14:00 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.4ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered power_recordings/index.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 60ms (Views: 53.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/leap" for 172.25.96.241 at 2013-10-09 13:57:18 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.96.241 at 2013-10-09 15:01:42 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.96.241 at 2013-10-09 16:06:08 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.30 at 2013-10-09 17:10:09 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.26.234.30 at 2013-10-09 18:19:49 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 67.233.82.230 at 2013-10-13 21:35:58 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 67.233.82.230 at 2013-10-13 21:36:01 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.3ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 77ms (Views: 31.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/gas_recordings" for 67.233.82.230 at 2013-10-13 21:36:12 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[35mGasRecording Load (0.2ms)[0m  SELECT `gas_recordings`.* FROM `gas_recordings`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 46ms (Views: 38.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/leap" for 98.244.85.224 at 2013-10-16 01:09:49 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 98.244.85.224 at 2013-10-16 01:09:51 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap" for 172.25.42.19 at 2013-10-18 10:18:09 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.42.19 at 2013-10-18 10:18:15 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.6ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 48ms (Views: 22.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/leap" for 172.25.42.19 at 2013-10-18 10:18:20 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.42.19 at 2013-10-18 10:19:28 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.6ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+  [1m[35mProperty Load (0.3ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 66ms (Views: 58.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.42.19 at 2013-10-18 10:19:31 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.5ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 41ms (Views: 34.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/leap" for 172.25.208.51 at 2013-10-18 10:29:14 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.99.194 at 2013-10-19 00:38:26 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.99.194 at 2013-10-19 00:38:29 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leap" for 172.25.99.15 at 2013-10-20 15:41:18 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.99.15 at 2013-10-20 15:41:21 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.3ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 77ms (Views: 31.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.99.15 at 2013-10-20 15:41:24 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.2ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 42ms (Views: 33.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.99.15 at 2013-10-20 15:41:28 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 42ms (Views: 34.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap" for 172.25.98.107 at 2013-10-20 16:45:21 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.203.113 at 2013-10-20 16:45:31 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.98.107 at 2013-10-20 16:45:35 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.3ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 25ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap" for 172.25.231.57 at 2013-10-21 08:43:57 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 67.233.82.230 at 2013-10-22 00:56:26 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 67.233.82.230 at 2013-10-22 00:58:55 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 67.233.82.230 at 2013-10-22 01:03:19 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 50.134.13.187 at 2013-10-22 02:36:02 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/gas_recordings" for 50.134.13.187 at 2013-10-22 02:36:05 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.3ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mProperty Load (0.1ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered gas_recordings/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 93ms (Views: 55.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/leap" for 50.134.13.187 at 2013-10-23 00:04:37 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 50.134.14.173 at 2013-10-23 00:21:19 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.203.138 at 2013-10-23 10:08:22 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 128.143.63.95 at 2013-10-23 10:09:30 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.203.114 at 2013-10-23 10:46:42 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.203.114 at 2013-10-23 10:46:50 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.3ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 76ms (Views: 30.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/power_recordings" for 172.25.203.114 at 2013-10-23 10:46:55 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[35mPowerRecording Load (0.2ms)[0m  SELECT `power_recordings`.* FROM `power_recordings`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 42ms (Views: 33.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/leap/gas_recordings" for 172.25.203.114 at 2013-10-23 10:46:57 -0400
+  Processing by GasRecordingsController#index as HTML
+  [1m[36mGasRecording Load (0.2ms)[0m  [1mSELECT `gas_recordings`.* FROM `gas_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered gas_recordings/index.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 41ms (Views: 34.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/leap" for 172.25.203.114 at 2013-10-23 10:47:19 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/" for 172.27.99.73 at 2013-10-23 10:54:01 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 172.25.203.138 at 2013-10-23 10:54:09 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/" for 10.145.98.65 at 2013-10-23 10:59:10 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 10.145.98.65 at 2013-10-23 10:59:15 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.2ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1
+Rendered power_recordings/index.html.erb within layouts/application (47.9ms)
+Completed 200 OK in 57ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leap/" for 10.145.98.65 at 2013-10-23 11:00:27 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap" for 50.134.13.187 at 2013-10-23 15:02:16 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/power_recordings" for 50.134.13.187 at 2013-10-23 15:02:19 -0400
+  Processing by PowerRecordingsController#index as HTML
+  [1m[36mPowerRecording Load (0.3ms)[0m  [1mSELECT `power_recordings`.* FROM `power_recordings`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mProperty Load (0.2ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered power_recordings/index.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 92ms (Views: 54.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/leap" for 172.25.208.110 at 2013-10-25 10:04:01 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leap/properties" for 172.25.208.110 at 2013-10-25 10:04:32 -0400
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.5ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 94ms (Views: 35.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/leap" for 172.25.42.144 at 2013-10-25 10:30:17 -0400
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)

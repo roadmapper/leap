@@ -1,0 +1,33 @@
+<h1>Listing gas_recordings</h1>
+
+<table>
+  <tr>
+    <th>Acctnum</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Readdate</th>
+    <th>Consumption</th>
+    <th>Property</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gas_recordings.each do |gas_recording| %>
+  <tr>
+    <td><%= gas_recording.acctNum %></td>
+    <td><%= gas_recording.name %></td>
+    <td><%= gas_recording.address %></td>
+    <td><%= gas_recording.readDate %></td>
+    <td><%= gas_recording.consumption %></td>
+    <td><%= gas_recording.property %></td>
+    <td><%= link_to 'Show', gas_recording %></td>
+    <td><%= link_to 'Edit', edit_gas_recording_path(gas_recording) %></td>
+    <td><%= link_to 'Destroy', gas_recording, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gas recording', new_gas_recording_path %>

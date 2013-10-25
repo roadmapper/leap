@@ -1,0 +1,2 @@
+module GasRecordingsHelper
+end
