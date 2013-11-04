@@ -1,10 +1,6 @@
 Public::Application.routes.draw do
   get "dashboard/index"
 
-  resources :power_recordings
-
-  resources :gas_recordings
-
   resources :properties
 
   root :to => "home#index"

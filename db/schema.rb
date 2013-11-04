@@ -10,28 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009161025) do
-
-  create_table "gas_recordings", :force => true do |t|
-    t.integer  "acctNum"
-    t.string   "name"
-    t.string   "address"
-    t.date     "readDate"
-    t.integer  "consumption"
-    t.integer  "property_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "power_recordings", :force => true do |t|
-    t.integer  "acctNum"
-    t.date     "readDate"
-    t.integer  "daysElapsed"
-    t.integer  "totalKwh"
-    t.integer  "property_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20131104163104) do
 
   create_table "properties", :force => true do |t|
     t.string   "customer_unique_id"
@@ -45,6 +24,25 @@ ActiveRecord::Schema.define(:version => 20131009161025) do
     t.string   "email"
     t.date     "finish_date"
     t.date     "consent_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recordings", :force => true do |t|
+    t.string   "name"
+    t.date     "read_date"
+    t.string   "consumption"
+    t.integer  "utility_type_id_id"
+    t.integer  "act_num_id"
+    t.integer  "days_in_month"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "utility_types", :force => true do |t|
+    t.string   "typeName"
+    t.string   "units"
+    t.string   "acctNum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
