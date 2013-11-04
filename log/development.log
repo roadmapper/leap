@@ -2043,3 +2043,389 @@ Migrating to CreateRecordings (20131104163104)
   [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `recordings`
   [1m[36mSQL (0.4ms)[0m  [1mdescribe `utility_types`[0m
   [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `utility_types`
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:05:21 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (7.0ms)
+Completed   in 13ms
+
+ActionView::Template::Error (undefined local variable or method `power_recordings_path' for #<#<Class:0xb5acd838>:0xb5acca28>):
+    1: <h1>Welcome to LEAP Data Management and Visualization</h1>
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %> </p>
+    4: <%= link_to "Power Recordings CRUD Prototype", power_recordings_path %></p>
+    5: <%= link_to "Gas_Recordings CRUD Prototype", gas_recordings_path %></p>
+  app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___611871061__623485198_0'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at Mon Nov 04 13:05:27 -0500 2013
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:05:31 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (9.3ms)
+Completed   in 18ms
+
+ActionView::Template::Error (undefined local variable or method `power_recordings_path' for #<#<Class:0xb59dd770>:0xb59dc960>):
+    1: <h1>Welcome to LEAP Data Management and Visualization</h1>
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %> </p>
+    4: <%= link_to "Power Recordings CRUD Prototype", power_recordings_path %></p>
+    5: <%= link_to "Gas_Recordings CRUD Prototype", gas_recordings_path %></p>
+  app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___611871061__623976818_0'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (32.3ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (42.5ms)
+
+
+Started GET "/properties" for 127.0.0.1 at Mon Nov 04 13:07:49 -0500 2013
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (1.4ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 37ms (Views: 5.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/properties/new" for 127.0.0.1 at Mon Nov 04 13:07:56 -0500 2013
+  Processing by PropertiesController#new as HTML
+Rendered properties/_form.html.erb (21.3ms)
+Rendered properties/new.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 40ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/properties" for 127.0.0.1 at Mon Nov 04 13:08:06 -0500 2013
+  Processing by PropertiesController#create as HTML
+  Parameters: {"authenticity_token"=>"0fhUqVUvThCRdnIzwUyKKjpPIMwvCsP5mc6hRgRQ+C8=", "utf8"=>"✓", "property"=>{"email"=>"", "customer_unique_id"=>"", "consent_date(1i)"=>"2013", "street_address"=>"", "tenant_name"=>"LOL", "finish_date(1i)"=>"2013", "plus_four"=>"", "finish_date(2i)"=>"11", "consent_date(3i)"=>"4", "phone"=>"", "finish_date(3i)"=>"4", "zipcode"=>"", "consent_date(2i)"=>"11", "state"=>"", "owner_name"=>"Vinay"}, "commit"=>"Create Property"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.8ms)[0m  describe `properties`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `properties` (`zipcode`, `phone`, `plus_four`, `finish_date`, `consent_date`, `tenant_name`, `state`, `updated_at`, `email`, `street_address`, `customer_unique_id`, `created_at`, `owner_name`) VALUES (NULL, '', NULL, '2013-11-04', '2013-11-04', 'LOL', '', '2013-11-04 18:08:06', '', '', '', '2013-11-04 18:08:06', 'Vinay')[0m
+  [1m[35mSQL (3.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/properties/1
+Completed 302 Found in 30ms
+
+
+Started GET "/properties/1" for 127.0.0.1 at Mon Nov 04 13:08:06 -0500 2013
+  Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProperty Load (0.4ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`id` = 1) LIMIT 1[0m
+Rendered properties/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 23ms (Views: 13.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/properties" for 127.0.0.1 at Mon Nov 04 13:08:08 -0500 2013
+  Processing by PropertiesController#index as HTML
+  [1m[35mProperty Load (0.7ms)[0m  SELECT `properties`.* FROM `properties`
+Rendered properties/index.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 65ms (Views: 53.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home" for 127.0.0.1 at Mon Nov 04 13:08:19 -0500 2013
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/index" for 127.0.0.1 at Mon Nov 04 13:08:23 -0500 2013
+
+ActionController::RoutingError (No route matches "/index"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at Mon Nov 04 13:08:27 -0500 2013
+
+ActionController::RoutingError (No route matches "/home/index"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:08:31 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (5.2ms)
+Completed   in 14ms
+
+ActionView::Template::Error (undefined local variable or method `power_recordings_path' for #<#<Class:0xb59b70c0>:0xb59b5824>):
+    1: <h1>Welcome to LEAP Data Management and Visualization</h1>
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %> </p>
+    4: <%= link_to "Power Recordings CRUD Prototype", power_recordings_path %></p>
+    5: <%= link_to "Gas_Recordings CRUD Prototype", gas_recordings_path %></p>
+  app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___611871061__624057908_0'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 04 13:10:17 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 04 13:11:53 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/%5C" for 127.0.0.1 at Mon Nov 04 13:11:56 -0500 2013
+
+ActionController::RoutingError (No route matches "/%5C"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:11:58 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (9.0ms)
+Completed   in 19ms
+
+ActionView::Template::Error (undefined local variable or method `recordings_path' for #<#<Class:0xb5a4e308>:0xb5a4d4f8>):
+    1: <h1>Welcome to LEAP Data Management and Visualization</h1>
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %> </p>
+    4: <%= link_to "Recordings CRUD Prototype", recordings_path %></p>
+    5: <!--<%= link_to "Gas_Recordings CRUD Prototype", gas_recordings_path %></p>-->
+  app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___611871061__623745978_0'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:12:27 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (10.3ms)
+Completed   in 19ms
+
+ActionView::Template::Error (undefined local variable or method `recordings_path' for #<#<Class:0xb59609c8>:0xb595f028>):
+    1: <h1>Welcome to LEAP Data Management and Visualization</h1>
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %> </p>
+    4: <!--<%= link_to "Recordings CRUD Prototype", recordings_path %></p>-->
+    5: <!--<%= link_to "Gas_Recordings CRUD Prototype", gas_recordings_path %></p>-->
+  app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___611871061__624235198_0'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:17:18 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (7.7ms)
+Completed   in 15ms
+
+ActionView::Template::Error (undefined local variable or method `recordings_path' for #<#<Class:0xb5acab74>:0xb5ac9d64>):
+    1: <h1>Welcome to LEAP Data Management and Visualization</h1>
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %> </p>
+    4: <!--<%= link_to "Recordings CRUD Prototype", recordings_path %></p>-->
+    5: <!--<%= link_to "Gas_Recordings CRUD Prototype", gas_recordings_path %></p>-->
+  app/views/home/index.html.erb:4:in `_app_views_home_index_html_erb___364325826__623490928_0'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 04 13:17:22 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/dashboard/" for 127.0.0.1 at Mon Nov 04 13:17:27 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/dashboard_INDEX" for 127.0.0.1 at Mon Nov 04 13:17:54 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard_INDEX"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/dashboard_index" for 127.0.0.1 at Mon Nov 04 13:17:58 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard_index"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 13:18:14 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:21:09 -0500 2013
+  Processing by HomeController#index as HTML
+ERROR: compiling _app_views_home_index_html_erb___364325826__623544338_0 RAISED compile error
+/home/leap/html/leap/app/views/home/index.html.erb:5: unterminated string meets end of file
+/home/leap/html/leap/app/views/home/index.html.erb:5: syntax error, unexpected tSTRING_END, expecting tSTRING_CONTENT or tREGEXP_END or tSTRING_DBEG or tSTRING_DVAR
+Function body:           def _app_views_home_index_html_erb___364325826__623544338_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "home/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Welcome to LEAP Data Management and Visualization</h1>
+
+');@output_buffer.append= ( link_to "Properties CRUD Prototype", properties_path );@output_buffer.safe_concat(' </p>
+');# link_to "Recordings CRUD Prototype", recordings_path ;@output_buffer.safe_concat('</p>
+');# link_to "Gas_Recordings CRUD Prototype", gas_recordings_path ;@output_buffer.safe_concat('</p>
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/leap/html/leap/app/views/home/index.html.erb:5:in `compile'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__790066910__process_action__1049811295__callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/methodoverride.rb:24:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/sendfile.rb:106:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/runtime.rb:17:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/lock.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/lock.rb:13:in `synchronize'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/lock.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/content_length.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/handler/webrick.rb:52:in `service'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/handler/webrick.rb:13:in `run'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/server.rb:217:in `start'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands.rb:30
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed   in 5ms
+
+ActionView::Template::Error (compile error
+/home/leap/html/leap/app/views/home/index.html.erb:5: unterminated string meets end of file
+/home/leap/html/leap/app/views/home/index.html.erb:5: syntax error, unexpected tSTRING_END, expecting tSTRING_CONTENT or tREGEXP_END or tSTRING_DBEG or tSTRING_DVAR):
+    2: 
+    3: <%= link_to "Properties CRUD Prototype", properties_path %> </p>
+    4: <%-# link_to "Recordings CRUD Prototype", recordings_path -%></p>
+    5: <%-# link_to "Gas_Recordings CRUD Prototype", gas_recordings_path -%></p>
+  app/views/home/index.html.erb:5:in `compile'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 13:22:07 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
