@@ -2018,3 +2018,28 @@ Started GET "/leap" for 172.25.42.144 at 2013-10-25 10:30:17 -0400
   Processing by HomeController#index as HTML
 Rendered home/index.html.erb within layouts/application (2.2ms)
 Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (171.1ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (159.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateProperties (20131007165656)
+  [1m[35mSQL (42.9ms)[0m  CREATE TABLE `properties` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `customer_unique_id` varchar(255), `owner_name` varchar(255), `tenant_name` varchar(255), `street_address` varchar(255), `zipcode` int(11), `plus_four` int(11), `state` varchar(255), `phone` varchar(255), `email` varchar(255), `finish_date` date, `consent_date` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (23.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131007165656')[0m
+Migrating to CreateUtilityTypes (20131028173244)
+  [1m[35mSQL (29.1ms)[0m  CREATE TABLE `utility_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `typeName` varchar(255), `units` varchar(255), `acctNum` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (11.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131028173244')[0m
+Migrating to CreateRecordings (20131104163104)
+  [1m[35mSQL (140.6ms)[0m  CREATE TABLE `recordings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `read_date` date, `consumption` varchar(255), `utility_type_id_id` int(11), `act_num_id` int(11), `days_in_month` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (8.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131104163104')[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `properties`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW KEYS FROM `properties`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `recordings`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `recordings`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `utility_types`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `utility_types`
