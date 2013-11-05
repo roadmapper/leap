@@ -1,4 +1,6 @@
 Public::Application.routes.draw do
+  devise_for :users
+
   get "dashboard/index"
 
   resources :properties
