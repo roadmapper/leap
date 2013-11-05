@@ -2468,3 +2468,362 @@ Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 13:33:06 -0500 2013
   Processing by DashboardController#index as HTML
 Rendered dashboard/index.html.erb within layouts/application (2.5ms)
 Completed 200 OK in 15ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 21:23:50 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboard/" for 127.0.0.1 at Mon Nov 04 21:23:56 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 21:23:59 -0500 2013
+  Processing by DashboardController#index as HTML
+  [1m[36mSQL (1.0ms)[0m  [1mSHOW TABLES[0m
+Rendered dashboard/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 59ms (Views: 5.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 22:10:30 -0500 2013
+
+SyntaxError (/home/leap/html/leap/app/controllers/dashboard_controller.rb:7: syntax error, unexpected ',', expecting kEND
+...ploaded_io.original_filename), 'w') do |file|
+                              ^
+/home/leap/html/leap/app/controllers/dashboard_controller.rb:7: syntax error, unexpected ')', expecting kEND
+...ed_io.original_filename), 'w') do |file|
+                              ^
+/home/leap/html/leap/app/controllers/dashboard_controller.rb:11: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 22:42:01 -0500 2013
+  Processing by DashboardController#index as HTML
+ERROR: compiling _app_views_dashboard_index_html_erb__211956909__623016348_0 RAISED compile error
+/home/leap/html/leap/app/views/dashboard/index.html.erb:10: syntax error, unexpected kENSURE, expecting kEND
+/home/leap/html/leap/app/views/dashboard/index.html.erb:12: syntax error, unexpected $end, expecting kEND
+Function body:           def _app_views_dashboard_index_html_erb__211956909__623016348_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "dashboard/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Query Dashboard</h1>
+<p>Upload</p>
+');@output_buffer.append=  form_tag({:action => :upload}, :multipart => true) do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( file_field_tag 'picture' );@output_buffer.safe_concat('
+');@output_buffer.append= ( submit_tag "Upload" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+<p>Query:</p>
+
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/leap/html/leap/app/views/dashboard/index.html.erb:12:in `compile'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `_render_template'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__475556781__process_action__208266296__callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `send'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `send'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `action'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/methodoverride.rb:24:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/sendfile.rb:106:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/runtime.rb:17:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/lock.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/lock.rb:13:in `synchronize'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/lock.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/application.rb:77:in `send'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/content_length.rb:13:in `call'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/handler/webrick.rb:52:in `service'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/home/leap/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/handler/webrick.rb:13:in `run'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/rack-1.2.8/lib/rack/server.rb:217:in `start'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands/server.rb:65:in `start'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands.rb:30
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands.rb:27:in `tap'
+/home/leap/.rvm/gems/ruby-1.8.7-p374/gems/railties-3.0.3/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered dashboard/index.html.erb within layouts/application (2.9ms)
+Completed   in 18ms
+
+ActionView::Template::Error (compile error
+/home/leap/html/leap/app/views/dashboard/index.html.erb:10: syntax error, unexpected kENSURE, expecting kEND
+/home/leap/html/leap/app/views/dashboard/index.html.erb:12: syntax error, unexpected $end, expecting kEND):
+    7: <p>Query:</p>
+  app/views/dashboard/index.html.erb:12:in `compile'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  [1m[35mProperty Load (0.5ms)[0m  SELECT `properties`.* FROM `properties` WHERE (`properties`.`owner_name` = 'Vinay')
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.4ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.4ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 22:43:39 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (0.7ms)
+Completed   in 12ms
+
+ActionView::Template::Error (No route matches {:action=>"upload", :controller=>"dashboard"}):
+    1: <h1>Query Dashboard</h1>
+    2: <p>Upload</p>
+    3: <%= form_tag({:action => :upload}, :multipart => true) do %>
+    4:   <%= file_field_tag 'picture' %>
+    5: <%= submit_tag "Upload" %>
+    6: <% end %>
+  app/views/dashboard/index.html.erb:3:in `_app_views_dashboard_index_html_erb__211956909__623491918_0'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  [1m[36mProperty Load (0.3ms)[0m  [1mSELECT `properties`.* FROM `properties` WHERE (`properties`.`owner_name` = 'Vinay')[0m
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.3ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.1ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 22:54:49 -0500 2013
+
+SyntaxError (/home/leap/html/leap/config/routes.rb:3: syntax error, unexpected tSYMBEG, expecting kDO or '{' or '('
+  post '/dashboard/upload', to:'dashboard#upload'
+                                ^):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:02:52 -0500 2013
+
+SyntaxError (/home/leap/html/leap/config/routes.rb:3: syntax error, unexpected ':', expecting kEND
+  post '/dashboard/upload', to: 'dashboard#upload'
+                               ^):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:02:52 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard/index"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:02:54 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard/index"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 23:03:23 -0500 2013
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 04 23:13:38 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 04 23:13:44 -0500 2013
+
+ActionController::RoutingError (No route matches "/dashboard"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.1ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:13:47 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 12ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 04 23:14:00 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"authenticity_token"=>"gf52LOElNCeC1oS0i/rDVTyR+V7qDCUzr9zrNdvUxDY=", "utf8"=>"✓", "commit"=>"Upload", "picture"=>#<ActionDispatch::Http::UploadedFile:0xb5a5cde0 @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"leap.sql\"\r\nContent-Type: text/x-sql\r\n", @content_type="text/x-sql", @original_filename="leap.sql", @tempfile=#<File:/tmp/RackMultipart20131104-2525-15mh1dz-0>>}
+Completed   in 1ms
+
+NoMethodError (undefined method `original_filename' for nil:NilClass):
+  app/controllers/dashboard_controller.rb:7:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (43.0ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (47.9ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 04 23:18:02 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"authenticity_token"=>"gf52LOElNCeC1oS0i/rDVTyR+V7qDCUzr9zrNdvUxDY=", "utf8"=>"✓", "commit"=>"Upload", "picture"=>#<ActionDispatch::Http::UploadedFile:0xb5ba8c80 @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"leap.sql\"\r\nContent-Type: text/x-sql\r\n", @content_type="text/x-sql", @original_filename="leap.sql", @tempfile=#<File:/tmp/RackMultipart20131104-2525-ig8bep-0>>}
+Completed   in 1ms
+
+NoMethodError (undefined method `original_filename' for nil:NilClass):
+  app/controllers/dashboard_controller.rb:7:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.1ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:23:25 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 04 23:23:31 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"authenticity_token"=>"gf52LOElNCeC1oS0i/rDVTyR+V7qDCUzr9zrNdvUxDY=", "utf8"=>"✓", "commit"=>"Upload", "picture"=>#<ActionDispatch::Http::UploadedFile:0xb5a528b8 @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"leap.sql\"\r\nContent-Type: text/x-sql\r\n", @content_type="text/x-sql", @original_filename="leap.sql", @tempfile=#<File:/tmp/RackMultipart20131104-2525-vimhmi-0>>}
+Completed   in 1ms
+
+NoMethodError (undefined method `original_filename' for nil:NilClass):
+  app/controllers/dashboard_controller.rb:7:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.1ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (52.0ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:32:47 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 15ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 04 23:32:53 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"authenticity_token"=>"gf52LOElNCeC1oS0i/rDVTyR+V7qDCUzr9zrNdvUxDY=", "utf8"=>"✓", "commit"=>"Upload", "picture"=>#<ActionDispatch::Http::UploadedFile:0xb5b33ae8 @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"leap.sql\"\r\nContent-Type: text/x-sql\r\n", @content_type="text/x-sql", @original_filename="leap.sql", @tempfile=#<File:/tmp/RackMultipart20131104-2525-1jpfzr3-0>>}
+Completed   in 2ms
+
+NoMethodError (undefined method `force_encoding' for #<String:0xb5b2c3ec>):
+  app/controllers/dashboard_controller.rb:8:in `upload'
+  app/controllers/dashboard_controller.rb:7:in `open'
+  app/controllers/dashboard_controller.rb:7:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.4ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:42:51 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 14ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 04 23:42:57 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"authenticity_token"=>"gf52LOElNCeC1oS0i/rDVTyR+V7qDCUzr9zrNdvUxDY=", "utf8"=>"✓", "commit"=>"Upload", "picture"=>#<ActionDispatch::Http::UploadedFile:0xb5bbff20 @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"leap.sql\"\r\nContent-Type: text/x-sql\r\n", @content_type="text/x-sql", @original_filename="leap.sql", @tempfile=#<File:/tmp/RackMultipart20131104-2525-86gfsu-0>>}
+Completed   in 4ms
+
+ActionView::MissingTemplate (Missing template dashboard/upload with {:formats=>[:html], :locale=>[:en, :en], :handlers=>[:erb, :rhtml, :rxml, :builder, :rjs]} in view paths "/home/leap/html/leap/app/views"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.3ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 04 23:45:49 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 13ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 04 23:46:01 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"authenticity_token"=>"gf52LOElNCeC1oS0i/rDVTyR+V7qDCUzr9zrNdvUxDY=", "utf8"=>"✓", "commit"=>"Upload", "picture"=>#<ActionDispatch::Http::UploadedFile:0xb5a89160 @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"examples.desktop\"\r\nContent-Type: application/x-desktop\r\n", @content_type="application/x-desktop", @original_filename="examples.desktop", @tempfile=#<File:/tmp/RackMultipart20131104-2525-arc6vt-0>>}
+Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms)
