@@ -1,3 +1,8 @@
 <h1>Query Dashboard</h1>
+<p>Upload</p>
+<%= form_tag({:action => :upload}, :multipart => true) do %>
+  <%= file_field_tag 'picture' %>
+<%= submit_tag "Upload" %>
+<% end %>
 <p>Query:</p>
 

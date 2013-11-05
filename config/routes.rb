@@ -1,6 +1,6 @@
 Public::Application.routes.draw do
   get "dashboard/index"
-
+  post '/dashboard/upload' => 'dashboard#upload'
   resources :properties
 
   root :to => "home#index"
