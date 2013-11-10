@@ -1,6 +1,4 @@
 Public::Application.routes.draw do
-  get "recordings/index"
-
   devise_for :users
 
   get "dashboard/index"
