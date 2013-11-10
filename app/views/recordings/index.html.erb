@@ -1,0 +1,37 @@
+<h1>Recordings#index</h1>
+<p>Find me in app/views/recordings/index.html.erb</p>
+
+<h1>Listing recordings</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Read Date</th>
+    <th>Consumption</th>
+    <th>Utility Type ID ID</th>
+    <th>Act Num ID</th>
+    <th>Days In Month</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @recordings.each do |recording| %>
+  <tr>
+    <td><%= recording.name %></td>
+    <td><%= recording.read_date %></td>
+    <td><%= recording.consumption %></td>
+    <td><%= recording.utility_type_id_id %></td>
+    <td><%= recording.act_num_id %></td>
+    <td><%= recording.days_in_month %></td>
+    <td><%= link_to 'Show', recording %></td>
+    <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
+    <td><%= link_to 'Destroy', recording, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Recording', new_recording_path %>
+
