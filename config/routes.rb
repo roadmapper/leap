@@ -1,9 +1,12 @@
 Public::Application.routes.draw do
+  get "recordings/index"
+
   devise_for :users
 
   get "dashboard/index"
   post '/dashboard/upload' => 'dashboard#upload'
   resources :properties
+  resources :recordings
 
   root :to => "home#index"
 
