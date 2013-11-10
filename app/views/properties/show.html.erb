@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer unique:</b>
+  <%= @property.customer_unique_id %>
+</p>
+
+<p>
+  <b>Owner name:</b>
+  <%= @property.owner_name %>
+</p>
+
+<p>
+  <b>Tenant name:</b>
+  <%= @property.tenant_name %>
+</p>
+
+<p>
+  <b>Street address:</b>
+  <%= @property.street_address %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @property.zipcode %>
+</p>
+
+<p>
+  <b>Plus four:</b>
+  <%= @property.plus_four %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @property.state %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @property.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @property.email %>
+</p>
+
+<p>
+  <b>Finish date:</b>
+  <%= @property.finish_date %>
+</p>
+
+<p>
+  <b>Consent date:</b>
+  <%= @property.consent_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>
