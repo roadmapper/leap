@@ -1,5 +1,5 @@
 Public::Application.routes.draw do
-  get "recordings/index"
+  get "gaps/index"
 
   devise_for :users
 
