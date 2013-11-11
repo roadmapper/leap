@@ -1,6 +1,4 @@
 Public::Application.routes.draw do
-  get "gaps/index"
-
   devise_for :users
 
   get "dashboard/index"
