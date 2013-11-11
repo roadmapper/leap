@@ -1,0 +1,6 @@
+<h1>Welcome to LEAP Data Management and Visualization</h1>
+  before_filter :authenticate_user!
+
+<%= link_to "Properties CRUD Prototype", properties_path %>
+<%-# link_to "Recordings CRUD Prototype", recordings_path -%>
+

@@ -1,0 +1,43 @@
+<h1>Listing properties</h1>
+
+<table>
+  <tr>
+    <th>Customer unique</th>
+    <th>Owner name</th>
+    <th>Tenant name</th>
+    <th>Street address</th>
+    <th>Zipcode</th>
+    <th>Plus four</th>
+    <th>State</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Finish date</th>
+    <th>Consent date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.customer_unique_id %></td>
+    <td><%= property.owner_name %></td>
+    <td><%= property.tenant_name %></td>
+    <td><%= property.street_address %></td>
+    <td><%= property.zipcode %></td>
+    <td><%= property.plus_four %></td>
+    <td><%= property.state %></td>
+    <td><%= property.phone %></td>
+    <td><%= property.email %></td>
+    <td><%= property.finish_date %></td>
+    <td><%= property.consent_date %></td>
+    <td><%= link_to 'Show', property %></td>
+    <td><%= link_to 'Edit', edit_property_path(property) %></td>
+    <td><%= link_to 'Destroy', property, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Property', new_property_path %>
