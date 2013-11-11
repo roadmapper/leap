@@ -9,9 +9,7 @@ gem 'sqlite3', :require => 'sqlite3'
 gem 'mysql2', '0.2.7'
 gem 'devise'
 gem 'jquery-rails'
-gem 'therubyracer'
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
