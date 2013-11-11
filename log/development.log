@@ -1,0 +1,368 @@
+
+
+Started GET "/" for 127.0.0.1 at Mon Nov 11 13:01:31 -0500 2013
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:01:31 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:01:31 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/properties" for 127.0.0.1 at Mon Nov 11 13:01:33 -0500 2013
+  Processing by PropertiesController#index as HTML
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT `properties`.* FROM `properties`[0m
+Rendered properties/index.html.erb within layouts/application (58.2ms)
+Completed 200 OK in 104ms (Views: 61.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:01:33 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:01:33 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 11 13:01:38 -0500 2013
+
+ActionController::RoutingError (uninitialized constant DashboardController):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 11 13:10:06 -0500 2013
+  Processing by DashboardController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+Rendered dashboard/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 20ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:10:06 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:10:06 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/dashboard/index" for 127.0.0.1 at Mon Nov 11 13:10:29 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:10:29 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:10:29 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:11:49 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 13ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:11:49 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:11:49 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 11 13:11:57 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb63a9e48 @headers="Content-Disposition: form-data; name=\"file\"; filename=\"leap.sql\"\r\nContent-Type: text/x-sql\r\n", @content_type="text/x-sql", @original_filename="leap.sql", @tempfile=#<File:/tmp/RackMultipart20131111-2494-1juhxuq-0>>, "utf8"=>"✓", "commit"=>"Upload", "authenticity_token"=>"roq56DQ6S8u625r0rQZX31LV2k5IB1g7vrandmpWTY8="}
+Completed   in 2ms
+
+NoMethodError (undefined method `force_encoding' for #<File:/home/leap/html/leap/public/uploads/leap.sql (closed)>):
+  app/controllers/dashboard_controller.rb:8:in `upload'
+  app/controllers/dashboard_controller.rb:7:in `open'
+  app/controllers/dashboard_controller.rb:7:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.4ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.2ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:16:09 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 18ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:16:09 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:16:09 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.2ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 11 13:16:23 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb64fa734 @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Gemfile\"\r\nContent-Type: application/octet-stream\r\n", @content_type="application/octet-stream", @original_filename="Gemfile", @tempfile=#<File:/tmp/RackMultipart20131111-2494-99yhap-0>>, "utf8"=>"✓", "commit"=>"Upload", "authenticity_token"=>"roq56DQ6S8u625r0rQZX31LV2k5IB1g7vrandmpWTY8="}
+Rendered text template (0.0ms)
+Completed   in 5ms
+
+NoMethodError (undefined method `update_page' for #<DashboardController:0xb650335c>):
+  app/controllers/dashboard_controller.rb:12:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.6ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:17:40 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 18ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:17:40 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:17:40 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 11 13:17:47 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb6360cfc @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Gemfile\"\r\nContent-Type: application/octet-stream\r\n", @content_type="application/octet-stream", @original_filename="Gemfile", @tempfile=#<File:/tmp/RackMultipart20131111-2494-19q71e4-0>>, "utf8"=>"✓", "commit"=>"Upload", "authenticity_token"=>"roq56DQ6S8u625r0rQZX31LV2k5IB1g7vrandmpWTY8="}
+Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:19:40 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 18ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:19:41 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:19:41 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 11 13:19:51 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb64a9e10 @headers="Content-Disposition: form-data; name=\"file\"; filename=\"config.ru\"\r\nContent-Type: application/octet-stream\r\n", @content_type="application/octet-stream", @original_filename="config.ru", @tempfile=#<File:/tmp/RackMultipart20131111-2494-1yzvo8g-0>>, "utf8"=>"✓", "commit"=>"Upload", "authenticity_token"=>"roq56DQ6S8u625r0rQZX31LV2k5IB1g7vrandmpWTY8="}
+Rendered text template (0.1ms)
+Completed   in 7ms
+
+NameError (undefined local variable or method `page' for #<DashboardController:0xb64b803c>):
+  app/controllers/dashboard_controller.rb:13:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.2ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:20:44 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 18ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:20:44 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:20:44 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 11 13:20:50 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb631e8ac @headers="Content-Disposition: form-data; name=\"file\"; filename=\"rails\"\r\nContent-Type: application/octet-stream\r\n", @content_type="application/octet-stream", @original_filename="rails", @tempfile=#<File:/tmp/RackMultipart20131111-2494-zgo1ff-0>>, "utf8"=>"✓", "commit"=>"Upload", "authenticity_token"=>"roq56DQ6S8u625r0rQZX31LV2k5IB1g7vrandmpWTY8="}
+Rendered text template (0.0ms)
+Completed   in 5ms
+
+NameError (undefined local variable or method `page' for #<DashboardController:0xb63257c4>):
+  app/controllers/dashboard_controller.rb:13:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (49.8ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (57.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:21:23 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:21:23 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:21:23 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 11 13:21:28 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb63d9ecc @headers="Content-Disposition: form-data; name=\"file\"; filename=\"rails\"\r\nContent-Type: application/octet-stream\r\n", @content_type="application/octet-stream", @original_filename="rails", @tempfile=#<File:/tmp/RackMultipart20131111-2494-14co0t-0>>, "utf8"=>"✓", "commit"=>"Upload", "authenticity_token"=>"roq56DQ6S8u625r0rQZX31LV2k5IB1g7vrandmpWTY8="}
+Rendered text template (0.0ms)
+Redirected to 
+Completed   in 3ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/dashboard_controller.rb:13:in `upload'
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.2ms)
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:25:49 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 13ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:25:49 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:25:49 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/dashboard/upload" for 127.0.0.1 at Mon Nov 11 13:25:54 -0500 2013
+  Processing by DashboardController#upload as HTML
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb64e64c8 @headers="Content-Disposition: form-data; name=\"file\"; filename=\"rails\"\r\nContent-Type: application/octet-stream\r\n", @content_type="application/octet-stream", @original_filename="rails", @tempfile=#<File:/tmp/RackMultipart20131111-2494-1igfvjg-0>>, "utf8"=>"✓", "commit"=>"Upload", "authenticity_token"=>"roq56DQ6S8u625r0rQZX31LV2k5IB1g7vrandmpWTY8="}
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 1ms
+
+
+Started GET "/dashboard" for 127.0.0.1 at Mon Nov 11 13:25:54 -0500 2013
+  Processing by DashboardController#index as HTML
+Rendered dashboard/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 20ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:25:54 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at Mon Nov 11 13:25:54 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at Mon Nov 11 13:25:54 -0500 2013
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)

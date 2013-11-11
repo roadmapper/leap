@@ -3,10 +3,10 @@ Public::Application.routes.draw do
 
   devise_for :users
 
-  get "dashboard/index"
+  # get "dashboard/index"
   post '/dashboard/upload' => 'dashboard#upload'
   resources :properties
-
+  resources :dashboard
   root :to => "home#index"
 
   # The priority is based upon order of creation:
