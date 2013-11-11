@@ -1,4 +1,7 @@
 <h1>Query Dashboard</h1>
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <p>Upload</p>
 <%= form_tag({:action => :upload}, :multipart => true) do %>
   <%= file_field_tag 'file' %>
