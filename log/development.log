@@ -366,3 +366,487 @@ ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
   
 
 Rendered /home/leap/.rvm/gems/ruby-1.8.7-p374/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-11 22:51:58 -0500
+  Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-11 22:52:12 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 69ms (Views: 68.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 22:52:12 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 22:52:13 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/dashboard/index.html" for 127.0.0.1 at 2013-11-11 23:12:13 -0500
+
+AbstractController::ActionNotFound (The action 'show' could not be found for DashboardController):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (1.9ms)
+
+
+Started GET "/dashboard/" for 127.0.0.1 at 2013-11-11 23:12:16 -0500
+  Processing by DashboardController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+Rendered dashboard/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 331ms (Views: 29.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:12:16 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:12:16 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/gaps/" for 127.0.0.1 at 2013-11-11 23:12:19 -0500
+
+ActionController::RoutingError (No route matches "/gaps"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.5ms)
+
+
+Started GET "/gaps/index.hmtl" for 127.0.0.1 at 2013-11-11 23:12:21 -0500
+  Processing by GapsController#index as 
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:12:21 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:12:21 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:12:22 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:12:22 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:12:22 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.1ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:14:52 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 28ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:14:52 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:14:52 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:26:25 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 12ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:26:25 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:26:25 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:35:51 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:35:51 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:35:51 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:36:15 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:36:15 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:36:15 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:37:42 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:37:42 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.5ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:37:42 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.0ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:37:49 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:37:49 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.5ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:37:49 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.7ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:38:18 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 12ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:38:18 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:38:18 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:38:40 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 10ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:38:40 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:38:40 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:41:36 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:41:36 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:41:36 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:41:43 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 37ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:41:43 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:41:43 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:42:07 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:42:07 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:42:07 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:42:39 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:42:39 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:42:39 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:42:53 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:42:53 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:42:53 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:43:11 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:43:11 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.4ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:43:11 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.4ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:44:07 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:44:07 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:44:07 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:44:18 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 18ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:44:18 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:44:18 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/gaps/index.html" for 127.0.0.1 at 2013-11-11 23:44:47 -0500
+  Processing by GapsController#index as HTML
+Rendered gaps/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2013-11-11 23:44:47 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2013-11-11 23:44:47 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/leap/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
