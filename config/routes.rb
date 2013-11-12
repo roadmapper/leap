@@ -10,6 +10,11 @@ Public::Application.routes.draw do
   resources :properties
   resources :dashboard
   root :to => "home#index"
+  
+  resources :gaps
+  root :to => "home#index"
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
