@@ -1,4 +1,7 @@
 class DashboardController < ApplicationController
+  USER, PASSWORD = 'dhh', 'secret'
+  before_filter :authentication_check   #, :except => :index
+
   def index
     @property = Property.where(:owner_name => "Vinay")
   end
@@ -13,4 +16,12 @@ class DashboardController < ApplicationController
       redirect_to :action => 'index'
     #end
   end
+
+  private
+  def authentication_check
+	authenticate_or_request_with_http_basic do |user, password|
+	user == USER && password == PASSWORD
+	end
+  end
+
 end

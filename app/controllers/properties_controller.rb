@@ -1,4 +1,10 @@
 class PropertiesController < ApplicationController
+
+  USER, PASSWORD = 'dhh', 'secret'
+  before_filter :authentication_check   #, :except => :index
+
+  #http_basic_authenticate_with :name =>"username", :password => "secret"
+
   # GET /properties
   # GET /properties.xml
   def index
@@ -79,5 +85,12 @@ class PropertiesController < ApplicationController
       format.html { redirect_to(properties_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def authentication_check
+	authenticate_or_request_with_http_basic do |user, password|
+	user == USER && password == PASSWORD
+	end
   end
 end
