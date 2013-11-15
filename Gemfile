@@ -6,9 +6,13 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', :require => 'sqlite3'
-gem 'mysql2', '0.2.7'
-gem 'devise'
+gem 'mysql2', '0.3.13'
+#gem 'devise'
 gem 'jquery-rails'
+gem 'prototype-rails'
+
+gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
+gem 'devise-encryptable'
 
 
 # Use unicorn as the web server
