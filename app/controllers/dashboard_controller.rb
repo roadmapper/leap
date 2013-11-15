@@ -3,7 +3,12 @@ class DashboardController < ApplicationController
   before_filter :authentication_check   #, :except => :index
 
   def index
-    @property = Property.where(:owner_name => "Vinay")
+    @property = Property.find_by_owner_name("Vinay")
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @property }
+    end
   end
   def upload
     uploaded_io = params[:file]

@@ -1,4 +1,4 @@
-<h1>Query Dashboard!</h1>
+<h1>Dashboard</h1>
 <% if flash[:notice] %>
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
@@ -8,4 +8,4 @@
 <%= submit_tag "Upload" %>
 <% end %>
 <p>Query:</p>
-
+<h2><%= @property.street_address %></h2>
