@@ -7,10 +7,9 @@ Public::Application.routes.draw do
 
   # get "dashboard/index"
   post '/dashboard/upload' => 'dashboard#upload'
+  #get "dashboard/search"
   resources :properties
   resources :dashboard
-  root :to => "home#index"
-  
   resources :gaps
   root :to => "home#index"
   

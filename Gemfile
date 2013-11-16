@@ -9,7 +9,7 @@ gem 'sqlite3', :require => 'sqlite3'
 gem 'mysql2', '0.3.13'
 #gem 'devise'
 gem 'jquery-rails'
-gem 'prototype-rails'
+#gem 'prototype-rails'
 
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
 gem 'devise-encryptable'
