@@ -1,11 +1,22 @@
 <h1>Dashboard</h1>
+
 <% if flash[:notice] %>
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
+
 <p>Upload</p>
 <%= form_tag({:action => :upload}, :multipart => true) do %>
   <%= file_field_tag 'file' %>
 <%= submit_tag "Upload" %>
 <% end %>
+
 <p>Query:</p>
-<h2><%= @property.street_address %></h2>
+<%= form_tag dashboard_index_path, :method => :get, :remote => true do %>
+  <%= label_tag(:owner, "Search for:") %>
+  <%= text_field_tag(:owner) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<div id="ajax">
+<% render :partial => "report" %>
+</div>
