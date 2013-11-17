@@ -1,6 +1,5 @@
 class GapsController < ApplicationController
   def index
-    @property = Property.where(:owner_name => "Vinay")
   end
 
   def authentication_check
