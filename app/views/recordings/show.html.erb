@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @recording.name %>
+</p>
+
+<p>
+  <b>Read date:</b>
+  <%= @recording.read_date %>
+</p>
+
+<p>
+  <b>Consumption:</b>
+  <%= @recording.consumption %>
+</p>
+
+<p>
+  <b>Days in month:</b>
+  <%= @recording.days_in_month %>
+</p>
+
+<%= link_to 'Edit', edit_recording_path(@recording) %> |
+<%= link_to 'Back', recordings_path %>
