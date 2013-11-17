@@ -10,6 +10,7 @@ Public::Application.routes.draw do
   #get "dashboard/search"
   resources :properties
   resources :dashboard
+  resources :recordings
   resources :gaps
   root :to => "home#index"
   
