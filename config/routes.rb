@@ -1,7 +1,11 @@
 Public::Application.routes.draw do
+  get "graphs/index"
+
   get "gaps/index"
 
   get "recordings/index"
+
+  get "graphs/index"
 
   devise_for :users
 
@@ -12,6 +16,7 @@ Public::Application.routes.draw do
   resources :dashboard
   resources :recordings
   resources :gaps
+  resources :graphs
   root :to => "home#index"
   
 
