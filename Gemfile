@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
 gem 'devise-encryptable'
 
+gem 'googlecharts'
 
 # Use unicorn as the web server
 # gem 'unicorn'
