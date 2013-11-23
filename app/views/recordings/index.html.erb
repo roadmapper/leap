@@ -1,12 +1,12 @@
-<h1>Recordings</h1>
+<h1>Listing recordings</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Acctnum</th>
     <th>Read date</th>
     <th>Consumption</th>
     <th>Days in month</th>
-    <!--<th>Account number</th>-->
+    <th>Utility type</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,14 +14,14 @@
 
 <% @recordings.each do |recording| %>
   <tr>
-    <td><%= recording.name %></td>
+    <td><%= recording.acctnum %></td>
     <td><%= recording.read_date %></td>
     <td><%= recording.consumption %></td>
     <td><%= recording.days_in_month %></td>
-    <td><%# recording.act_num %></td>
+    <td><%= recording.utility_type %></td>
     <td><%= link_to 'Show', recording %></td>
     <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
-    <td><%= link_to 'Destroy', recording, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', recording, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
@@ -29,4 +29,3 @@
 <br />
 
 <%= link_to 'New Recording', new_recording_path %>
-<%= link_to 'Back', root_path %>

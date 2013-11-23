@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @recording.name %>
+  <b>Acctnum:</b>
+  <%= @recording.acctnum %>
 </p>
 
 <p>
@@ -19,6 +19,12 @@
   <b>Days in month:</b>
   <%= @recording.days_in_month %>
 </p>
+
+<p>
+  <b>Utility type:</b>
+  <%= @recording.utility_type %>
+</p>
+
 
 <%= link_to 'Edit', edit_recording_path(@recording) %> |
 <%= link_to 'Back', recordings_path %>
