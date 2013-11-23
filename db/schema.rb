@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123062301) do
+ActiveRecord::Schema.define(:version => 20131123200254) do
 
   create_table "properties", :force => true do |t|
     t.string   "customer_unique_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20131123062301) do
     t.string   "acct_num"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "company_name"
   end
 
   add_index "record_lookups", ["property_id"], :name => "index_record_lookups_on_property_id"
