@@ -1,17 +1,15 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  read_date: 2013-11-04
+  acctnum: 1
+  read_date: 2013-11-23
   consumption: MyString
-  utility_type_id: 
-  act_num: 
   days_in_month: 1
+  utility_type: 
 
 two:
-  name: MyString
-  read_date: 2013-11-04
+  acctnum: 1
+  read_date: 2013-11-23
   consumption: MyString
-  utility_type_id: 
-  act_num: 
   days_in_month: 1
+  utility_type: 

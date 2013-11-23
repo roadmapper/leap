@@ -1,4 +1,7 @@
 Public::Application.routes.draw do
+  resources :recordings
+
+
   get "graphs/index"
 
   get "gaps/index"

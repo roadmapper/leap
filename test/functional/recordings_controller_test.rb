@@ -18,30 +18,30 @@ class RecordingsControllerTest < ActionController::TestCase
 
   test "should create recording" do
     assert_difference('Recording.count') do
-      post :create, :recording => {  }
+      post :create, recording: { acctnum: @recording.acctnum, consumption: @recording.consumption, days_in_month: @recording.days_in_month, read_date: @recording.read_date }
     end
 
     assert_redirected_to recording_path(assigns(:recording))
   end
 
   test "should show recording" do
-    get :show, :id => @recording
+    get :show, id: @recording
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @recording
+    get :edit, id: @recording
     assert_response :success
   end
 
   test "should update recording" do
-    put :update, :id => @recording, :recording => {  }
+    put :update, id: @recording, recording: { acctnum: @recording.acctnum, consumption: @recording.consumption, days_in_month: @recording.days_in_month, read_date: @recording.read_date }
     assert_redirected_to recording_path(assigns(:recording))
   end
 
   test "should destroy recording" do
     assert_difference('Recording.count', -1) do
-      delete :destroy, :id => @recording
+      delete :destroy, id: @recording
     end
 
     assert_redirected_to recordings_path

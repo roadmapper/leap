@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123050048) do
+ActiveRecord::Schema.define(:version => 20131123062301) do
 
   create_table "properties", :force => true do |t|
     t.string   "customer_unique_id"
@@ -42,15 +42,16 @@ ActiveRecord::Schema.define(:version => 20131123050048) do
   add_index "record_lookups", ["utility_type_id"], :name => "index_record_lookups_on_utility_type_id"
 
   create_table "recordings", :force => true do |t|
-    t.string   "name"
+    t.integer  "acctnum"
     t.date     "read_date"
     t.string   "consumption"
-    t.integer  "utility_type_id_id"
-    t.integer  "act_num_id"
     t.integer  "days_in_month"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.integer  "utility_type_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
+
+  add_index "recordings", ["utility_type_id"], :name => "index_recordings_on_utility_type_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
