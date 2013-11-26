@@ -17,7 +17,7 @@ class GapsController < ApplicationController
   end
 
   def search
-    @property = Property.find_by_owner_name(params[:owner])
+    @property = Property.find_by_owner_name(params[:owner_name])
 
     #redirect_to :action => :index    
     render :partial => 'gaps_report'

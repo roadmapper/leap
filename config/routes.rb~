@@ -1,15 +1,31 @@
 Public::Application.routes.draw do
-  get "gaps/index"
+  resources :recordings
 
+
+  get "graphs/index"
+
+  get "gaps/index"
+  
+
+  
   get "recordings/index"
+
+  get "graphs/index"
 
   devise_for :users
 
   # get "dashboard/index"
   post '/dashboard/upload' => 'dashboard#upload'
+  #get "dashboard/search"
+  
   resources :properties
   resources :dashboard
+  resources :recordings
+  resources :gaps
+  resources :graphs
   root :to => "home#index"
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
