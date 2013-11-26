@@ -5,7 +5,9 @@ Public::Application.routes.draw do
   get "graphs/index"
 
   get "gaps/index"
+  
 
+  
   get "recordings/index"
 
   get "graphs/index"
@@ -15,6 +17,7 @@ Public::Application.routes.draw do
   # get "dashboard/index"
   post '/dashboard/upload' => 'dashboard#upload'
   #get "dashboard/search"
+  
   resources :properties
   resources :dashboard
   resources :recordings

@@ -1,0 +1,183 @@
+<% if (@property.present?) %>
+<h3><%= @property.owner_name %></h3>
+<h3><%= @property.street_address %></h3>
+
+<% if (@property.finish_date) %>
+<% @testoutdate = @property.finish_date %>
+<% @startdate = @testoutdate.to_time.advance(:years=>-1).to_date%>
+<h3><%= "Test out date: " + @testoutdate.strftime("%B") + " " + @testoutdate.strftime("%g")%></h3>
+
+<% @propertyid = @property.id %>
+<% @power_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,2) %>
+<% if (@power_record_lookup) %>
+<% @power_acct_num = @power_record_lookup.acct_num %>
+<% @power_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@power_acct_num,2) %>
+<% if (@power_recordings.length > 0) %>
+<h2>Power Readings</h2>
+<table border="1">
+
+<tr>
+<%(0..11).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+<%end%>
+</tr>
+
+<tr>
+<%(0..11).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
+<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
+<%@power_recordings.delete_at(0)%>
+<%else%>
+<td bgcolor="F24E4E"></td>
+<%end%>
+<%end%>
+</tr>
+
+<tr>
+<%(12..23).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+<%end%>
+</tr>
+
+<tr>
+<%(12..23).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
+<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
+<%@power_recordings.delete_at(0)%>
+<%else%>
+<td bgcolor="F24E4E"></td>
+<%end%>
+<%end%>
+</tr>
+
+</table>
+<%else%>
+<h3><%= "No power readings at all for this property"%></h3>
+<%end%>
+<%else%>
+<h3><%= "No power company account information for this property"%></h3>
+<%end%>
+
+<% @gas_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,1) %>
+<% if (@gas_record_lookup) %>
+<% @gas_acct_num = @gas_record_lookup.acct_num %>
+<% @gas_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@gas_acct_num,1) %>
+<% if (@gas_recordings.length > 0) %>
+<h2>Gas Readings</h2>
+<table border="1">
+
+<tr>
+<%(0..11).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+<%end%>
+</tr>
+
+<tr>
+<%(0..11).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
+<%@gas_recordings.delete_at(0)%>
+<%else%>
+<td bgcolor="F24E4E"></td>
+<%end%>
+<%end%>
+</tr>
+
+<tr>
+<%(12..23).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+<%end%>
+</tr>
+
+<tr>
+<%(12..23).each do |i| %>
+<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
+<%@gas_recordings.delete_at(0)%>
+<%else%>
+<td bgcolor="F24E4E"></td>
+<%end%>
+<%end%>
+</tr>
+
+</table>
+<%else%>
+<h3><%= "No gas readings at all for this property"%></h3>
+<%end%>
+<%else%>
+<h3><%= "No gas company account information for this property"%></h3>
+<%end%>
+<%else%>
+<h3><%= "No test out date for this property" %></h3>
+
+
+<%end%>
+
+<p>Gas Readings</p>
+<table border="1">
+<tr>
+<th>January</th>
+<th>February</th>
+<th>March</th>
+<th>April</th>
+<th>May</th>
+<th>June</th>
+<th>July</th>
+<th>August</th>
+<th>September</th>
+<th>October</th>
+<th>November</th>
+<th>December</th>
+</tr>
+<tr>
+<td bgcolor="11F215">13</td>
+<td bgcolor="F24E4E"></td>
+<td bgcolor="11F215">22</td>
+<td bgcolor="11F215">18</td>
+<td bgcolor="11F215">24</td>
+<td bgcolor="11F215">50</td>
+<td bgcolor="11F215">45</td>
+<td bgcolor="11F215">40</td>
+<td bgcolor="11F215">36</td>
+<td bgcolor="11F215">16</td>
+<td bgcolor="11F215">13</td>
+<td bgcolor="F24E4E"></td>
+</tr>
+<tr>
+<th>January</th>
+<th>February</th>
+<th>March</th>
+<th>April</th>
+<th>May</th>
+<th>June</th>
+<th>July</th>
+<th>August</th>
+<th>September</th>
+<th>October</th>
+<th>November</th>
+<th>December</th>
+</tr>
+<tr>
+<td bgcolor="11F215">13</td>
+<td bgcolor="11F215">25</td>
+<td bgcolor="F24E4E"></td>
+<td bgcolor="11F215">18</td>
+<td bgcolor="11F215">40</td>
+<td bgcolor="11F215">50</td>
+<td bgcolor="11F215">45</td>
+<td bgcolor="11F215">40</td>
+<td bgcolor="11F215">28</td>
+<td bgcolor="11F215">16</td>
+<td bgcolor="F24E4E"></td>
+<td bgcolor="11F215">13</td>
+</tr>
+</table>
+<% end %>
