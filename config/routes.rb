@@ -6,11 +6,9 @@ Public::Application.routes.draw do
 
   get "gaps/index"
   
-
+  get "dashboard/gaps"
   
   get "recordings/index"
-
-  get "graphs/index"
 
   devise_for :users
 

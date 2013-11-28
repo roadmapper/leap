@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   before_filter :authentication_check   #, :except => :index
 
   def index
-    @property = Property.find_by_owner_name(params[:owner])
+    #@property = Property.find_by_owner_name(params[:owner])
     #respond_to do |format|
       #format.html # index.html.erb
       #format.xml  { render :xml => @property }
@@ -21,13 +21,21 @@ class DashboardController < ApplicationController
     #end
   end
   
-  def search
+  def gaps
     @property = Property.find_by_owner_name(params[:owner])
-    #redirect_to :action => :index    
-    render :partial => 'report'
-    #respond_to do |format|
-      #format.js
-    #end
+    @testoutdate = @property.finish_date
+    if (@testoutdate)
+    	@startdate = @testoutdate.to_time.advance(:years=>-1).to_date
+    end
+    @power_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@property.id,2) #ID and Power
+    if (@power_record_lookup)
+    	@power_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@power_record_lookup.acct_num,2)
+    end
+    #render :partial => 'report'
+    respond_to do |format|
+      format.html # gaps.html.erb
+      format.xml  { render :xml => @property }
+    end
   end
 
   private
