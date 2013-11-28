@@ -11,7 +11,7 @@
 <% end %>
 
 <p>Query:</p>
-<%= form_tag("/dashboard/gaps", :method => "get") do %>
+<%= form_tag dashboard_gaps_path, :method => "get" do %>
   <%= label_tag(:owner, "Search for:") %>
   <%= text_field_tag(:owner) %>
   <%= submit_tag("Search") %>
