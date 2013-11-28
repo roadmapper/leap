@@ -1,0 +1,49 @@
+<% if (@property.present?) %>
+	<h3><%= @property.owner_name %></h3>
+	<h3><%= @property.street_address %></h3>
+
+	<% if (@property.finish_date) %>
+		<h3><%= "Test Out date: " + @testoutdate.strftime("%B %e, %Y")%></h3>
+		<% if (@power_recordings.length > 0) %>
+			<h4>Power Readings</h2>
+			<table border="1">
+			<tr>
+			<%(0..11).each do |i| %>
+				<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+				<th><%= @currdate.strftime("%B %Y")%></th>
+			<%end%>
+			</tr>
+
+			<tr>
+			<%(0..11).each do |i| %>
+				<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+				<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
+					<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
+					<%@power_recordings.delete_at(0)%>
+				<%else%>
+					<td bgcolor="F24E4E"></td>
+				<%end%>
+			<%end%>
+			</tr>
+
+			<%(12..23).each do |i| %>
+				<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+				<th><%= @currdate.strftime("%B %Y")%></th>
+			<%end%>
+			</tr>
+
+			<tr>
+			<%(12..23).each do |i| %>
+				<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+				<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
+					<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
+					<%@power_recordings.delete_at(0)%>
+				<%else%>
+					<td bgcolor="F24E4E"></td>
+				<%end%>
+			<%end%>
+			</tr>
+
+		<%end%>
+	<%end%>
+<%end%>
