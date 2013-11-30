@@ -65,7 +65,7 @@ class DashboardController < ApplicationController
   end
   
   def csv_export(data)
-  	FasterCSV.generate do |csv|
+  	CSV.generate do |csv|
     	csv << ["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
     	data.each do |record|
       		csv << [record[0], record[2], record[3], record[4]]
