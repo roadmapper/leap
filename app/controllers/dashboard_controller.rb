@@ -11,14 +11,21 @@ class DashboardController < ApplicationController
   end
   def upload
     uploaded_io = params[:file]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
-      #file.force_encoding('UTF-8')
-      file.write(uploaded_io.read)
+    path = Rails.root.join('public', 'uploads').to_s
+    
+    if File.exists?(path) && File.directory?(path)
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+        input = uploaded_io.read
+        input.force_encoding('UTF-8')
+        file.write(input)
+      end
+      flash[:notice] = "File has been uploaded successfully"
+      Upload.where(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
+    else
+      flash[:notice] = "File was not uploaded successfully"
     end
-    flash[:notice] = "File has been uploaded successfully"    
-    #update_page do |page|
+
       redirect_to :action => 'index'
-    #end
   end
   
   def gaps
