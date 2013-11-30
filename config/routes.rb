@@ -7,6 +7,7 @@ Public::Application.routes.draw do
   get "gaps/index"
   
   get "dashboard/gaps"
+  get "dashboard/null_account_export"
   
   get "recordings/index"
 
