@@ -1,30 +1,26 @@
 Public::Application.routes.draw do
-  resources :recordings
-
-
-  get "graphs/index"
-
-  get "gaps/index"
-  
-  get "dashboard/gaps"
-  get "dashboard/null_account_export"
-  
-  get "recordings/index"
-
   devise_for :users
-
-  # get "dashboard/index"
-  post '/dashboard/upload' => 'dashboard#upload'
-  #get "dashboard/search"
   
   resources :properties
+
+  get "dashboard/gaps"
+  get "dashboard/null_account_export"  
+  post '/dashboard/upload' => 'dashboard#upload'
   resources :dashboard
+
   resources :recordings
+
+  get "gaps/index"
   resources :gaps
   resources :graphs
-  root :to => "home#index"
-  
 
+  resources :uploads do
+	member do
+	    get :process
+	end
+  end
+
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

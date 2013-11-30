@@ -9,6 +9,7 @@
   <%= file_field_tag 'file' %>
 <%= submit_tag "Upload" %>
 <% end %>
+<%= link_to 'Uploaded Files', uploads_path %>
 
 <p>Query:</p>
 <%= form_tag dashboard_gaps_path, :method => "get" do %>
