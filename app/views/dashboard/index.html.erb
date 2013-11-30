@@ -16,6 +16,12 @@
   <%= text_field_tag(:owner) %>
   <%= submit_tag("Search") %>
 <% end %>
+</br>
+
+Generate list of customers with missing account information 
+<%= button_to "Generate HTML View", dashboard_null_account_export_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_null_account_export_path(:format => "csv"), :method => "get" %>
+</br>
 
 <div id="ajax">
 <% render :partial => "report" %>
