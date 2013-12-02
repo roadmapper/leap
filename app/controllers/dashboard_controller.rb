@@ -42,7 +42,7 @@ class DashboardController < ApplicationController
 	      print "Converted file #{file} \n"
       end
     else
-      flash[:notice] = "File was not uploaded successfully" + File.exists?(path) + File.directory?(path)
+      flash[:notice] = "File was not uploaded successfully" + path
     end
 
       redirect_to :action => 'index'
