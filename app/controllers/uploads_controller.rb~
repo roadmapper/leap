@@ -83,8 +83,8 @@ class UploadsController < ApplicationController
   end
 
   # GET /uploads/1/process
-  def process
-	@upload = Upload.find(params[:id])    
+  #def process
+	#@upload = Upload.find(params[:id])    
 	#sql = "LOAD DATA INFILE '" + Rails.root.join('public', 'uploads', upload.file_name) + "' INTO TABLE staging_data FIELDS TERMINATED BY ',';"
     #ActiveRecord::Base.connection.execute(sql)
 	#upload.process_date = Time.now
@@ -93,5 +93,5 @@ class UploadsController < ApplicationController
 
 	#flash[:notice] = "Processing."
 	
-  end
+  #end
 end

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -18,25 +17,25 @@ ActiveRecord::Schema.define(:version => 20131130183903) do
     t.string   "owner_name"
     t.string   "tenant_name"
     t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
     t.integer  "zipcode"
     t.integer  "plus_four"
+    t.string   "state"
     t.string   "phone"
     t.string   "email"
     t.date     "finish_date"
     t.date     "consent_date"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "city"
   end
 
   create_table "record_lookups", :force => true do |t|
     t.integer  "property_id"
     t.integer  "utility_type_id"
-    t.string   "company_name"
     t.string   "acct_num"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "company_name"
   end
 
   add_index "record_lookups", ["property_id"], :name => "index_record_lookups_on_property_id"
