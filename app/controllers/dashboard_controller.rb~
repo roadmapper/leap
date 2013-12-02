@@ -27,7 +27,7 @@ class DashboardController < ApplicationController
       Upload.where(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
       #Would prefer to put in seperate helper function but failure on that...
       
-      Dir[path + "*.xlsx"].each do |file|  
+      Dir[path + "/*.xlsx"].each do |file|  
 	      file_path = "#{file}"
 	      file_basename = File.basename(file, ".xlsx")
 	      xlsx = Roo::Excelx.new(file_path)
