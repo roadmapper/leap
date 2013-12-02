@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   USER, PASSWORD = 'dhh', 'secret'
   before_filter :authentication_check   #, :except => :index
+  include DashboardHelper  
 
   def index
     #@property = Property.find_by_owner_name(params[:owner])
@@ -12,7 +13,10 @@ class DashboardController < ApplicationController
   def upload
     uploaded_io = params[:file]
     path = Rails.root.join('public', 'uploads').to_s
-    
+    #print path
+    #print File.exists?(path)
+    #print File.directory?(path)
+    #print "holla holla get dolla"
     if File.exists?(path) && File.directory?(path)
       File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
         input = uploaded_io.read
@@ -21,6 +25,22 @@ class DashboardController < ApplicationController
       end
       flash[:notice] = "File has been uploaded successfully"
       Upload.where(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
+      #Would prefer to put in seperate helper function but failure on that...
+      
+      Dir[path + "/*.xlsx"].each do |file|  
+	      file_path = "#{file}"
+	      file_basename = File.basename(file, ".xlsx")
+	      xlsx = Roo::Excelx.new(file_path)
+	      $i = xlsx.sheets.length - 1
+	      while $i >= 0 do
+		xlsx.default_sheet = xlsx.sheets[$i]
+		xlsx.to_csv(path + "/#{file_basename}#{$i}.csv")
+		$i -=1	
+		
+	      end
+	      FileUtils.remove(file)
+	      print "Converted file #{file} \n"
+      end
     else
       flash[:notice] = "File was not uploaded successfully"
     end
