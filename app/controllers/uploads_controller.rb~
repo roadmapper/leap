@@ -46,6 +46,7 @@ class UploadsController < ApplicationController
       if @upload.save
         format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
         format.json { render json: @upload, status: :created, location: @upload }
+	xls2csv
       else
         format.html { render action: "new" }
         format.json { render json: @upload.errors, status: :unprocessable_entity }
