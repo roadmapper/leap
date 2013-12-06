@@ -74,7 +74,7 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1.json
   def destroy
     @upload = Upload.find(params[:id])
-	File.delete(Rails.root.join('public', 'uploads', @upload.file_name))
+	File.delete(Rails.root.join('..', 'uploads', @upload.file_name))
     @upload.destroy
 
     respond_to do |format|
