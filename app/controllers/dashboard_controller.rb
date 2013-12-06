@@ -25,7 +25,7 @@ class DashboardController < ApplicationController
         input.force_encoding('UTF-8')
         file.write(input)
       end
-      flash[:notice] = "File has been uploaded successfully"
+      flash[:notice] = "File has been uploaded successfully, check the uploaded files to see its processing status."
       Upload.where(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
       #Would prefer to put in seperate helper function but failure on that...
       
