@@ -18,7 +18,7 @@
     <td><%= recording.read_date %></td>
     <td><%= recording.consumption %></td>
     <td><%= recording.days_in_month %></td>
-    <!--<td><%= recording.utility_type %></td>!-->
+    <td><%# recording.utility_type %></td>
     <td><%= link_to 'Show', recording %></td>
     <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
     <td><%= link_to 'Destroy', recording, method: :delete, data: { confirm: 'Are you sure?' } %></td>
