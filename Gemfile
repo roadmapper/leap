@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 gem 'rake', '0.8.7'
 gem 'rails', '3.2.14'
-gem 'fastercsv'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
