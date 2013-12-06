@@ -41,7 +41,6 @@ GEM
     devise-encryptable (0.1.2)
       devise (>= 2.1.0)
     erubis (2.7.0)
-    fastercsv (1.5.5)
     googlecharts (1.6.8)
     hike (1.2.3)
     i18n (0.6.9)
@@ -117,7 +116,6 @@ PLATFORMS
 DEPENDENCIES
   devise
   devise-encryptable
-  fastercsv
   googlecharts
   jquery-rails
   mysql2 (= 0.3.13)
