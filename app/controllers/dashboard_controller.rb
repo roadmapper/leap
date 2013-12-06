@@ -12,13 +12,15 @@ class DashboardController < ApplicationController
   end
   def upload
     uploaded_io = params[:file]
-    path = Rails.root.join('public', 'uploads').to_s
+    railspath =  Rails.root.join('..', 'uploads')
+    path = railspath.to_s
+    filename = uploaded_io.original_filename
     #print path
     #print File.exists?(path)
     #print File.directory?(path)
     #print "holla holla get dolla"
-    if File.exists?(path) && File.directory?(path)
-      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+    if !File.exists?(path + "//" + filename) && File.directory?(path)
+      File.open(path + "//" + filename, 'w') do |file|
         input = uploaded_io.read
         input.force_encoding('UTF-8')
         file.write(input)
@@ -41,8 +43,10 @@ class DashboardController < ApplicationController
 #	      FileUtils.remove(file)
 #	      print "Converted file #{file} \n"
  #     end
+    elsif File.exists?(path + "//" + filename)
+      flash[:notice] = "Duplicate file exists. File was not uploaded successfully to: " + path
     else
-      flash[:notice] = "File was not uploaded successfully" + path
+      flash[:notice] = "File was not uploaded successfully to: " + path
     end
 
       redirect_to :action => 'index'
