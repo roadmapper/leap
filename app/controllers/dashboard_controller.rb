@@ -41,7 +41,7 @@ class DashboardController < ApplicationController
 #	      end
 #	      FileUtils.remove(file)
 #	      print "Converted file #{file} \n"
-#     end
+ #     end
     elsif File.exists?(path + "//" + filename)
       flash[:notice] = "Duplicate file exists. File was not uploaded successfully to: " + path
     else
