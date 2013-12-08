@@ -4,23 +4,29 @@
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<%= link_to 'View All Properties', properties_path %>
-
-<p>Search for Customer:</p>
-<%= form_tag dashboard_index_path, :method => :get, :remote => true do %>
-  <%= label_tag(:owner, "Search for:") %>
-  <%= text_field_tag(:owner) %>
-  <%= submit_tag("View Gaps") %>
-<% end %>
-
-<p>Upload Data (Currently only an upload, no processing)</p>
+<p>Upload</p>
 <%= form_tag({:action => :upload}, :multipart => true) do %>
   <%= file_field_tag 'file' %>
 <%= submit_tag "Upload" %>
 <% end %>
+<%= link_to 'Uploaded Files', uploads_path %>
+
+<p>Query:</p>
+<%= form_tag dashboard_gaps_path, :method => "get" do %>
+  <%= label_tag(:owner, "Search for:") %>
+  <%= text_field_tag(:owner) %>
+  <%= submit_tag("Search") %>
+<% end %>
+</br>
+
+Generate list of customers with missing account information 
+<%= button_to "Generate HTML View", dashboard_null_account_export_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_null_account_export_path(:format => "csv"), :method => "get" %>
+</br>
 
 <div id="ajax">
 <% render :partial => "report" %>
 </div>
 
 <%= link_to 'Back', root_path %>
+	

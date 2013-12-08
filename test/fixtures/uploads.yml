@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  file_name: MyString
+  status: MyString
+  upload_date: 2013-11-30 13:39:03
+  status: MyString
+  process_date: 2013-11-30 13:39:03
+  uploaded_by: MyString
+
+two:
+  file_name: MyString
+  status: MyString
+  upload_date: 2013-11-30 13:39:03
+  status: MyString
+  process_date: 2013-11-30 13:39:03
+  uploaded_by: MyString
