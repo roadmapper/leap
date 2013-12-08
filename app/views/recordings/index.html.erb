@@ -24,6 +24,7 @@
     <td><%= link_to 'Destroy', recording, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+<%= will_paginate @recordings %>
 </table>
 
 <br />
