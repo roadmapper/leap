@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
 
-  USER, PASSWORD = 'dhh', 'secret'
-  before_filter :authentication_check   #, :except => :index
+  #USER, PASSWORD = 'dhh', 'secret'
+  #before_filter :authentication_check   #, :except => :index
 
   #http_basic_authenticate_with :name =>"username", :password => "secret"
 
