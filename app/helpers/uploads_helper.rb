@@ -1,4 +1,4 @@
-module DashboardHelper
+module UploadsHelper
 require 'iconv'
 require 'roo'
 

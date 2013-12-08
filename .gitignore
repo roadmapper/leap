@@ -63,3 +63,8 @@ config/initializers/secret_token.rb
 ehthumbs.db
 Thumbs.db
 
+# gedit/vim temp files #
+########################
+*.swp
+*.*~
+.vim
