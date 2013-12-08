@@ -4,17 +4,19 @@
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<p>Upload</p>
-<%= form_tag({:action => :upload}, :multipart => true) do %>
-  <%= file_field_tag 'file' %>
-<%= submit_tag "Upload" %>
-<% end %>
+<%= link_to 'View All Properties', properties_path %>
 
-<p>Query:</p>
+<p>Search for Customer:</p>
 <%= form_tag dashboard_index_path, :method => :get, :remote => true do %>
   <%= label_tag(:owner, "Search for:") %>
   <%= text_field_tag(:owner) %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag("View Gaps") %>
+<% end %>
+
+<p>Upload Data (Currently only an upload, no processing)</p>
+<%= form_tag({:action => :upload}, :multipart => true) do %>
+  <%= file_field_tag 'file' %>
+<%= submit_tag "Upload" %>
 <% end %>
 
 <div id="ajax">

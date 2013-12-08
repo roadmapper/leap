@@ -11,39 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123200254) do
+ActiveRecord::Schema.define(:version => 20131208203525) do
 
   create_table "properties", :force => true do |t|
     t.string   "customer_unique_id"
     t.string   "owner_name"
     t.string   "tenant_name"
     t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
     t.integer  "zipcode"
     t.integer  "plus_four"
-    t.string   "state"
     t.string   "phone"
     t.string   "email"
     t.date     "finish_date"
     t.date     "consent_date"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.string   "city"
   end
 
   create_table "record_lookups", :force => true do |t|
     t.integer  "property_id"
     t.integer  "utility_type_id"
+    t.string   "company_name"
     t.string   "acct_num"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "company_name"
   end
 
   add_index "record_lookups", ["property_id"], :name => "index_record_lookups_on_property_id"
   add_index "record_lookups", ["utility_type_id"], :name => "index_record_lookups_on_utility_type_id"
 
   create_table "recordings", :force => true do |t|
-    t.integer  "acctnum"
+    t.string   "acctnum"
     t.date     "read_date"
     t.string   "consumption"
     t.integer  "days_in_month"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(:version => 20131123200254) do
   end
 
   add_index "recordings", ["utility_type_id"], :name => "index_recordings_on_utility_type_id"
+
+  create_table "uploads", :force => true do |t|
+    t.string   "file_name"
+    t.string   "status"
+    t.datetime "upload_date"
+    t.datetime "process_date"
+    t.string   "uploaded_by"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
