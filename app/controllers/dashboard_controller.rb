@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
-  USER, PASSWORD = 'dhh', 'secret'
-  before_filter :authentication_check   #, :except => :index
+  #USER, PASSWORD = 'dhh', 'secret'
+  #before_filter :authentication_check   #, :except => :index
   include DashboardHelper  
 
   def index

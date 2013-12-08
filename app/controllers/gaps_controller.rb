@@ -1,7 +1,7 @@
 class GapsController < ApplicationController
 
-  USER, PASSWORD = 'dhh', 'secret'
-  before_filter :authentication_check   #, :except => :index
+  #USER, PASSWORD = 'dhh', 'secret'
+  #before_filter :authentication_check   #, :except => :index
   def index
     @property = Property.find_by_owner_name(params[:owner])
     #respond_to do |format|

@@ -1,6 +1,17 @@
 Public::Application.routes.draw do
-  devise_for :users
-  
+
+    devise_for :users
+  devise_scope :user do
+    authenticated :user do
+       root :to =>'home#index', as: :authenticated_root
+	end
+    unauthenticated :user do
+ 	#root :to => 'devise/registrations#new'#, as: :unauthenticated_root
+	root :to => 'devise/sessions#new'
+   end
+  end
+
+
   resources :properties
 
   get "dashboard/gaps"
