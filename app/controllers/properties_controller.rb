@@ -8,7 +8,7 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.xml
   def index
-    @properties = Property.all
+    @properties = Property.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
