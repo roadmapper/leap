@@ -15,7 +15,8 @@ Public::Application.routes.draw do
   resources :properties
 
   get "dashboard/gaps"
-  get "dashboard/null_account_export"  
+  get "dashboard/null_account_export_report"
+  get "dashboard/analysis_ready_dominion_report"  
   post '/dashboard/upload' => 'dashboard#upload'
   resources :dashboard
 

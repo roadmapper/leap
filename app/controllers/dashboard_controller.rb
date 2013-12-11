@@ -84,23 +84,80 @@ class DashboardController < ApplicationController
     end
   end
 
-  def null_account_export
-    @sql = "select owner_name, property_id, customer_unique_id, company_name, acct_num, record_lookups.utility_type_id from properties left join record_lookups on properties.id = record_lookups.property_id where company_name IS NULL OR acct_num IS NULL order by owner_name;"
-    @records_array = ActiveRecord::Base.connection.execute(@sql)
+  def null_account_export_report
+    sql = "select 
+	    owner_name,
+	    -- property_id,
+	    customer_unique_id,
+	    company_name,
+	    acct_num
+	    -- record_lookups.utility_type_id
+	from
+	    properties
+		left join
+	    record_lookups ON properties.id = record_lookups.property_id
+	where
+	    company_name IS NULL OR acct_num IS NULL
+	order by owner_name;"
+
+    @records_array = ActiveRecord::Base.connection.execute(sql)
+    header = ["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
+    fields = 4
     
     respond_to do |format|
       format.html
-      format.csv { send_data csv_export(@records_array) }
+      format.csv { send_data csv_export(header, @records_array, fields) }
     end
   end
+
+  def analysis_ready_dominion_report
+    sql = "SELECT 
+	    temp.owner_name,
+	    COUNT(temp.gooddata) AS acceptedDatapoints,
+	    IF(COUNT(temp.gooddata) >= 24,
+		'Ready',
+		'Not Ready') AS readyToAnalyze
+	FROM
+	    (SELECT 
+		properties.owner_name,
+		    properties.customer_unique_id,
+		    properties.finish_date,
+		    record_lookups.company_name,
+		    recordings.acctnum,
+		    recordings.read_date,
+		    recordings.consumption,
+		    DATEDIFF(properties.finish_date, recordings.read_date) AS datediffnum,
+		    IF(DATEDIFF(properties.finish_date, recordings.read_date) <= 395
+			AND DATEDIFF(properties.finish_date, recordings.read_date) >= - 395, 1, 0) AS gooddata
+	    FROM
+		properties
+	    INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+	    INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+	    WHERE
+		record_lookups.company_name = 'DOMINION'
+		    AND properties.finish_date IS NOT NULL) temp
+	GROUP BY temp.owner_name;"
+    @records_array = ActiveRecord::Base.connection.execute(sql)
+    header = ["Owner Name", "Meter Readings", "Ready to Analyze"]
+    fields = 3
+    respond_to do |format|
+      format.html
+      format.csv { send_data csv_export(header, @records_array, fields) }
+    end
+ 
+  end
   
-  def csv_export(data)
-  	CSV.generate do |csv|
-    	csv << ["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
-    	data.each do |record|
-      		csv << [record[0], record[2], record[3], record[4]]
-    	end
-  	end
+  def csv_export(header, data, fields)
+    CSV.generate do |csv|
+      csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
+      recordline = Array.new(fields)
+      data.each do |record|
+        puts record
+        fields.times{ |i| recordline[i] = record[i]}
+        csv << recordline #[record[0], record[2], record[3], record[4]]
+        recordline = Array.new(fields)
+      end
+    end
   end  
 
   private

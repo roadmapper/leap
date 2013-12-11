@@ -20,8 +20,12 @@
 </br>
 
 Generate list of customers with missing account information 
-<%= button_to "Generate HTML View", dashboard_null_account_export_path, :method => "get" %>
-<%= button_to "Generate and Export to CSV", dashboard_null_account_export_path(:format => "csv"), :method => "get" %>
+<%= button_to "Generate HTML View", dashboard_null_account_export_report_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_null_account_export_report_path(:format => "csv"), :method => "get" %>
+</br>
+Generate list of customers with "Ready to Analyze" meter readings 
+<%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get" %>
 </br>
 
 <div id="ajax">
