@@ -17,7 +17,8 @@ gem 'devise-encryptable'
 
 gem 'googlecharts'
 
-gem 'roo'
+gem 'roo', '1.2.3'
+gem 'rubyzip', '< 1.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
