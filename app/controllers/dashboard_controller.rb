@@ -29,19 +29,20 @@ class DashboardController < ApplicationController
       Upload.where(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
       #Would prefer to put in seperate helper function but failure on that...
       
-#      Dir.foreach(path + "/*.xlsx") do |file|  
-#	      file_path = "#{file}"
-#	      file_basename = File.basename(file, ".xlsx")
-#	      xlsx = Roo::Excelx.new(file_path)
-#	      $i = xlsx.sheets.length - 1
-#	      while $i >= 0 do
-#		xlsx.default_sheet = xlsx.sheets[$i]
-#		xlsx.to_csv(path + "/#{file_basename}#{$i}.csv")
-#		$i -=1			
-#	      end
-#	      FileUtils.remove(file)
-#	      print "Converted file #{file} \n"
- #     end
+      Dir[path+"/*.xlsx"].each do |file|  
+      	file_path = "#{file}"
+      	file_basename = File.basename(file, ".xlsx")
+      	xlsx = Excelx.new(file_path.to_s)
+      	$i = xlsx.sheets.length - 1
+      	while $i >= 0 do
+		xlsx.default_sheet = xlsx.sheets[$i]
+		xlsx.to_csv(path +"/#{file_basename}#{$i}.csv")
+		$i -=1
+	end	
+      #turn on if want to remove xlsx file after conversion (probably want to keep off so can check if xlsx file is already uploaded)
+      #FileUtils.remove(file)
+      #print "Converted file #{file} \n"
+      end
     elsif File.exists?(path + "//" + filename)
       flash[:notice] = "Duplicate file exists. File was not uploaded successfully to: " + path
     else
