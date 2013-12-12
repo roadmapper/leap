@@ -29,16 +29,21 @@ class DashboardController < ApplicationController
       Upload.where(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
       #Would prefer to put in seperate helper function but failure on that...
       
-      Dir[path+"/*.xlsx"].each do |file|  
-      	file_path = "#{file}"
-      	file_basename = File.basename(file, ".xlsx")
-      	xlsx = Excelx.new(file_path.to_s)
-      	$i = xlsx.sheets.length - 1
-      	while $i >= 0 do
-		xlsx.default_sheet = xlsx.sheets[$i]
-		xlsx.to_csv(path +"/#{file_basename}#{$i}.csv")
-		$i -=1
-	end	
+      Thread.new do
+	      Dir[path+"/*.xlsx"].each do |file|  
+	      	file_path = "#{file}"
+	      	file_basename = File.basename(file, ".xlsx")
+	      	xlsx = Excelx.new(file_path.to_s)
+	      	$i = xlsx.sheets.length - 1
+	      	while $i >= 0 do
+			xlsx.default_sheet = xlsx.sheets[$i]
+			xlsx.to_csv(path +"/#{file_basename}#{$i}.csv")
+			Upload.where(:file_name => "#{file_basename}#{$i}.csv", :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
+			$i -=1
+		end
+		Upload.update_all( {:status => 'Converted'}, {:file_name => uploaded_io.original_filename})
+	ActiveRecord::Base.connection.close
+      end	
       #turn on if want to remove xlsx file after conversion (probably want to keep off so can check if xlsx file is already uploaded)
       #FileUtils.remove(file)
       #print "Converted file #{file} \n"
