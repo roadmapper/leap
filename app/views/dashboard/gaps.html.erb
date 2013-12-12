@@ -11,7 +11,7 @@
 		<% end %>
 	<% end %>
 	<% if (@gas_record_lookup) %>
-		<p><%= "#{@gas_record_lookup.company_name} Account Number: #{@gas_record_lookup.acct_num} " %></p>
+		<p><%= "#{@gas_record_lookup.company_name} Test Account Number: #{@gas_record_lookup.acct_num} " %></p>
 		<% if (@gas_recordings.length <= 0) %>
 			<h3><%= "No gas readings found for this property"%></h3>
 		<% end %>
@@ -32,10 +32,16 @@
 				<tr>
 				<%(0..11).each do |i| %>
 					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
-						<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
-						<%@power_recordings.delete_at(0)%>
-					<%else%>
+					<%@notFound = true%>
+					<% @power_recordings.each do|r| %>
+						<% if (@currdate.month == r.read_date.month && @currdate.year == r.read_date.year) %>
+							<td bgcolor="11F215"><%=r.consumption%></td>
+							<%@power_recordings.delete(r)%>
+							<%@notFound=false%>
+							<%break%>
+						<%end%>
+					<%end%>
+					<%if (@notFound) %>
 						<td bgcolor="F24E4E"></td>
 					<%end%>
 				<%end%>
@@ -50,10 +56,16 @@
 				<tr>
 				<%(12..23).each do |i| %>
 					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
-						<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
-						<%@power_recordings.delete_at(0)%>
-					<%else%>
+					<%@notFound = true%>
+					<% @power_recordings.each do|r| %>
+						<% if (@currdate.month == r.read_date.month && @currdate.year == r.read_date.year) %>
+							<td bgcolor="11F215"><%=r.consumption%></td>
+							<%@power_recordings.delete(r)%>
+							<%@notFound=false%>
+							<%break%>
+						<%end%>
+					<%end%>
+					<%if (@notFound) %>
 						<td bgcolor="F24E4E"></td>
 					<%end%>
 				<%end%>
