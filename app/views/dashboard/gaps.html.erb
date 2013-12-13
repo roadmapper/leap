@@ -1,0 +1,147 @@
+<%= render "layouts/navigation" %>
+<div class="container">
+<%= link_to 'Back', root_path, class:  "btn btn-primary btn-large" %>
+</div>
+<hr class="featurette-divider">
+<div class="container">
+	
+	<% if (@property) %>
+	<% title "Gaps Report for #{@property.owner_name}" %>
+	<h1><%= "Gaps Report for #{@property.owner_name}" %></h1>
+
+</div>
+
+
+<div class="container">
+	<p><%= @property.street_address %></p>
+	<p><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></p>
+	<p><%= "LEAP Customer ID: #{@property.customer_unique_id}" %></p>
+	<% if (@power_record_lookup) %>
+		<p><%= "#{@power_record_lookup.company_name} Account Number: #{@power_record_lookup.acct_num} " %></p>
+		<% if (@power_recordings.length <= 0) %>
+			<h3><%= "No power readings found for this property"%></h3>
+		<% end %>
+	<% end %>
+	<% if (@gas_record_lookup) %>
+		<p><%= "#{@gas_record_lookup.company_name} Test Account Number: #{@gas_record_lookup.acct_num} " %></p>
+		<% if (@gas_recordings.length <= 0) %>
+			<h3><%= "No gas readings found for this property"%></h3>
+		<% end %>
+	<% end %>
+	<% if (@property.finish_date) %>
+		<p><%= "Test Out Date: " + @testoutdate.strftime("%B %e, %Y")%></p>
+		<% if (@power_record_lookup) %>
+			<% if (@power_recordings.length > 0) %>
+				<h3>Power Readings</h3>
+				<table  class="table-responsive table-bordered">
+				<tr>
+				<%(0..11).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<th><%= @currdate.strftime("%B %Y")%></th>
+				<%end%>
+				</tr>
+
+				<tr>
+				<%(0..11).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<%@notFound = true%>
+					<% @power_recordings.each do|r| %>
+						<% if (@currdate.month == r.read_date.month && @currdate.year == r.read_date.year) %>
+							<td bgcolor="11F215"><%=r.consumption%></td>
+							<%@power_recordings.delete(r)%>
+							<%@notFound=false%>
+							<%break%>
+						<%end%>
+					<%end%>
+					<%if (@notFound) %>
+						<td bgcolor="F24E4E">Edit</td>
+					<%end%>
+				<%end%>
+				
+				</tr>
+				<%(12..23).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<th><%= @currdate.strftime("%B %Y")%></th>
+				<%end%>
+				</tr>
+
+				<tr>
+				<%(12..23).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<%@notFound = true%>
+					<% @power_recordings.each do|r| %>
+						<% if (@currdate.month == r.read_date.month && @currdate.year == r.read_date.year) %>
+							<td bgcolor="11F215"><%=r.consumption%></td>
+							<%@power_recordings.delete(r)%>
+							<%@notFound=false%>
+							<%break%>
+						<%end%>
+					<%end%>
+					<%if (@notFound) %>
+						<td bgcolor="F24E4E">Edit</td>
+					<%end%>
+				<%end%>
+				</tr>
+				</table>
+			<%else%>
+				<h3><%= "No power readings found for this property"%></h3>
+			<%end%>
+		<%else%>
+			<h3><%= "No power company account information for this property"%></h3>
+		<%end%>
+		<% if (@gas_record_lookup) %>
+			<% if (@gas_recordings.length > 0) %>
+				<h3>Gas Readings</h3>
+				<table border="1">
+				<tr>
+				<%(0..11).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<th><%= @currdate.strftime("%B %Y")%></th>
+				<%end%>
+				</tr>
+
+				<tr>
+				<%(0..11).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+						<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
+						<%@gas_recordings.delete_at(0)%>
+					<%else%>
+						<td bgcolor="F24E4E">Edit</td>
+					<%end%>
+				<%end%>
+				
+				</tr>
+				<%(12..23).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<th><%= @currdate.strftime("%B %Y")%></th>
+				<%end%>
+				</tr>
+
+				<tr>
+				<%(12..23).each do |i| %>
+					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+					<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+						<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
+						<%@gas_recordings.delete_at(0)%>
+					<%else%>
+						<td bgcolor="F24E4E">Edit</td>
+					<%end%>
+				<%end%>
+				</tr>
+				</table>
+			<%else%>
+				<h3><%= "No gas readings found for this property"%></h3>
+			<%end%>
+		<%else%>
+			<h3><%= "No gas company account information for this property"%></h3>
+		<%end%>
+	<%else%>
+		<%= "No test out date found for this property"%>
+	<%end%>
+<% else %>
+	<%= "Property not found"%>
+<%end%>
+</div>
+</br>
+
