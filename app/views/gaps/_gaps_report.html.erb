@@ -1,179 +1,182 @@
-<% if (@property.present?) %>
-<h3><%= @property.owner_name %></h3>
-<h3><%= @property.street_address %></h3>
+<%= render "layouts/navigation" %>
+<div class="container">
+	<% if (@property.present?) %>
+	<h3><%= @property.owner_name %></h3>
+	<h3><%= @property.street_address %></h3>
 
-<% if (@property.finish_date) %>
-<% @testoutdate = @property.finish_date %>
-<% @startdate = @testoutdate.to_time.advance(:years=>-1).to_date%>
-<h3><%= "Test out date: " + @testoutdate.strftime("%B") + " " + @testoutdate.strftime("%g")%></h3>
+	<% if (@property.finish_date) %>
+	<% @testoutdate = @property.finish_date %>
+	<% @startdate = @testoutdate.to_time.advance(:years=>-1).to_date%>
+	<h3><%= "Test out date: " + @testoutdate.strftime("%B") + " " + @testoutdate.strftime("%g")%></h3>
 
-<% @propertyid = @property.id %>
-<% @power_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,2) %>
-<% if (@power_record_lookup) %>
-<% @power_acct_num = @power_record_lookup.acct_num %>
-<% @power_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@power_acct_num,2) %>
-<% if (@power_recordings.length > 0) %>
-<h2>Electric Readings</h2>
+	<% @propertyid = @property.id %>
+	<% @power_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,2) %>
+	<% if (@power_record_lookup) %>
+	<% @power_acct_num = @power_record_lookup.acct_num %>
+	<% @power_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@power_acct_num,2) %>
+	<% if (@power_recordings.length > 0) %>
+	<h2>Electric Readings</h2>
 
-<%$empty = ""%>
-<%$size = "6x6"%>
-<table border="1">
-<tr>
-	<%(0..11).each do |i| %>
-	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-	<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-	<%end%>
-</tr>
-
-<tr>
-	<%(0..11).each do |i| %>
-	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-	<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
-	<td bgcolor="11F215">
-			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
-			  <%= f.text_field :consumption, value: @power_recordings[0].consumption, size: $size %>
-			  <%= f.submit "Update" %>
-			<% end %>
-	</td>
-	<%@power_recordings.delete_at(0)%>
-	<%else%>
-
-	<td bgcolor="F24E4E">
-			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
-			  <%= f.text_field :consumption, value: $empty, size: $size %>
-			  <%= f.hidden_field :acctnum, value: @power_acct_num %>
-			  <%= f.hidden_field :utility_type_id, value: 2 %>
-			  <%= f.hidden_field :read_date, value: @currdate %>
-			  <%= f.submit "Create" %>
-			<% end %>
-	</td>
-	<%end%>
-	<%end%>
-</tr>
-
-<tr>
-	<%(12..23).each do |i| %>
+	<%$empty = ""%>
+	<%$size = "6x6"%>
+	<table class="table-responsive table-bordered">
+	<tr>
+		<%(0..11).each do |i| %>
 		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
 		<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-	<%end%>
-</tr>
+		<%end%>
+	</tr>
 
-<tr>
-	<%(12..23).each do |i| %>
+	<tr>
+		<%(0..11).each do |i| %>
 		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
 		<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
 		<td bgcolor="11F215">
-			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
-			  <%= f.text_field :consumption, value: @power_recordings[0].consumption, size: $size %>
-			  <%= f.submit "Update" %>
-			<% end %>
+				<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				  <%= f.text_field :consumption, value: @power_recordings[0].consumption, size: $size %>
+				  <%= f.submit "Update" %>
+				<% end %>
 		</td>
 		<%@power_recordings.delete_at(0)%>
 		<%else%>
+
 		<td bgcolor="F24E4E">
-			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
-			  <%= f.text_field :consumption, value: $empty, size: $size %>
-			  <%= f.hidden_field :acctnum, value: @power_acct_num %>
-			  <%= f.hidden_field :utility_type_id, value: 2 %>
-			  <%= f.hidden_field :read_date, value: @currdate %>
-			  <%= f.submit "Create" %>
-			<% end %>
+				<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				  <%= f.text_field :consumption, value: $empty, size: $size %>
+				  <%= f.hidden_field :acctnum, value: @power_acct_num %>
+				  <%= f.hidden_field :utility_type_id, value: 2 %>
+				  <%= f.hidden_field :read_date, value: @currdate %>
+				  <%= f.submit "Create" %>
+				<% end %>
 		</td>
 		<%end%>
-	<%end%>
-</tr>
-</table>
-<%else%>
-	<h3><%= "No electricity readings at all for this property"%></h3>
-<%end%>
-<%else%>
-	<h3><%= "No electricity company account information for this property"%></h3>
-<%end%>
+		<%end%>
+	</tr>
 
-<% @gas_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,1) %>
-<% if (@gas_record_lookup) %>
-	<% @gas_acct_num = @gas_record_lookup.acct_num %>
-	<% @gas_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@gas_acct_num,1) %>
+	<tr>
+		<%(12..23).each do |i| %>
+			<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+			<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+		<%end%>
+	</tr>
 
-<% if (@gas_recordings.length > 0) %>
-<h2>Gas Readings</h2>
-<table border="1">
-
-<tr> 
-	<%(0..11).each do |i| %>
-	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-	<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-	<%end%>
-</tr>
-
-<tr>
-	<%(0..11).each do |i| %>
-		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-		<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+	<tr>
+		<%(12..23).each do |i| %>
+			<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+			<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
 			<td bgcolor="11F215">
-				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
-				  <%= f.text_field :consumption, value: @gas_recordings[0].consumption, size: $size %>
+				<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				  <%= f.text_field :consumption, value: @power_recordings[0].consumption, size: $size %>
 				  <%= f.submit "Update" %>
 				<% end %>
 			</td>
-			<%@gas_recordings.delete_at(0)%>
-		<%else%>
+			<%@power_recordings.delete_at(0)%>
+			<%else%>
 			<td bgcolor="F24E4E">
-				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
 				  <%= f.text_field :consumption, value: $empty, size: $size %>
-				  <%= f.hidden_field :acctnum, value: @gas_acct_num %>
-				  <%= f.hidden_field :utility_type_id, value: 1 %>
+				  <%= f.hidden_field :acctnum, value: @power_acct_num %>
+				  <%= f.hidden_field :utility_type_id, value: 2 %>
 				  <%= f.hidden_field :read_date, value: @currdate %>
 				  <%= f.submit "Create" %>
 				<% end %>
 			</td>
+			<%end%>
 		<%end%>
+	</tr>
+	</table>
+	<%else%>
+		<h3><%= "No electricity readings at all for this property"%></h3>
 	<%end%>
-</tr>
+	<%else%>
+		<h3><%= "No electricity company account information for this property"%></h3>
+	<%end%>
 
-<tr>
-	<%(12..23).each do |i| %>
+	<% @gas_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,1) %>
+	<% if (@gas_record_lookup) %>
+		<% @gas_acct_num = @gas_record_lookup.acct_num %>
+		<% @gas_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@gas_acct_num,1) %>
+
+	<% if (@gas_recordings.length > 0) %>
+	<h2>Gas Readings</h2>
+	<table class="table-responsive table-bordered">
+
+	<tr> 
+		<%(0..11).each do |i| %>
 		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
 		<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-	<%end%>
-</tr>
-
-<tr>
-<%(12..23).each do |i| %>
-	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-		<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
-			<td bgcolor="11F215">
-				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
-				  <%= f.text_field :consumption, value: @gas_recordings[0].consumption, size: $size %>
-				  <%= f.submit "Update" %>
-				<% end %>		
-			</td>
-		<%@gas_recordings.delete_at(0)%>
-		<%else%>
-			<td bgcolor="F24E4E">
-				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
-				  <%= f.text_field :consumption, value: $empty, size: $size %>
-				  <%= f.hidden_field :acctnum, value: @gas_acct_num %>
-				  <%= f.hidden_field :utility_type_id, value: 1 %>
-				  <%= f.hidden_field :read_date, value: @currdate %>
-				  <%= f.submit "Create" %>
-				<% end %>
-			</td>
 		<%end%>
+	</tr>
+
+	<tr>
+		<%(0..11).each do |i| %>
+			<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+			<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+				<td bgcolor="11F215">
+					<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+					  <%= f.text_field :consumption, value: @gas_recordings[0].consumption, size: $size %>
+					  <%= f.submit "Update" %>
+					<% end %>
+				</td>
+				<%@gas_recordings.delete_at(0)%>
+			<%else%>
+				<td bgcolor="F24E4E">
+					<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+					  <%= f.text_field :consumption, value: $empty, size: $size %>
+					  <%= f.hidden_field :acctnum, value: @gas_acct_num %>
+					  <%= f.hidden_field :utility_type_id, value: 1 %>
+					  <%= f.hidden_field :read_date, value: @currdate %>
+					  <%= f.submit "Create" %>
+					<% end %>
+				</td>
+			<%end%>
+		<%end%>
+	</tr>
+
+	<tr>
+		<%(12..23).each do |i| %>
+			<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+			<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+		<%end%>
+	</tr>
+
+	<tr>
+	<%(12..23).each do |i| %>
+		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+			<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+				<td bgcolor="11F215">
+					<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+					  <%= f.text_field :consumption, value: @gas_recordings[0].consumption, size: $size %>
+					  <%= f.submit "Update" %>
+					<% end %>		
+				</td>
+			<%@gas_recordings.delete_at(0)%>
+			<%else%>
+				<td bgcolor="F24E4E">
+					<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+					  <%= f.text_field :consumption, value: $empty, size: $size %>
+					  <%= f.hidden_field :acctnum, value: @gas_acct_num %>
+					  <%= f.hidden_field :utility_type_id, value: 1 %>
+					  <%= f.hidden_field :read_date, value: @currdate %>
+					  <%= f.submit "Create" %>
+					<% end %>
+				</td>
+			<%end%>
+		<%end%>
+	</tr>
+
+	</table>
+	<%else%>
+	<h3><%= "No gas readings at all for this property"%></h3>
 	<%end%>
-</tr>
-
-</table>
-<%else%>
-<h3><%= "No gas readings at all for this property"%></h3>
-<%end%>
-<%else%>
-<h3><%= "No gas company account information for this property"%></h3>
-<%end%>
-<%else%>
-<h3><%= "No test out date for this property" %></h3>
+	<%else%>
+	<h3><%= "No gas company account information for this property"%></h3>
+	<%end%>
+	<%else%>
+	<h3><%= "No test out date for this property" %></h3>
 
 
-<%end%>
+	<%end%>
 
-<% end %>
+	<% end %>
+</div>

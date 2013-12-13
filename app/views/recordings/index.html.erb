@@ -1,32 +1,38 @@
-<h1>Listing recordings</h1>
+<%= render "layouts/navigation" %>
+<div class="container">
+	<h1>Listing recordings</h1>
 
-<table>
-  <tr>
-    <th>Acctnum</th>
-    <th>Read date</th>
-    <th>Consumption</th>
-    <th>Days in month</th>
-    <th>Utility type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<%= link_to 'New Recording', new_recording_path, class:  "btn btn-primary btn-large" %>
+</div>
+	<hr class="featurette-divider">
+<div class="container">
+	<table class="table-responsive table-bordered">
+	  <tr>
+	    <th>Acctnum</th>
+	    <th>Read date</th>
+	    <th>Consumption</th>
+	    <th>Days in month</th>
+	    <th>Utility type</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
 
-<% @recordings.each do |recording| %>
-  <tr>
-    <td><%= recording.acctnum %></td>
-    <td><%= recording.read_date %></td>
-    <td><%= recording.consumption %></td>
-    <td><%= recording.days_in_month %></td>
-    <td><%# recording.utility_type %></td>
-    <td><%= link_to 'Show', recording %></td>
-    <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
-    <td><%= link_to 'Destroy', recording, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-<%= will_paginate @recordings %>
-</table>
+	<% @recordings.each do |recording| %>
+	  <tr>
+	    <td><%= recording.acctnum %></td>
+	    <td><%= recording.read_date %></td>
+	    <td><%= recording.consumption %></td>
+	    <td><%= recording.days_in_month %></td>
+	    <td><%# recording.utility_type %></td>
+	    <td><%= link_to 'Show', recording, class:  "btn btn-primary" %></td>
+	    <td><%= link_to 'Edit', edit_recording_path(recording), class:  "btn btn-primary" %></td>
+	    <td><%= link_to 'Destroy', recording, method: :delete, data: { confirm: 'Are you sure?' }, class:  "btn btn-primary" %></td>
+	  </tr>
+	<% end %>
+	<%= will_paginate @recordings %>
+	</table>
 
 <br />
+</div>
 
-<%= link_to 'New Recording', new_recording_path %>

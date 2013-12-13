@@ -1,6 +1,11 @@
-<h1>Ready to Analyze Customers</h1>
+<%= render "layouts/navigation" %>
+<div class="container">
+	<h1>Ready to Analyze Customers</h1>
+	<%= link_to 'Back', root_path, class:  "btn btn-primary btn-large" %>
+</div>
 
-<table border="1">
+<div class="container">
+<table class="table-responsive table-bordered">
   <tr>
     <th>Owner Name</th>
     <th>Meter Readings</th>
@@ -17,4 +22,5 @@
 </table>
 
 <br />
-<%= link_to 'Back', root_path %>
+</div>
+
