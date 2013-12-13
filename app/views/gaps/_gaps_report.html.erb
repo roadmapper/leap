@@ -30,19 +30,22 @@
 	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
 	<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
 	<td bgcolor="11F215">
-		<%= form_tag(method: "post") do %>
-			  <%= text_field_tag(:q, @power_recordings[0].consumption,size: $size) %>
-			  <%= submit_tag("save") %>
-		<% end %>
+			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
+			  <%= f.text_field :consumption, value: @power_recordings[0].consumption, size: $size %>
+			  <%= f.submit "Update" %>
+			<% end %>
 	</td>
 	<%@power_recordings.delete_at(0)%>
 	<%else%>
 
 	<td bgcolor="F24E4E">
-		<%= form_tag(method: "post") do %>
-			  <%= text_field_tag(:q, $empty,size: $size) %>
-			  <%= submit_tag("save") %>
-		<% end %>
+			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
+			  <%= f.text_field :consumption, value: $empty, size: $size %>
+			  <%= f.hidden_field :acctnum, value: @power_acct_num %>
+			  <%= f.hidden_field :utility_type_id, value: 2 %>
+			  <%= f.hidden_field :read_date, value: @currdate %>
+			  <%= f.submit "Create" %>
+			<% end %>
 	</td>
 	<%end%>
 	<%end%>
@@ -68,9 +71,12 @@
 		<%@power_recordings.delete_at(0)%>
 		<%else%>
 		<td bgcolor="F24E4E">
-			<%= form_tag(method: "post") do %>
-				  <%= text_field_tag(:q, $empty,size: $size) %>
-				  <%= submit_tag("save") %>
+			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
+			  <%= f.text_field :consumption, value: $empty, size: $size %>
+			  <%= f.hidden_field :acctnum, value: @power_acct_num %>
+			  <%= f.hidden_field :utility_type_id, value: 2 %>
+			  <%= f.hidden_field :read_date, value: @currdate %>
+			  <%= f.submit "Create" %>
 			<% end %>
 		</td>
 		<%end%>
@@ -113,9 +119,12 @@
 			<%@gas_recordings.delete_at(0)%>
 		<%else%>
 			<td bgcolor="F24E4E">
-				<%= form_tag(method: "post") do %>
-					  <%= text_field_tag(:q, $empty,size: $size) %>
-					  <%= submit_tag("save") %>
+				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				  <%= f.text_field :consumption, value: $empty, size: $size %>
+				  <%= f.hidden_field :acctnum, value: @gas_acct_num %>
+				  <%= f.hidden_field :utility_type_id, value: 1 %>
+				  <%= f.hidden_field :read_date, value: @currdate %>
+				  <%= f.submit "Create" %>
 				<% end %>
 			</td>
 		<%end%>
@@ -142,9 +151,12 @@
 		<%@gas_recordings.delete_at(0)%>
 		<%else%>
 			<td bgcolor="F24E4E">
-				<%= form_tag(method: "post") do %>
-					  <%= text_field_tag(:q, $empty,size: $size) %>
-					  <%= submit_tag("save") %>
+				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				  <%= f.text_field :consumption, value: $empty, size: $size %>
+				  <%= f.hidden_field :acctnum, value: @gas_acct_num %>
+				  <%= f.hidden_field :utility_type_id, value: 1 %>
+				  <%= f.hidden_field :read_date, value: @currdate %>
+				  <%= f.submit "Create" %>
 				<% end %>
 			</td>
 		<%end%>
