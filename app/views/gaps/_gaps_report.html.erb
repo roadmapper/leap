@@ -14,98 +14,142 @@
 <% @power_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@power_acct_num,2) %>
 <% if (@power_recordings.length > 0) %>
 <h2>Electric Readings</h2>
+
+<%$empty = "---"%>
+<%$size = "6x6"%>
 <table border="1">
-
 <tr>
-<%(0..11).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-<%end%>
+	<%(0..11).each do |i| %>
+	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+	<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+	<%end%>
 </tr>
 
 <tr>
-<%(0..11).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
-<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
-<%@power_recordings.delete_at(0)%>
-<%else%>
-<td bgcolor="F24E4E"></td>
-<%end%>
-<%end%>
+	<%(0..11).each do |i| %>
+	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+	<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
+	<td bgcolor="11F215">
+		<%=@power_recordings[0].consumption%>
+		<%= form_tag(method: "post") do %>
+			  <%= text_field_tag(:q, @power_recordings[0].consumption,size: $size) %>
+			  <%= submit_tag("save") %>
+		<% end %>
+	</td>
+	<%@power_recordings.delete_at(0)%>
+	<%else%>
+
+	<td bgcolor="F24E4E">
+		<%= form_tag(method: "post") do %>
+			  <%= text_field_tag(:q, $empty,size: $size) %>
+			  <%= submit_tag("save") %>
+		<% end %>
+	</td>
+	<%end%>
+	<%end%>
 </tr>
 
 <tr>
-<%(12..23).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-<%end%>
+	<%(12..23).each do |i| %>
+		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+		<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+	<%end%>
 </tr>
 
 <tr>
-<%(12..23).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
-<td bgcolor="11F215"><%=@power_recordings[0].consumption%></td>
-<%@power_recordings.delete_at(0)%>
-<%else%>
-<td bgcolor="F24E4E"></td>
-<%end%>
-<%end%>
+	<%(12..23).each do |i| %>
+		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+		<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
+		<td bgcolor="11F215">
+			<%= form_for @power_recordings[0], :url => recording_path(@power_recordings[0]), html: {class: "nifty_form"} do |f| %>
+			  <%= f.text_field :consumption, value: @power_recordings[0].consumption, size: $size %>
+			  <%= f.submit "Update" %>
+			<% end %>
+		</td>
+		<%@power_recordings.delete_at(0)%>
+		<%else%>
+		<td bgcolor="F24E4E">
+			<%= form_tag(method: "post") do %>
+				  <%= text_field_tag(:q, $empty,size: $size) %>
+				  <%= submit_tag("save") %>
+			<% end %>
+		</td>
+		<%end%>
+	<%end%>
 </tr>
-
 </table>
 <%else%>
-<h3><%= "No electricity readings at all for this property"%></h3>
+	<h3><%= "No electricity readings at all for this property"%></h3>
 <%end%>
 <%else%>
-<h3><%= "No electricity company account information for this property"%></h3>
+	<h3><%= "No electricity company account information for this property"%></h3>
 <%end%>
 
 <% @gas_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,1) %>
 <% if (@gas_record_lookup) %>
-<% @gas_acct_num = @gas_record_lookup.acct_num %>
-<% @gas_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@gas_acct_num,1) %>
+	<% @gas_acct_num = @gas_record_lookup.acct_num %>
+	<% @gas_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@gas_acct_num,1) %>
+
 <% if (@gas_recordings.length > 0) %>
 <h2>Gas Readings</h2>
 <table border="1">
 
 <tr>
-<%(0..11).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-<%end%>
+	<%(0..11).each do |i| %>
+	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+	<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+	<%end%>
 </tr>
 
 <tr>
-<%(0..11).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
-<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
-<%@gas_recordings.delete_at(0)%>
-<%else%>
-<td bgcolor="F24E4E"></td>
-<%end%>
-<%end%>
+	<%(0..11).each do |i| %>
+		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+		<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+			<td bgcolor="11F215">
+				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				  <%= f.text_field :consumption, value: @gas_recordings[0].consumption, size: $size %>
+				  <%= f.submit "Update" %>
+				<% end %>
+			</td>
+			<%@gas_recordings.delete_at(0)%>
+		<%else%>
+			<td bgcolor="F24E4E">
+				<%= form_tag(method: "post") do %>
+					  <%= text_field_tag(:q, $empty,size: $size) %>
+					  <%= submit_tag("save") %>
+				<% end %>
+			</td>
+		<%end%>
+	<%end%>
+</tr>
+
+<tr>
+	<%(12..23).each do |i| %>
+		<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+		<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+	<%end%>
 </tr>
 
 <tr>
 <%(12..23).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
-<%end%>
-</tr>
-
-<tr>
-<%(12..23).each do |i| %>
-<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
-<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
-<%@gas_recordings.delete_at(0)%>
-<%else%>
-<td bgcolor="F24E4E"></td>
-<%end%>
-<%end%>
+	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
+		<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
+			<td bgcolor="11F215">
+				<%= form_for @gas_recordings[0], :url => recording_path(@gas_recordings[0]), html: {class: "nifty_form"} do |f| %>
+				  <%= f.text_field :consumption, value: @gas_recordings[0].consumption, size: $size %>
+				  <%= f.submit "Update" %>
+				<% end %>		
+			</td>
+		<%@gas_recordings.delete_at(0)%>
+		<%else%>
+			<td bgcolor="F24E4E">
+				<%= form_tag(method: "post") do %>
+					  <%= text_field_tag(:q, $empty,size: $size) %>
+					  <%= submit_tag("save") %>
+				<% end %>
+			</td>
+		<%end%>
+	<%end%>
 </tr>
 
 </table>
