@@ -56,10 +56,10 @@
 
 </table>
 <%else%>
-<h3><%= "No power readings at all for this property"%></h3>
+<h3><%= "No electricity readings at all for this property"%></h3>
 <%end%>
 <%else%>
-<h3><%= "No power company account information for this property"%></h3>
+<h3><%= "No electricity company account information for this property"%></h3>
 <%end%>
 
 <% @gas_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,1) %>
