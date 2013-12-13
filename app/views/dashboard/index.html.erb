@@ -4,14 +4,8 @@
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<p>Upload</p>
-<%= form_tag({:action => :upload}, :multipart => true) do %>
-  <%= file_field_tag 'file' %>
-<%= submit_tag "Upload" %>
-<% end %>
-<%= link_to 'Uploaded Files', uploads_path %>
 
-<p>Query:</p>
+<p>Generate Gaps Report</p>
 <%= form_tag dashboard_gaps_path, :method => "get" do %>
   <%= label_tag(:owner, "Search for:") %>
   <%= text_field_tag(:owner) %>
@@ -27,6 +21,13 @@ Generate list of customers with "Ready to Analyze" meter readings
 <%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get" %>
 <%= button_to "Generate and Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get" %>
 </br>
+
+<p>Upload</p>
+<%= form_tag({:action => :upload}, :multipart => true) do %>
+  <%= file_field_tag 'file' %>
+<%= submit_tag "Upload" %>
+<% end %>
+<%= link_to 'Uploaded Files', uploads_path %>
 
 <div id="ajax">
 <% render :partial => "report" %>
