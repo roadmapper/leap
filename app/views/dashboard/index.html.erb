@@ -1,23 +1,29 @@
-<h1>Dashboard</h1>
+<h2>Dashboard</h2>
 
 <% if flash[:notice] %>
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
+<%= link_to "View All Properties", properties_path %></br>
+<%= link_to "View All Recordings", recordings_path %></br>
 
-<p>Generate Gaps Report</p>
+
+<h4>Gaps Report</h4>
 <%= form_tag dashboard_gaps_path, :method => "get" do %>
-  <%= label_tag(:owner, "Search for:") %>
+  <%= label_tag(:owner, "Customer Name:") %>
   <%= text_field_tag(:owner) %>
   <%= submit_tag("Search") %>
 <% end %>
 </br>
 
-Generate list of customers with missing account information 
+
+List Customers With Missing Account Info:
+
 <%= button_to "Generate HTML View", dashboard_null_account_export_report_path, :method => "get" %>
 <%= button_to "Generate and Export to CSV", dashboard_null_account_export_report_path(:format => "csv"), :method => "get" %>
 </br>
-Generate list of customers with "Ready to Analyze" meter readings 
+List Customers With "Ready to Analyze" Readings:
+
 <%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get" %>
 <%= button_to "Generate and Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get" %>
 </br>
@@ -27,11 +33,14 @@ Generate list of customers with "Ready to Analyze" meter readings
   <%= file_field_tag 'file' %>
 <%= submit_tag "Upload" %>
 <% end %>
+</br>
 <%= link_to 'Uploaded Files', uploads_path %>
+
+
 
 <div id="ajax">
 <% render :partial => "report" %>
 </div>
+</br>
 
-<%= link_to 'Back', root_path %>
 	
