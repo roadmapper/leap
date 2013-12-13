@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131208203525) do
+ActiveRecord::Schema.define(:version => 20131212224800) do
 
   create_table "properties", :force => true do |t|
     t.string   "customer_unique_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20131208203525) do
   create_table "recordings", :force => true do |t|
     t.string   "acctnum"
     t.date     "read_date"
-    t.string   "consumption"
+    t.float    "consumption"
     t.integer  "days_in_month"
     t.integer  "utility_type_id"
     t.datetime "created_at",      :null => false
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20131208203525) do
   end
 
   add_index "recordings", ["utility_type_id"], :name => "index_recordings_on_utility_type_id"
+
+  create_table "test", :id => false, :force => true do |t|
+    t.string "owner_name",     :limit => 25
+    t.string "unique_id",      :limit => 8
+    t.string "company",        :limit => 25
+    t.string "account_number", :limit => 25
+  end
 
   create_table "uploads", :force => true do |t|
     t.string   "file_name"
