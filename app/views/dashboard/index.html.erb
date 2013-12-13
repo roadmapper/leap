@@ -1,40 +1,37 @@
-<%= render "layouts/navigation" %>
-<div class="container">
-	<h1>Dashboard</h1>
-	<%= link_to 'Back', root_path, class:  "btn btn-primary btn-large" %>
-	<% if flash[:notice] %>
-	<div class="notice"><%= flash[:notice] %></div>
-	<% end %>
-</div>
-<hr class="featurette-divider">
-<div class="container">
-	<p>Generate Gaps Report</p>
-	<%= form_tag dashboard_gaps_path, :method => "get" do %>
-	  <%= label_tag(:owner, "Search for:") %>
-	  <%= text_field_tag(:owner) %>
-	  <%= submit_tag("Search") %>
-	<% end %>
-	</br>
+<h1>Dashboard</h1>
 
-	Generate list of customers with missing account information 
-	<%= button_to "Generate HTML View", dashboard_null_account_export_report_path, :method => "get" %>
-	<%= button_to "Generate and Export to CSV", dashboard_null_account_export_report_path(:format => "csv"), :method => "get" %>
-	</br>
-	Generate list of customers with "Ready to Analyze" meter readings 
-	<%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get" %>
-	<%= button_to "Generate and Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get" %>
-	</br>
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
-	<p>Upload</p>
-	<%= form_tag({:action => :upload}, :multipart => true) do %>
-	  <%= file_field_tag 'file' %>
-	<%= submit_tag "Upload" %>
-	<% end %>
-	<%= link_to 'Uploaded Files', uploads_path %>
 
-	<div id="ajax">
-	<% render :partial => "report" %>
-	</div>
+<p>Generate Gaps Report</p>
+<%= form_tag dashboard_gaps_path, :method => "get" do %>
+  <%= label_tag(:owner, "Search for:") %>
+  <%= text_field_tag(:owner) %>
+  <%= submit_tag("Search") %>
+<% end %>
+</br>
+
+Generate list of customers with missing account information 
+<%= button_to "Generate HTML View", dashboard_null_account_export_report_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_null_account_export_report_path(:format => "csv"), :method => "get" %>
+</br>
+Generate list of customers with "Ready to Analyze" meter readings 
+<%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get" %>
+</br>
+
+<p>Upload</p>
+<%= form_tag({:action => :upload}, :multipart => true) do %>
+  <%= file_field_tag 'file' %>
+<%= submit_tag "Upload" %>
+<% end %>
+<%= link_to 'Uploaded Files', uploads_path %>
+
+<div id="ajax">
+<% render :partial => "report" %>
 </div>
 
+<%= link_to 'Back', root_path %>
 	

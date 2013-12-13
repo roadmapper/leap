@@ -1,9 +1,5 @@
-<%= render "layouts/navigation" %>
-<div class="container">
 <h1>Gaps Finder</h1>
-</div>
-<hr class="featurette-divider">
-<div class="container">
+
 <p>Query:</p>
 <%= form_tag gaps_index_path, :method => :get, :remote => true do %>
   <%= label_tag(:owner, "Search for:") %>
@@ -14,5 +10,5 @@
 <div id="ajax">
 <% render :partial => "gaps_report" %>
 </div>
-</div>
 
+<%= link_to 'Back', root_path %>

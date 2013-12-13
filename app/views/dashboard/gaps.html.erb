@@ -1,18 +1,6 @@
-<%= render "layouts/navigation" %>
-<div class="container">
-<%= link_to 'Back', root_path, class:  "btn btn-primary btn-large" %>
-</div>
-<hr class="featurette-divider">
-<div class="container">
-	
-	<% if (@property) %>
+<% if (@property) %>
 	<% title "Gaps Report for #{@property.owner_name}" %>
 	<h1><%= "Gaps Report for #{@property.owner_name}" %></h1>
-
-</div>
-
-
-<div class="container">
 	<p><%= @property.street_address %></p>
 	<p><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></p>
 	<p><%= "LEAP Customer ID: #{@property.customer_unique_id}" %></p>
@@ -33,7 +21,7 @@
 		<% if (@power_record_lookup) %>
 			<% if (@power_recordings.length > 0) %>
 				<h3>Power Readings</h3>
-				<table  class="table-responsive table-bordered">
+				<table border="1">
 				<tr>
 				<%(0..11).each do |i| %>
 					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
@@ -142,6 +130,5 @@
 <% else %>
 	<%= "Property not found"%>
 <%end%>
-</div>
 </br>
-
+<%= link_to 'Back', root_path %>
