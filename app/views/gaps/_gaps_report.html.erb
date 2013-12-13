@@ -15,7 +15,7 @@
 <% if (@power_recordings.length > 0) %>
 <h2>Electric Readings</h2>
 
-<%$empty = "---"%>
+<%$empty = ""%>
 <%$size = "6x6"%>
 <table border="1">
 <tr>
@@ -30,7 +30,6 @@
 	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
 	<% if (@currdate.month == @power_recordings[0].read_date.month && @currdate.year == @power_recordings[0].read_date.year) %>
 	<td bgcolor="11F215">
-		<%=@power_recordings[0].consumption%>
 		<%= form_tag(method: "post") do %>
 			  <%= text_field_tag(:q, @power_recordings[0].consumption,size: $size) %>
 			  <%= submit_tag("save") %>
@@ -94,7 +93,7 @@
 <h2>Gas Readings</h2>
 <table border="1">
 
-<tr>
+<tr> 
 	<%(0..11).each do |i| %>
 	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
 	<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
