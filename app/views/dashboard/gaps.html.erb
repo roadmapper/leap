@@ -7,13 +7,13 @@
 	<% if (@power_record_lookup) %>
 		<p><%= "#{@power_record_lookup.company_name} Account Number: #{@power_record_lookup.acct_num} " %></p>
 		<% if (@power_recordings.length <= 0) %>
-			<h3><%= "No power readings found for this property"%></h3>
+			<h3><%= "No Electricity readings found for this property."%></h3>
 		<% end %>
 	<% end %>
 	<% if (@gas_record_lookup) %>
-		<p><%= "#{@gas_record_lookup.company_name} Test Account Number: #{@gas_record_lookup.acct_num} " %></p>
+		<p><%= "#{@gas_record_lookup.company_name} Account Number: #{@gas_record_lookup.acct_num} " %></p>
 		<% if (@gas_recordings.length <= 0) %>
-			<h3><%= "No gas readings found for this property"%></h3>
+			<h3><%= "No Gas readings found for this property."%></h3>
 		<% end %>
 	<% end %>
 	<% if (@property.finish_date) %>
@@ -72,10 +72,10 @@
 				</tr>
 				</table>
 			<%else%>
-				<h3><%= "No power readings found for this property"%></h3>
+				<h3><%= "No Electricity readings found for this property"%></h3>
 			<%end%>
 		<%else%>
-			<h3><%= "No power company account information for this property"%></h3>
+			<h3><%= "No Electricity company account information for this property."%></h3>
 		<%end%>
 		<% if (@gas_record_lookup) %>
 			<% if (@gas_recordings.length > 0) %>
@@ -119,10 +119,10 @@
 				</tr>
 				</table>
 			<%else%>
-				<h3><%= "No gas readings found for this property"%></h3>
+				<h3><%= "No gas readings found for this property."%></h3>
 			<%end%>
 		<%else%>
-			<h3><%= "No gas company account information for this property"%></h3>
+			<h3><%= "No gas company account information for this property."%></h3>
 		<%end%>
 	<%else%>
 		<%= "No test out date found for this property"%>
