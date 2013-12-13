@@ -13,7 +13,7 @@
 <% @power_acct_num = @power_record_lookup.acct_num %>
 <% @power_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@power_acct_num,2) %>
 <% if (@power_recordings.length > 0) %>
-<h2>Power Readings</h2>
+<h2>Electric Readings</h2>
 <table border="1">
 
 <tr>
