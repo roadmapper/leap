@@ -1,3 +1,10 @@
+<%= render "layouts/navigation" %>
+<div class="container">
+	<%= link_to 'Back', properties_path, class:  "btn btn-primary btn-large" %>
+	<%= link_to 'Edit', edit_property_path(@property), class:  "btn btn-primary btn-large"  %>
+
+</div>
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -55,6 +62,4 @@
   <%= @property.consent_date %>
 </p>
 
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+</div>

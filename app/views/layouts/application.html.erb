@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+  <%= yield :head %>
   <title><%= content_for?(:title) ? "LEAP - " + content_for(:title) : "LEAP Data Management and Visualization" %></title>
-  <%= stylesheet_link_tag :all %>
+  <!--%= stylesheet_link_tag :all %-->
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag :defaults %>
 
 

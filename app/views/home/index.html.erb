@@ -1,7 +1,23 @@
-<h1>Welcome to LEAP Data Management and Visualization</h1>
+<!--% content_for :head do %-->
+	 <!--%= stylesheet_link_tag "bootstrap" %-->
+<!--% end %-->
+<%= render "layouts/navigation" %>
 
-<%= link_to "Properties CRUD Prototype", properties_path %></br>
-<%= link_to "Recordings CRUD Prototype", recordings_path %></br>
-<%= link_to "Dashboard (Upload/Query)", dashboard_index_path %></br>
-<%= link_to "Gaps Report (will be moved into Dashboard soon)", gaps_path %></br>
-<%= link_to "Graphs", graphs_path %></br>
+<div class="container">
+	<h1>Welcome to LEAP's Data Management and Visualization System</h1>
+<hr class="featurette-divider">
+	
+	<div class="row">
+			<div class="btn-group-vertical pull-right">
+				<%= link_to "Properties CRUD Prototype", properties_path, class:  "btn btn-primary btn-large" %></br>
+				<%= link_to "Recordings CRUD Prototype", recordings_path, class:  "btn btn-primary btn-large" %></br>
+				<%= link_to "Dashboard (Upload/Query)", dashboard_index_path, class:  "btn btn-primary btn-large" %></br>
+				<%= link_to "Gaps Report (will be moved into Dashboard soon)", gaps_path, class:  "btn btn-primary btn-large" %></br>
+				<%= link_to "Graphs", graphs_path, class:  "btn btn-primary btn-large" %></br>
+			</div>
+			<!--img src="leapImage.jpg" class="featurette-image img-responsive"-->
+			<%= image_tag "leapImage.jpg", class:  "img-responsive", width:  "300px" %>
+	</div>
+
+</div>
+
