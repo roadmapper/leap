@@ -1,28 +1,22 @@
-<%= render "layouts/navigation" %>
-<div class="container">
-	<h1>Missing Account Info</h1>
-	<%= link_to 'Back', root_path, class:  "btn btn-primary btn-large" %>
-</div>
-<hr class="featurette-divider">
-<div class="container">
-	<table class="table-responsive table-bordered">
-	  <tr>
-	    <th>Owner Name</th>
-	    <th>Customer Unique ID</th>
-	    <th>Company Name</th>
-	    <th>Account Number</th>
-	  </tr>
+<h1>Missing Account Info</h1>
 
-	<% @records_array.each do |record| %>
-	  <tr>
-	    <td><%= record[0] %></td>
-	    <td><%= record[1] %></td>
-	    <td><%= record[2] %></td>
-	    <td><%= record[3] %></td>
-	  </tr>
-	<% end %>
-	</table>
+<table border="1">
+  <tr>
+    <th>Owner Name</th>
+    <th>Customer Unique ID</th>
+    <th>Company Name</th>
+    <th>Account Number</th>
+  </tr>
 
-	<br />
-</div>
+<% @records_array.each do |record| %>
+  <tr>
+    <td><%= record[0] %></td>
+    <td><%= record[1] %></td>
+    <td><%= record[2] %></td>
+    <td><%= record[3] %></td>
+  </tr>
+<% end %>
+</table>
 
+<br />
+<%= link_to 'Back', root_path %>

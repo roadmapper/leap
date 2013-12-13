@@ -1,13 +1,6 @@
-<%= render "layouts/navigation" %>
-<div class="container">
-	<%= link_to 'Back', recordings_path, class:  "btn btn-primary btn-large" %>
-	<%= link_to 'Show', @recording, class:  "btn btn-primary btn-large" %>
+<h1>Editing recording</h1>
 
-</div>
-<hr class="featurette-divider">
-<div class="container">
-	<h1>Edit Recording</h1>
+<%= render 'form' %>
 
-	<%= render 'form' %>
-</div>
-
+<%= link_to 'Show', @recording %> |
+<%= link_to 'Back', recordings_path %>

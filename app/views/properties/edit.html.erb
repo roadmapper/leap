@@ -1,14 +1,6 @@
-<%= render "layouts/navigation" %>
+<h1>Editing property</h1>
 
-<div class="container">
-	<%= link_to 'Back', properties_path, class:  "btn btn-primary btn-large" %>
-	<%= link_to 'Show', @property, class:  "btn btn-primary btn-large" %>
-</div>
+<%= render 'form' %>
 
-<hr class="featurette-divider">
-
-<div class="container">
-	<h1>Edit property</h1>
-
-	<%= render 'form' %>
-</div>
+<%= link_to 'Show', @property %> |
+<%= link_to 'Back', properties_path %>

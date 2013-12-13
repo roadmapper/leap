@@ -1,12 +1,5 @@
-<%= render "layouts/navigation" %>
+<h1>New recording</h1>
 
-<div class="container">
-	<%= link_to 'Back', recordings_path, class:  "btn btn-primary btn-large" %>
-	<h1>New recording</h1>
-</div>
-<hr class="featurette-divider">
-<div class="container">
-	<%= render 'form' %>
-</div>
+<%= render 'form' %>
 
-
+<%= link_to 'Back', recordings_path %>
