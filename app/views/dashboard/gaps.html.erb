@@ -186,21 +186,6 @@
 	<% end %>
 
 	<% if (@gas_recordings) %>
-
-	<h3> Raw Gas Data </h3>
-
-	<table border = 1>
-		<tr>
-			<th> Read Date </th>
-			<th> Consumption </th>
-		</tr>
-		<% for i in 0..@gas_recordings.count-1 %>
-			<tr>
-			<td> <%= @gas_recordings[i].read_date %> </td>
-			<td> <%= @gas_recordings[i].consumption %> </td>
-			</tr>
-		<% end %>
-	</table>
 		
 	<h3> Gaps Report - Gas </h3>
 
