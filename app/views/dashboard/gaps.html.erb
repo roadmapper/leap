@@ -1,134 +1,293 @@
-<% if (@property) %>
-	<% title "Gaps Report for #{@property.owner_name}" %>
-	<h1><%= "Gaps Report for #{@property.owner_name}" %></h1>
+<% title "Customer #{@property.customer_unique_id}" %>
+<h1><%= "Report for Customer #{@property.customer_unique_id}" %></h1>
+	<p><%="Customer Name: " + @property.owner_name %></p>
 	<p><%= @property.street_address %></p>
 	<p><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></p>
-	<p><%= "LEAP Customer ID: #{@property.customer_unique_id}" %></p>
-	<% if (@power_record_lookup) %>
-		<p><%= "#{@power_record_lookup.company_name} Account Number: #{@power_record_lookup.acct_num} " %></p>
-		<% if (@power_recordings.length <= 0) %>
+	<% if (@electric_record_lookup) %>
+		<p><%= "#{@electric_record_lookup.company_name} Account Number: #{@electric_record_lookup.acct_num} " %></p>
+		<% if (@electric_recordings.length <= 0) %>
 			<h3><%= "No power readings found for this property"%></h3>
 		<% end %>
 	<% end %>
 	<% if (@gas_record_lookup) %>
-		<p><%= "#{@gas_record_lookup.company_name} Test Account Number: #{@gas_record_lookup.acct_num} " %></p>
+		<p><%= "#{@gas_record_lookup.company_name} Account Number: #{@gas_record_lookup.acct_num} " %></p>
 		<% if (@gas_recordings.length <= 0) %>
-			<h3><%= "No gas readings found for this property"%></h3>
+			<h4><%= "No gas readings found for this property"%></h4>
 		<% end %>
 	<% end %>
 	<% if (@property.finish_date) %>
 		<p><%= "Test Out Date: " + @testoutdate.strftime("%B %e, %Y")%></p>
-		<% if (@power_record_lookup) %>
-			<% if (@power_recordings.length > 0) %>
-				<h3>Power Readings</h3>
-				<table border="1">
-				<tr>
-				<%(0..11).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<th><%= @currdate.strftime("%B %Y")%></th>
-				<%end%>
-				</tr>
+	<% end %>
 
-				<tr>
-				<%(0..11).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<%@notFound = true%>
-					<% @power_recordings.each do|r| %>
-						<% if (@currdate.month == r.read_date.month && @currdate.year == r.read_date.year) %>
-							<td bgcolor="11F215"><%=r.consumption%></td>
-							<%@power_recordings.delete(r)%>
-							<%@notFound=false%>
-							<%break%>
-						<%end%>
-					<%end%>
-					<%if (@notFound) %>
-						<td bgcolor="F24E4E">Edit</td>
-					<%end%>
-				<%end%>
-				
-				</tr>
-				<%(12..23).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<th><%= @currdate.strftime("%B %Y")%></th>
-				<%end%>
-				</tr>
 
-				<tr>
-				<%(12..23).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<%@notFound = true%>
-					<% @power_recordings.each do|r| %>
-						<% if (@currdate.month == r.read_date.month && @currdate.year == r.read_date.year) %>
-							<td bgcolor="11F215"><%=r.consumption%></td>
-							<%@power_recordings.delete(r)%>
-							<%@notFound=false%>
-							<%break%>
-						<%end%>
-					<%end%>
-					<%if (@notFound) %>
-						<td bgcolor="F24E4E">Edit</td>
-					<%end%>
-				<%end%>
-				</tr>
-				</table>
-			<%else%>
-				<h3><%= "No power readings found for this property"%></h3>
-			<%end%>
-		<%else%>
-			<h3><%= "No power company account information for this property"%></h3>
-		<%end%>
-		<% if (@gas_record_lookup) %>
-			<% if (@gas_recordings.length > 0) %>
-				<h3>Gas Readings</h3>
-				<table border="1">
-				<tr>
-				<%(0..11).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<th><%= @currdate.strftime("%B %Y")%></th>
-				<%end%>
-				</tr>
 
-				<tr>
-				<%(0..11).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
-						<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
-						<%@gas_recordings.delete_at(0)%>
-					<%else%>
-						<td bgcolor="F24E4E">Edit</td>
-					<%end%>
-				<%end%>
-				
-				</tr>
-				<%(12..23).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<th><%= @currdate.strftime("%B %Y")%></th>
-				<%end%>
-				</tr>
+	<% if (@electric_recordings && @gas_recordings) %>
 
+		<h3> Raw Data </h3>
+
+		<table border = 1>
+			<tr>
+				<th colspan="3"> Electricity</th>
+				<th colspan="3"> Gas</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..@electric_recordings.count-1 %>
 				<tr>
-				<%(12..23).each do |i| %>
-					<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-					<% if (@currdate.month == @gas_recordings[0].read_date.month && @currdate.year == @gas_recordings[0].read_date.year) %>
-						<td bgcolor="11F215"><%=@gas_recordings[0].consumption%></td>
-						<%@gas_recordings.delete_at(0)%>
-					<%else%>
-						<td bgcolor="F24E4E">Edit</td>
-					<%end%>
-				<%end%>
+					<td> <%= @electric_recordings[i].read_date %> </td>
+					<td> <%= @electric_recordings[i].consumption %> </td>
+					<td> <%= @electric_recordings[i].days_in_month %> </td>
+					<td> <%= @gas_recordings[i].read_date %> </td>
+					<td> <%= @gas_recordings[i].consumption %> </td>
+					<td> <%= @gas_recordings[i].days_in_month %> </td>
 				</tr>
-				</table>
-			<%else%>
-				<h3><%= "No gas readings found for this property"%></h3>
-			<%end%>
-		<%else%>
-			<h3><%= "No gas company account information for this property"%></h3>
-		<%end%>
-	<%else%>
-		<%= "No test out date found for this property"%>
-	<%end%>
-<% else %>
-	<%= "Property not found"%>
-<%end%>
-</br>
+			<% end %>
+		</table>
+	<% end %>
+
+	<% if (@electric_recordings && !@gas_recordings) %>
+
+		<h3> Raw Data </h3>
+
+		<table border = 1>
+			<tr>
+				<th colspan="3"> Electricity</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..@electric_recordings.count-1 %>
+				<tr>
+					<td> <%= @electric_recordings[i].read_date %> </td>
+					<td> <%= @electric_recordings[i].consumption %> </td>
+					<td> <%= @electric_recordings[i].days_in_month %> </td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+
+		<% if (!@electric_recordings && @gas_recordings) %>
+
+		<h3> Raw Data </h3>
+
+		<table border = 1>
+			<tr>
+				<th colspan="3"> Gas</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..@electric_recordings.count-1 %>
+				<tr>
+					<td> <%= @gas_recordings[i].read_date %> </td>
+					<td> <%= @gas_recordings[i].consumption %> </td>
+					<td> <%= @gas_recordings[i].days_in_month %> </td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+
+	<% if (@electric_recordings) %>
+		<h3> Gaps Report - Electricity </h3>
+
+		<table border = 1>
+		  <tr>
+		    <th colspan="12" > 12 Months Pre-Testout</th>
+		  </tr>
+		  <tr >
+		    <% for i in 0..((@months.count-1)/2) %>
+		    <td><%= @months[i].strftime("%m") + "/" + @months[i].strftime("%y")%></td>
+		    <%end%>
+		  </tr>
+		  <tr>
+		  		<%usedCount = 0 %>
+		  		<%lastChecked = 0 %>
+		  		<% for i in 0..(@electric_recordings.count)-1 %>
+		  			<%start = lastChecked %>
+		  			<% for j in start..(@months.count-1)/2 %>
+				  		<% if i <= 11 %>
+				  			<% r_date = @electric_recordings[i].read_date - 30.days %>
+				  			<% r_month = r_date.month %>
+				  			<% r_year = r_date.year %>
+				  			<% curr_month= @months[j].month %>
+				  			<% curr_year= @months[j].year %>
+				  			<% if(curr_month == r_month && curr_year == r_year && @electric_recordings[i].consumption != 0) %>
+				  				<td bgcolor="11F215">
+				  					<%=@electric_recordings[i].consumption%>
+				  				</td>
+				  				<% usedCount += 1 %>
+				  				<%lastChecked = j+1 %>
+				  				<% break %>
+					  		<% elsif (curr_month == r_month && curr_year == r_year && @electric_recordings[i].consumption == 0) %>
+								<td bgcolor="FFD700">
+				  					<%=@electric_recordings[i].consumption%>
+				  				</td>
+				  				<% usedCount += 1 %>
+				  				<%lastChecked = j+1 %>
+				  				<%break%>
+				  			<%elsif curr_month != r_month || curr_year != r_year%>
+				  				<td bgcolor="F24E4E"> --- </td>	
+			               	<% end %>
+		               	<% end %>
+		            <% end %>
+	            <% end %>
+			    
+		  </tr>
+		  <tr >
+		    <th colspan="12" > 12 Months Post-Testout</th>
+		  </tr>
+		  <tr>
+		    <% for i in ((@months.count)/2)..(@months.count-1) %>
+		    <td><%= @months[i].strftime("%m") + "/" + @months[i].strftime("%y")%></td>
+		    <%end%>
+		  </tr>
+		  <tr>
+		  		<%lastChecked = (@months.count/2) %>
+		  		<% for i in usedCount..(@electric_recordings.count)-1 %>
+		  			<%start = lastChecked %>
+		  			<% for j in start..(@months.count-1) %>
+				  			<% r_date = @electric_recordings[i].read_date - 30.days %>
+				  			<% puts r_date %> 
+				  			<% puts @months[j]%>
+				  			<% r_month = r_date.month %>
+				  			<% r_year = r_date.year %>
+				  			<% curr_month= @months[j].month %>
+				  			<% curr_year= @months[j].year %>
+				  			<% if(curr_month == r_month && curr_year == r_year && @electric_recordings[i].consumption != 0) %>
+				  				<td bgcolor="11F215">
+				  					<%=@electric_recordings[i].consumption%>
+				  				</td>
+				  				<%lastChecked = j+1%>
+				  				<%break%>
+					  		<% elsif (curr_month == r_month && curr_year == r_year && @electric_recordings[i].consumption == 0) %>
+								<td bgcolor="FFD700">
+				  					<%=@electric_recordings[i].consumption%>
+				  				</td>
+				  				<%lastChecked = j+1%>
+				  				<%break%>
+				  			<%elsif curr_month != r_month && curr_year != r_year%>
+				  				<td bgcolor="F24E4E"> --- </td>	
+			               	<% end %>
+		            <% end %>
+	            <% end %>
+			    
+		  </tr>
+		</table>
+	<% end %>
+
+	<% if (@gas_recordings) %>
+
+	<h3> Raw Gas Data </h3>
+
+	<table border = 1>
+		<tr>
+			<th> Read Date </th>
+			<th> Consumption </th>
+		</tr>
+		<% for i in 0..@gas_recordings.count-1 %>
+			<tr>
+			<td> <%= @gas_recordings[i].read_date %> </td>
+			<td> <%= @gas_recordings[i].consumption %> </td>
+			</tr>
+		<% end %>
+	</table>
+		
+	<h3> Gaps Report - Gas </h3>
+
+	<table border = 1>
+	  <tr>
+	    <th colspan="12" > 12 Months Pre-Testout</th>
+	  </tr>
+	  <tr >
+	    <% for i in 0..((@months.count-1)/2) %>
+	    <td><%= @months[i].strftime("%m") + "/" + @months[i].strftime("%y")%></td>
+	    <%end%>
+	  </tr>
+	  <tr>
+	  		<%usedCount = 0 %>
+	  		<%lastChecked = 0 %>
+	  		<% for i in 0..(@gas_recordings.count)-1 %>
+	  			<%start = lastChecked %>
+	  			<% for j in start..(@months.count-1)/2 %>
+			  		<% if i <= 11 %>
+			  			<% r_date = @gas_recordings[i].read_date - 30.days %>
+			  			<% r_month = r_date.month %>
+			  			<% r_year = r_date.year %>
+			  			<% curr_month= @months[j].month %>
+			  			<% curr_year= @months[j].year %>
+			  			<% if(curr_month == r_month && curr_year == r_year && @gas_recordings[i].consumption != 0) %>
+			  				<td bgcolor="11F215">
+			  					<%=@gas_recordings[i].consumption%>
+			  				</td>
+			  				<% usedCount += 1 %>
+			  				<%lastChecked = j+1 %>
+			  				<% break %>
+				  		<% elsif (curr_month == r_month && curr_year == r_year && @gas_recordings[i].consumption == 0) %>
+							<td bgcolor="FFD700">
+			  					<%=@gas_recordings[i].consumption%>
+			  				</td>
+			  				<% usedCount += 1 %>
+			  				<%lastChecked = j+1 %>
+			  				<%break%>
+			  			<%elsif curr_month != r_month || curr_year != r_year%>
+			  				<td bgcolor="F24E4E"> --- </td>	
+		               	<% end %>
+	               	<% end %>
+	            <% end %>
+            <% end %>
+		    
+	  </tr>
+	  <tr >
+	    <th colspan="12" > 12 Months Post-Testout</th>
+	  </tr>
+	  <tr>
+	    <% for i in ((@months.count)/2)..(@months.count-1) %>
+	    <td><%= @months[i].strftime("%m") + "/" + @months[i].strftime("%y")%></td>
+	    <%end%>
+	  </tr>
+	  <tr>
+	  		<%lastChecked = (@months.count/2) %>
+	  		<% for i in usedCount..(@gas_recordings.count)-1 %>
+	  			<%start = lastChecked %>
+	  			<% for j in start..(@months.count-1) %>
+			  			<% r_date = @gas_recordings[i].read_date - 30.days %>
+			  			<% puts r_date %> 
+			  			<% puts @months[j]%>
+			  			<% r_month = r_date.month %>
+			  			<% r_year = r_date.year %>
+			  			<% curr_month= @months[j].month %>
+			  			<% curr_year= @months[j].year %>
+			  			<% if(curr_month == r_month && curr_year == r_year && @gas_recordings[i].consumption != 0) %>
+			  				<td bgcolor="11F215">
+			  					<%=@gas_recordings[i].consumption%>
+			  				</td>
+			  				<%lastChecked = j+1%>
+			  				<%break%>
+				  		<% elsif (curr_month == r_month && curr_year == r_year && @gas_recordings[i].consumption == 0) %>
+							<td bgcolor="FFD700">
+			  					<%=@gas_recordings[i].consumption%>
+			  				</td>
+			  				<%lastChecked = j+1%>
+			  				<%break%>
+			  			<%elsif curr_month != r_month && curr_year != r_year%>
+			  				<td bgcolor="F24E4E"> --- </td>	
+		               	<% end %>
+	            <% end %>
+            <% end %>
+		    
+	  </tr>
+	</table>
+	<% end %>
+
+
 <%= link_to 'Back', root_path %>
