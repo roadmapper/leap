@@ -1,18 +1,8 @@
-<% if (@property.present?) %>
+
 <h3><%= @property.owner_name %></h3>
 <h3><%= @property.street_address %></h3>
-
-<% if (@property.finish_date) %>
-<% @testoutdate = @property.finish_date %>
-<% @startdate = @testoutdate.to_time.advance(:years=>-1).to_date%>
 <h3><%= "Test out date: " + @testoutdate.strftime("%B") + " " + @testoutdate.strftime("%g")%></h3>
 
-<% @propertyid = @property.id %>
-<% @power_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@propertyid,2) %>
-<% if (@power_record_lookup) %>
-<% @power_acct_num = @power_record_lookup.acct_num %>
-<% @power_recordings = Recording.find_all_by_acctnum_and_utility_type_id(@power_acct_num,2) %>
-<% if (@power_recordings.length > 0) %>
 <h2>Electric Readings</h2>
 
 <%$empty = ""%>
@@ -21,7 +11,7 @@
 <tr>
 	<%(0..11).each do |i| %>
 	<%@currdate = @startdate.to_time.advance(:months=>i).to_date%>
-	<th><%= @currdate.strftime("%B") + " " + @currdate.strftime("%g")%></th>
+	<th><%= @currdate.strftime("%m") + "/" + @currdate.strftime("%y")%></th>
 	<%end%>
 </tr>
 
@@ -173,7 +163,5 @@
 <%else%>
 <h3><%= "No test out date for this property" %></h3>
 
-
-<%end%>
 
 <% end %>
