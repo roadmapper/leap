@@ -10,7 +10,7 @@ gem 'mysql2', '0.3.13'
 #gem 'devise'
 gem 'jquery-rails'
 #gem 'prototype-rails'
-#gem "handles_sortable_columns"
+gem "handles_sortable_columns"
 gem 'will_paginate', '~> 3.0.5'
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
 gem 'devise-encryptable'
