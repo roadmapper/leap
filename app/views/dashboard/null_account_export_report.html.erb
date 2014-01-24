@@ -10,7 +10,7 @@
 
 <% @records_array.each do |record| %>
   <tr>
-    <td><%= record[0] %></td>
+    <td><%= link_to record[0], '/dashboard/gaps?owner=' + record[0] %></td>
     <td><%= record[1] %></td>
     <td><%= record[2] %></td>
     <td><%= record[3] %></td>
@@ -19,4 +19,4 @@
 </table>
 
 <br />
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', dashboard_index_path %>
