@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-    handles_sortable_columns
+
   #USER, PASSWORD = 'dhh', 'secret'
   #before_filter :authentication_check   #, :except => :index
 
@@ -8,8 +8,7 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.xml
   def index
-    order = sortable_column_order
-    @properties = Property.order(order).paginate(:page => params[:page])
+    @properties = Property.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
