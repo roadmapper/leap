@@ -1,13 +1,18 @@
 <h1>Properties</h1>
 
-<table border = 1>
+<table>
   <tr>
-    <th><%= sortable_column "Customer Unique ID" %></th>
-    <th><%= sortable_column "Owner name"%></th>
-    <th><%= sortable_column "Street address"%></th>
-    <th><%= sortable_column "State"%></th>
-    <th><%= sortable_column "Zipcode"%></th>
-    <th><%= sortable_column "Finish date"%></th>
+    <th>Customer unique</th>
+    <th>Owner name</th>
+    <th>Tenant name</th>
+    <th>Street address</th>
+    <th>Zipcode</th>
+    <th>Plus four</th>
+    <th>State</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Finish date</th>
+    <th>Consent date</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,10 +22,15 @@
   <tr>
     <td><%= property.customer_unique_id %></td>
     <td><%= property.owner_name %></td>
+    <td><%= property.tenant_name %></td>
     <td><%= property.street_address %></td>
-    <td><%= property.state %></td>
     <td><%= property.zipcode %></td>
+    <td><%= property.plus_four %></td>
+    <td><%= property.state %></td>
+    <td><%= property.phone %></td>
+    <td><%= property.email %></td>
     <td><%= property.finish_date %></td>
+    <td><%= property.consent_date %></td>
     <td><%= link_to 'Show', property %></td>
     <td><%= link_to 'Edit', edit_property_path(property) %></td>
     <td><%= link_to 'Destroy', property, :confirm => 'Are you sure?', :method => :delete %></td>
