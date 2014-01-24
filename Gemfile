@@ -20,9 +20,6 @@ gem 'googlecharts'
 gem 'roo', '1.2.3'
 gem 'rubyzip', '< 1.0.0'
 
-gem "therubyracer"
-
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
