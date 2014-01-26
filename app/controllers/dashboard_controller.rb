@@ -123,24 +123,26 @@ class DashboardController < ApplicationController
     end
     
     def analysis_ready_dominion_report
-        sql = "SELECT
+      sql = "SELECT
         temp.owner_name,
+		temp.acctnum,
         COUNT(temp.gooddata) AS acceptedDatapoints,
         IF(COUNT(temp.gooddata) >= 24,
            'Ready',
            'Not Ready') AS readyToAnalyze
            FROM
            (SELECT
-            properties.owner_name,
+           properties.owner_name,
             properties.customer_unique_id,
             properties.finish_date,
+			DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
             record_lookups.company_name,
             recordings.acctnum,
             recordings.read_date,
             recordings.consumption,
-            DATEDIFF(properties.finish_date, recordings.read_date) AS datediffnum,
-            IF(DATEDIFF(properties.finish_date, recordings.read_date) <= 395
-               AND DATEDIFF(properties.finish_date, recordings.read_date) >= - 395, 1, 0) AS gooddata
+            DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) AS datediffnum,
+            IF(DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) <= 365
+               AND DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) >= - 365, 1, NULL) AS gooddata
             FROM
             properties
             INNER JOIN record_lookups ON record_lookups.property_id = properties.id
@@ -148,10 +150,11 @@ class DashboardController < ApplicationController
             WHERE
             record_lookups.company_name = 'DOMINION'
             AND properties.finish_date IS NOT NULL) temp
-            GROUP BY temp.owner_name;"
+            GROUP BY temp.owner_name, temp.acctnum
+			ORDER BY acceptedDatapoints DESC;"
             @records_array = ActiveRecord::Base.connection.execute(sql)
-            header = ["Owner Name", "Meter Readings", "Ready to Analyze"]
-            fields = 3
+            header = ["Owner Name", "Dominion Account Number", "Meter Readings", "Ready to Analyze"]
+            fields = 4
             respond_to do |format|
                 format.html
                 format.csv { send_data csv_export(header, @records_array, fields) }
