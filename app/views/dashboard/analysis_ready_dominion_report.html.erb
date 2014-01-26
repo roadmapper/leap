@@ -1,8 +1,9 @@
-<h1>Ready to Analyze Customers</h1>
+<h1>Ready to Analyze Customers for Dominion Virginia Power</h1>
 
 <table border="1">
   <tr>
     <th>Owner Name</th>
+    <th>Account Number</th>
     <th>Meter Readings</th>
     <th>Ready to Analyze</th>
   </tr>
@@ -12,6 +13,7 @@
     <td><%= link_to record[0], 'gaps?owner=' + record[0] %></td>
     <td><%= record[1] %></td>
     <td><%= record[2] %></td>
+    <td><%= record[3] %></td>
   </tr>
 <% end %>
 </table>
