@@ -38,14 +38,26 @@
 				<th> Consumption </th>
 				<th> Days in Month </th>
 			</tr>
-			<% for i in 0..@electric_recordings.count-1 %>
+			<% for i in 0..[@electric_recordings.count-1, @gas_recordings.count-1].max %>
 				<tr>
-					<td> <%= @electric_recordings[i].read_date %> </td>
-					<td> <%= @electric_recordings[i].consumption %> </td>
-					<td> <%= @electric_recordings[i].days_in_month %> </td>
-					<td> <%= @gas_recordings[i].read_date %> </td>
-					<td> <%= @gas_recordings[i].consumption %> </td>
-					<td> <%= @gas_recordings[i].days_in_month %> </td>
+					<%if(@electric_recordings[i])%>
+						<td> <%= @electric_recordings[i].read_date %> </td>
+						<td> <%= @electric_recordings[i].consumption %> </td>
+						<td> <%= @electric_recordings[i].days_in_month %> </td>
+					<%else%>
+						<td></td>
+						<td></td>
+						<td></td>
+					<%end%>
+					<%if(@gas_recordings[i])%>
+						<td> <%= @gas_recordings[i].read_date %> </td>
+						<td> <%= @gas_recordings[i].consumption %> </td>
+						<td> <%= @gas_recordings[i].days_in_month %> </td>
+					<%else%>
+						<td></td>
+						<td></td>
+						<td></td>
+					<%end%>
 				</tr>
 			<% end %>
 		</table>
@@ -87,7 +99,7 @@
 				<th> Consumption </th>
 				<th> Days in Month </th>
 			</tr>
-			<% for i in 0..@electric_recordings.count-1 %>
+			<% for i in 0..@gas_recordings.count-1 %>
 				<tr>
 					<td> <%= @gas_recordings[i].read_date %> </td>
 					<td> <%= @gas_recordings[i].consumption %> </td>
