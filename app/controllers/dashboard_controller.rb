@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
     #USER, PASSWORD = 'dhh', 'secret'
     #before_filter :authentication_check   #, :except => :index
     include DashboardHelper
+    include PropertiesHelper
     
     def index
         @property = Property.find_by_owner_name(params[:owner])
@@ -65,29 +66,42 @@ class DashboardController < ApplicationController
         if (@property)
             @testoutdate = @property.finish_date
             if (@testoutdate)
-                @startdate = @testoutdate - 1.years 
-                @enddate = @testoutdate + 1.years
+                @startdate = start_date(@testoutdate);
+                @enddate = end_date(@testoutdate);
                 @electric_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@property.id,1) #ID and Electric
                 if (@electric_record_lookup)
-                    @electric_recordings = Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: @startdate, end_date: @enddate, acct_num: @electric_record_lookup.acct_num}).order("read_date ASC")
+                    @electric_recordings = get_records(@electric_record_lookup, @startdate, @enddate)
+                    if(@electric_recordings)
+                        if(@electric_recordings.length >= 0)
+                            @electric_gap_data = get_data(@electric_recordings)
+                            else
+                            @electric_recordings = nil;
+                        end
+                    end
                     
                 end
+                
                 @gas_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@property.id,2)
                 if (@gas_record_lookup)    
-                    @gas_recordings = Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: @startdate, end_date: @enddate, acct_num: @gas_record_lookup.acct_num}).order("read_date ASC")
+                    @gas_recordings = get_records(@gas_record_lookup, @startdate, @enddate)
+                    if(@gas_recordings)
+                        if(@gas_recordings.length >= 0)
+                            @gas_gap_data = get_data(@gas_recordings)
+                        else
+                            @gas_recordings = nil;
+                        end
+                    end
                 end
                 
-                @months = Array.new
-                for i in 0..23
-
-                    @months.push(@startdate + i.months)
-
-                end
-
-                @startdate = @startdate.beginning_of_month 
-                @enddate = @enddate.beginning_of_month 
+                @months = gap_months(@startdate)
                 
-
+                
+               
+                
+            else
+            
+            flash[:alert] = "This property does not contain a listed test out date!"
+            #Add testout date functionality here??
             end
             
             else
