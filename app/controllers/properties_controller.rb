@@ -1,15 +1,15 @@
 class PropertiesController < ApplicationController
-
   #USER, PASSWORD = 'dhh', 'secret'
   #before_filter :authentication_check   #, :except => :index
 
   #http_basic_authenticate_with :name =>"username", :password => "secret"
 
+  helper_method :sort_column, :sort_direction
+
   # GET /properties
   # GET /properties.xml
   def index
-    @properties = Property.paginate(:page => params[:page])
-
+    @properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
@@ -89,8 +89,16 @@ class PropertiesController < ApplicationController
 
   private
   def authentication_check
-	authenticate_or_request_with_http_basic do |user, password|
-	user == USER && password == PASSWORD
-	end
+   authenticate_or_request_with_http_basic do |user, password|
+     user == USER && password == PASSWORD
+   end
+ end
+
+  def sort_column
+    Property.column_names.include?(params[:sort]) ? params[:sort] : "customer_unique_id"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 end
