@@ -68,12 +68,17 @@ class DashboardController < ApplicationController
             if (@testoutdate)
                 @startdate = start_date(@testoutdate);
                 @enddate = end_date(@testoutdate);
+                
+                @months = gap_months(@startdate)
+                
                 @electric_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@property.id,1) #ID and Electric
+                
                 if (@electric_record_lookup)
                     @electric_recordings = get_records(@electric_record_lookup, @startdate, @enddate)
                     if(@electric_recordings)
                         if(@electric_recordings.length >= 0)
-                            @electric_gap_data = get_data(@electric_recordings)
+                            @electric_gap_data = get_data(@electric_recordings, @startdate)
+                            # puts @electric_gap_data
                             else
                             @electric_recordings = nil;
                         end
@@ -86,22 +91,17 @@ class DashboardController < ApplicationController
                     @gas_recordings = get_records(@gas_record_lookup, @startdate, @enddate)
                     if(@gas_recordings)
                         if(@gas_recordings.length >= 0)
-                            @gas_gap_data = get_data(@gas_recordings)
+                            @gas_gap_data = get_data(@gas_recordings, @startdate)
+                            # puts @gas_gap_data
                         else
                             @gas_recordings = nil;
                         end
                     end
                 end
                 
-                @months = gap_months(@startdate)
-                
-                
-               
-                
             else
-            
-            flash[:alert] = "This property does not contain a listed test out date!"
-            #Add testout date functionality here??
+                flash[:alert] = "This property does not contain a listed test out date!"
+                #Add testout date functionality here??
             end
             
             else
