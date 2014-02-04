@@ -5,9 +5,9 @@ module PropertiesHelper
         #Start data retrieval on the 20th of the month to ensure capturing all relevant data.
         
         if(to_date.day < 15)
-            (to_date - 1.years).beginning_of_month + 19.days
+            (to_date - 1.years).beginning_of_month + 14.days
         else
-            (to_date - 1.years + 1.month).beginning_of_month + 19.days
+            (to_date - 1.years + 1.month).beginning_of_month + 14.days
         end
         
     end
