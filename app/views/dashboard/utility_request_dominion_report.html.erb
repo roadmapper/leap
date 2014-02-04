@@ -1,0 +1,24 @@
+<h1>Utility Requests for Dominion Virginia Power</h1>
+
+<table border="1">
+  <tr>
+    <th>Owner Name</th>
+    <th>Address</th>
+    <th>Account Number</th>
+    <th>Number of Acceptable Meter Readings</th>
+  </tr>
+
+<% @records_array.each do |record| %>
+  <tr>
+    <td><%= link_to record[0], url_for(:controller => "dashboard", :action => "gaps", :owner => record[0]) %></td>
+    <td><%= record[1] %></td>
+    <td><%= record[2] %></td>
+    <td><%= record[3] %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Back', dashboard_index_path %>
+~                                                                                                                                                                                                   
+~                                                       

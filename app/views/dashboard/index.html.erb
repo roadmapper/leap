@@ -17,14 +17,27 @@ Generate list of customers with missing account information
 <%= button_to "Generate HTML View", dashboard_null_account_export_report_path, :method => "get" %>
 <%= button_to "Generate and Export to CSV", dashboard_null_account_export_report_path(:format => "csv"), :method => "get" %>
 </br>
-Generate list of customers with "Ready to Analyze" meter readings (Dominion) 
+
+<h2>Dominion Virginia Power</h2>
+Generate list of customers with "Ready to Analyze" meter readings
 <%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get" %>
 <%= button_to "Generate and Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get" %>
 </br>
-Generate list of customers with "Ready to Analyze" meter readings (Charlottesville Gas) 
+Generate Utility Request
+<%= button_to "Generate HTML View", dashboard_utility_request_dominion_report_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_utility_request_dominion_report_path(:format => "csv"), :method => "get" %>
+</br>
+
+<h2>Charlottesville Gas</h2>
+Generate list of customers with "Ready to Analyze" meter readings
 <%= button_to "Generate HTML View", dashboard_analysis_ready_cvillegas_report_path, :method => "get" %>
 <%= button_to "Generate and Export to CSV", dashboard_analysis_ready_cvillegas_report_path(:format => "csv"), :method => "get" %>
 </br>
+Generate Utility Request
+<%= button_to "Generate HTML View", dashboard_utility_request_cvillegas_report_path, :method => "get" %>
+<%= button_to "Generate and Export to CSV", dashboard_utility_request_cvillegas_report_path(:format => "csv"), :method => "get" %>
+</br>
+
 
 <p>Upload</p>
 <%= form_tag({:action => :upload}, :multipart => true) do %>

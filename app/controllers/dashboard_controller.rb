@@ -214,6 +214,90 @@ class DashboardController < ApplicationController
             end
     end
 
+    def utility_request_dominion_report
+      sql = "SELECT
+        temp.owner_name,
+                        CONCAT(temp.street_address, ' ', temp.city, ', ', temp.state, ' ', temp.zipcode) AS address,
+                temp.acctnum,
+                COUNT(temp.gooddata) AS acceptedDatapoints
+        FROM
+           (SELECT
+           properties.owner_name,
+                        properties.street_address,
+                        properties.city,
+                        properties.state,
+                        properties.zipcode,
+            properties.customer_unique_id,
+            properties.finish_date,
+                        DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
+            record_lookups.company_name,
+            recordings.acctnum,
+            recordings.read_date,
+            recordings.consumption,
+            DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) AS datediffnum,
+            IF(DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) <= 365
+               AND DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) >= - 365, 1, NULL) AS gooddata
+            FROM
+            properties
+            INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+            INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+            WHERE
+            record_lookups.company_name = 'DOMINION'
+            AND properties.finish_date IS NOT NULL) temp
+GROUP BY temp.owner_name, temp.acctnum
+HAVING COUNT(temp.gooddata) < 24
+                        ORDER BY acceptedDatapoints DESC;"
+            @records_array = ActiveRecord::Base.connection.execute(sql)
+            header = ["Owner Name", "Address", "Account Number", "Acceptable Meter Readings"]
+            fields = 4
+            respond_to do |format|
+                format.html
+                format.csv { send_data csv_export(header, @records_array, fields) }
+            end
+    end
+
+    def utility_request_cvillegas_report
+      sql = "SELECT
+        temp.owner_name,
+			CONCAT(temp.street_address, ' ', temp.city, ', ', temp.state, ' ', temp.zipcode) AS address,
+                temp.acctnum,
+                COUNT(temp.gooddata) AS acceptedDatapoints
+        FROM
+           (SELECT
+           properties.owner_name,
+			properties.street_address,
+			properties.city,
+			properties.state,
+			properties.zipcode,
+            properties.customer_unique_id,
+            properties.finish_date,
+                        DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
+            record_lookups.company_name,
+            recordings.acctnum,
+            recordings.read_date,
+            recordings.consumption,
+            DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) AS datediffnum,
+            IF(DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) <= 365
+               AND DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) >= - 365, 1, NULL) AS gooddata
+            FROM
+            properties
+            INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+            INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+            WHERE
+            record_lookups.company_name = 'CVILLEGAS'
+            AND properties.finish_date IS NOT NULL) temp
+GROUP BY temp.owner_name, temp.acctnum
+HAVING COUNT(temp.gooddata) < 24
+                        ORDER BY acceptedDatapoints DESC;"
+            @records_array = ActiveRecord::Base.connection.execute(sql)
+            header = ["Owner Name", "Address", "Account Number", "Acceptable Meter Readings"]
+            fields = 4
+            respond_to do |format|
+                format.html
+                format.csv { send_data csv_export(header, @records_array, fields) }
+            end
+    end
+
     
     def csv_export(header, data, fields)
         CSV.generate do |csv|
