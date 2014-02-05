@@ -32,6 +32,8 @@ class DashboardController < ApplicationController
             Upload.where(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
             #Would prefer to put in seperate helper function but failure on that...
             
+	    csvPath = nil 
+	    csvName = nil
             Thread.new do
                 Dir[path+"/*.xlsx"].each do |file|
                     file_path = "#{file}"
@@ -40,7 +42,9 @@ class DashboardController < ApplicationController
                     $i = xlsx.sheets.length - 1
                     while $i >= 0 do
                         xlsx.default_sheet = xlsx.sheets[$i]
-                        xlsx.to_csv(path +"/#{file_basename}#{$i}.csv")
+			csvName = "/#{file_basename}#{$i}.csv"
+			csvPath = path + name
+                        xlsx.to_csv(csvPath)
                         Upload.where(:file_name => "#{file_basename}#{$i}.csv", :status => 'Not Processed', :upload_date => Time.now).first_or_create(:locked => false)
                         $i -=1
                     end
@@ -49,8 +53,28 @@ class DashboardController < ApplicationController
                     end
                     #turn on if want to remove xlsx file after conversion (probably want to keep off so can check if xlsx file is already uploaded)
                     #FileUtils.remove(file)
-                    #print "Converted file #{file} \n"
                 end
+	        
+############temp location############################
+	Thread.new.do
+		fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED ContractAcct. Consumption }
+		rows_to_insert = []
+		
+		CSV.foreach(csvPath, headers: true) do |row|
+		  row_to_insert = row.to_hash.select { |k, v| fields_to_insert.include?(k) }
+		 #row.to_hash.values_at(*fields_to_insert)
+		  #rows_to_insert << row_to_insert
+
+		  stringdate = row_to_insert["DT_READ"]
+                  date = DateTime.new(1899,12,30) + Integer(stringdate).days 
+		  
+   		  #formatted_date = date.strftime('%a %b %d %Y')
+		  
+		Recording.where({"acctnum"=>row_to_insert["ID_BA"], "consumption"=>row_to_insert["AMT_KWH"], "days_in_month"=>row_to_insert["DAYS_USED"], "read_date"=>date}).first_or_create(:locked => false)
+		end
+		Upload.update_all( {:status => 'Processed'}, {:file_name => csvName})
+	end
+############temp location############################
                 elsif File.exists?(path + "//" + filename)
                 flash[:notice] = "Duplicate file exists. File was not uploaded successfully to: " + path
                 else
