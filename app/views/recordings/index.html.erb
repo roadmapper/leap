@@ -1,4 +1,4 @@
-<h1>Listing recordings</h1>
+<h1>Meter Readings</h1>
 
 <table class="table table-striped">
   <tr>
@@ -6,7 +6,6 @@
     <th>Read date</th>
     <th>Consumption</th>
     <th>Days in month</th>
-    <th>Utility type</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,7 +17,6 @@
     <td><%= recording.read_date %></td>
     <td><%= recording.consumption %></td>
     <td><%= recording.days_in_month %></td>
-    <td><%# recording.utility_type %></td>
     <td><%= link_to 'Show', recording %></td>
     <td><%= link_to 'Edit', edit_recording_path(recording) %></td>
     <td><%= link_to 'Destroy', recording, method: :delete, data: { confirm: 'Are you sure?' } %></td>
