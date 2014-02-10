@@ -1,22 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Customer unique:</b>
+  <b>Customer Unique ID:</b>
   <%= @property.customer_unique_id %>
 </p>
 
 <p>
-  <b>Owner name:</b>
+  <b>Owner Name:</b>
   <%= @property.owner_name %>
 </p>
 
 <p>
-  <b>Tenant name:</b>
-  <%= @property.tenant_name %>
-</p>
-
-<p>
-  <b>Street address:</b>
+  <b>Street Address:</b>
   <%= @property.street_address %>
 </p>
 
@@ -26,18 +21,8 @@
 </p>
 
 <p>
-  <b>Plus four:</b>
-  <%= @property.plus_four %>
-</p>
-
-<p>
   <b>State:</b>
   <%= @property.state %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @property.phone %>
 </p>
 
 <p>
@@ -55,6 +40,14 @@
   <%= @property.consent_date %>
 </p>
 
+<p>
+  <b>Account numbers:</b></br>
+  <% for record_lookup in @property.record_lookups %>
+    <%= h record_lookup.company_name %>
+    <%= h record_lookup.acct_num %>
+    </br>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
