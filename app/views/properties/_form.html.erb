@@ -20,10 +20,6 @@
     <%= f.text_field :owner_name %>
   </div>
   <div class="field">
-    <%= f.label :tenant_name %><br />
-    <%= f.text_field :tenant_name %>
-  </div>
-  <div class="field">
     <%= f.label :street_address %><br />
     <%= f.text_field :street_address %>
   </div>
@@ -32,29 +28,30 @@
     <%= f.text_field :zipcode %>
   </div>
   <div class="field">
-    <%= f.label :plus_four %><br />
-    <%= f.text_field :plus_four %>
-  </div>
-  <div class="field">
     <%= f.label :state %><br />
     <%= f.text_field :state %>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
   </div>
   <div class="field">
     <%= f.label :finish_date %><br />
     <%= f.date_select :finish_date %>
   </div>
+  <p>Account Information:</p>
+  <%= f.fields_for :record_lookups, @property.record_lookups do |record_lookups_form| %>
   <div class="field">
-    <%= f.label :consent_date %><br />
-    <%= f.date_select :consent_date %>
+    <%#= unless record_lookups_form.object.new_record? %>
+      <% # Don't forget to name both of these '_destroy' in Rails 3 %>
+      <%#= record_lookups_form.check_box '_delete' %>
+      <%#= record_lookups_form.label '_delete', 'Remove' %>
+    <%# end %>
+    
+    <%= record_lookups_form.label :company_name %>
+    <%= record_lookups_form.text_field :company_name %><br />
+    <%= record_lookups_form.label :acct_num %>
+    <%= record_lookups_form.text_field :acct_num %>
   </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
