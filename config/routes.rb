@@ -3,7 +3,7 @@ Public::Application.routes.draw do
   devise_for :users
   devise_scope :user do
   authenticated :user do
-       root :to =>'home#index'
+       root :to =>'dashboard#index'
 	end
     unauthenticated :user do
  	#root :to => 'devise/registrations#new'#, as: :unauthenticated_root
@@ -35,7 +35,9 @@ Public::Application.routes.draw do
 	end
   end
 
-  root :to => "home#index"
+  root :to => "dashboard#index"
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
