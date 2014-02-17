@@ -24,11 +24,9 @@ Public::Application.routes.draw do
   resources :dashboard
 
   resources :recordings
-
-  get "gaps/index"
-  resources :gaps
-  resources :graphs
-
+  get 'analysis', to: 'analysis#index'
+  get 'filtering', to: 'filtering#index'
+  get 'requests', to: 'requests#index'
   resources :uploads do
 	member do
 	    get :process
