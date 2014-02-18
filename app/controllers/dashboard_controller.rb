@@ -1,17 +1,17 @@
 class DashboardController < ApplicationController
+    #autocomplete :property, :owner_name
     #USER, PASSWORD = 'dhh', 'secret'
     #before_filter :authentication_check   #, :except => :index
     include DashboardHelper
     include PropertiesHelper
-    
+
     def index
+        @names = Property.find(:all, :select=>'owner_name').map(&:owner_name)
         @property = Property.find_by_owner_name(params[:owner])
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @property }
-        end
-    
-    
+        end    
     
     def upload
         uploaded_io = params[:file]
