@@ -6,17 +6,31 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<%= image_tag "logo.png", class: "img-responsive" %>
+				
 				</div>
 				<div class="col-lg-6">
 					<h2>Search Properties:</h2>
 					<%= form_tag dashboard_gaps_path, class: "form-inline", :method => "get" do %>
 					<%= label_tag(:owner,"") %>
-					<%= text_field_tag(:owner, placeholder="", class: "form-control") %>
+					<%= text_field_tag(:owner, placeholder="", class: "typeahead") %>
 					<%= submit_tag("Search >>", class: 'btn btn-primary') %>
 					<% end %>
 				</div>
+
+
+		 
 			</div>
 		</div>
+
+
+
+<%= javascript_tag "var names = #{ @names.to_json };" %>    
+<script>
+  $('.typeahead').typeahead({
+    name: 'people',
+    local: names
+  });
+</script>
 
 	<div class="container marketing" > 
 		Generate list of customers with missing account information 
