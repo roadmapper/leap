@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20131212224800) do
 
+  create_table "null_accts", :id => false, :force => true do |t|
+    t.string "owner_name"
+    t.string "customer_unique_id"
+    t.string "company_name"
+    t.string "acct_num"
+  end
+
   create_table "properties", :force => true do |t|
     t.string   "customer_unique_id"
     t.string   "owner_name"
