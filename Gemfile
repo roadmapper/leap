@@ -9,6 +9,8 @@ gem 'sqlite3', :require => 'sqlite3'
 gem 'mysql2', '0.3.13'
 #gem 'devise'
 gem 'jquery-rails'
+gem 'ci_reporter'
+
 #gem 'prototype-rails'
 
 gem 'will_paginate', '~> 3.0.5'
