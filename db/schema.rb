@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212224800) do
+ActiveRecord::Schema.define(:version => 20140223214744) do
 
   create_table "null_accts", :id => false, :force => true do |t|
     t.string "owner_name"
