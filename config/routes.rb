@@ -24,7 +24,9 @@ Public::Application.routes.draw do
   resources :dashboard
 
   resources :recordings
+  post '/stagings/insert' => 'stagings#insert'
   resources :stagings
+
   get 'analysis', to: 'analysis#index'
   get 'filtering', to: 'filtering#index'
   get 'requests', to: 'requests#index'
