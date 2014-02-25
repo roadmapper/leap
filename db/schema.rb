@@ -18,32 +18,32 @@ ActiveRecord::Schema.define(:version => 20131212224800) do
     t.string   "owner_name"
     t.string   "tenant_name"
     t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
     t.integer  "zipcode"
     t.integer  "plus_four"
+    t.string   "state"
     t.string   "phone"
     t.string   "email"
     t.date     "finish_date"
     t.date     "consent_date"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "city"
   end
 
   create_table "record_lookups", :force => true do |t|
     t.integer  "property_id"
     t.integer  "utility_type_id"
-    t.string   "company_name"
     t.string   "acct_num"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "company_name"
   end
 
   add_index "record_lookups", ["property_id"], :name => "index_record_lookups_on_property_id"
   add_index "record_lookups", ["utility_type_id"], :name => "index_record_lookups_on_utility_type_id"
 
   create_table "recordings", :force => true do |t|
-    t.string   "acctnum"
+    t.integer  "acctnum"
     t.date     "read_date"
     t.float    "consumption"
     t.integer  "days_in_month"
@@ -54,12 +54,17 @@ ActiveRecord::Schema.define(:version => 20131212224800) do
 
   add_index "recordings", ["utility_type_id"], :name => "index_recordings_on_utility_type_id"
 
-  create_table "test", :id => false, :force => true do |t|
-    t.string "owner_name",     :limit => 25
-    t.string "unique_id",      :limit => 8
-    t.string "company",        :limit => 25
-    t.string "account_number", :limit => 25
+  create_table "stagings", :force => true do |t|
+    t.integer  "acctnum"
+    t.date     "read_date"
+    t.float    "consumption"
+    t.integer  "days_in_month"
+    t.integer  "utility_type_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
+
+  add_index "stagings", ["utility_type_id"], :name => "index_recordings_on_utility_type_id"
 
   create_table "uploads", :force => true do |t|
     t.string   "file_name"
