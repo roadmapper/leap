@@ -1,2 +1,25 @@
 <h1>Requests</h1>
+Generate list of customers with missing account information 
+		<%= button_to "Generate HTML View", dashboard_null_account_export_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>
 
+		</br>
+
+		<%= button_to "Generate and Export to CSV", dashboard_null_account_export_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary' %>
+
+		</br>
+
+		<h2>Dominion Virginia Power</h2>
+
+		Generate Utility Request
+		<%= button_to "Generate HTML View", dashboard_utility_request_dominion_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>
+		</br>
+		<%= button_to "Generate and Export to CSV", dashboard_utility_request_dominion_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary' %>
+		</br>
+
+		<h2>Charlottesville Gas</h2>
+		
+		Generate Utility Request
+		<%= button_to "Generate HTML View", dashboard_utility_request_cvillegas_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>
+		</br>
+		<%= button_to "Generate and Export to CSV", dashboard_utility_request_cvillegas_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary' %>
+		</br>
