@@ -24,9 +24,11 @@ Public::Application.routes.draw do
   resources :dashboard
 
   resources :recordings
+  resources :stagings
   get 'analysis', to: 'analysis#index'
   get 'filtering', to: 'filtering#index'
   get 'requests', to: 'requests#index'
+  get 'uploads/stagings', to: 'stagings#index'
   resources :uploads do
 	member do
 	    get :process
