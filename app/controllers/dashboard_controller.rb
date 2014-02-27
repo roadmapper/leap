@@ -18,10 +18,7 @@ class DashboardController < ApplicationController
         railspath =  Rails.root.join('..', 'uploads')
         path = railspath.to_s
         filename = uploaded_io.original_filename
-        #print path
-        #print File.exists?(path)
-        #print File.directory?(path)
-        #print "holla holla get dolla"
+        
         if !File.exists?(path + "//" + filename) && File.directory?(path)
             File.open(path + "//" + filename, 'w') do |file|
                 input = uploaded_io.read
@@ -34,7 +31,7 @@ class DashboardController < ApplicationController
             
 	    csvPath = nil 
 	    csvName = nil
-            Thread.new do
+            #Thread.new do
                 Dir[path+"/*.xlsx"].each do |file|
                     file_path = "#{file}"
                     file_basename = File.basename(file, ".xlsx")
@@ -55,7 +52,7 @@ class DashboardController < ApplicationController
                     #FileUtils.remove(file)
 
 ############temp location############################
-		Thread.new do
+		#Thread.new do
 			fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED ContractAcct. Consumption }
 			rows_to_insert = []
 		
@@ -69,12 +66,12 @@ class DashboardController < ApplicationController
 			  
 	   		  #formatted_date = date.strftime('%a %b %d %Y')
 			  
-			Recording.where({"acctnum"=>row_to_insert["ID_BA"], "consumption"=>row_to_insert["AMT_KWH"], "days_in_month"=>row_to_insert["DAYS_USED"], "read_date"=>date}).first_or_create(:locked => false)
+			Staging.where({"acctnum"=>row_to_insert["ID_BA"], "consumption"=>row_to_insert["AMT_KWH"], "days_in_month"=>row_to_insert["DAYS_USED"], "read_date"=>date}).first_or_create(:locked => false)
 			end
 			Upload.update_all( {:status => 'Processed'}, {:file_name => csvName})
-		end
+		#end
 ############temp location############################
-                end
+                #end
 	        
 
                 elsif File.exists?(path + "//" + filename)

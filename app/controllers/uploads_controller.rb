@@ -1,6 +1,7 @@
 class UploadsController < ApplicationController
   # GET /uploads
-  # GET /uploads.json
+  # GET /uploads.json 
+#thought I should have stagings directly in here but maybe should link instead... bleh
   def index
     @uploads = Upload.all
 

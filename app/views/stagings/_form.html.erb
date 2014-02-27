@@ -1,0 +1,33 @@
+<%= form_for(@staging) do |f| %>
+  <% if @staging.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@staging.errors.count, "error") %> prohibited this staging from being saved:</h2>
+
+      <ul>
+      <% @staging.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :acctnum %><br />
+    <%= f.number_field :acctnum %>
+  </div>
+  <div class="field">
+    <%= f.label :read_date %><br />
+    <%= f.date_select :read_date %>
+  </div>
+  <div class="field">
+    <%= f.label :consumption %><br />
+    <%= f.text_field :consumption %>
+  </div>
+  <div class="field">
+    <%= f.label :days_in_month %><br />
+    <%= f.number_field :days_in_month %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
