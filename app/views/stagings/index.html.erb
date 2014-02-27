@@ -13,10 +13,10 @@
 
 <% @stagings.each do |staging| %>
   <tr>
-    <td><%= on_the_spot_edit staging, :acctnum %></td>
-    <td><%= on_the_spot_edit staging, :read_date %></td>
-    <td><%= on_the_spot_edit staging, :consumption %></td>
-    <td><%= on_the_spot_edit staging, :days_in_month %></td>
+    <td><%= on_the_spot_edit staging, :acctnum, :type => :textarea, :rows => 1, :columns => 10 %></td>
+    <td><%= on_the_spot_edit staging, :read_date, :type => :textarea, :rows => 1, :columns => 10  %></td>
+    <td><%= on_the_spot_edit staging, :consumption, :type => :textarea, :rows => 1, :columns => 10  %></td>
+    <td><%= on_the_spot_edit staging, :days_in_month, :type => :textarea, :rows => 1, :columns => 10  %></td>
     <td><%= link_to 'Show', staging %></td>
     <td><%= link_to 'Edit', edit_staging_path(staging) %></td>
     <td><%= link_to 'Destroy', staging, method: :delete, data: { confirm: 'Are you sure?' } %></td>
