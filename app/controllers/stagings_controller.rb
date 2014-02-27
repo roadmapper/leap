@@ -2,6 +2,8 @@ class StagingsController < ApplicationController
 
   # GET /stagings
   # GET /stagings.json
+  can_edit_on_the_spot
+  respond_to :json
   def index
     
     @stagings = Staging.paginate(:page => params[:page])
