@@ -13,7 +13,7 @@
 
 <% @stagings.each do |staging| %>
   <tr>
-    <td><%= staging.acctnum %></td>
+    <td><%= on_the_spot_edit staging, :acctnum %></td>
     <td><%= staging.read_date %></td>
     <td><%= staging.consumption %></td>
     <td><%= staging.days_in_month %></td>

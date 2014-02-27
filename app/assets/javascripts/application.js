@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require_tree .
 //= require twitter/typeahead
+//= require on_the_spot
