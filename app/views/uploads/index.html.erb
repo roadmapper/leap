@@ -1,5 +1,9 @@
 <h1>Upload</h1>
 
+<h3>Processed Data</h3>
+<%= link_to 'Information to be Uploaded', stagings_path %>
+
+<h3>Upload</h3>
 		<%= form_tag({:action => :upload, :controller=>"dashboard"}, :multipart => true) do %>
 		  <%= file_field_tag 'file' %>
 		<br>
@@ -13,7 +17,8 @@
 		</div>
 
 
-	<h1>Uploads</h1>
+<h3>Current Uploaded Files</h3>
+
 <table class="table table-striped">
   <tr>
     <th>File Name</th>
