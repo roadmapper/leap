@@ -13,6 +13,8 @@ gem 'ci_reporter'
 
 #gem 'prototype-rails'
 
+gem "on_the_spot"
+
 gem 'will_paginate', '~> 3.0.5'
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
 gem 'devise-encryptable'

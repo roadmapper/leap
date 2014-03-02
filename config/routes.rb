@@ -24,9 +24,18 @@ Public::Application.routes.draw do
   resources :dashboard
 
   resources :recordings
+  post '/stagings/insert' => 'stagings#insert'
+  resources :stagings do
+	collection do
+    		put :update_attribute_on_the_spot
+    		get :get_attribute_on_the_spot
+  	end
+  end
+
   get 'analysis', to: 'analysis#index'
   get 'filtering', to: 'filtering#index'
   get 'requests', to: 'requests#index'
+  get 'uploads/stagings', to: 'stagings#index'
   resources :uploads do
 	member do
 	    get :process
