@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Acctnum:</b>
+  <%= @staging.acctnum %>
+  
+</p>
+
+<p>
+  <b>Read date:</b>
+  <%= @staging.read_date %>
+</p>
+
+<p>
+  <b>Consumption:</b>
+  <%= @staging.consumption %>
+</p>
+
+<p>
+  <b>Days in month:</b>
+  <%= @staging.days_in_month %>
+</p>
+
+<%= link_to 'Edit', edit_staging_path(@staging) %> |
+<%= link_to 'Back', :back %>
+
+
