@@ -3,7 +3,6 @@ class CreateUtilityTypes < ActiveRecord::Migration
     create_table :utility_types do |t|
       t.string :typeName
       t.string :units
-
       t.timestamps
     end
   end
