@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
 //= require twitter/typeahead
 //= require on_the_spot
+//= require ajax_pagination
+//= require_tree .
