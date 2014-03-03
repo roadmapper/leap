@@ -1,0 +1,20 @@
+<table class="table table-striped" border="1">
+  <tr>
+    <th>Owner Name</th>
+    <th>Customer Unique ID</th>
+    <th>Company Name</th>
+    <th>Account Number</th>
+  </tr>
+
+<% @records_array.each do |record| %>
+  <tr>
+    <td><%= link_to owner_name, 'dashboard/gaps?owner=' + owner_name %></td>
+    <td><%= customer_unique_id %></td>
+    <td><%= company_name %></td>
+    <td><%= acct_num %></td>
+  </tr>
+<% end %>
+</table>
+
+
+

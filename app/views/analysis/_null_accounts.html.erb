@@ -1,0 +1,25 @@
+<table class="table table-striped" border="1">
+  <%= ajax_links :section_id => "page" do %>
+    <%= will_paginate @accounts %>
+  <% end %>
+
+  <tr>
+    <th>Owner Name</th>
+    <th>Customer Unique ID</th>
+    <th>Company Name</th>
+    <th>Account Number</th>
+  </tr>
+  <%= ajax_loadzone do %>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= link_to account.owner_name, 'dashboard/gaps?owner=' + account.owner_name %></td>
+      <td><%= account.customer_unique_id %></td>
+      <td><%= account.company_name %></td>
+      <td><%= account.acct_num %></td>
+    </tr>
+  <% end %>
+  <% end %>
+</table>
+
+
+

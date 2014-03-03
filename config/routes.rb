@@ -33,6 +33,7 @@ Public::Application.routes.draw do
   end
 
   get 'analysis', to: 'analysis#index'
+  get 'analysis/null_accounts'
   get 'filtering', to: 'filtering#index'
   get 'requests', to: 'requests#index'
   get 'uploads/stagings', to: 'stagings#index'

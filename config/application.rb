@@ -40,5 +40,7 @@ module Public
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     config.assets.enabled = true
+    # create a db specific dump in structure.sql file rather than schema.rb. IIRC when :sql is set rails test code loads that instead of the schema.rb
+    config.active_record.schema_format = :sql
   end
 end
