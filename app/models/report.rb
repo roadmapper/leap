@@ -1,13 +1,3 @@
-  # == Schema Information
-  #
-  # Table name: report_state_popularities
-  #
-  #  id         :integer
-  #  state      :text
-  #  country    :string(255)
-  #  popularity :integer
-  #
-
   # This is a report from a SQL View
   module Report
     class NullAccount < ActiveRecord::Base
