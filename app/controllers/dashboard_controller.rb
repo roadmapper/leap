@@ -335,6 +335,19 @@ HAVING COUNT(temp.gooddata) < 24
         end
     end
     
+    def update
+        
+        respond_to do |format|
+            if @property.update_attributes(params[:property])
+                format.html { redirect_to(@property, :notice => 'Property was successfully updated.') }
+                format.xml  { head :ok }
+                else
+                format.html { render :action => "edit" }
+                format.xml  { render :xml => @property.errors, :status => :unprocessable_entity }
+            end
+        end
+    end
+    
     private
     def authentication_check
         authenticate_or_request_with_http_basic do |user, password|
