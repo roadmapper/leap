@@ -7,12 +7,16 @@ class DashboardController < ApplicationController
 
     def index
         @names = Property.find(:all, :select=>'owner_name').map(&:owner_name)
-        @property = Property.find_by_owner_name(params[:owner])
+        @addresses = Property.find(:all, :select=>'street_address').map(&:street_address)
+        @variables = @names+@addresses #Property.select([:owner_name, :street_address]).map {|e| {owner_name: e.owner_name, street_address: e.street_address} }
+        #@property = Property.find_by_owner_name(params[:owner])
+        #@property = Property.search(params[:owner])
+        #city, state, zipcode
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @property }
         end    
-    
+
     def upload
         uploaded_io = params[:file]
         railspath =  Rails.root.join('..', 'uploads')
@@ -85,9 +89,15 @@ class DashboardController < ApplicationController
     end
     
     def gaps
-        @property = Property.find_by_owner_name(params[:owner])
+        #@property = Property.where("properties.owner_name like ? OR properties.street_address like ?", "%#{owner}%", "%#{owner}%")#find_by_owner_name(params[:owner])
+        if params[:owner]
+            @property = Property.search(params[:owner])            
+            @property = @property.shift
+        end
         if (@property)
+            #raise @property.inspect\
             @testoutdate = @property.finish_date
+            
             if (@testoutdate)
                 @startdate = start_date(@testoutdate);
                 @enddate = end_date(@testoutdate);
