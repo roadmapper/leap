@@ -66,7 +66,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.update_attributes(params[:property])
-        format.html { redirect_to(@property, :notice => 'Property was successfully updated.') }
+          format.html { redirect_to(:controller => "dashboard", :action => "gaps", :owner => @property.owner_name, :notice => 'Property was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

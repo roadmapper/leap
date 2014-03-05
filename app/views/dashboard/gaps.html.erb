@@ -12,6 +12,8 @@
 	<% end %>
 	<% if (@property.finish_date) %>
 		<p><%= "Test Out Date: " + @testoutdate.strftime("%B %e, %Y")%></p>
+	<%else%>
+		<%= render 'form_to' %>
 	<% end %>
 
 
