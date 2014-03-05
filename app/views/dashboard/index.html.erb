@@ -11,7 +11,7 @@
 					<%= form_tag dashboard_gaps_path, #class: "form-inline",
 					 :method => "get" do %>
 					<%= label_tag(:owner,"", class: "lead") %>
-					<%= text_field_tag :owner, params[:owner], class: "typeahead", class: "form-control input-normal", size: 100,placeholder: "Search Properties" %>
+					<%= text_field_tag :owner, params[:owner], class: "typeahead", size: 100, placeholder: "Search Properties" %>
 					<%= submit_tag("Search", class: 'btn btn-primary') %>
 					<% end %>
 		    			</p>
