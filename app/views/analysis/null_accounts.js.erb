@@ -1,0 +1,7 @@
+$('#null_accts').html("<%= escape_javascript(ajax_section :id => "null_accounts", :render => "null_accounts") %>");
+$(function () {  
+  $('.pagination a').on("click", function () {  
+    $.get(this.href, null, null, 'script');  
+    return false;  
+  });  
+});  

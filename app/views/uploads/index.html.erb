@@ -1,4 +1,23 @@
-<h1>Uploads</h1>
+<h1>Upload</h1>
+
+<h3>Processed Data</h3>
+<%= link_to 'Information to be Uploaded', stagings_path %>
+
+<h3>Upload</h3>
+		<%= form_tag({:action => :upload, :controller=>"dashboard"}, :multipart => true) do %>
+		  <%= file_field_tag 'file' %>
+		<br>
+		<%= submit_tag( "Upload", class: 'btn btn-primary') %>
+		<br>
+		<% end %>
+		
+
+		<div id="ajax">
+		<!--% render :partial => "report" %-->
+		</div>
+
+
+<h3>Current Uploaded Files</h3>
 
 <table class="table table-striped">
   <tr>
@@ -25,6 +44,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Upload', dashboard_index_path %>
-<%= link_to 'Back', root_path %>

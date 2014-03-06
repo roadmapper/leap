@@ -1,10 +1,10 @@
-<%= form_for(@recording) do |f| %>
-  <% if @recording.errors.any? %>
+<%= form_for(@staging) do |f| %>
+  <% if @staging.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@recording.errors.count, "error") %> prohibited this recording from being saved:</h2>
+      <h2><%= pluralize(@staging.errors.count, "error") %> prohibited this staging from being saved:</h2>
 
       <ul>
-      <% @recording.errors.full_messages.each do |msg| %>
+      <% @staging.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
