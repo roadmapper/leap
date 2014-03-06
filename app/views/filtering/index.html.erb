@@ -1,2 +1,157 @@
-<h1>Filtering</h1>
+<h1>Filter by...</h1>
+<br>
+<%= form_tag filtering_path, class: "form-horizontal", :method => "get" do %>
+    <div class="row">
+    	<div class="form_group">
+        	<%= label_tag(:zip,"Zip Code: ", class:"col-md-1 control-label")%>
+            <div class="col-md-3">
+        		<%= text_field_tag(:zip, placeholder=params[:zip] ||= "", class: "form-control") %>
+        	</div>
+        </div>
+        <div class="form_group">
+            <%= label_tag(:startdate,"Start Date: ", class:"col-md-1 control-label")%>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="startdate" name="startdate" value="<%= params[:startdate] %>" data-behaviour='datepicker'>
+            </div>
+        </div>
+        <div class="form_group">
+            <%= label_tag(:enddate,"End Date: ", class:"col-md-1 control-label")%>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="enddate" name="enddate" value="<%= params[:enddate] %>" data-behaviour='datepicker'>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3 class="bg-danger">Checkboxes are currently nonfunctional and disabled.</h3>
 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 text-center"><p><b>Furnace:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Boiler:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Wood Stove:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Water Heater:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Heat Pump:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Heat Pump Tune Up:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Programmable Thermostat:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Air Conditioner:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Duct Sealer:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Duct Insulation:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Mechanical Ventilation:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Attic Insulation:</b></p></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:furnace, value='1', checked=params[:furnace] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:boiler, value='1', checked=params[:boiler] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:woodstove, value='1', checked=params[:woodstove] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:waterheater, value='1', checked=params[:waterheater] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:heatpump, value='1', checked=params[:heatpump] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:HPTuneUp, value='1', checked=params[:HPTuneUp] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:thermostat, value='1', checked=params[:thermostat] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:solarpanels, value='1', checked=params[:solarpanels] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:ductsealer, value='1', checked=params[:ductsealer] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:ductinsulation, value='1', checked=params[:ductinsulation] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:ventilation, value='1', checked=params[:ventilation] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:atticinsulation, value='1', checked=params[:atticinsulation] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 text-center"><p><b>Wall Insulation:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Floor/Foundation Insulation:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Air Sealing:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Windows:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Exterior Doors:</b></p></div>
+        <div class="col-md-1 text-center"><p><b>Renewable Energy System:</b></p></div>
+        <div class="col-md-1 text-center"></div>
+        <div class="col-md-1 text-center"></div>
+        <div class="col-md-1 text-center"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:wallinsulation, value='1', checked=params[:wallinsulation] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:floorinsulation, value='1', checked=params[:floorinsulation] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:airsealing, value='1', checked=params[:airsealing] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:windows, value='1', checked=params[:windows] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:exteriordoors, value='1', checked=params[:exteriordoors] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center">
+            <%= check_box_tag(:renewableenergy, value='1', checked=params[:renewableenergy] ||= false, class: "form-control-small",:disabled => true) %>
+        </div>
+        <div class="col-md-1 text-center"><%= submit_tag("Filter", class: 'btn btn-primary') %></div>
+        <div class="col-md-1 text-center"></div>
+        <div class="col-md-1 text-center"></div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-5 text-center"></div>
+        <div class="col-md-2 text-center">
+        </div>
+    </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th><%= sortable "customer_unique_id" %></th>
+    <th><%= sortable "owner_name" %></th>
+    <th><%= sortable "street_address" %></th>
+    <th><%= sortable "state"%></th>
+    <th><%= sortable "zipcode"%></th>
+    <th><%= sortable "finish_date"%></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.customer_unique_id %></td>
+    <td><%= link_to property.owner_name, url_for(:controller => "dashboard", :action => "gaps", :owner => property.owner_name) %></td>
+    <td><%= property.street_address %></td>
+    <td><%= property.state %></td>
+    <td><%= property.zipcode %></td>
+    <td><%= property.finish_date %></td>
+    <td><%= link_to 'Edit', edit_property_path(property) %></td>
+    <td><%= link_to 'Destroy', property, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+<%= will_paginate @properties %>
+
+</table>
+<%= will_paginate @properties %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker();
+  })
+</script>
