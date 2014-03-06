@@ -1,11 +1,9 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
   typeName: MyString
   units: MyString
-  acctNum: MyString
 
 two:
   typeName: MyString
   units: MyString
-  acctNum: MyString
