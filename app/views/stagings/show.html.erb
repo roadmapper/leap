@@ -2,23 +2,26 @@
 
 <p>
   <b>Acctnum:</b>
-  <%= @recording.acctnum %>
+  <%= @staging.acctnum %>
+  
 </p>
 
 <p>
   <b>Read date:</b>
-  <%= @recording.read_date %>
+  <%= @staging.read_date %>
 </p>
 
 <p>
   <b>Consumption:</b>
-  <%= @recording.consumption %>
+  <%= @staging.consumption %>
 </p>
 
 <p>
   <b>Days in month:</b>
-  <%= @recording.days_in_month %>
+  <%= @staging.days_in_month %>
 </p>
 
-<%= link_to 'Edit', edit_recording_path(@recording) %> |
+<%= link_to 'Edit', edit_staging_path(@staging) %> |
 <%= link_to 'Back', :back %>
+
+
