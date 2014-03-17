@@ -20,7 +20,7 @@ Public::Application.routes.draw do
   get "dashboard/utility_request_dominion_report"
   get "dashboard/analysis_ready_cvillegas_report"
   get "dashboard/utility_request_cvillegas_report"  
-  post '/dashboard/upload' => 'dashboard#upload'
+  post '/uploads/upload' => 'uploads#upload'
   resources :dashboard
 
   resources :recordings
