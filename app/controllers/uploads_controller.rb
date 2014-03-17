@@ -84,6 +84,14 @@ class UploadsController < ApplicationController
     end
   end
 
+  def upload
+        uploaded_io = params[:file]
+        railspath =  Rails.root.join('..', 'uploads')
+        path = railspath.to_s
+        filename = uploaded_io.original_filename
+	flash[:notice] = filename
+	redirect_to :action => 'index'
+  end      
   # GET /uploads/1/process
   #def process
 	#@upload = Upload.find(params[:id])    
