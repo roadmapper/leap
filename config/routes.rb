@@ -1,6 +1,9 @@
 Public::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :skip => [:registrations]
+  as :user do
+  	put 'users/sign_up' => 'devise/registrations#update', :as => 'new_user_registration'
+  	end
   devise_scope :user do
   authenticated :user do
        root :to =>'dashboard#index'
