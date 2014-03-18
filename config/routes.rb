@@ -1,6 +1,6 @@
 Public::Application.routes.draw do
 
-  devise_for :users, :skip => [:registrations]
+  devise_for :users
   as :user do
   	put 'users/sign_up' => 'devise/registrations#update', :as => 'new_user_registration'
   	end
