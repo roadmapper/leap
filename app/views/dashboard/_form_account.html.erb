@@ -1,0 +1,32 @@
+<hr> 
+<u><h5> New Account </h5></u>
+
+<%= form_for @record_lookup, :html => {:class => "form-inline"} do |f| %>
+  <% if @record_lookup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@record_lookup.errors.count, "error") %> prohibited this record_lookup from being saved:</h2>
+
+      <ul>
+      <% @record_lookup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :owner, :value => @property.owner_name %>
+  <%= f.hidden_field :property_id, :value => @property.id %>
+
+  <h7> Account Num: </h7>
+  <%= f.text_field :acct_num %><br><br>
+
+  <h7> Company Name (All Caps): </h7>
+  <%= f.text_field :company_name %><br><br>
+
+  <h7> Utility Type: </h7>  
+  <%= f.collection_select(:utility_type_id, @utilitytypes, :id, :typeName, prompt: true) %> <br><br>
+  
+  <%= f.submit "Save New Account Num", class: 'btn btn-xs btn-primary'%>
+
+<% end %>
+
+<hr>

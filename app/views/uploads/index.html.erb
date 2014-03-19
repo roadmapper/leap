@@ -1,7 +1,8 @@
 <h1>Upload</h1>
 
 <h3>Processed Data</h3>
-<%= link_to 'Information to be Uploaded', stagings_path %>
+<%= button_to "View recordings to be Uploaded", stagings_path, type: 'button', class: 'btn btn-primary' %>
+
 
 <h3>Upload</h3>
 		<%= form_tag({:action => :upload, :controller=>"uploads"}, :multipart => true) do %>

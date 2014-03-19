@@ -1,5 +1,5 @@
 <% title "Customer #{@property.customer_unique_id}" %>
-<h1><%= "Report for Customer #{@property.customer_unique_id}" %></h1>
+<h3><%= "Report for Customer #{@property.customer_unique_id}" %></h3>
 	<p><%="Customer Name: " + @property.owner_name %></p>
 	<p><%= @property.street_address %></p>
 	<p><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></p>
@@ -10,19 +10,19 @@
 	<% if (@gas_record_lookup) %>
 		<p><%= "#{@gas_record_lookup.company_name} Account Number: #{@gas_record_lookup.acct_num} " %></p>
 	<% end %>
+
+	<%= render 'form_account' %>
+
 	<% if (@property.finish_date) %>
 		<p><%= "Test Out Date: " + @testoutdate.strftime("%B %e, %Y")%></p>
 	<%else%>
 		<%= render 'form_to' %>
 	<% end %>
 
+	<hr>
 
-	<% if (!@electric_recordings) %>
-		<h4><%= "No power readings found for this property"%></h4>
-	<% end %>
-	<% if (!@gas_recordings) %>
-		<h4><%= "No gas readings found for this property"%></h4>
-	<% end %>
+
+
 
 	<% if (@electric_recordings && @gas_recordings) %>
 
@@ -209,5 +209,9 @@
 		</table>
 	<% end %>
 
+	<% if(@num_electric_recordings < 24 || @num_gas_recordings < 24) %>
+		<%= render 'form_recording' %>
+	<% end %>
 
-<%= link_to 'Back', root_path %>
+
+
