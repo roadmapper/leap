@@ -11,12 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Test Out Date: "  %>
+    <h7> Test Out Date: </h7>
     <%= f.date_select :finish_date %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update TestOut Date:"%>
-  </div>
+    <%= f.submit "Update Test Out Date" , class: 'btn btn-xs btn-primary'%>
 <% end %>

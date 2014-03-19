@@ -50,7 +50,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
-        format.html { redirect_to(@property, :notice => 'Property was successfully created.') }
+        format.html { redirect_to(:controller => "dashboard", :action => "gaps", :owner => @property.owner_name, :notice => 'Property was successfully created.') }
         format.xml  { render :xml => @property, :status => :created, :location => @property }
       else
         format.html { render :action => "new" }
