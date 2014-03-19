@@ -1,0 +1,29 @@
+<h1>Listing record_lookups</h1>
+
+<table>
+  <tr>
+    <th>Property</th>
+    <th>Utility type</th>
+    <th>Acct num</th>
+    <th>Company name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @record_lookups.each do |record_lookup| %>
+  <tr>
+    <td><%= record_lookup.property %></td>
+    <td><%= record_lookup.utility_type %></td>
+    <td><%= record_lookup.acct_num %></td>
+    <td><%= record_lookup.company_name %></td>
+    <td><%= link_to 'Show', record_lookup %></td>
+    <td><%= link_to 'Edit', edit_record_lookup_path(record_lookup) %></td>
+    <td><%= link_to 'Destroy', record_lookup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Record lookup', new_record_lookup_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Property:</b>
+  <%= @record_lookup.property %>
+</p>
+
+<p>
+  <b>Utility type:</b>
+  <%= @record_lookup.utility_type %>
+</p>
+
+<p>
+  <b>Acct num:</b>
+  <%= @record_lookup.acct_num %>
+</p>
+
+<p>
+  <b>Company name:</b>
+  <%= @record_lookup.company_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_record_lookup_path(@record_lookup) %> |
+<%= link_to 'Back', record_lookups_path %>

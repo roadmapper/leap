@@ -1,0 +1,33 @@
+<%= form_for(@record_lookup) do |f| %>
+  <% if @record_lookup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@record_lookup.errors.count, "error") %> prohibited this record_lookup from being saved:</h2>
+
+      <ul>
+      <% @record_lookup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :property %><br />
+    <%= f.text_field :property %>
+  </div>
+  <div class="field">
+    <%= f.label :utility_type %><br />
+    <%= f.text_field :utility_type %>
+  </div>
+  <div class="field">
+    <%= f.label :acct_num %><br />
+    <%= f.text_field :acct_num %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
