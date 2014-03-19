@@ -36,7 +36,15 @@
     <%= f.label :finish_date %><br />
     <%= f.date_select :finish_date %>
   </div>
-  <p>Account Information:</p>
+  
+    <p> Account Information Added on Property Report
+    <% if (@property != nil) %>
+      <%= link_to "Page", dashboard_gaps_path(:owner => @property.owner_name) %>
+    <%else%>
+      Page
+    <%end%>
+    </p>
+
   <%= f.fields_for :record_lookups, @property.record_lookups do |record_lookups_form| %>
   <div class="field">
     <%#= unless record_lookups_form.object.new_record? %>

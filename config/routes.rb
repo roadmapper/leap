@@ -1,5 +1,8 @@
 Public::Application.routes.draw do
 
+  resources :record_lookups
+
+
   devise_for :users
   devise_scope :user do
   authenticated :user do

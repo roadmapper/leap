@@ -90,12 +90,17 @@ class DashboardController < ApplicationController
     
     def gaps
         #@property = Property.where("properties.owner_name like ? OR properties.street_address like ?", "%#{owner}%", "%#{owner}%")#find_by_owner_name(params[:owner])
+        @utilitytypes = UtilityType.all.to_a
+        @recording = Recording.new
+        @record_lookup = RecordLookup.new
+        @num_electric_recordings = 0
+        @num_gas_recordings = 0
         if params[:owner]
             @property = Property.search(params[:owner])            
             @property = @property.shift
         end
         if (@property)
-            #raise @property.inspect\
+            
             @testoutdate = @property.finish_date
             
             if (@testoutdate)
@@ -108,9 +113,11 @@ class DashboardController < ApplicationController
                 
                 if (@electric_record_lookup)
                     @electric_recordings = get_records(@electric_record_lookup, @startdate, @enddate)
+                    
                     if(@electric_recordings)
                         if(@electric_recordings.length >= 0)
                             @electric_gap_data = get_data(@electric_recordings, @startdate)
+                            @num_electric_recordings = get_data_count(@electric_recordings, @startdate)
                             # puts @electric_gap_data
                             else
                             @electric_recordings = nil;
@@ -125,6 +132,7 @@ class DashboardController < ApplicationController
                     if(@gas_recordings)
                         if(@gas_recordings.length >= 0)
                             @gas_gap_data = get_data(@gas_recordings, @startdate)
+                            @num_gas_recordings = get_data_count(@gas_recordings, @startdate)
                             # puts @gas_gap_data
                         else
                             @gas_recordings = nil;
