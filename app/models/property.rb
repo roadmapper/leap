@@ -4,7 +4,10 @@ class Property < ActiveRecord::Base
 
    def self.search(owner)
         #if search
-            find(:all, :conditions => ["owner_name like ? OR street_address like ?", "%#{owner}%","%#{owner}%"])
+        	array = owner.split(' - ',2)
+        	test1=array[0]
+        	test2=array[1]
+            find(:all, :conditions => ["owner_name like ? AND street_address like ?", "%#{test1}%","%#{test2}%"])
         #end
     end    
 end
