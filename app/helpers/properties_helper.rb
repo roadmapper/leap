@@ -33,6 +33,26 @@ module PropertiesHelper
         months
     end
     
+    def get_data_count(records, startdate)
+        data = Array.new
+        count = 0
+        records.each do |rec|
+            read_date = rec.read_date
+            days_in_month = rec.days_in_month
+            for i in count..23
+                currdate = startdate + i.months
+                if((currdate >= read_date - days_in_month.days) && (currdate < read_date.end_of_month))
+                    data.push(rec.consumption)
+                    count += 1;
+                    break
+                end
+            end
+        end
+        
+        data.length
+        
+    end
+    
     def get_data(records, startdate)
         
         data = Array.new
