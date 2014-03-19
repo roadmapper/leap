@@ -39,7 +39,7 @@
   
     <p> Account Information Added on Property Report
     <% if (@property != nil) %>
-      <% link_to "Page", dashboard_gaps_path(:owner => @property.owner_name) %>
+      <%= link_to "Page", dashboard_gaps_path(:owner => @property.owner_name) %>
     <%else%>
       Page
     <%end%>
