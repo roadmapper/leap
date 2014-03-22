@@ -18,7 +18,7 @@ Public::Application.routes.draw do
 
   resources :properties
 
-  get "dashboard/gaps"
+  get "dashboard/property_report"
   get "dashboard/null_account_export_report"
   get "dashboard/analysis_ready_dominion_report" 
   get "dashboard/utility_request_dominion_report"
