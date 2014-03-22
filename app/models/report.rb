@@ -20,6 +20,12 @@
         true
       end
     end # class 
+
+    class UtilityReady
+      def report
+      
+      end
+    end
   end # module
 
 
