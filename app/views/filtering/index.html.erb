@@ -136,7 +136,7 @@
 <% @properties.each do |property| %>
   <tr>
     <td><%= property.customer_unique_id %></td>
-    <td><%= link_to property.owner_name, url_for(:controller => "dashboard", :action => "gaps", :owner => property.owner_name) %></td>
+    <td><%= link_to property.owner_name, url_for(:controller => "dashboard", :action => "property_report", :owner => property.owner_name) %></td>
     <td><%= property.street_address %></td>
     <td><%= property.state %></td>
     <td><%= property.zipcode %></td>
