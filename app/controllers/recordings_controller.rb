@@ -44,7 +44,7 @@ class RecordingsController < ApplicationController
 
     respond_to do |format|
       if @recording.save
-          format.html { redirect_to dashboard_gaps_path(:commit => "Search", :owner => params[:recording][:owner]), notice: 'Recording was successfully created.' }
+          format.html { redirect_to dashboard_property_report_path(:commit => "Search", :owner => params[:recording][:owner]), notice: 'Recording was successfully created.' }
         format.json { render json: @recording, status: :created, location: @recording }
       else
         format.html { render action: "new" }

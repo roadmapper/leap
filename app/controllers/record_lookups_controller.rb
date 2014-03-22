@@ -44,7 +44,7 @@ class RecordLookupsController < ApplicationController
 
     respond_to do |format|
       if @record_lookup.save
-        format.html { redirect_to dashboard_gaps_path(:commit => "Search", :owner => params[:record_lookup][:owner]), notice: 'Record lookup was successfully created.' }
+        format.html { redirect_to dashboard_property_report_path(:commit => "Search", :owner => params[:record_lookup][:owner]), notice: 'Record lookup was successfully created.' }
         format.json { render json: @record_lookup, status: :created, location: @record_lookup }
       else
         format.html { render action: "new" }
