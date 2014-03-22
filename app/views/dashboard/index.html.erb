@@ -8,7 +8,7 @@
 				</div>
 				<div class="form-inline">
 					<h1>Data Management and Visualization System</h1>
-					<%= form_tag dashboard_gaps_path, #class: "form-inline",
+					<%= form_tag dashboard_property_report_path, #class: "form-inline",
 					 :method => "get" do %>
 					<%= label_tag(:owner,"", class: "lead") %>
 					<%= text_field_tag :owner, params[:owner], class: "typeahead", size: 100, placeholder: "Search Properties" %>
