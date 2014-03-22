@@ -23,7 +23,7 @@
 		</ul>
 		<div class="navbar-form navbar-right">
 			<div class="form-inline">	
-				<%= form_tag dashboard_gaps_path, :method => "get" do %>
+				<%= form_tag dashboard_property_report_path, :method => "get" do %>
 				<%= label_tag(:owner,"", class: "lead") %>
 				<%= text_field_tag(:owner, placeholder="", class: "form-control input-normal", size: 40, placeholder: "Search Properties") %>
 				<%= submit_tag("Search", class: 'btn btn-default') %>

@@ -88,8 +88,7 @@ class DashboardController < ApplicationController
         end
     end
     
-    def gaps
-        #@property = Property.where("properties.owner_name like ? OR properties.street_address like ?", "%#{owner}%", "%#{owner}%")#find_by_owner_name(params[:owner])
+    def property_report
         @utilitytypes = UtilityType.all.to_a
         @recording = Recording.new
         @record_lookup = RecordLookup.new
