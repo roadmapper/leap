@@ -22,8 +22,17 @@
     end # class 
 
     class UtilityReady
-      def report
-      
+      include PropertiesHelper
+      @@owner_name = nil
+      @@account_number = nil
+      @@readings = nil
+      def initialize(property_id, utility_type_id)
+        property = Property.find(property_id)
+        @@owner_name = property.owner_name
+        lookup = RecordLookup.where("property_id = ? AND utility_type_id = ?", property.id, utility_type_id)
+        @@account_number = lookup.acctnum
+        recordings = get_records(lookup, start_date(property.finish_date), end_date(property.finish_date))
+        @@readings = get_data_count(recordings, start_date(property.finish_date))
       end
     end
   end # module
