@@ -98,7 +98,13 @@ class UploadsController < ApplicationController
         if status != "Duplicate file found in uploads, file not uploaded"
 		flash[:notice] = status
 		Thread.new do		
-			convert_to_stagings path, uploaded_io, 1
+			if uploaded_io.content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+				convert_to_stagingsXLSX path, uploaded_io, 1
+			elsif uploaded_io.content_type == 'application/vnd.ms-excel'
+				convert_to_stagingsXLS path, uploaded_io, 1
+			elsif uploaded_io.content_type == 'text/csv'
+				convert_to_stagingsCSV path, uploaded_io, 1 
+			end
 		end	
 	else flash[:alert] = status end
 
@@ -116,11 +122,17 @@ class UploadsController < ApplicationController
 
         if status != "Duplicate file found in uploads, file not uploaded"
 		flash[:notice] = status
-		Thread.new do		
-			convert_to_stagings path, uploaded_io, 2
+		Thread.new do
+			if uploaded_io.content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+				convert_to_stagingsXLSX path, uploaded_io, 2
+			elsif uploaded_io.content_type == 'application/vnd.ms-excel'
+				convert_to_stagingsXLS path, uploaded_io, 2
+			elsif uploaded_io.content_type == 'text/csv'
+				convert_to_stagingsCSV path, uploaded_io, 2 
+			end
 		end	
 	else flash[:alert] = status end
-
+	
 	redirect_to :action => 'index'	
   end            
 
@@ -138,8 +150,8 @@ class UploadsController < ApplicationController
 	status
   end
 
-  def convert_to_stagings(path, uploaded_io, type)
-	fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED ContractAcct. Consumption }
+  def convert_to_stagingsXLSX(path, uploaded_io, type)
+	fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED Consumption }
 	rows_to_insert = []
 	Dir[path+"/*.xlsx"].each do |file|
                     file_path = "#{file}"
@@ -174,5 +186,61 @@ class UploadsController < ApplicationController
         end
 
   end
+
+	def convert_to_stagingsXLS(path, uploaded_io, type)
+		fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED Consumption }
+		rows_to_insert = []
+		Dir[path+"/*.xls"].each do |file|
+		            file_path = "#{file}"
+		            file_basename = File.basename(file, ".xls")
+		            xls = Excel.new(file_path.to_s)
+		            $i = xls.sheets.length - 1
+			    xls.default_sheet = xls.sheets[0]
+			    headers = Hash.new
+			    xls.row(1).each_with_index {|header,i|
+			    headers[header] = i
+			    }
+	 
+
+		            ((xls.first_row + 1)..xls.last_row).each do |row|
+
+				    acctnum = xls.row(row)[headers['ID_BA']]
+				    date = xls.row(row)[headers['DT_READ']]
+				    amt_kwh = xls.row(row)[headers['AMT_KWH']]
+				    days_used = xls.row(row)[headers['DAYS_USED']]
+				    
+				    date = DateTime.new(1899,12,30) + Integer(date).days  
+				    Staging.where({"acctnum"=>acctnum, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
+		            end
+			   # to be removed depending on if want to continue using multiple sheets... 
+			   # $i = xlsx.sheets.length - 1
+		           #while $i >= 0 do
+		           #     xlsx.default_sheet = xlsx.sheets[$i]
+		           #     $i -=1
+		           # end
+		            Upload.update_all( {:status => 'Processed', :process_date => Time.now}, {:file_name => uploaded_io.original_filename})
+
+		end
+
+	  end
+
+	def convert_to_stagingsCSV(path, uploaded_io, type)
+			fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED Consumption }
+			rows_to_insert = []
+		
+			CSV.foreach(uploaded_io, headers: true) do |row|
+			  row_to_insert = row.to_hash.select { |k, v| fields_to_insert.include?(k) }
+			 #row.to_hash.values_at(*fields_to_insert)
+			  #rows_to_insert << row_to_insert
+
+			  stringdate = row_to_insert["DT_READ"]
+		          date = DateTime.new(1899,12,30) + Integer(stringdate).days 
+			  
+	   		  #formatted_date = date.strftime('%a %b %d %Y')
+			  
+			Staging.where({"acctnum"=>row_to_insert["ID_BA"], "consumption"=>row_to_insert["AMT_KWH"], "days_in_month"=>row_to_insert["DAYS_USED"], "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
+			end
+			Upload.update_all( {:status => 'Processed', :process_date => Time.now}, {:file_name => uploaded_io.original_filename})
+	end
 
 end
