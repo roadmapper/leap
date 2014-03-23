@@ -70,7 +70,7 @@ class UploadsController < ApplicationController
       end
     end
   end
-
+  #		#electricity = 1 gas = 2
   # DELETE /uploads/1
   # DELETE /uploads/1.json
   def destroy
@@ -93,14 +93,36 @@ class UploadsController < ApplicationController
         filename = uploaded_io.original_filename
 
 	status = upload_file filename, path, uploaded_io
-        flash[:notice] = status
+        
 
         if status != "Duplicate file found in uploads, file not uploaded"
-		convert_to_stagings path, uploaded_io
-	end	
+		flash[:notice] = status
+		Thread.new do		
+			convert_to_stagings path, uploaded_io, 1
+		end	
+	else flash[:alert] = status end
 
 	redirect_to :action => 'index'	
-  end      
+  end
+
+  def uploadGas
+        uploaded_io = params[:file]
+        railspath =  Rails.root.join('..', 'uploads')
+        path = railspath.to_s
+        filename = uploaded_io.original_filename
+
+	status = upload_file filename, path, uploaded_io
+        
+
+        if status != "Duplicate file found in uploads, file not uploaded"
+		flash[:notice] = status
+		Thread.new do		
+			convert_to_stagings path, uploaded_io, 2
+		end	
+	else flash[:alert] = status end
+
+	redirect_to :action => 'index'	
+  end            
 
   def upload_file(filename, path, uploaded_io)
 	status = "Duplicate file found in uploads, file not uploaded"	
@@ -116,7 +138,7 @@ class UploadsController < ApplicationController
 	status
   end
 
-  def convert_to_stagings(path, uploaded_io)
+  def convert_to_stagings(path, uploaded_io, type)
 	fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED ContractAcct. Consumption }
 	rows_to_insert = []
 	Dir[path+"/*.xlsx"].each do |file|
@@ -139,7 +161,7 @@ class UploadsController < ApplicationController
 			    days_used = xlsx.row(row)[headers['DAYS_USED']]
 		            
 			    date = DateTime.new(1899,12,30) + Integer(date).days  
-			    Staging.where({"acctnum"=>acctnum, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date}).first_or_create(:locked => false)
+			    Staging.where({"acctnum"=>acctnum, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
                     end
 		   # to be removed depending on if want to continue using multiple sheets... 
 		   # $i = xlsx.sheets.length - 1
@@ -147,7 +169,7 @@ class UploadsController < ApplicationController
                    #     xlsx.default_sheet = xlsx.sheets[$i]
                    #     $i -=1
                    # end
-                    Upload.update_all( {:status => 'Processed'}, {:file_name => uploaded_io.original_filename})
+                    Upload.update_all( {:status => 'Processed', :process_date => Time.now}, {:file_name => uploaded_io.original_filename})
 
         end
 
