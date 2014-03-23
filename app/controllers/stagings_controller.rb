@@ -15,11 +15,8 @@ class StagingsController < ApplicationController
 
   def insert
     Staging.all.each do |staging|
-        read = staging.acctnum
-        read2 = staging.consumption
-        read3 = staging.days_in_month
-        read3 = staging.read_date
 	Recording.where(:acctnum => staging.acctnum, :consumption =>staging.consumption, :days_in_month =>staging.days_in_month, :read_date => staging.read_date).first_or_create(:locked => false)
+	Staging.destroy(staging)
     end
     
 
