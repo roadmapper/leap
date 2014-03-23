@@ -1,5 +1,5 @@
 <hr>
-<u><h4 align= "center"> Enter New Recording </h4></u>
+<u><h5> Enter New Recording </h5></u>
 
 
 <%= form_for @recording, :html => {:class => "form-inline"} do |f| %>	
@@ -14,17 +14,30 @@
     </div>
   <% end %>		
   	<%= f.hidden_field :owner, :value => @property.owner_name %> 
-  <div align= "center">
-    <h7> Account Number: </h7>	
-    <%= f.collection_select(:acctnum, RecordLookup.where(property_id: @property.id).to_a, :acct_num, :company_name_with_acctnum ,prompt: true) %></br></br>
-    <h7> Read Date: </h7>	 
-    <%= f.date_select :read_date %></br></br>		
-    <h7> Consumption: </h7>	
-    <%= f.text_field :consumption %></br></br>
-    <h7> Days in Month: </h7>		
-    <%= f.number_field :days_in_month %></br></br>
-   	<h7> Utility Type: </h7>	
-    <%= f.collection_select(:utility_type_id, @utilitytypes, :id, :typeName, prompt: true) %></br></br>
+  <table cellpadding="6">
+      <tr>
+        <td><h7> Account Number: </h7>	</td>
+        <td><%= f.collection_select(:acctnum, RecordLookup.where(property_id: @property.id).to_a, :acct_num, :company_name_with_acctnum ,prompt: true) %> </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td> <h7> Read Date: </h7>	</td>
+        <td> <%= f.date_select :read_date %> </td>
+      </tr>
+      <tr>
+        <td> <h7> Consumption: </h7> </td>
+        <td> <%= f.text_field :consumption %> </td>
+      </tr>
+      <tr>
+        <td> <h7> Days in Month: </h7>	</td>	
+        <td> <%= f.number_field :days_in_month %> </td>
+      </tr>
+      <tr>
+       	<td> <h7> Utility Type: </h7>	</td>
+        <td> <%= f.collection_select(:utility_type_id, @utilitytypes, :id, :typeName, prompt: true) %> </td>
+      </tr>
+  </table>
+  <br>
     <%= f.submit "Save New Recording", class: 'btn btn-small btn-primary' %>
   </div>
 <% end %>

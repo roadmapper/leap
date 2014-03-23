@@ -39,27 +39,18 @@
     <%= f.text_field :zipcode %>
   </div>
  
-  </div>
+
   <div class="field">
     <%= f.label :finish_date %><br />
     <%= f.date_select :finish_date %>
   </div>
+
+  <br>
   
-    <p> Account Information Added on Property Report
-    <% if (@property.nil?) %>
-      <%= link_to "Page", dashboard_property_report_path(:owner => @property.owner_name) %>
-    <%else%>
-      Page
-    <%end%>
-    </p>
+  <h5> Account Information:</h5>
 
   <%= f.fields_for :record_lookups, @property.record_lookups do |record_lookups_form| %>
   <div class="field">
-    <%#= unless record_lookups_form.object.new_record? %>
-      <% # Don't forget to name both of these '_destroy' in Rails 3 %>
-      <%#= record_lookups_form.check_box '_delete' %>
-      <%#= record_lookups_form.label '_delete', 'Remove' %>
-    <%# end %>
     
     <%= record_lookups_form.label :company_name %>
     <%= record_lookups_form.text_field :company_name %><br />
@@ -68,7 +59,9 @@
   </div>
   <% end %>
 
+  <br>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary"%>
   </div>
 <% end %>

@@ -22,7 +22,7 @@ module PropertiesHelper
     end
     
     def get_records(record_lookup, start_date, end_date)
-        Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: @startdate, end_date: @enddate, acct_num: record_lookup.acct_num}).order("read_date ASC")
+        Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: start_date, end_date: end_date, acct_num: record_lookup.acct_num}).order("read_date ASC")
     end
     
     def gap_months(start_date)
