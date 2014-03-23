@@ -23,16 +23,27 @@
 
     class UtilityReady
       include PropertiesHelper
-      @@owner_name = nil
-      @@account_number = nil
-      @@readings = nil
+      def owner_name
+        @owner_name
+      end
+      def account_number
+        @account_number
+      end
+      def readings
+        @readings
+      end
       def initialize(property_id, utility_type_id)
         property = Property.find(property_id)
-        @@owner_name = property.owner_name
-        lookup = RecordLookup.where("property_id = ? AND utility_type_id = ?", property.id, utility_type_id)
-        @@account_number = lookup.acctnum
-        recordings = get_records(lookup, start_date(property.finish_date), end_date(property.finish_date))
-        @@readings = get_data_count(recordings, start_date(property.finish_date))
+        @owner_name = property.owner_name
+        lookup = RecordLookup.where("property_id = ? AND utility_type_id = ?", property.id, utility_type_id).first
+        if (lookup)
+          @account_number = lookup.acct_num
+          testout_date = property.finish_date#Date.new(property.finish_date[0..3], property.finish_date[5..6], property.finish_date[8..9])
+          if (testout_date)
+            recordings = get_records(lookup, start_date(testout_date), end_date(testout_date))
+            @readings = get_data_count(recordings, start_date(property.finish_date))
+          end
+        end
       end
     end
   end # module
