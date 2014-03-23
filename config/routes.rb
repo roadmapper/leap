@@ -16,6 +16,7 @@ Public::Application.routes.draw do
   end
 
 
+  resources :recordings
   resources :properties
 
   get "dashboard/property_report"
@@ -27,7 +28,9 @@ Public::Application.routes.draw do
   post '/uploads/upload' => 'uploads#upload'
   resources :dashboard
 
-  resources :recordings
+
+  
+  
   post '/stagings/insert' => 'stagings#insert'
   resources :stagings do
 	collection do
