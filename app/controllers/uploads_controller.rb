@@ -172,7 +172,9 @@ class UploadsController < ApplicationController
 			    amt_kwh = xlsx.row(row)[headers['AMT_KWH']]
 			    days_used = xlsx.row(row)[headers['DAYS_USED']]
 		            
-			    date = DateTime.new(1899,12,30) + Integer(date).days  
+			    date = DateTime.new(1899,12,30) + Integer(date).days 
+
+			     
 			    Staging.where({"acctnum"=>acctnum, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
                     end
 		   # to be removed depending on if want to continue using multiple sheets... 
