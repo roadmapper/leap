@@ -25,6 +25,7 @@ Public::Application.routes.draw do
   get "dashboard/analysis_ready_cvillegas_report"
   get "dashboard/utility_request_cvillegas_report"  
   post '/uploads/upload' => 'uploads#upload'
+  post '/uploads/uploadGas' => 'uploads#uploadGas'
   resources :dashboard
 
   resources :recordings
