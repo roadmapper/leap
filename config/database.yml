@@ -7,7 +7,7 @@ development:
   pool: 5
   username: leap
   password: rx5MqhFF35
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
   #/tmp/mysql.sock
 
