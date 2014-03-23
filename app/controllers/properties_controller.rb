@@ -22,7 +22,7 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+        format.html { redirect_to(:controller => "dashboard", :action => "property_report", :owner => @property.owner_name)}
       format.xml  { render :xml => @property }
     end
   end
@@ -31,7 +31,9 @@ class PropertiesController < ApplicationController
   # GET /properties/new.xml
   def new
     @property = Property.new
-
+    @property.record_lookups.build
+    @property.record_lookups.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @property }
@@ -41,6 +43,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1/edit
   def edit
     @property = Property.find(params[:id])
+    @property.record_lookups.build
   end
 
   # POST /properties

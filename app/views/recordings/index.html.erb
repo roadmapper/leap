@@ -1,12 +1,12 @@
-<h1>Listing recordings</h1>
+<h1>All Recordings</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th>Acctnum</th>
-    <th>Consumption</th>
-    <th>Days in month</th>
-    <th>Read date</th>
-    <th>Utility type</th>
+    <th><%= sortable "acctnum" %></th>
+    <th><%= sortable "consumption" %></th>
+    <th><%= sortable "days_in_month" %></th>
+    <th><%= sortable "read_date" %></th>
+    <th><%= sortable "utility_type" %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -24,6 +24,9 @@
     <td><%= link_to 'Destroy', recording, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+
+<%= will_paginate @recordings %>
+
 </table>
 
 <br />

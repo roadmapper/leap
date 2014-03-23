@@ -1,8 +1,11 @@
 class RecordingsController < ApplicationController
   # GET /recordings
   # GET /recordings.json
+  
+  helper_method :sort_column, :sort_direction
+  
   def index
-    @recordings = Recording.all
+    @recordings = Recording.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +83,13 @@ class RecordingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def sort_column
+      Recording.column_names.include?(params[:sort]) ? params[:sort] : "read_date"
+  end
+  
+  def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
+  
 end
