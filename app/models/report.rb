@@ -35,6 +35,21 @@
         true
       end
     end
+
+    class CvillegasReadyAccount < ActiveRecord::Base
+      def to_s
+        "#{owner_name}, #{acceptedDatapoints}"
+      end
+
+      def name
+        owner_name
+      end
+
+      protected
+      def readonly?
+        true
+      end
+    end
   end # module
 
 

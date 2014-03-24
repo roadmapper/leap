@@ -1,6 +1,6 @@
-class CreateReportTempReadings < ActiveRecord::Migration
+class CreateReportTempCvillegasReadings < ActiveRecord::Migration
   def up
-    self.connection.execute %Q(CREATE OR REPLACE VIEW temp_readings AS 
+    self.connection.execute %Q(CREATE OR REPLACE VIEW temp_cvillegas_readings AS 
         SELECT 
                 properties.owner_name,
                     properties.customer_unique_id,
@@ -16,11 +16,11 @@ class CreateReportTempReadings < ActiveRecord::Migration
             INNER JOIN record_lookups ON record_lookups.property_id = properties.id
             INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
             WHERE
-                record_lookups.company_name = 'DOMINION'
+                record_lookups.company_name = 'CVILLEGAS'
                     AND properties.finish_date IS NOT NULL;)
   end
 
   def down
-    self.connection.execute "DROP VIEW IF EXISTS temp_readings;"
+    self.connection.execute "DROP VIEW IF EXISTS temp_cvillegas_readings;"
   end
 end

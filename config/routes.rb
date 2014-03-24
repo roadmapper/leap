@@ -50,6 +50,7 @@ Public::Application.routes.draw do
   get 'analysis', to: 'analysis#index'
   get 'analysis/null_accounts'
   get 'analysis/dominion_ready_accounts'
+  get 'analysis/cvillegas_ready_accounts'
 #  get 'analysis/ready_to_analyze/:id' => "analysis#ready_to_analyze"
   get 'filtering', to: 'filtering#index'
   get 'requests', to: 'requests#index'
