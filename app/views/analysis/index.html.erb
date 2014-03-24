@@ -26,7 +26,9 @@
 						<%= button_to "Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
-			<p>This should be changed to showing the actual HTML table view of ready to analyze dominion/virginia power customers here (not having to click on the button) </p>
+			<div id="dominion_rdy">
+			  <%# render :template => "dominion_ready" %>
+			</div>
 			<%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>
 		</div>
 		<div class="tab-pane" id="CvilleGas" href="#CvilleGas">
