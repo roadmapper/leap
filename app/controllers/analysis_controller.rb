@@ -1,19 +1,12 @@
 class AnalysisController < ApplicationController
 
   def index
-    @accounts = Report::DominionReadyAccount.paginate(:page => params[:page])
-    header = ["Owner Name", "Account Number", "Meter Readings"]
-    column_names = Report::DominionReadyAccount.column_names
-    respond_to do |format|
-      format.js
-      format.html
-      format.csv { send_data csv_export(header, Report::DominionReadyAccount.all, column_names) }
-      ajax_respond format, :section_id => "dominion_ready"
-    end
+  	@accounts = Report::DominionReadyAccount.paginate(:page => params[:page])
+  	@n_accounts = Report::NullAccount.paginate(:page => params[:page])
   end
 
   def null_accounts
-    @accounts = Report::NullAccount.paginate(:page => params[:page])
+    @n_accounts = Report::NullAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
     column_names = Report::NullAccount.column_names
     respond_to do |format|
