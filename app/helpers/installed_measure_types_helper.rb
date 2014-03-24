@@ -1,0 +1,2 @@
+module InstalledMeasureTypesHelper
+end

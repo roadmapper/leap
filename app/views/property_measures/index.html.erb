@@ -1,0 +1,27 @@
+<h1>Listing property_measures</h1>
+
+<table>
+  <tr>
+    <th>Property</th>
+    <th>Measure</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @property_measures.each do |property_measure| %>
+  <tr>
+    <td><%= property_measure.property %></td>
+    <td><%= property_measure.measure %></td>
+    <td><%= property_measure.comment %></td>
+    <td><%= link_to 'Show', property_measure %></td>
+    <td><%= link_to 'Edit', edit_property_measure_path(property_measure) %></td>
+    <td><%= link_to 'Destroy', property_measure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Property measure', new_property_measure_path %>

@@ -17,7 +17,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: slp_leap_test
+  database: slp_leap
   pool: 5
   username: leap
   password: rx5MqhFF35
