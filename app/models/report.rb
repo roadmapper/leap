@@ -21,7 +21,7 @@
       end
     end # class 
 
-    class DominionReady < ActiveRecord::Base
+    class DominionReadyAccount < ActiveRecord::Base
       def to_s
         "#{owner_name}, #{acceptedDatapoints}"
       end
