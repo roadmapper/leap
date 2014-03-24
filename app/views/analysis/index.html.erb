@@ -6,6 +6,11 @@
 	  	<li><a href="#NullAccts" data-toggle="tab">Null Accounts</a></li>
 	</ul>
 	<script>
+	$( document ).ready(function() {
+    	console.log( "ready!" )
+    	$('#dominion_rdy').html("<%= escape_javascript(ajax_section :id => "dominion_ready_accounts", :render => "dominion_ready_accounts") %>")
+    	$('#null_accts').html("<%= escape_javascript(ajax_section :id => "null_accounts", :render => "null_accounts") %>")
+	})
 	$('#myTab a[href="#CvilleGas"]').click(function (e) {
 	  	e.preventDefault()
 	  	$(this).tab('show')
