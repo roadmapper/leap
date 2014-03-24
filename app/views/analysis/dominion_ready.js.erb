@@ -1,0 +1,7 @@
+$('#dominion_rdy').html("<%= escape_javascript(ajax_section :id => "dominion_ready", :render => "dominion_ready") %>");
+$(function () {  
+  $('.pagination a').on("click", function () {  
+    $.get(this.href, null, null, 'script');  
+    return false;  
+  });  
+});  

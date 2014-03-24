@@ -14,20 +14,14 @@ class AnalysisController < ApplicationController
     end
   end
 
-  def ready_to_analyze
-    utility_type_id = params[:id]
-    properties = Property.all
-    @names = Array.new()
-    properties.each do |property|
-    	@names.push(Report::UtilityReady.new(property.id, utility_type_id))
-    end
-    #@properties = Report::UtilityReady.all#paginate(:page => params[:page])
+  def dominion_ready
+    @accounts = Report::DominionReady.paginate(:page => params[:page])
     header = ["Owner Name", "Account Number", "Meter Readings"]
-    #column_names = Report::UtilityReady.column_names
+    column_names = Report::DominionReady.column_names
     respond_to do |format|
       format.js
-      #format.csv { send_data csv_export(header, Report::UtilityReady.all, column_names) }
-      ajax_respond format, :section_id => "ready_to_analyze_" + utility_type_id
+      format.csv { send_data csv_export(header, Report::DominionReadyNullAccount.all, column_names) }
+      ajax_respond format, :section_id => "dominion_ready"
     end
   end 
 
