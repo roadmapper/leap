@@ -1,6 +1,6 @@
 class CreateReportTempReadingsGood < ActiveRecord::Migration
   def up
-    self.connection.execute %Q(CREATE OR REPLACE VIEW temp_readings_good
+    self.connection.execute %Q(CREATE OR REPLACE VIEW temp_readings_good AS
 	    SELECT 
                 temp_readings.owner_name,
                 temp_readings.acctnum,

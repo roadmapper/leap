@@ -2,21 +2,12 @@ class CreateReportDominionReady < ActiveRecord::Migration
   def up
     self.connection.execute %Q(CREATE OR REPLACE VIEW dominion_ready AS 
 	SELECT 
-	    temp.owner_name,
-	    temp.acctnum,
-	    COUNT(temp.gooddata) AS acceptedDatapoints
+	    temp_readings_good.owner_name,
+	    temp_readings_good.acctnum,
+	    COUNT(temp_readings_good.gooddata) AS acceptedDatapoints
 	FROM
-	    (SELECT 
-		temp.owner_name,
-		    temp.acctnum,
-		    temp.read_date,
-		    temp.start_date,
-		    temp.end_date,
-		    IF(temp.read_date > temp.start_date
-			AND temp.read_date < temp.end_date, 1, NULL) AS gooddata
-	    FROM
-		temp_readings) temp
-	GROUP BY temp.owner_name , temp.acctnum
+	    temp_readings_good
+	GROUP BY temp_readings_good.owner_name , temp_readings_good.acctnum
 	ORDER BY acceptedDatapoints DESC;)
   end
 
