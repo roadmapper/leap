@@ -92,4 +92,10 @@ class StagingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def destroyAll
+    Staging.all.each do |staging|
+	Staging.destroy(staging)
+    end
+  end
 end
