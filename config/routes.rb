@@ -33,6 +33,7 @@ Public::Application.routes.draw do
   
   
   post '/stagings/insert' => 'stagings#insert'
+  post '/stagings/insert' => 'stagings#destroyAll'
   resources :stagings do
 	collection do
     		put :update_attribute_on_the_spot
