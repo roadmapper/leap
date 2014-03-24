@@ -30,7 +30,11 @@
 
 <br />
 
-
+<%= form_tag({:action => :destroyAll}, :multipart => false) do %>
+		<br>
+		<%= submit_tag( "Remove All Data from Stagings", class: 'btn btn-primary') %>
+		<br>
+		<% end %>
 <%= form_tag({:action => :insert}, :multipart => false) do %>
 		
 		<%= submit_tag( "Insert All Into Database", class: 'btn btn-primary') %>
