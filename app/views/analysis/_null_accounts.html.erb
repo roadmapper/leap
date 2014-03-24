@@ -1,6 +1,7 @@
 <table class="table table-striped" border="1">
   <%= ajax_links :section_id => "links3" do %>
-    <%= will_paginate @n_accounts %>
+    <%= will_paginate @n_accounts, renderer: BootstrapPagination::Rails %>
+    </ul>
   <% end %>
 
   <tr>
