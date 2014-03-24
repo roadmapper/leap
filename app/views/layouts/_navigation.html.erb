@@ -17,8 +17,7 @@
 			<%= link_to 'Upload', uploads_path, class: 'navbar-brand' %>
 			<%= link_to 'Add Property', new_property_path, class: 'navbar-brand' %>
 			<%= link_to 'New User', new_user_registration_path, class: 'navbar-brand' %>
-			<%= link_to 'Measures', installed_measure_types_path, class: 'navbar-brand' %>
-			<%= link_to 'Prop Meas', property_measures_path, class: 'navbar-brand' %>			
+			<%= link_to 'Measures', installed_measure_types_path, class: 'navbar-brand' %>			
 		</div>
 		<ul class="nav navbar-inverse navbar-right">
 			<%= link_to 'Log out', destroy_user_session_path, :method => :delete, class: 'navbar-brand' %>
