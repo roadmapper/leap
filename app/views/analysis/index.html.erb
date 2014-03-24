@@ -29,7 +29,7 @@
 			<div id="dominion_rdy">
 			  <%# render :template => "dominion_ready" %>
 			</div>
-			<%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>
+			<%= button_to "Generate HTML View", analysis_dominion_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary' %>
 		</div>
 		<div class="tab-pane" id="CvilleGas" href="#CvilleGas">
 			<div class="row">
