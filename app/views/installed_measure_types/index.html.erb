@@ -1,8 +1,7 @@
 <div class="container theme-showcase">
 
 	<h1>Installed Measures</h1>
-
-	<table>
+	<table class="table table-striped">
 	  <tr>
 	    <th><h4>Installed measures:</h4></th>
 	    <th></th>
@@ -20,6 +19,7 @@
 	</table>
 
 	<br />
-	<%= link_to 'Add New Installed Measure', new_installed_measure_type_path, class: 'btn btn-default' %>
+	<%= link_to 'Add New Installed Measure', new_installed_measure_type_path, class: 'btn btn-default' %><br><br>
+	<%= link_to 'Associate Installed Measure with a Property', property_measures_path, class: 'btn btn-default' %>
 
 </div>
