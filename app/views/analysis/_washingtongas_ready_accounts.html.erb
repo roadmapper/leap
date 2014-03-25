@@ -1,0 +1,21 @@
+<table class="table table-striped" border="1">
+  <%= ajax_links :section_id => "links2" do %>
+    <%= will_paginate @accounts, renderer: BootstrapPagination::Rails %>
+  <% end %>
+
+  <tr>
+    <th>Owner Name</th>
+    <th>Account Number</th>
+    <th>Meter Readings</th>
+  </tr>
+  <%= ajax_loadzone do %>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= link_to account.owner_name, 'dashboard/property_report?owner=' + account.owner_name %></td>
+      <td><%= account.acctnum %></td>
+      <td><%= account.acceptedDatapoints %></td>
+    </tr>
+  <% end %>
+  <% end %>
+</table>
+

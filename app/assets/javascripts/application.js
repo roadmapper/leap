@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require twitter/typeahead
+//= require bootstrap
 //= require on_the_spot
 //= require ajax_pagination
 //= require bootstrap-datetimepicker
 //= require_tree .
-//= require twitter/typeahead
 

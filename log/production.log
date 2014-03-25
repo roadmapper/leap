@@ -1,0 +1,154 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Compiled jquery.js  (2ms)  (pid 19644)
+Compiled jquery_ujs.js  (0ms)  (pid 19644)
+Compiled bootstrap/affix.js  (1ms)  (pid 19644)
+Compiled bootstrap/alert.js  (0ms)  (pid 19644)
+Compiled bootstrap/button.js  (0ms)  (pid 19644)
+Compiled bootstrap/carousel.js  (0ms)  (pid 19644)
+Compiled bootstrap/collapse.js  (0ms)  (pid 19644)
+Compiled bootstrap/dropdown.js  (0ms)  (pid 19644)
+Compiled bootstrap/tab.js  (0ms)  (pid 19644)
+Compiled bootstrap/transition.js  (6ms)  (pid 19644)
+Compiled bootstrap/scrollspy.js  (0ms)  (pid 19644)
+Compiled bootstrap/modal.js  (2ms)  (pid 19644)
+Compiled bootstrap/tooltip.js  (0ms)  (pid 19644)
+Compiled bootstrap/popover.js  (0ms)  (pid 19644)
+Compiled bootstrap.js  (383ms)  (pid 19644)
+Compiled twitter/typeahead/typeahead.bundle.js  (1ms)  (pid 19644)
+Compiled twitter/typeahead.js  (13ms)  (pid 19644)
+Compiled jquery.jeditable.mini.js  (0ms)  (pid 19644)
+Compiled jquery.jeditable.checkbox.js  (0ms)  (pid 19644)
+Compiled on_the_spot_code.js  (0ms)  (pid 19644)
+Compiled on_the_spot.js  (37ms)  (pid 19644)
+Compiled history.js  (0ms)  (pid 19644)
+Compiled jquery.ba-bbq.js  (1ms)  (pid 19644)
+Compiled jquery.url.js  (0ms)  (pid 19644)
+Compiled ajax_pagination.js  (239ms)  (pid 19644)
+Compiled analysis.js  (1ms)  (pid 19644)
+Compiled filtering.js  (0ms)  (pid 19644)
+Compiled installed_measure_types.js  (1ms)  (pid 19644)
+Compiled property_measures.js  (0ms)  (pid 19644)
+Compiled record_lookups.js  (1ms)  (pid 19644)
+Compiled requests.js  (0ms)  (pid 19644)
+Compiled uploads.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/core.js  (1ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ar.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.az.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.bg.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ca.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.cs.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.cy.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.da.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.de.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.el.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.es.js  (1ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.et.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.fa.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.fi.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.fr.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.gl.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.he.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.hr.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.hu.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.id.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.is.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.it.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ja.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ka.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.kk.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.kr.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.lt.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.lv.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.mk.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ms.js  (1ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.nb.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.nl-BE.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.nl.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.no.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.pl.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.pt.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ro.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.rs-latin.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.rs.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ru.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.sk.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.sl.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.sq.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.sv.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.sw.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.th.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.tr.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.ua.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.uk.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.vi.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.js  (0ms)  (pid 19644)
+Compiled bootstrap-datepicker/index.js  (814ms)  (pid 19644)
+Compiled application.js  (2194ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/application.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled bootstrap-datepicker.css  (1ms)  (pid 19644)
+Compiled ajax_pagination.css  (0ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/analysis.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled analysis.css  (3ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/filtering.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled filtering.css  (2ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/framework_and_overrides.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/342ad19eb15502cf752db5abd14690aaacbb759b/bootstrap.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_variables.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_mixins.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_normalize.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_print.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_scaffolding.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_type.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_code.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_grid.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_tables.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_forms.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_buttons.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_component-animations.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_glyphicons.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_dropdowns.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_button-groups.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_input-groups.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_navs.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_navbar.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_breadcrumbs.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_pagination.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_pager.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_labels.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_badges.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_jumbotron.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_thumbnails.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_alerts.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_progress-bars.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_media.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_list-group.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_panels.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_wells.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_close.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_modals.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_tooltip.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_popovers.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_carousel.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_utilities.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/7f3805289ef2702a5f42a9dc642d4fe116753f1b/_responsive-utilities.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled framework_and_overrides.css  (3884ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/installed_measure_types.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled installed_measure_types.css  (3ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/property_measures.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled property_measures.css  (3ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/record_lookups.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled record_lookups.css  (3ms)  (pid 19644)
+Compiled recordings.css  (0ms)  (pid 19644)
+Compiled report_style.css  (0ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/requests.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled requests.css  (3ms)  (pid 19644)
+Compiled scaffold.css  (0ms)  (pid 19644)
+Warning. Error encountered while saving cache /Users/jblonchek/Development/slpworkspace/leap/tmp/cache/sass/d43793cbeef98e8fdbac5e97004a3bdad69c5bf3/scaffolds.css.scssc: can't dump anonymous class #<Class:0x007fe43ae0a080>
+Compiled scaffolds.css  (17ms)  (pid 19644)
+Compiled uploads.css  (0ms)  (pid 19644)
+Compiled application.css  (4405ms)  (pid 19644)

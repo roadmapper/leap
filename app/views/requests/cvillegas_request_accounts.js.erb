@@ -1,0 +1,7 @@
+$('#cvillegas_req').html("<%= escape_javascript(ajax_section :id => "cvillegas_request_accounts", :render => "cvillegas_request_accounts") %>");
+$(function () {  
+  $('.pagination a').on("click", function () {  
+    $.get(this.href, null, null, 'script');  
+    return false;  
+  });  
+});  

@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
     #before_filter :authentication_check   #, :except => :index
     include DashboardHelper
     include PropertiesHelper
-
+    
     def index
         @variables = Property.find(:all).map { |x| x.owner_name+" - "+x.street_address }#&:owner_name)
         #@addresses = Property.find(:all, :select=>'street_address').map(&:street_address)
@@ -15,18 +15,20 @@ class DashboardController < ApplicationController
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @property }
-        end    
-
+        end
+        
     end
 
     def property_report
+        
         @utilitytypes = UtilityType.all.to_a
         @recording = Recording.new
         @record_lookup = RecordLookup.new
         @num_electric_recordings = 0
         @num_gas_recordings = 0
+        
         if params[:owner]
-            @property = Property.search(params[:owner])            
+            @property = Property.search(params[:owner])
             @property = @property.shift
         end
         if (@property)
@@ -39,16 +41,16 @@ class DashboardController < ApplicationController
                 
                 @months = gap_months(@startdate)
                 
-                @electric_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@property.id,1) #ID and Electric
+                @electric_record_lookups = RecordLookup.where("property_id = ? AND utility_type_id = ?", @property.id, 1).to_a #ID and Electric
                 
-                if (@electric_record_lookup)
-                    @electric_recordings = get_records(@electric_record_lookup, @startdate, @enddate)
+                if (!@electric_record_lookups.blank?)
+                    
+                    @electric_recordings = get_records(@electric_record_lookups, @startdate, @enddate)
                     
                     if(@electric_recordings)
-                        if(@electric_recordings.length >= 0)
+                        if(@electric_recordings.length > 0)
                             @electric_gap_data = get_data(@electric_recordings, @startdate)
                             @num_electric_recordings = get_data_count(@electric_recordings, @startdate)
-                            # puts @electric_gap_data
                             else
                             @electric_recordings = nil;
                         end
@@ -56,21 +58,21 @@ class DashboardController < ApplicationController
                     
                 end
                 
-                @gas_record_lookup = RecordLookup.find_by_property_id_and_utility_type_id(@property.id,2)
-                if (@gas_record_lookup)    
-                    @gas_recordings = get_records(@gas_record_lookup, @startdate, @enddate)
+                @gas_record_lookups = RecordLookup.where("property_id = ? AND utility_type_id = ?", @property.id, 2).to_a
+                
+                if (!@gas_record_lookups.blank?)
+                    @gas_recordings = get_records(@gas_record_lookups, @startdate, @enddate)
                     if(@gas_recordings)
-                        if(@gas_recordings.length >= 0)
+                        if(@gas_recordings.length > 0)
                             @gas_gap_data = get_data(@gas_recordings, @startdate)
                             @num_gas_recordings = get_data_count(@gas_recordings, @startdate)
-                            # puts @gas_gap_data
-                        else
+                            else
                             @gas_recordings = nil;
                         end
                     end
                 end
                 
-            else
+                else
                 flash[:alert] = "This property does not contain a listed test out date!"
                 #Add testout date functionality here??
             end
@@ -80,6 +82,7 @@ class DashboardController < ApplicationController
             redirect_to :action => 'index'
         end
     end
+<<<<<<< HEAD
         
     def prism_report_electric
         if params[:owner]
@@ -167,8 +170,12 @@ class DashboardController < ApplicationController
         end
     end
     
+=======
+    
+
+>>>>>>> bf67d75799de2ffc2a3b00c61ed1a6d37335544c
     def analysis_ready_dominion_report
-      sql = "SELECT
+        sql = "SELECT
         temp.owner_name,
 		temp.acctnum,
         COUNT(temp.gooddata) AS acceptedDatapoints,
@@ -177,7 +184,7 @@ class DashboardController < ApplicationController
            'Not Ready') AS readyToAnalyze
            FROM
            (SELECT
-           properties.owner_name,
+            properties.owner_name,
             properties.customer_unique_id,
             properties.finish_date,
 			DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
@@ -203,23 +210,23 @@ class DashboardController < ApplicationController
             respond_to do |format|
                 format.html
                 format.csv { send_data csv_export(header, @records_array, fields) }
-            end            
+            end
     end
-
+    
     def analysis_ready_cvillegas_report
-      sql = "SELECT
+        sql = "SELECT
         temp.owner_name,
-                temp.acctnum,
+        temp.acctnum,
         COUNT(temp.gooddata) AS acceptedDatapoints,
         IF(COUNT(temp.gooddata) >= 24,
            'Ready',
            'Not Ready') AS readyToAnalyze
            FROM
            (SELECT
-           properties.owner_name,
+            properties.owner_name,
             properties.customer_unique_id,
             properties.finish_date,
-                        DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
+            DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
             record_lookups.company_name,
             recordings.acctnum,
             recordings.read_date,
@@ -235,7 +242,7 @@ class DashboardController < ApplicationController
             record_lookups.company_name = 'CVILLEGAS'
             AND properties.finish_date IS NOT NULL) temp
             GROUP BY temp.owner_name, temp.acctnum
-                        ORDER BY acceptedDatapoints DESC;"
+            ORDER BY acceptedDatapoints DESC;"
             @records_array = ActiveRecord::Base.connection.execute(sql)
             header = ["Owner Name", "Charlottesville Gas Account Number", "Meter Readings", "Ready to Analyze"]
             fields = 4
@@ -244,91 +251,96 @@ class DashboardController < ApplicationController
                 format.csv { send_data csv_export(header, @records_array, fields) }
             end
     end
-
+    
     def utility_request_dominion_report
-      sql = "SELECT
+        sql = "SELECT
         temp.owner_name,
-                        CONCAT(temp.street_address, ' ', temp.city, ', ', temp.state, ' ', temp.zipcode) AS address,
-                temp.acctnum,
-                COUNT(temp.gooddata) AS acceptedDatapoints
+        CONCAT(temp.street_address, ' ', temp.city, ', ', temp.state, ' ', temp.zipcode) AS address,
+        temp.acctnum,
+        COUNT(temp.gooddata) AS acceptedDatapoints
         FROM
-           (SELECT
-           properties.owner_name,
-                        properties.street_address,
-                        properties.city,
-                        properties.state,
-                        properties.zipcode,
-            properties.customer_unique_id,
-            properties.finish_date,
-                        DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
-            record_lookups.company_name,
-            recordings.acctnum,
-            recordings.read_date,
-            recordings.consumption,
-            DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) AS datediffnum,
-            IF(DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) <= 365
-               AND DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) >= - 365, 1, NULL) AS gooddata
-            FROM
-            properties
-            INNER JOIN record_lookups ON record_lookups.property_id = properties.id
-            INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
-            WHERE
-            record_lookups.company_name = 'DOMINION'
-            AND properties.finish_date IS NOT NULL) temp
-GROUP BY temp.owner_name, temp.acctnum
-HAVING COUNT(temp.gooddata) < 24
-                        ORDER BY acceptedDatapoints DESC;"
-            @records_array = ActiveRecord::Base.connection.execute(sql)
-            header = ["Owner Name", "Address", "Account Number", "Acceptable Meter Readings"]
-            fields = 4
-            respond_to do |format|
-                format.html
-                format.csv { send_data csv_export(header, @records_array, fields) }
-            end
+        (SELECT
+         properties.owner_name,
+         properties.street_address,
+         properties.city,
+         properties.state,
+         properties.zipcode,
+         properties.customer_unique_id,
+         properties.finish_date,
+         DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
+         record_lookups.company_name,
+         recordings.acctnum,
+         recordings.read_date,
+         recordings.consumption,
+         DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) AS datediffnum,
+         IF(DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) <= 365
+            AND DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) >= - 365, 1, NULL) AS gooddata
+         FROM
+         properties
+         INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+         INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+         WHERE
+         record_lookups.company_name = 'DOMINION'
+         AND properties.finish_date IS NOT NULL) temp
+         GROUP BY temp.owner_name, temp.acctnum
+         HAVING COUNT(temp.gooddata) < 24
+         ORDER BY acceptedDatapoints DESC;"
+         @records_array = ActiveRecord::Base.connection.execute(sql)
+         header = ["Owner Name", "Address", "Account Number", "Acceptable Meter Readings"]
+         fields = 4
+         respond_to do |format|
+             format.html
+             format.csv { send_data csv_export(header, @records_array, fields) }
+         end
     end
-
+    
     def utility_request_cvillegas_report
-      sql = "SELECT
+        sql = "SELECT
         temp.owner_name,
-			CONCAT(temp.street_address, ' ', temp.city, ', ', temp.state, ' ', temp.zipcode) AS address,
-                temp.acctnum,
-                COUNT(temp.gooddata) AS acceptedDatapoints
+        CONCAT(temp.street_address, ' ', temp.city, ', ', temp.state, ' ', temp.zipcode) AS address,
+        temp.acctnum,
+        COUNT(temp.gooddata) AS acceptedDatapoints
         FROM
-           (SELECT
-           properties.owner_name,
-			properties.street_address,
-			properties.city,
-			properties.state,
-			properties.zipcode,
-            properties.customer_unique_id,
-            properties.finish_date,
-                        DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
-            record_lookups.company_name,
-            recordings.acctnum,
-            recordings.read_date,
-            recordings.consumption,
-            DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) AS datediffnum,
-            IF(DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) <= 365
-               AND DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) >= - 365, 1, NULL) AS gooddata
-            FROM
-            properties
-            INNER JOIN record_lookups ON record_lookups.property_id = properties.id
-            INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
-            WHERE
-            record_lookups.company_name = 'CVILLEGAS'
-            AND properties.finish_date IS NOT NULL) temp
-GROUP BY temp.owner_name, temp.acctnum
-HAVING COUNT(temp.gooddata) < 24
-                        ORDER BY acceptedDatapoints DESC;"
-            @records_array = ActiveRecord::Base.connection.execute(sql)
-            header = ["Owner Name", "Address", "Account Number", "Acceptable Meter Readings"]
-            fields = 4
-            respond_to do |format|
-                format.html
-                format.csv { send_data csv_export(header, @records_array, fields) }
-            end
+        (SELECT
+         properties.owner_name,
+         properties.street_address,
+         properties.city,
+         properties.state,
+         properties.zipcode,
+         properties.customer_unique_id,
+         properties.finish_date,
+         DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY) AS first_day_of_month,
+         record_lookups.company_name,
+         recordings.acctnum,
+         recordings.read_date,
+         recordings.consumption,
+         DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) AS datediffnum,
+         IF(DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) <= 365
+            AND DATEDIFF(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 1 DAY), recordings.read_date) >= - 365, 1, NULL) AS gooddata
+         FROM
+         properties
+         INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+         INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+         WHERE
+         record_lookups.company_name = 'CVILLEGAS'
+         AND properties.finish_date IS NOT NULL) temp
+         GROUP BY temp.owner_name, temp.acctnum
+         HAVING COUNT(temp.gooddata) < 24
+         ORDER BY acceptedDatapoints DESC;"
+         @records_array = ActiveRecord::Base.connection.execute(sql)
+         header = ["Owner Name", "Address", "Account Number", "Acceptable Meter Readings"]
+         fields = 4
+         respond_to do |format|
+             format.html
+             format.csv { send_data csv_export(header, @records_array, fields) }
+         end
     end
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> bf67d75799de2ffc2a3b00c61ed1a6d37335544c
     def csv_export(header, data, fields)
         CSV.generate do |csv|
             csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
