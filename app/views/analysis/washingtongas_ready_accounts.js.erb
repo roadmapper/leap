@@ -1,0 +1,7 @@
+$('#washingtongas_rdy').html("<%= escape_javascript(ajax_section :id => "washingtongas_ready_accounts", :render => "washingtongas_ready_accounts") %>");
+$(function () {  
+  $('.pagination a').on("click", function () {  
+    $.get(this.href, null, null, 'script');  
+    return false;  
+  });  
+});  

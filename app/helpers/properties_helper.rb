@@ -6,7 +6,7 @@ module PropertiesHelper
         
         if(to_date.day < 15)
             (to_date - 1.years).beginning_of_month + 14.days
-        else
+            else
             (to_date - 1.years + 1.month).beginning_of_month + 14.days
         end
         
@@ -21,9 +21,16 @@ module PropertiesHelper
         end
     end
     
-    def get_records(record_lookup, start_date, end_date)
-        Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: start_date, end_date: end_date, acct_num: record_lookup.acct_num}).order("read_date ASC")
+    def get_records(record_lookups, start_date, end_date)
+        
+        lookups = Array.new
+        for i in 0..(record_lookups.count-1)
+            lookups.concat Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: start_date, end_date: end_date, acct_num: record_lookups[i].acct_num}).order("read_date ASC").to_a
+        end
+        
+        lookups.sort_by{|e| e[:read_date]}
     end
+
     
     def gap_months(start_date)
         months = Array.new
@@ -79,5 +86,34 @@ module PropertiesHelper
         
         data
     end
-    
+        
+        def get_missing_dates(records, startdate)
+            
+            dates = Array.new
+            count = 0
+            records.each do |rec|
+                read_date = rec.read_date
+                days_in_month = rec.days_in_month
+                for i in count..23
+                    currdate = startdate + i.months
+                    if((currdate >= read_date - days_in_month.days) && (currdate < read_date.end_of_month))
+                        
+                        count += 1;
+                        break
+                        else
+                        dates.push(currdate);
+                        count += 1;
+                    end
+                end
+            end
+            
+            while(dates.length < 24) do
+                dates.push(dates[length-1] + 1.months);
+            end
+            
+            puts dates
+            dates
+            
+        end
+            
 end
