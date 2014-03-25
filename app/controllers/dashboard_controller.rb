@@ -82,7 +82,7 @@ class DashboardController < ApplicationController
             redirect_to :action => 'index'
         end
     end
-<<<<<<< HEAD
+
         
     def prism_report_electric
         if params[:owner]
@@ -97,7 +97,7 @@ class DashboardController < ApplicationController
     left join record_lookups on properties.id = record_lookups.property_id 
     left join recordings on record_lookups.acct_num = recordings.acctnum 
     left join utility_types on utility_types.id = recordings.utility_type_id 
-    where customer_unique_id = '" << @property.customer_unique_id << "' and record_lookups.utility_type_id=1 
+    where customer_unique_id = '" + @property.customer_unique_id + "' and record_lookups.utility_type_id=1 
     ORDER BY ABS(UNIX_TIMESTAMP(recordings.read_date) - UNIX_TIMESTAMP(properties.finish_date)) 
     ASC LIMIT 22";
             @records_array = ActiveRecord::Base.connection.execute(sql)
@@ -170,10 +170,9 @@ class DashboardController < ApplicationController
         end
     end
     
-=======
+
     
 
->>>>>>> bf67d75799de2ffc2a3b00c61ed1a6d37335544c
     def analysis_ready_dominion_report
         sql = "SELECT
         temp.owner_name,
@@ -335,12 +334,6 @@ class DashboardController < ApplicationController
              format.csv { send_data csv_export(header, @records_array, fields) }
          end
     end
-<<<<<<< HEAD
-
-=======
-    
-    
->>>>>>> bf67d75799de2ffc2a3b00c61ed1a6d37335544c
     def csv_export(header, data, fields)
         CSV.generate do |csv|
             csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]

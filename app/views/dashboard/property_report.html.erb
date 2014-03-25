@@ -43,6 +43,17 @@
 	<%= render 'form_account' %>
 </div>
 
+	<h3> PRISM Reports </h3>
+
+	<a href="<%= dashboard_prism_report_electric_path + "?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Electric Report - HTML</a>
+
+	<a href="<%= dashboard_prism_report_electric_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Electric Report - CSV</a>
+
+	<a href="<%= dashboard_prism_report_gas_path + "?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Gas Report - HTML</a>
+
+	<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Gas Report - CSV</a>
+
+
 
 <% if (@electric_recordings && @gas_recordings) %>
 
@@ -128,7 +139,7 @@
 				<td> <%= @gas_recordings[i].consumption %> </td>
 				<td> <%= @gas_recordings[i].days_in_month %> </td>
 			</tr>
-<<<<<<< HEAD
+
 			<% for i in 0..@gas_recordings.count-1 %>
 				<tr>
 					<td> <%= @gas_recordings[i].read_date %> </td>
@@ -139,121 +150,9 @@
 		</table>
 	<% end %>
 
+<%end%>
 
-	<h3> PRISM Reports </h3>
 
-	<a href="<%= dashboard_prism_report_electric_path + "?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Electric Report - HTML</a>
-
-	<a href="<%= dashboard_prism_report_electric_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Electric Report - CSV</a>
-
-	<a href="<%= dashboard_prism_report_gas_path + "?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Gas Report - HTML</a>
-
-	<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Gas Report - CSV</a>
-
-	<% if (!(@electric_recordings.blank?)) %>
-		<h3> Gaps Report - Electricity </h3>
-
-		<table class="table" border = 1>
-		  <tr>
-		    <th colspan="12" > 12 Months Pre-Testout</th>
-		  </tr>
-		  <tr >
-		    <% for i in 0..((@months.count-1)/2) %>
-		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-		    <%end%>
-		  </tr>
-		  <tr>
-		  		
-		  		<% for i in 0..11 %>
-		  			<% if(@electric_gap_data[i] != 0 && @electric_gap_data[i] != "---") %>
-		  				<td bgcolor="11F215"> <%= @electric_gap_data[i] %> </td>
-			  		<% elsif (@electric_gap_data[i] == 0) %>
-						<td bgcolor="FFD700"> <%= @electric_gap_data[i] %> </td>
-		  			<%else %>
-		  				<td bgcolor="F24E4E"> <%= @electric_gap_data[i] %> </td>	
-	               	<% end %>
-	            <% end %>
-			    
-		  </tr>
-		  <tr >
-		    <th colspan="12" > 12 Months Post-Testout</th>
-		  </tr>
-		  <tr>
-		    <% for i in ((@months.count)/2)..(@months.count-1) %>
-		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-		    <%end%>
-		  </tr>
-		  <tr>
-		  		<% for i in 12..23 %>
-		  			<% if(@electric_gap_data[i] != 0 && @electric_gap_data[i] != "---") %>
-		  				<td bgcolor="11F215"> <%= @electric_gap_data[i] %> </td>
-			  		<% elsif (@electric_gap_data[i] == 0) %>
-						<td bgcolor="FFD700"> <%= @electric_gap_data[i] %> </td>
-		  			<%else %>
-		  				<td bgcolor="F24E4E"> <%= @electric_gap_data[i] %> </td>	
-	               	<% end %>
-	            <% end %>
-			    
-		  </tr>
-		</table>
-	<% end %>
-
-	<% if (!(@gas_recordings.blank?)) %>
-		
-		<h3> Gaps Report - Gas </h3>
-
-		<table class="table" border = 1>
-		  <tr>
-		    <th colspan="12" > 12 Months Pre-Testout</th>
-		  </tr>
-		  <tr >
-		    <% for i in 0..((@months.count-1)/2) %>
-		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-		    <%end%>
-		  </tr>
-		  <tr>
-		  		
-		  		<% for i in 0..11 %>
-		  			<% if(@gas_gap_data[i] != 0 && @gas_gap_data[i] != "---" ) %>
-		  				<td bgcolor="11F215"> <%= @gas_gap_data[i] %> </td>
-			  		<% elsif (@gas_gap_data[i] == 0) %>
-						<td bgcolor="FFD700"> <%= @gas_gap_data[i] %> </td>
-		  			<%else%>
-		  				<td bgcolor="F24E4E"> <%= @gas_gap_data[i] %> </td>	
-	               	<% end %>
-	            <% end %>
-			    
-		  </tr>
-		  <tr >
-		    <th colspan="12" > 12 Months Post-Testout</th>
-		  </tr>
-		  <tr>
-		    <% for i in ((@months.count)/2)..(@months.count-1) %>
-		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-		    <%end%>
-		  </tr>
-		  <tr>
-		  		<% for i in 12..23 %>
-		  			<% if(@gas_gap_data[i] != 0 && @gas_gap_data[i] != "---") %>
-		  				<td bgcolor="11F215"> <%= @gas_gap_data[i] %> </td>
-			  		<% elsif (@gas_gap_data[i] == 0) %>
-						<td bgcolor="FFD700"> <%= @gas_gap_data[i] %> </td>
-		  			<% else %>
-		  				<td bgcolor="F24E4E"> <%= @gas_gap_data[i] %> </td>	
-	               	<% end %>
-	            <% end %>
-			    
-		  </tr>
-		</table>
-	<% end %>
-
-	<% if(@num_electric_recordings < 24 || @num_gas_recordings < 24) %>
-		<%= render 'form_recording' %>
-	<% end %>
-=======
-		<% end %>
-	</table>
-<% end %>
 
 <% if (@electric_recordings) %>
 	<h3> Gaps Report - Electricity </h3>
@@ -352,10 +251,11 @@
 	</table>
 <% end %>
 
+
+
+
 <% if(@num_electric_recordings < 24 || @num_gas_recordings < 24) %>
 	<%= render 'form_recording' %>
 <% end %>
->>>>>>> bf67d75799de2ffc2a3b00c61ed1a6d37335544c
+
 </div>
-
-
