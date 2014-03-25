@@ -1,3 +1,11 @@
 #accountform{
         display: none;
 }
+
+.addnewform{
+	float:left;
+}
+
+.neededtable{
+	float:right;
+}
