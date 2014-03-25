@@ -54,11 +54,9 @@ Public::Application.routes.draw do
   get 'analysis/washingtongas_ready_accounts'
 
   get 'filtering', to: 'filtering#index'
-<<<<<<< HEAD
-  
-=======
   match '/filtering_reset' => 'filtering#reset', :as=>'reset'
->>>>>>> b283d37f3d2d46931f4d02d14f06337f8baeb219
+
+
   get 'requests', to: 'requests#index'
   get 'requests/dominion_request_accounts'
   get 'requests/cvillegas_request_accounts'
