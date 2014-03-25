@@ -1,237 +1,231 @@
 
+
 <%= stylesheet_link_tag "report_style" %>
 
 <div class="container">
 
 <% title "Customer #{@property.customer_unique_id}" %>
-<h3><%= "Report for Customer #{@property.customer_unique_id}" %></h3>
-<hr>
+<h3><%= "Report for Customer #{@property.customer_unique_id}" %></h3> <br>
 
 <a href="javascript:toggleDiv('accountform');"> <button class = "btn-xs btn-primary"> Add New Account </button></a> <br><br>
-
-<strong><p>Customer Name: </strong> <%= " " + @property.owner_name %></p>
-<p><%= @property.street_address %></p>
-<p><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></p>
-<% if (!@electric_record_lookups.blank?) %>
-	<% for i in 0..(@electric_record_lookups.count - 1) %>
-		<p><%= "Account (" + @electric_record_lookups[i].company_name + "): " + @electric_record_lookups[i].acct_num %></p>
+	<strong><p>Customer Name: </strong> <%= " " + @property.owner_name %></p>
+	<p><%= @property.street_address %></p>
+	<p><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></p>
+	<% if (@electric_record_lookup) %>
+		<p><%= "#{@electric_record_lookup.company_name} Account Number: #{@electric_record_lookup.acct_num} " %></p>
+		
 	<% end %>
+	<% if (@gas_record_lookup) %>
+		<p><%= "#{@gas_record_lookup.company_name} Account Number: #{@gas_record_lookup.acct_num} " %></p>
+	<% end %>
+
+	<script type="text/javascript">
+		function toggleDiv(divId) {
+			$("#"+divId).toggle();
+		}
+	</script>
+
 	
-<% end %>
-<%puts "Electric Records:" %>
-<%puts @electric_record_lookups %>
-<% if (!@gas_record_lookups.blank?) %>
-	<% for i in 0..(@gas_record_lookups.count - 1 ) %>
-		<p><%= "Account (" + @gas_record_lookups[i].company_name + "): " + @gas_record_lookups[i].acct_num %></p>
+
+	<% if (@property.finish_date) %>
+		<p><%= "Test Out Date: " + @testoutdate.strftime("%B %e, %Y")%></p>
+	<%else%>
+		<%= render 'form_to' %>
 	<% end %>
-<% end %>
 
-<script type="text/javascript">
-	function toggleDiv(divId) {
-		$("#"+divId).toggle();
-	}
-</script>
+	<div id ="accountform">
+		<%= render 'form_account' %>
+	</div>
 
 
-<% if (@property.finish_date) %>
-	<p><strong> Test Out Date:  </strong> <%= " " + @testoutdate.strftime("%B %e, %Y")%></p>
-<%else%>
-	<%= render 'form_to' %>
-<% end %>
+	<% if (!(@electric_recordings.blank?) && !(@gas_recordings.blank?)) %>
 
-<div id ="accountform">
-	<%= render 'form_account' %>
-</div>
+		<h3> Raw Data </h3>
 
-
-<% if (@electric_recordings && @gas_recordings) %>
-
-	<h3> Raw Data </h3>
-
-	<table class="table" border = 1>
-		<tr>
-			<th colspan="3"> Electricity</th>
-			<th colspan="3"> Gas</th>
-		</tr>
-		<tr>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-		</tr>
-		<% for i in 0..[@electric_recordings.count-1, @gas_recordings.count-1].max %>
+		<table class="table" border = 1>
 			<tr>
-				<%if(@electric_recordings[i])%>
+				<th colspan="3"> Electricity</th>
+				<th colspan="3"> Gas</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..[@electric_recordings.count-1, @gas_recordings.count-1].max %>
+				<tr>
+					<%if(@electric_recordings[i])%>
+						<td> <%= @electric_recordings[i].read_date %> </td>
+						<td> <%= @electric_recordings[i].consumption %> </td>
+						<td> <%= @electric_recordings[i].days_in_month %> </td>
+					<%else%>
+						<td></td>
+						<td></td>
+						<td></td>
+					<%end%>
+					<%if(@gas_recordings[i])%>
+						<td> <%= @gas_recordings[i].read_date %> </td>
+						<td> <%= @gas_recordings[i].consumption %> </td>
+						<td> <%= @gas_recordings[i].days_in_month %> </td>
+					<%else%>
+						<td></td>
+						<td></td>
+						<td></td>
+					<%end%>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+
+	<% if (!(@electric_recordings.blank?) && @gas_recordings.blank?) %>
+
+		<h3> Raw Data </h3>
+
+		<table class="table" border = 1>
+			<tr>
+				<th colspan="3"> Electricity</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..@electric_recordings.count-1 %>
+				<tr>
 					<td> <%= @electric_recordings[i].read_date %> </td>
 					<td> <%= @electric_recordings[i].consumption %> </td>
 					<td> <%= @electric_recordings[i].days_in_month %> </td>
-				<%else%>
-					<td></td>
-					<td></td>
-					<td></td>
-				<%end%>
-				<%if(@gas_recordings[i])%>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+
+	<% if (@electric_recordings.blank? && !(@gas_recordings.blank?)) %>
+
+		<h3> Raw Data </h3>
+
+		<table class="table" border = 1>
+			<tr>
+				<th colspan="3"> Gas</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..@gas_recordings.count-1 %>
+				<tr>
 					<td> <%= @gas_recordings[i].read_date %> </td>
 					<td> <%= @gas_recordings[i].consumption %> </td>
 					<td> <%= @gas_recordings[i].days_in_month %> </td>
-				<%else%>
-					<td></td>
-					<td></td>
-					<td></td>
-				<%end%>
-			</tr>
-		<% end %>
-	</table>
-<% end %>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
 
-<% if (@electric_recordings && !@gas_recordings) %>
+	<% if (!(@electric_recordings.blank?)) %>
+		<h3> Gaps Report - Electricity </h3>
 
-	<h3> Raw Data </h3>
+		<table class="table" border = 1>
+		  <tr>
+		    <th colspan="12" > 12 Months Pre-Testout</th>
+		  </tr>
+		  <tr >
+		    <% for i in 0..((@months.count-1)/2) %>
+		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
+		    <%end%>
+		  </tr>
+		  <tr>
+		  		
+		  		<% for i in 0..11 %>
+		  			<% if(@electric_gap_data[i] != 0 && @electric_gap_data[i] != "---") %>
+		  				<td bgcolor="11F215"> <%= @electric_gap_data[i] %> </td>
+			  		<% elsif (@electric_gap_data[i] == 0) %>
+						<td bgcolor="FFD700"> <%= @electric_gap_data[i] %> </td>
+		  			<%else %>
+		  				<td bgcolor="F24E4E"> <%= @electric_gap_data[i] %> </td>	
+	               	<% end %>
+	            <% end %>
+			    
+		  </tr>
+		  <tr >
+		    <th colspan="12" > 12 Months Post-Testout</th>
+		  </tr>
+		  <tr>
+		    <% for i in ((@months.count)/2)..(@months.count-1) %>
+		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
+		    <%end%>
+		  </tr>
+		  <tr>
+		  		<% for i in 12..23 %>
+		  			<% if(@electric_gap_data[i] != 0 && @electric_gap_data[i] != "---") %>
+		  				<td bgcolor="11F215"> <%= @electric_gap_data[i] %> </td>
+			  		<% elsif (@electric_gap_data[i] == 0) %>
+						<td bgcolor="FFD700"> <%= @electric_gap_data[i] %> </td>
+		  			<%else %>
+		  				<td bgcolor="F24E4E"> <%= @electric_gap_data[i] %> </td>	
+	               	<% end %>
+	            <% end %>
+			    
+		  </tr>
+		</table>
+	<% end %>
 
-	<table class="table" border = 1>
-		<tr>
-			<th colspan="3"> Electricity</th>
-		</tr>
-		<tr>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-		</tr>
-		<% for i in 0..@electric_recordings.count-1 %>
-			<tr>
-				<td> <%= @electric_recordings[i].read_date %> </td>
-				<td> <%= @electric_recordings[i].consumption %> </td>
-				<td> <%= @electric_recordings[i].days_in_month %> </td>
-			</tr>
-		<% end %>
-	</table>
-<% end %>
+	<% if (!(@gas_recordings.blank?)) %>
+		
+		<h3> Gaps Report - Gas </h3>
 
-<% if (!(@electric_recordings) && @gas_recordings) %>
+		<table class="table" border = 1>
+		  <tr>
+		    <th colspan="12" > 12 Months Pre-Testout</th>
+		  </tr>
+		  <tr >
+		    <% for i in 0..((@months.count-1)/2) %>
+		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
+		    <%end%>
+		  </tr>
+		  <tr>
+		  		
+		  		<% for i in 0..11 %>
+		  			<% if(@gas_gap_data[i] != 0 && @gas_gap_data[i] != "---" ) %>
+		  				<td bgcolor="11F215"> <%= @gas_gap_data[i] %> </td>
+			  		<% elsif (@gas_gap_data[i] == 0) %>
+						<td bgcolor="FFD700"> <%= @gas_gap_data[i] %> </td>
+		  			<%else%>
+		  				<td bgcolor="F24E4E"> <%= @gas_gap_data[i] %> </td>	
+	               	<% end %>
+	            <% end %>
+			    
+		  </tr>
+		  <tr >
+		    <th colspan="12" > 12 Months Post-Testout</th>
+		  </tr>
+		  <tr>
+		    <% for i in ((@months.count)/2)..(@months.count-1) %>
+		    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
+		    <%end%>
+		  </tr>
+		  <tr>
+		  		<% for i in 12..23 %>
+		  			<% if(@gas_gap_data[i] != 0 && @gas_gap_data[i] != "---") %>
+		  				<td bgcolor="11F215"> <%= @gas_gap_data[i] %> </td>
+			  		<% elsif (@gas_gap_data[i] == 0) %>
+						<td bgcolor="FFD700"> <%= @gas_gap_data[i] %> </td>
+		  			<% else %>
+		  				<td bgcolor="F24E4E"> <%= @gas_gap_data[i] %> </td>	
+	               	<% end %>
+	            <% end %>
+			    
+		  </tr>
+		</table>
+	<% end %>
 
-	<h3> Raw Data </h3>
-
-	<table class="table" border = 1>
-		<tr>
-			<th colspan="3"> Gas</th>
-		</tr>
-		<tr>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-		</tr>
-		<% for i in 0..@gas_recordings.count-1 %>
-			<tr>
-				<td> <%= @gas_recordings[i].read_date %> </td>
-				<td> <%= @gas_recordings[i].consumption %> </td>
-				<td> <%= @gas_recordings[i].days_in_month %> </td>
-			</tr>
-		<% end %>
-	</table>
-<% end %>
-
-<% if (@electric_recordings) %>
-	<h3> Gaps Report - Electricity </h3>
-
-	<table class="table" border = 1>
-	  <tr>
-	    <th colspan="12" > 12 Months Pre-Testout</th>
-	  </tr>
-	  <tr >
-	    <% for i in 0..((@months.count-1)/2) %>
-	    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-	    <%end%>
-	  </tr>
-	  <tr>
-	  		
-	  		<% for i in 0..11 %>
-	  			<% if(@electric_gap_data[i] != 0 && @electric_gap_data[i] != "---") %>
-	  				<td bgcolor="11F215"> <%= @electric_gap_data[i] %> </td>
-		  		<% elsif (@electric_gap_data[i] == 0) %>
-					<td bgcolor="FFD700"> <%= @electric_gap_data[i] %> </td>
-	  			<%else %>
-	  				<td bgcolor="F24E4E"> <%= @electric_gap_data[i] %> </td>	
-               	<% end %>
-            <% end %>
-		    
-	  </tr>
-	  <tr >
-	    <th colspan="12" > 12 Months Post-Testout</th>
-	  </tr>
-	  <tr>
-	    <% for i in ((@months.count)/2)..(@months.count-1) %>
-	    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-	    <%end%>
-	  </tr>
-	  <tr>
-	  		<% for i in 12..23 %>
-	  			<% if(@electric_gap_data[i] != 0 && @electric_gap_data[i] != "---") %>
-	  				<td bgcolor="11F215"> <%= @electric_gap_data[i] %> </td>
-		  		<% elsif (@electric_gap_data[i] == 0) %>
-					<td bgcolor="FFD700"> <%= @electric_gap_data[i] %> </td>
-	  			<%else %>
-	  				<td bgcolor="F24E4E"> <%= @electric_gap_data[i] %> </td>	
-               	<% end %>
-            <% end %>
-		    
-	  </tr>
-	</table>
-<% end %>
-
-<% if (@gas_recordings) %>
-	
-	<h3> Gaps Report - Gas </h3>
-
-	<table class="table" border = 1>
-	  <tr>
-	    <th colspan="12" > 12 Months Pre-Testout</th>
-	  </tr>
-	  <tr >
-	    <% for i in 0..((@months.count-1)/2) %>
-	    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-	    <%end%>
-	  </tr>
-	  <tr>
-	  		
-	  		<% for i in 0..11 %>
-	  			<% if(@gas_gap_data[i] != 0 && @gas_gap_data[i] != "---" ) %>
-	  				<td bgcolor="11F215"> <%= @gas_gap_data[i] %> </td>
-		  		<% elsif (@gas_gap_data[i] == 0) %>
-					<td bgcolor="FFD700"> <%= @gas_gap_data[i] %> </td>
-	  			<%else%>
-	  				<td bgcolor="F24E4E"> <%= @gas_gap_data[i] %> </td>	
-               	<% end %>
-            <% end %>
-		    
-	  </tr>
-	  <tr >
-	    <th colspan="12" > 12 Months Post-Testout</th>
-	  </tr>
-	  <tr>
-	    <% for i in ((@months.count)/2)..(@months.count-1) %>
-	    <td><%= @months[i].strftime("%b") + " " + @months[i].strftime("%Y")%></td>
-	    <%end%>
-	  </tr>
-	  <tr>
-	  		<% for i in 12..23 %>
-	  			<% if(@gas_gap_data[i] != 0 && @gas_gap_data[i] != "---") %>
-	  				<td bgcolor="11F215"> <%= @gas_gap_data[i] %> </td>
-		  		<% elsif (@gas_gap_data[i] == 0) %>
-					<td bgcolor="FFD700"> <%= @gas_gap_data[i] %> </td>
-	  			<% else %>
-	  				<td bgcolor="F24E4E"> <%= @gas_gap_data[i] %> </td>	
-               	<% end %>
-            <% end %>
-		    
-	  </tr>
-	</table>
-<% end %>
-
-<% if(@num_electric_recordings < 24 || @num_gas_recordings < 24) %>
-	<%= render 'form_recording' %>
-<% end %>
+	<% if(@num_electric_recordings < 24 || @num_gas_recordings < 24) %>
+		<%= render 'form_recording' %>
+	<% end %>
 </div>
 
 
