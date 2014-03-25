@@ -11,9 +11,10 @@
 // about supported directives.
 //
 
+//= require jquery-2.1.0
 //= require jquery
 //= require jquery_ujs
-//= require twitter/typeahead
+//= require typeahead.bundle
 //= require bootstrap
 //= require on_the_spot
 //= require ajax_pagination

@@ -37,13 +37,4 @@
 
 	</div>
 </nav>
-
-<%= javascript_tag "var variables = #{ @variables.to_json };" %>
-
-<script>
-$('.typeahead').typeahead({
-    name: 'properties',
-    local: variables
- });
-</script>
 <% end %>
