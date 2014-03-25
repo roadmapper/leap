@@ -1,3 +1,4 @@
+<div class= "container">
 <h1>Upload</h1>
 
 <h3>Processed Data</h3>
@@ -7,14 +8,15 @@
 		<%= form_tag({:action => :upload,  :controller=>"uploads"}, :multipart => true) do %>
 		  <%= file_field_tag 'file' %>
 		<br>
-		<%= submit_tag( "UploadElectric", class: 'btn btn-primary') %>
+		<%= submit_tag( "UploadElectric", class: 'btn-small btn-primary') %>
 		<br>
 		<% end %>
 		
+    <br>
 		<%= form_tag({:action => :uploadGas,  :controller=>"uploads"}, :multipart => true) do %>
 		  <%= file_field_tag 'file' %>
 		<br>
-		<%= submit_tag( "UploadGas", class: 'btn btn-primary') %>
+		<%= submit_tag( "UploadGas", class: 'btn-small btn-primary') %>
 		<br>
 		<% end %>
 
@@ -50,3 +52,4 @@
 </table>
 
 <br />
+</div>
