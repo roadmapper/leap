@@ -1,0 +1,30 @@
+<h1>PRISM Report - Electric</h1>
+<table class="table table-striped" border="1">
+  <tr>
+    <th>Building ID</th>
+    <th>Month</th>
+    <th>Day</th>
+    <th>Year</th>
+    <th>Consumption</th>
+    <th>Units</th>
+    <th>P-Field</th>
+    <th>Group</th>
+    <th>Flag</th>
+  </tr>
+
+<% @records_array.each do |record| %>
+  <tr>
+    <td><%= record[0] %></td>
+    <td><%= record[1] %></td>
+    <td><%= record[2] %></td>
+    <td><%= record[3] %></td>
+    <td><%= record[4] %></td>
+    <td><%= record[5] %></td>
+    <td><%= record[6] %></td>
+    <td><%= record[7] %></td>
+    <td><%= record[8] %></td>
+  </tr>
+<% end %>
+
+<br />
+<%= link_to 'Back', dashboard_index_path %>
