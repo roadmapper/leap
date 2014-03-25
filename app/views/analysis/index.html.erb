@@ -7,9 +7,6 @@
 	  	<li><a href="#NullAccts" data-toggle="tab">Null Accounts</a></li>
 	</ul>
 	<script>
-	/*$( document ).ready(function() {
-    	console.log( "ready!" )
-	})*/
 	$('#myTab a[href="#CvilleGas"]').click(function (e) {
 	  	e.preventDefault()
 	  	$(this).tab('show')
@@ -60,8 +57,8 @@
 				</div>
 				<div class="col-lg-4">
 					</br>
-					<%= button_to "Generate HTML View", analysis_cvillegas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-					<%= button_to "Export to CSV", dashboard_analysis_ready_cvillegas_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+					<%= button_to "Generate HTML View", analysis_washingtongas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
+					<%= button_to "Export to CSV", analysis_washingtongas_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
 			<div id="washingtongas_rdy"></div>

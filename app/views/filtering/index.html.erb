@@ -12,7 +12,11 @@
         <div class="form_group">
             <%= label_tag(:startdate,"Start Date: ", class:"col-md-1 control-label")%>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="startdate" name="startdate" value="<%= params[:startdate] %>" data-behaviour='datepicker'>
+                <input type="text" class="form-control" id="startdate" name="startdate" value="<%= params[:startdate] %>" >
+                <span class="add-on">
+                    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                    </i>
+                 </span>
             </div>
         </div>
         <div class="form_group">
@@ -87,7 +91,7 @@
         <div class="col-md-1 text-center"><p><b>Windows:</b></p></div>
         <div class="col-md-1 text-center"><p><b>Exterior Doors:</b></p></div>
         <div class="col-md-1 text-center"><p><b>Renewable Energy System:</b></p></div>
-        <div class="col-md-1 text-center"></div>
+        <div class="col-md-1 text-center"><a href="<%= filtering_path%>" class="btn btn-primary" style="color:white">Reset</a></div>
         <div class="col-md-1 text-center"></div>
         <div class="col-md-1 text-center"></div>
     </div>
@@ -152,8 +156,10 @@
 <%= will_paginate @properties %>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('[data-behaviour~=datepicker]').datepicker();
-  })
+  $(function() {
+    $('#startdate').datetimepicker({
+      pickTime: false
+    });
+  });
 </script>
 </div>
