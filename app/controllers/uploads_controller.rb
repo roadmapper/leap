@@ -99,10 +99,13 @@ class UploadsController < ApplicationController
 		flash[:notice] = status
 		Thread.new do		
 			if uploaded_io.content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+				Upload.update_all( {:status => 'Processing'}, {:file_name => uploaded_io.original_filename})
 				convert_to_stagingsXLSX path, uploaded_io, 1
 			elsif uploaded_io.content_type == 'application/vnd.ms-excel'
+				Upload.update_all( {:status => 'Processing'}, {:file_name => uploaded_io.original_filename})
 				convert_to_stagingsXLS path, uploaded_io, 1
 			elsif uploaded_io.content_type == 'text/csv'
+				Upload.update_all( {:status => 'Processing'}, {:file_name => uploaded_io.original_filename})
 				convert_to_stagingsCSV path, uploaded_io, 1 
 			end
 		end	
@@ -124,10 +127,13 @@ class UploadsController < ApplicationController
 		flash[:notice] = status
 		Thread.new do
 			if uploaded_io.content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+				Upload.update_all( {:status => 'Processing'}, {:file_name => uploaded_io.original_filename})
 				convert_to_stagingsXLSX path, uploaded_io, 2
 			elsif uploaded_io.content_type == 'application/vnd.ms-excel'
+				Upload.update_all( {:status => 'Processing'}, {:file_name => uploaded_io.original_filename})
 				convert_to_stagingsXLS path, uploaded_io, 2
 			elsif uploaded_io.content_type == 'text/csv'
+				Upload.update_all( {:status => 'Processing'}, {:file_name => uploaded_io.original_filename})
 				convert_to_stagingsCSV path, uploaded_io, 2 
 			end
 		end	
