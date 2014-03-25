@@ -1,6 +1,7 @@
-<h1>Listing property_measures</h1>
-
-<table>
+<div class="container theme-showcase">
+<h1>Property Installed Measures</h1>
+<%= link_to 'New Installed Measure for Property', new_property_measure_path, class: 'btn btn-default' %><br><br>
+<table class="table table-striped">
   <tr>
     <th>Property</th>
     <th>Measure</th>
@@ -23,5 +24,6 @@
 </table>
 
 <br />
+</div>
 
-<%= link_to 'New Property measure', new_property_measure_path %>
+
