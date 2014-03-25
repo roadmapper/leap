@@ -87,33 +87,5 @@ module PropertiesHelper
         data
     end
         
-        def get_missing_dates(records, startdate)
-            
-            dates = Array.new
-            count = 0
-            records.each do |rec|
-                read_date = rec.read_date
-                days_in_month = rec.days_in_month
-                for i in count..23
-                    currdate = startdate + i.months
-                    if((currdate >= read_date - days_in_month.days) && (currdate < read_date.end_of_month))
-                        
-                        count += 1;
-                        break
-                        else
-                        dates.push(currdate);
-                        count += 1;
-                    end
-                end
-            end
-            
-            while(dates.length < 24) do
-                dates.push(dates[length-1] + 1.months);
-            end
-            
-            puts dates
-            dates
-            
-        end
             
 end

@@ -18,8 +18,7 @@
 	<% end %>
 	
 <% end %>
-<%puts "Electric Records:" %>
-<%puts @electric_record_lookups %>
+
 <% if (!@gas_record_lookups.blank?) %>
 	<% for i in 0..(@gas_record_lookups.count - 1 ) %>
 		<p><%= "Account (" + @gas_record_lookups[i].company_name + "): " + @gas_record_lookups[i].acct_num %></p>
@@ -232,6 +231,7 @@
 <% if(@num_electric_recordings < 24 || @num_gas_recordings < 24) %>
 	<%= render 'form_recording' %>
 <% end %>
+
 </div>
 
 
