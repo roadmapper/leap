@@ -1,16 +1,16 @@
 <div class="container marketing">
 	<h1>Requests</h1>
 	<ul class="nav nav-tabs">
-	  	<li class="active"><a href="#Dominion" data-toggle="tab">Dominion, Virginia Power</a></li>
+	  	<li class="active"><a href="#Dominion" data-toggle="tab">Dominion Virginia Power</a></li>
 	  	<li><a href="#CvilleGas" data-toggle="tab">Charlottesville Gas</a></li>
-	  	<li><a href="#AccountInfo" data-toggle="tab">Customer Account Information</a></li>
+	  	<li><a href="#WashingtonGas" data-toggle="tab">Washington Gas</a></li>
 	</ul>
 	<script>
 	$('#myTab a[href="#CvilleGas"]').click(function (e) {
 	  	e.preventDefault()
 	  	$(this).tab('show')
 	})
-	$('#myTab a[href="#AccountInfo"]').click(function (e) {
+	$('#myTab a[href="#WashingtonGas"]').click(function (e) {
 	  	e.preventDefault()
 	  	$(this).tab('show')
 	})
@@ -18,43 +18,43 @@
 	<div class="tab-content">
 		<div class="tab-pane active" id="Dominion">
 			<div class="row">
-				<div class="col-lg-10">
-					<h2>Generate Utility Request for Dominion, Virginia Power Customers</h2>
+				<div class="col-lg-7">
+					<h3>Utility Request for Dominion Virginia Power Customers</h3>
 				</div>
-				<div class="col-lg-1">
+				<div class="col-lg-4">
 					</br>
-					<%= button_to "Export to CSV", dashboard_utility_request_dominion_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary' %>
+					<%= button_to "Generate HTML View", requests_dominion_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
+					<%= button_to "Export to CSV", requests_dominion_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
-			<p>This should be changed to showing the actual HTML table view of ready to analyze dominion/virginia power customers here (not having to click on the button) </p>
-			<%= button_to "Generate HTML View", dashboard_utility_request_dominion_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>
+			<div id="dominion_req"></div>	
 		</div>
 		<div class="tab-pane" id="CvilleGas" href="#CvilleGas">
 			<div class="row">
-				<div class="col-lg-10">
-					<h2>Generate Utility Request for Charlottesville Gas Customers</h2>
+				<div class="col-lg-7">
+					<h3>Utility Request for Charlottesville Gas Customers</h3>
 				</div>
-				<div class="col-lg-1">
+				<div class="col-lg-4">
 					</br>
-					<%= button_to "Export to CSV", dashboard_utility_request_cvillegas_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary' %>
+					<%= button_to "Generate HTML View", requests_cvillegas_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
+					<%= button_to "Export to CSV", requests_cvillegas_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
-			<p>This should be changed to showing the actual HTML table view (not having to click on the button) </p>
-			<%= button_to "Generate HTML View", dashboard_utility_request_cvillegas_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>		
+			<div id="cvillegas_req"></div>		
 			</br>
 		</div>
-		<div class="tab-pane" id="AccountInfo" href="#AccountInfo">
+		<div class="tab-pane" id="WashingtonGas" href="#WashingtonGas">
 			<div class="row">
-				<div class="col-lg-10">
-					<h2>List of Customers With Missing Account Information </h2>
+				<div class="col-lg-7">
+					<h3>Utility Request for Washington Gas Customers</h3>
 				</div>
-				<div class="col-lg-1">
+				<div class="col-lg-4">
 					</br>
-					<%= button_to "Export to CSV", dashboard_null_account_export_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary' %>
+					<%= button_to "Generate HTML View", requests_washingtongas_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
+					<%= button_to "Export to CSV", requests_washingtongas_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
-			<p>This should be changed to showing the actual HTML table view (not having to click on the button) </p>
-			<%= button_to "Generate HTML View", dashboard_null_account_export_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>		
+			<div id="washingtongas_req"></div>		
 			</br>
 		</div>
 	</div>
