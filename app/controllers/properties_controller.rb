@@ -10,9 +10,12 @@ class PropertiesController < ApplicationController
   # GET /properties.xml
   def index
     @properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
+    @variables = Property.find(:all).map { |x| x.owner_name+" - "+x.street_address }#&:owner_name)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
+      format.json { render :json => @variables }
     end
   end
 
