@@ -1,1 +1,0 @@
-require 'historyjs/rails'

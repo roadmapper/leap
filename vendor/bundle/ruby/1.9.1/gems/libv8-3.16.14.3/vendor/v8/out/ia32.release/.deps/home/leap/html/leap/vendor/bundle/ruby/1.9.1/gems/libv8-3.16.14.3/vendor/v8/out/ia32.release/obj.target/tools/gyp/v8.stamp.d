@@ -1,1 +1,0 @@
-cmd_/home/leap/html/leap/vendor/bundle/ruby/1.9.1/gems/libv8-3.16.14.3/vendor/v8/out/ia32.release/obj.target/tools/gyp/v8.stamp := touch /home/leap/html/leap/vendor/bundle/ruby/1.9.1/gems/libv8-3.16.14.3/vendor/v8/out/ia32.release/obj.target/tools/gyp/v8.stamp
