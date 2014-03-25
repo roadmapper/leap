@@ -22,15 +22,24 @@
 		</div>
 	</div>
 </div>
-
-<%= javascript_tag "var variables = #{ @variables.to_json };" %>    
+	
 <script> 
-
 var variables = new Bloodhound({
 	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
 	queryTokenizer: Bloodhound.tokenizers.whitespace,
-	// `states` is an array of state names defined in "The Basics"
-	local: $.map(variables, function(variable) { return { value: variable }; })
+	limit: 8,
+//	local: $.map(variables, function(variable) { return { value: variable }; })
+ prefetch: {
+	// url points to a json file that contains an array of country names, see
+	// https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+	url: 'properties.json',
+	// the json file contains an array of strings, but the Bloodhound
+	// suggestion engine expects JavaScript objects so this converts all of
+	// those strings
+	filter: function(list) {
+		return $.map(list, function(variable) { return { value: variable }; });
+		}
+	}
 });
 
 variables.initialize();

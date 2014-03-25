@@ -7,11 +7,15 @@ class DashboardController < ApplicationController
     
     def index
         @variables = Property.find(:all).map { |x| x.owner_name+" - "+x.street_address }#&:owner_name)
+        
         #@addresses = Property.find(:all, :select=>'street_address').map(&:street_address)
         #@variables = @names+@addresses #Property.select([:owner_name, :street_address]).map {|e| {owner_name: e.owner_name, street_address: e.street_address} }
         #@property = Property.find_by_owner_name(params[:owner])
         #@property = Property.search(params[:owner])
         #city, state, zipcode
+        #File.open("variables.json","w+") do |f|
+        #    f.write(@variables.to_json)
+        #end 
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @property }
