@@ -1,7 +1,0 @@
-/.bundle
-/Gemfile.lock
-/pkg/*
-/tmp
-/spec/support/*/Gemfile.lock
-/spec/support/*/public/javascripts
-/vendor/ruby
