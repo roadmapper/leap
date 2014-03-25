@@ -53,6 +53,7 @@ Public::Application.routes.draw do
   get 'analysis/cvillegas_ready_accounts'
 #  get 'analysis/ready_to_analyze/:id' => "analysis#ready_to_analyze"
   get 'filtering', to: 'filtering#index'
+  match '/filtering_reset' => 'filtering#reset', :as=>'reset'
   get 'requests', to: 'requests#index'
   get 'uploads/stagings', to: 'stagings#index'
   resources :uploads do
