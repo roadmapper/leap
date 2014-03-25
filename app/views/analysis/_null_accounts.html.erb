@@ -1,7 +1,6 @@
 <table class="table table-striped" border="1">
-  <%= ajax_links :section_id => "links3" do %>
-    <%= will_paginate @n_accounts, renderer: BootstrapPagination::Rails %>
-    </ul>
+  <%= ajax_links :section_id => "page" do %>
+    <%= will_paginate @accounts %>
   <% end %>
 
   <tr>
@@ -11,7 +10,7 @@
     <th>Account Number</th>
   </tr>
   <%= ajax_loadzone do %>
-  <% @n_accounts.each do |account| %>
+  <% @accounts.each do |account| %>
     <tr>
       <td><%= link_to account.owner_name, 'dashboard/property_report?owner=' + account.owner_name %></td>
       <td><%= account.customer_unique_id %></td>
