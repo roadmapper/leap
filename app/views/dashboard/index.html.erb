@@ -49,6 +49,29 @@ $('.typeahead').typeahead({
 				</p>
 			</div>
 			<div class="col-lg-4">
+				<h2>Measures</h2>
+				<p>This page displays the complete list of possible installed measures.  Items can be added, deleted, or edited in this list.  Installed maesures can also be assocated with specific properties by entering the correct property id and measure.  A comments field is also available for entering information such as contractor data.</p>
+				<p>
+					<%= button_to "View", new_property_path, :method => "get", type: 'button', class: 'btn btn-default' %>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<h2>Filter</h2>
+				<p>Complete advanced searches here.  This allows the filtering of data based on utility type, installed measures, and the TO date range.</p>
+				<p>
+					<%= button_to "View", filtering_path, :method => "get", type: 'button', class: 'btn btn-default' %>
+				</p>
+			</div>
+			<div class="col-lg-4">
+				<h2>Properties</h2>
+				<p>Add a new property to the system here by entering property information such as customer name, address, and TO date.  The complete list of all LEAP properties is displayed here.  Each name in the properties list is clickable and will redirect to the entire data-set available for that specific property.</p>
+				<p>
+					<%= button_to "View", new_property_path, :method => "get", type: 'button', class: 'btn btn-default' %>
+				</p>
+			</div>
+			<div class="col-lg-4">
 				<h2>Request Data</h2>
 				<p>Select to generate reports for missing data based on utility type.  The report can either be generated in HTML form or as a CSV in a PRISM ready format. </p>
 				<p>
@@ -57,20 +80,6 @@ $('.typeahead').typeahead({
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4">
-				<h2>Filter</h2>
-				<p>Complete advanced searches here.  This allows you to filter data based on utility type, installed measures, and the TO date range.</p>
-				<p>
-					<%= button_to "View", filtering_path, :method => "get", type: 'button', class: 'btn btn-default' %>
-				</p>
-			</div>
-			<div class="col-lg-4">
-				<h2>Add Property</h2>
-				<p>Add a new property to the system.  This page allows the input of property information such as customer name, address, and TO date.</p>
-				<p>
-					<%= button_to "View", new_property_path, :method => "get", type: 'button', class: 'btn btn-default' %>
-				</p>
-			</div>
 			<div class="col-lg-4">
 				<h2>Help</h2>
 				<p>This system was created by the University of Virginia's Service Learning Practicum in the Computer Science Department.  Jon Proffitt has the user manual and contact information of the developers.</p>
