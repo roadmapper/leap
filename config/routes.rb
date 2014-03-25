@@ -26,10 +26,10 @@ Public::Application.routes.draw do
   resources :properties
 
   get "dashboard/property_report"
-  get "dashboard/null_account_export_report"
-  get "dashboard/analysis_ready_dominion_report" 
+  #get "dashboard/null_account_export_report"
+  #get "dashboard/analysis_ready_dominion_report" 
   get "dashboard/utility_request_dominion_report"
-  get "dashboard/analysis_ready_cvillegas_report"
+  #get "dashboard/analysis_ready_cvillegas_report"
   get "dashboard/utility_request_cvillegas_report"  
   post '/uploads/upload' => 'uploads#upload'
   post '/uploads/uploadGas' => 'uploads#uploadGas'
@@ -51,9 +51,15 @@ Public::Application.routes.draw do
   get 'analysis/null_accounts'
   get 'analysis/dominion_ready_accounts'
   get 'analysis/cvillegas_ready_accounts'
-#  get 'analysis/ready_to_analyze/:id' => "analysis#ready_to_analyze"
+  get 'analysis/washingtongas_ready_accounts'
+
   get 'filtering', to: 'filtering#index'
+  
   get 'requests', to: 'requests#index'
+  get 'requests/dominion_request_accounts'
+  get 'requests/cvillegas_request_accounts'
+  get 'requests/washingtongas_request_accounts'
+
   get 'uploads/stagings', to: 'stagings#index'
   resources :uploads do
 	member do

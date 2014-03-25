@@ -1,5 +1,7 @@
   # This is a report from a SQL View
   module Report
+
+    #Reports
     class NullAccount < ActiveRecord::Base
 
       def to_s
@@ -50,6 +52,69 @@
         true
       end
     end
+
+    class WashingtongasReadyAccount < ActiveRecord::Base
+      def to_s
+        "#{owner_name}, #{acceptedDatapoints}"
+      end
+
+      def name
+        owner_name
+      end
+
+      protected
+      def readonly?
+        true
+      end
+    end
+
+    #RequestReports
+
+    class DominionRequestAccount < ActiveRecord::Base
+      def to_s
+        "#{owner_name}, #{acceptedDatapoints}"
+      end
+
+      def name
+        owner_name
+      end
+
+      protected
+      def readonly?
+        true
+      end
+    end
+
+    class CvillegasRequestAccount < ActiveRecord::Base
+      def to_s
+        "#{owner_name}, #{acceptedDatapoints}"
+      end
+
+      def name
+        owner_name
+      end
+
+      protected
+      def readonly?
+        true
+      end
+    end
+
+    class WashingtongasRequestAccount < ActiveRecord::Base
+      def to_s
+        "#{owner_name}, #{acceptedDatapoints}"
+      end
+
+      def name
+        owner_name
+      end
+
+      protected
+      def readonly?
+        true
+      end
+    end
+
   end # module
 
 
