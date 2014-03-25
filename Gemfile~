@@ -31,8 +31,9 @@ gem 'bootstrap-sass'
 gem 'twitter-typeahead-rails'
 # Gems used only for assets and not required in production environments by default.
 
+gem "comma", "~> 3.1.0"
 
-gem 'bootstrap-datetimepicker'
+gem 'bootstrap-datetimepicker-rails'
 gem 'hoe', '3.10.0'
 
 group :assets do
