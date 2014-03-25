@@ -33,6 +33,7 @@ gem 'twitter-typeahead-rails'
 
 
 gem 'bootstrap-datepicker-rails'
+gem 'hoe', '3.10.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
