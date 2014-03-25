@@ -1,11 +1,5 @@
 Public::Application.routes.draw do
 
-  resources :property_measures
-
-
-  resources :installed_measure_types
-
-
   resources :record_lookups
 
 
