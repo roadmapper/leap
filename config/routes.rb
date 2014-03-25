@@ -26,12 +26,17 @@ Public::Application.routes.draw do
   resources :properties
 
   get "dashboard/property_report"
+<<<<<<< HEAD
   get "dashboard/prism_report_electric"
   get "dashboard/prism_report_gas"
   get "dashboard/null_account_export_report"
   get "dashboard/analysis_ready_dominion_report" 
+=======
+  #get "dashboard/null_account_export_report"
+  #get "dashboard/analysis_ready_dominion_report" 
+>>>>>>> bf67d75799de2ffc2a3b00c61ed1a6d37335544c
   get "dashboard/utility_request_dominion_report"
-  get "dashboard/analysis_ready_cvillegas_report"
+  #get "dashboard/analysis_ready_cvillegas_report"
   get "dashboard/utility_request_cvillegas_report"  
   post '/uploads/upload' => 'uploads#upload'
   post '/uploads/uploadGas' => 'uploads#uploadGas'
@@ -53,10 +58,17 @@ Public::Application.routes.draw do
   get 'analysis/null_accounts'
   get 'analysis/dominion_ready_accounts'
   get 'analysis/cvillegas_ready_accounts'
-#  get 'analysis/ready_to_analyze/:id' => "analysis#ready_to_analyze"
+  get 'analysis/washingtongas_ready_accounts'
+
   get 'filtering', to: 'filtering#index'
   match '/filtering_reset' => 'filtering#reset', :as=>'reset'
+
+
   get 'requests', to: 'requests#index'
+  get 'requests/dominion_request_accounts'
+  get 'requests/cvillegas_request_accounts'
+  get 'requests/washingtongas_request_accounts'
+
   get 'uploads/stagings', to: 'stagings#index'
   resources :uploads do
 	member do

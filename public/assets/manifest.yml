@@ -1,0 +1,23 @@
+---
+down_arrow.gif: down_arrow.gif
+down_arrow/index.gif: down_arrow.gif
+logo.png: logo.png
+logo/index.png: logo.png
+up_arrow.gif: up_arrow.gif
+up_arrow/index.gif: up_arrow.gif
+application.js: application.js
+application/index.js: application.js
+application.css: application.css
+application/index.css: application.css
+bootstrap/glyphicons-halflings-regular.eot: bootstrap/glyphicons-halflings-regular.eot
+bootstrap/glyphicons-halflings-regular/index.eot: bootstrap/glyphicons-halflings-regular.eot
+bootstrap/glyphicons-halflings-regular.svg: bootstrap/glyphicons-halflings-regular.svg
+bootstrap/glyphicons-halflings-regular/index.svg: bootstrap/glyphicons-halflings-regular.svg
+bootstrap/glyphicons-halflings-regular.ttf: bootstrap/glyphicons-halflings-regular.ttf
+bootstrap/glyphicons-halflings-regular/index.ttf: bootstrap/glyphicons-halflings-regular.ttf
+bootstrap/glyphicons-halflings-regular.woff: bootstrap/glyphicons-halflings-regular.woff
+bootstrap/glyphicons-halflings-regular/index.woff: bootstrap/glyphicons-halflings-regular.woff
+ajax-loader.gif: ajax-loader.gif
+ajax-loader/index.gif: ajax-loader.gif
+jquery.min.map: jquery.min.map
+jquery/index.min.map: jquery.min.map
