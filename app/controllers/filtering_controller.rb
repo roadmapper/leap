@@ -4,9 +4,11 @@ class FilteringController < ApplicationController
 
   def index
   	@properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
+    #zip validation
     if params.has_key?(:zip) and params[:zip] != "" then 
       @properties = @properties.where(zipcode: params[:zip]) 
     end
+    #date validation
     if params[:startdate] != "" and params.has_key?(:startdate) and params.has_key?(:enddate) and params[:enddate] != "" then
       startdate = Date.strptime(params[:startdate],'%m/%d/%Y')
       enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
@@ -19,6 +21,8 @@ class FilteringController < ApplicationController
       enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
       @properties = @properties.where('finish_date < ?', enddate)
     end
+    #installed measures validation
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
@@ -45,8 +49,7 @@ class FilteringController < ApplicationController
           enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
           @properties = @properties.where('finish_date < ?', enddate)
         end
-        objectArray = Array.new
-
+        @records_array = Array.new
         for @property in @properties
           if params[:owner]
               @property = Property.search(params[:owner])            
@@ -63,8 +66,8 @@ class FilteringController < ApplicationController
       where customer_unique_id = '" + @property.customer_unique_id + "' and record_lookups.utility_type_id=1 
       ORDER BY ABS(UNIX_TIMESTAMP(recordings.read_date) - UNIX_TIMESTAMP(properties.finish_date)) 
       ASC LIMIT 22";
-              @records_array = ActiveRecord::Base.connection.execute(sql)
-              objectArray.push @records_array
+              current = ActiveRecord::Base.connection.execute(sql)
+              @records_array = @records_array.concat current.to_a
           end
         end
 
@@ -72,7 +75,7 @@ class FilteringController < ApplicationController
           fields = 9
           respond_to do |format|
               format.html
-              format.csv { send_data csv_export(header, objectArray, fields) }
+              format.csv { send_data csv_export(header, @records_array, fields) }
           end
     end
 
