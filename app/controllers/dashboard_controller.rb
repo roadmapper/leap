@@ -83,32 +83,7 @@ class DashboardController < ApplicationController
         end
     end
     
-    def null_account_export_report
-        sql = "select
-        owner_name,
-        -- property_id,
-        customer_unique_id,
-        company_name,
-        acct_num
-        -- record_lookups.utility_type_id
-        from
-        properties
-        left join
-        record_lookups ON properties.id = record_lookups.property_id
-        where
-        company_name IS NULL OR acct_num IS NULL
-        order by owner_name;"
-        
-        @records_array = ActiveRecord::Base.connection.execute(sql)
-        header = ["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
-        fields = 4
-        
-        respond_to do |format|
-            format.html
-            format.csv { send_data csv_export(header, @records_array, fields) }
-        end
-    end
-    
+
     def analysis_ready_dominion_report
         sql = "SELECT
         temp.owner_name,
