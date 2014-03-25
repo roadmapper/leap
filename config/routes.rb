@@ -26,15 +26,14 @@ Public::Application.routes.draw do
   resources :properties
 
   get "dashboard/property_report"
-<<<<<<< HEAD
+
   get "dashboard/prism_report_electric"
   get "dashboard/prism_report_gas"
   get "dashboard/null_account_export_report"
   get "dashboard/analysis_ready_dominion_report" 
-=======
+
   #get "dashboard/null_account_export_report"
   #get "dashboard/analysis_ready_dominion_report" 
->>>>>>> bf67d75799de2ffc2a3b00c61ed1a6d37335544c
   get "dashboard/utility_request_dominion_report"
   #get "dashboard/analysis_ready_cvillegas_report"
   get "dashboard/utility_request_cvillegas_report"  
