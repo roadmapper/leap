@@ -26,9 +26,12 @@
   </tr>
 <% end %>
 
-<%= will_paginate @recordings %>
+<%= will_paginate @recordings, renderer: BootstrapPagination::Rails %>
 
 </table>
+
+<%= will_paginate @recordings, renderer: BootstrapPagination::Rails %>
+
 
 <br />
 
