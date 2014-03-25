@@ -27,7 +27,7 @@
 			<div class="form-inline">	
 				<%= form_tag dashboard_property_report_path, :method => "get" do %>
 				<%= label_tag(:owner,"", class: "lead") %>
-				<%= text_field_tag(:owner, placeholder="", class: "typeahead", placeholder: "Search Properties") %>
+				<%= text_field_tag :owner, params[:owner], placeholder: "Search Properties" %>
 				<%= submit_tag("Search", class: 'btn btn-default') %>
 				<% end %>
 			</div>
@@ -42,11 +42,6 @@ $('.typeahead').typeahead({
  });
 </script>
 
-		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<%= render 'layouts/navigation_links' %>
-			</ul>
-		</div>
 	</div>
 </nav>
 <% end %>
