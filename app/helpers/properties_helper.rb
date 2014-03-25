@@ -21,14 +21,8 @@ module PropertiesHelper
         end
     end
     
-    def get_records(record_lookups, start_date, end_date)
-        
-        lookups = Array.new
-        for i in 0..(record_lookups.count-1)
-            lookups.concat Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: start_date, end_date: end_date, acct_num: record_lookups[i].acct_num}).order("read_date ASC").to_a
-        end
-        
-        lookups.sort_by{|e| e[:read_date]}
+    def get_records(record_lookup, start_date, end_date)
+        Recording.where("read_date >= :start_date AND read_date <= :end_date AND acctnum = :acct_num", {start_date: start_date, end_date: end_date, acct_num: record_lookup.acct_num}).order("read_date ASC")
     end
     
     def gap_months(start_date)

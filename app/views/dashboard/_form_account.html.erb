@@ -1,4 +1,5 @@
 <hr> 
+<u><h5> New Account </h5></u>
 
 <%= form_for @record_lookup, :html => {:class => "form-inline"} do |f| %>
   <% if @record_lookup.errors.any? %>
@@ -24,7 +25,7 @@
   <h7> Utility Type: </h7>  
   <%= f.collection_select(:utility_type_id, @utilitytypes, :id, :typeName, prompt: true) %> <br><br>
   
-  <%= f.submit "Save New Account", class: 'btn btn-xs btn-primary'%>
+  <%= f.submit "Save New Account Num", class: 'btn btn-xs btn-primary'%>
 
 <% end %>
 
