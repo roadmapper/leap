@@ -43,14 +43,14 @@ $('.typeahead').typeahead({
 			</div>
 			<div class="col-lg-4">
 				<h2>Analyze</h2>
-				<p>View the properties that have enough data to be analyzed.  Search based on an installed measures checklist.  Results will show all properties with the selected conditions and the utility reports for each property.</p>
+				<p>View the properties that have enough data to be analyzed.  Search based on Dominion Virginia Power, Charlottesville Gas, Washington Gas, and Null Accounts.  Results will show all properties with the selected conditions.  The owner name for each property can be clicked on, and all information associated with that property will be displayed.  Results can be exported to a CSV file in a PRISM ready format.</p>
 				<p>
 					<%= button_to "View", analysis_path, :method => "get", type: 'button', class: 'btn btn-default' %>
 				</p>
 			</div>
 			<div class="col-lg-4">
 				<h2>Request Data</h2>
-				<p>Select to generate reports for missing data based on utility type.  The report can either be generated in HTML form or as a CSV. </p>
+				<p>Select to generate reports for missing data based on utility type.  The report can either be generated in HTML form or as a CSV in a PRISM ready format. </p>
 				<p>
 					<%= button_to "View", requests_path, :method => "get", type: 'button', class: 'btn btn-default' %>
 				</p>
@@ -59,7 +59,7 @@ $('.typeahead').typeahead({
 		<div class="row">
 			<div class="col-lg-4">
 				<h2>Filter</h2>
-				<p>Complete advanced searches here.  This allows you to filter data based on the utility type and the TO date range.</p>
+				<p>Complete advanced searches here.  This allows you to filter data based on utility type, installed measures, and the TO date range.</p>
 				<p>
 					<%= button_to "View", filtering_path, :method => "get", type: 'button', class: 'btn btn-default' %>
 				</p>
