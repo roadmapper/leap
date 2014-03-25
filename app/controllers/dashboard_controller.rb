@@ -51,6 +51,7 @@ class DashboardController < ApplicationController
                         if(@electric_recordings.length > 0)
                             @electric_gap_data = get_data(@electric_recordings, @startdate)
                             @num_electric_recordings = get_data_count(@electric_recordings, @startdate)
+                            #@missing_electric_dates = get_missing_dates(@electric_recordings, @startdate)
                             else
                             @electric_recordings = nil;
                         end
@@ -66,6 +67,7 @@ class DashboardController < ApplicationController
                         if(@gas_recordings.length > 0)
                             @gas_gap_data = get_data(@gas_recordings, @startdate)
                             @num_gas_recordings = get_data_count(@gas_recordings, @startdate)
+                            #@missing_gas_dates = get_missing_dates(@gas_recordings, @startdate)
                             else
                             @gas_recordings = nil;
                         end
