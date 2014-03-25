@@ -34,7 +34,18 @@ class AnalysisController < ApplicationController
       format.csv { send_data csv_export(header, Report::CvillegasReadyAccount.all, column_names) }
       ajax_respond format, :section_id => "cvillegas_ready_accounts"
     end
-  end  
+  end
+
+  def washingtongas_ready_accounts
+    @accounts = Report::WashingtongasReadyAccount.paginate(:page => params[:page])
+    header = ["Owner Name", "Account Number", "Meter Readings"]
+    column_names = Report::WashingtongasReadyAccount.column_names
+    respond_to do |format|
+      format.js
+      format.csv { send_data csv_export(header, Report::WashingtongasReadyAccount.all, column_names) }
+      ajax_respond format, :section_id => "cvillegas_ready_accounts"
+    end
+  end   
 
   private
   def csv_export(header, data, fields)

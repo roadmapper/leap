@@ -16,5 +16,7 @@
 //= require twitter/typeahead
 //= require on_the_spot
 //= require ajax_pagination
+//= require bootstrap-datetimepicker
 //= require_tree .
-//= require bootstrap-datepicker
+//= require twitter/typeahead
+
