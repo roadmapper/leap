@@ -30,9 +30,14 @@
 				<%= submit_tag("Search", class: 'btn btn-default') %>
 				<% end %>
 			</div>
-		</div>
+		</div>  
 
-		<%= javascript_tag "var variables = #{ @variables.to_json };" %>    
+
+
+	</div>
+</nav>
+
+<%= javascript_tag "var variables = #{ @variables.to_json };" %>
 
 <script>
 $('.typeahead').typeahead({
@@ -40,7 +45,4 @@ $('.typeahead').typeahead({
     local: variables
  });
 </script>
-
-	</div>
-</nav>
 <% end %>
