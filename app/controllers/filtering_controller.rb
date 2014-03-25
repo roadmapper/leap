@@ -1,6 +1,6 @@
 class FilteringController < ApplicationController
 
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :reset
 
   def index
   	@properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
@@ -23,6 +23,11 @@ class FilteringController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
     end
+  end
+
+
+  def reset
+
   end
 
   def sort_column
