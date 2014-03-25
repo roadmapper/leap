@@ -15,6 +15,7 @@ gem 'ci_reporter'
 gem "on_the_spot"
 
 gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap'
 gem 'ajax_pagination'
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
 gem 'devise-encryptable'

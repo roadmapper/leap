@@ -3,10 +3,18 @@
 	<ul class="nav nav-tabs">
 	 	<li class="active"><a href="#Dominion" data-toggle="tab">Dominion Virginia Power</a></li>
 	  	<li><a href="#CvilleGas" data-toggle="tab">Charlottesville Gas</a></li>
+	  	<li><a href="#WashingtonGas" data-toggle="tab">Washington Gas</a></li>
 	  	<li><a href="#NullAccts" data-toggle="tab">Null Accounts</a></li>
 	</ul>
 	<script>
+	/*$( document ).ready(function() {
+    	console.log( "ready!" )
+	})*/
 	$('#myTab a[href="#CvilleGas"]').click(function (e) {
+	  	e.preventDefault()
+	  	$(this).tab('show')
+	})
+	$('#myTab a[href="#WashingtonGas"]').click(function (e) {
 	  	e.preventDefault()
 	  	$(this).tab('show')
 	})
@@ -18,44 +26,63 @@
 	<div class="tab-content">
 		<div class="tab-pane active" id="Dominion">
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-7">
 					<h3>Ready to Analyze Dominion Virginia Power Customers</h3>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					</br>
-						<%= button_to "Export to CSV", dashboard_analysis_ready_dominion_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+						<%= button_to "Generate HTML View", analysis_dominion_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
+						<%= button_to "Export to CSV", analysis_dominion_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
-			<p>This should be changed to showing the actual HTML table view of ready to analyze dominion/virginia power customers here (not having to click on the button) </p>
-			<%= button_to "Generate HTML View", dashboard_analysis_ready_dominion_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>
+			<div id="dominion_rdy"></div>
+			
 		</div>
 		<div class="tab-pane" id="CvilleGas" href="#CvilleGas">
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-7">
 					<h3>Ready to Analyze Charlottesville Gas Customers</h3>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					</br>
+					<%= button_to "Generate HTML View", analysis_cvillegas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
+					<%= button_to "Export to CSV", analysis_cvillegas_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+				</div>
+			</div>
+			<div id="cvillegas_rdy"></div>
+						
+			</br>
+		</div>
+		<div class="tab-pane" id="WashingtonGas" href="#WashingtonGas">
+			<div class="row">
+				<div class="col-lg-7">
+					<h3>Ready to Analyze Washington Gas Customers</h3>
+				</div>
+				<div class="col-lg-4">
+					</br>
+					<%= button_to "Generate HTML View", analysis_cvillegas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
 					<%= button_to "Export to CSV", dashboard_analysis_ready_cvillegas_report_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
-			<p>This should be changed to showing the actual HTML table view of ready to analyze charlottesville gas customers here (not having to click on the button) </p>
-			<%= button_to "Generate HTML View", dashboard_analysis_ready_cvillegas_report_path, :method => "get", type: 'button', class: 'btn btn-primary' %>			
+			<div id="washingtongas_rdy"></div>
+						
 			</br>
 		</div>
 		<div class="tab-pane" id="NullAccts" href="#NullAccts">
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-7">
 					<h3>Null Accounts</h3>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					</br>
+					<%= button_to "Generate HTML View", analysis_null_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
 					<%= button_to "Export to CSV", analysis_null_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
 				</div>
 			</div>
-			<div id="null_accts"></div>
+			<div id="null_accts"><%# ajax_section :id => "null_accounts", :render => "null_accounts" %></div>
 			<%# ajax_section :id => "null_accounts", :render => "null_accounts" %>
-			<%= button_to "Generate HTML View", analysis_null_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary' %>			
+
+			
 			</br>
 		</div>
 	</div>
