@@ -28,7 +28,7 @@ gem 'rubyzip', '< 1.0.0'
 gem "therubyracer"
 
 gem 'bootstrap-sass'
-gem 'twitter-typeahead-rails', '~> 0.9.3'
+#gem 'twitter-typeahead-rails', '~> 0.9.3'
 # Gems used only for assets and not required in production environments by default.
 
 
