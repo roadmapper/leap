@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= (params[:controller] + " " + params[:action]).titleize %> - RailsApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" if Rails.application.assets.find_asset('jquery.js') %><%# because RackTest (for specs) cannot find jquery asset %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="countajaxloading" style="display: none;">0</div>
+<script type="text/javascript">
+$(document).ready(function () {
+  $(document).on("ajaxp:loading", function() { // increment hidden div every time something loads
+    $("#countajaxloading").text((parseInt($("#countajaxloading").text(),10) + 1).toString());
+  });
+});
+/*jQuery(document).ready(function () {
+  alert($.ajax_pagination.version);
+  $.ajax_pagination("").get("http://localhost:3000/pages/about");
+});*/
+</script>
+<div style="float: right;">
+  <% if session[:admin] %>
+    <%= link_to "Sign out", sessions_signout_url, :id => "signout" %>
+  <% else %>
+    <%= link_to "Sign in as admin", sessions_signin_url, :id => "signin" %>
+  <% end %>
+</div>
+<div style="float: right; min-width: 150px;">
+<%= ajax_section :id => "count", :history => false do %>
+  <%= render :template => "sessions/count" %>
+<% end %>
+</div>
+<h1><%= ajax_link_to "AJAX Pagination Example Application", "broken link", :section_id => "global" %><!-- note the broken link is intentional, for testing purposes --></h1>
+<%= ajax_links :section_id => "global", :class => "menu" do %>
+  <ul>
+    <li><%= link_to "Home", root_url %></li>
+    <li><%= link_to "Posts", posts_url %></li>
+    <li><%= link_to "Changelog", changelog_url %></li>
+    <li><%= link_to "Readme", pages_readme_url %></li>
+    <li><%= link_to "Warnings", pages_warnings_url %></li>
+    <li><%= link_to "About", pages_about_url %></li>
+  </ul>
+<% end %>
+<%= ajax_section :reload => {:urlpart => "path", :urlregex => "^.*$"}, :loadzone => true do %>
+  <%= render :template => "layouts/flash" %>
+<% end %>
+</body>
+</html>

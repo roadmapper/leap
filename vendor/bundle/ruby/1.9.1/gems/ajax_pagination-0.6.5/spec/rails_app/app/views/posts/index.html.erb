@@ -1,0 +1,15 @@
+<h2 id="postspagetitle">Posts</h2>
+
+<% if session[:admin] %>
+  <%= content_tag :div, :style => "border: 1px solid blue; background-color: rgba(0,0,255,0.1); padding-left: 40px; padding-right: 40px;" do %>
+    <h3>Upcoming</h3>
+    <%= ajax_section :id => "upcomingpage" %>
+  <% end %>
+  <h3>Published</h3>
+<% end %>
+
+<%= ajax_section :id => "page", :image => "ajax-loader.gif" %>
+
+<br />
+
+<%= ajax_link_to 'New Post', new_post_path %><!-- This link is intentionally unsecured, so non-admins will get a redirection to an "access denied" page -->
