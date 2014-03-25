@@ -28,12 +28,12 @@ gem 'rubyzip', '< 1.0.0'
 gem "therubyracer"
 
 gem 'bootstrap-sass'
-gem 'twitter-typeahead-rails'
+gem 'twitter-typeahead-rails', '~> 0.9.3'
 # Gems used only for assets and not required in production environments by default.
 
 
-gem 'bootstrap-datetimepicker-rails'
-gem 'hoe', '3.10.0'
+gem 'bootstrap-datepicker-rails'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
