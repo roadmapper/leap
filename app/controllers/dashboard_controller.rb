@@ -79,12 +79,12 @@ class DashboardController < ApplicationController
                 end
                 
                 else
-                flash[:alert] = "This property does not contain a listed test out date!"
+                flash.now[:alert] = "This property does not contain a listed test out date!"
                 #Add testout date functionality here??
             end
             
             else
-            flash[:alert] = "A property with that owner name does not exist. Try again."
+            flash.now[:alert] = "A property with that owner name does not exist. Try again."
             redirect_to :action => 'index'
         end
     end
