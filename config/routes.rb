@@ -29,14 +29,6 @@ Public::Application.routes.draw do
 
   get "dashboard/prism_report_electric"
   get "dashboard/prism_report_gas"
-  get "dashboard/null_account_export_report"
-  get "dashboard/analysis_ready_dominion_report" 
-
-  #get "dashboard/null_account_export_report"
-  #get "dashboard/analysis_ready_dominion_report" 
-  get "dashboard/utility_request_dominion_report"
-  #get "dashboard/analysis_ready_cvillegas_report"
-  get "dashboard/utility_request_cvillegas_report"  
   post '/uploads/upload' => 'uploads#upload'
   post '/uploads/uploadGas' => 'uploads#uploadGas'
   resources :dashboard
