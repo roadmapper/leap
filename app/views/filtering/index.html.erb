@@ -152,10 +152,10 @@
     <td><a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + property.owner_name%>" class="btn btn-primary" style="color:white">Gas Report - CSV</a></td>
   </tr>
 <% end %>
-<%= will_paginate @properties %>
+<%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
 
 </table>
-<%= will_paginate @properties %>
+<%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
 
 <script type="text/javascript">
   $(function() {
