@@ -103,9 +103,6 @@ class FilteringController < ApplicationController
                 format.html
                 format.csv { send_data csv_export(header, @records_array, fields) }
             end
-        else
-            flash[:alert] = "A property with that owner name does not exist. Try again."
-            redirect_to :action => 'index'
         end
     end
 
