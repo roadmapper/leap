@@ -20,4 +20,3 @@
 //= require ajax_pagination
 //= require bootstrap-datetimepicker
 //= require_tree .
-
