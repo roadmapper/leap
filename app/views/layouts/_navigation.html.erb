@@ -1,7 +1,8 @@
+<%= stylesheet_link_tag "dashboard_style" %>
 <%# navigation styled for Bootstrap 3.0 %>
 <% if user_signed_in? %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
@@ -23,18 +24,51 @@
 		<ul class="nav navbar-inverse navbar-right">
 			<%= link_to 'Log out', destroy_user_session_path, :method => :delete, class: 'navbar-brand' %>
 		</ul>
-		<div class="navbar-form navbar-right">
-			<div class="form-inline">	
-				<%= form_tag dashboard_property_report_path, :method => "get" do %>
-				<%= label_tag(:owner,"", class: "lead") %>
-				<%= text_field_tag :owner, params[:owner], placeholder: "Search Properties" %>
-				<%= submit_tag("Search", class: 'btn btn-default') %>
-				<% end %>
+		<div class="navbar-form navbar-right" role="search">
+			<div class="form-group">
+				<%= form_tag dashboard_property_report_path, #class: "form-control",
+					 :method => "get" do %>
+					<%= label_tag(:owner,"", class: "lead") %>
+					<div id ="bloodhound">
+					<%= text_field_tag :owner, params[:owner], class: "typeahead form-control", placeholder: "Search Properties" %>
+					<button id= "search" type="submit" class="btn btn-primary">Search</button> 
+					<% end %>
+					</div>
 			</div>
 		</div>  
-
-
-
 	</div>
 </nav>
+
+<script> 
+var variables = new Bloodhound({
+	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+	queryTokenizer: Bloodhound.tokenizers.whitespace,
+	limit: 8,
+//	local: $.map(variables, function(variable) { return { value: variable }; })
+ prefetch: {
+	// url points to a json file that contains an array of country names, see
+	// https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+	url: 'leap/properties.json',
+	// the json file contains an array of strings, but the Bloodhound
+	// suggestion engine expects JavaScript objects so this converts all of
+	// those strings
+	filter: function(list) {
+		return $.map(list, function(variable) { return { value: variable }; });
+		}
+	}
+});
+
+variables.initialize();
+
+$('#bloodhound .typeahead').typeahead({
+	hint: true,
+	highlight: true,
+	minLength: 1
+	},
+	{
+	name: 'variables',
+	displayKey: 'value',
+	source: variables.ttAdapter()
+});
+</script>  
 <% end %>
