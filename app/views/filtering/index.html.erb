@@ -4,8 +4,8 @@
         <h1>Filter by...</h1>
     </div>
     <div class="col-md-6 text-center"></div>
-    <div class="col-md-2 text-center"><br><a href="<%= filtering_prism_report_electric_path + ".csv?zip=" + params[:zip] + "&startdate=" + params[:startdate] + "&enddate=" + params[:enddate]%>" class="btn btn-primary" style="color:white">Electric Report - CSV</a></div>
-    <div class="col-md-2 text-center"><br><a href="<%= filtering_prism_report_gas_path + ".csv?zip=" + params[:zip] + "&startdate=" + params[:startdate] + "&enddate=" + params[:enddate]%>" class="btn btn-primary" style="color:white">Gas Report - CSV</a></div>
+    <div class="col-md-2 text-center"><br><%= link_to "Electric Report - CSV", filtering_prism_report_electric_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]) %></div>
+    <div class="col-md-2 text-center"><br><%= link_to "Gas Report - CSV", filtering_prism_report_gas_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]) %></div>
 </div>
 <br>
 <%= form_tag filtering_path, class: "form-horizontal", :method => "get" do %>
