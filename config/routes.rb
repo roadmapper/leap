@@ -53,8 +53,9 @@ Public::Application.routes.draw do
 
   get 'filtering', to: 'filtering#index'
   match '/filtering_reset' => 'filtering#reset', :as=>'reset'
-  get "filtering/prism_report_electric"
-  get "filtering/prism_report_gas" 
+  get "filtering/prism_report_electric", :defaults=> {format: 'csv'}
+  get "filtering/prism_report_gas", :defaults=> {format: 'csv'}
+
 
   get 'requests', to: 'requests#index'
   get 'requests/dominion_request_accounts'
