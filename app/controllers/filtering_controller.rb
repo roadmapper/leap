@@ -80,30 +80,51 @@ class FilteringController < ApplicationController
     end
 
     def prism_report_gas
-        if params[:owner]
-            @property = Property.search(params[:owner])            
-            @property = @property.shift
-        end
-        if @property
-            sql = "select properties.customer_unique_id, MONTH(read_date),DAY(read_date),YEAR(recordings.read_date),recordings.consumption,utility_types.units,
-    IF(recordings.read_date>properties.finish_date,'POST','PRE')
-    ,'Carbon' as 'Group','R' as 'Flag'
-    from properties 
-    left join record_lookups on properties.id = record_lookups.property_id 
-    left join recordings on record_lookups.acct_num = recordings.acctnum 
-    left join utility_types on utility_types.id = recordings.utility_type_id 
-    where customer_unique_id = '" << @property.customer_unique_id << "' and record_lookups.utility_type_id=2 
-    ORDER BY ABS(UNIX_TIMESTAMP(recordings.read_date) - UNIX_TIMESTAMP(properties.finish_date)) 
-    ASC LIMIT 22";
-            @records_array = ActiveRecord::Base.connection.execute(sql)
+           @properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
 
-            header = ["Building ID", "Month", "Day", "Year","Consumption","Units","P-Field","Group","Flag"]
-            fields = 9
-            respond_to do |format|
-                format.html
-                format.csv { send_data csv_export(header, @records_array, fields) }
-            end
+        if params.has_key?(:zip) and params[:zip] != "" then 
+          @properties = @properties.where(zipcode: params[:zip]) 
         end
+        if params[:startdate] != "" and params.has_key?(:startdate) and params.has_key?(:enddate) and params[:enddate] != "" then
+          startdate = Date.strptime(params[:startdate],'%m/%d/%Y')
+          enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
+          @properties = @properties.where(finish_date: (startdate..enddate))
+        elsif params[:startdate] != "" and params.has_key?(:startdate)
+          startdate = Date.strptime(params[:startdate],'%m/%d/%Y')
+          @properties = @properties.where(finish_date: (startdate..Date.today))
+        elsif params[:enddate] != "" and params.has_key?(:enddate) 
+          startdate = Date.strptime("01/01/2001",'%m/%d/%Y')
+          enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
+          @properties = @properties.where('finish_date < ?', enddate)
+        end
+        @records_array = Array.new
+        for @property in @properties
+          if params[:owner]
+              @property = Property.search(params[:owner])            
+              @property = @property.shift
+          end
+          if @property
+              sql = "select properties.customer_unique_id, MONTH(read_date),DAY(read_date),YEAR(recordings.read_date),recordings.consumption,utility_types.units,
+      IF(recordings.read_date>properties.finish_date,'POST','PRE')
+      ,'Carbon' as 'Group','R' as 'Flag'
+      from properties 
+      left join record_lookups on properties.id = record_lookups.property_id 
+      left join recordings on record_lookups.acct_num = recordings.acctnum 
+      left join utility_types on utility_types.id = recordings.utility_type_id 
+      where customer_unique_id = '" + @property.customer_unique_id + "' and record_lookups.utility_type_id=2
+      ORDER BY ABS(UNIX_TIMESTAMP(recordings.read_date) - UNIX_TIMESTAMP(properties.finish_date)) 
+      ASC LIMIT 22";
+              current = ActiveRecord::Base.connection.execute(sql)
+              @records_array = @records_array.concat current.to_a
+          end
+        end
+
+          header = ["Building ID", "Month", "Day", "Year","Consumption","Units","P-Field","Group","Flag"]
+          fields = 9
+          respond_to do |format|
+              format.html
+              format.csv { send_data csv_export(header, @records_array, fields) }
+          end
     end
 
   def sort_column
