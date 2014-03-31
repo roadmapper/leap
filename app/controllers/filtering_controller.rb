@@ -32,7 +32,7 @@ class FilteringController < ApplicationController
 
 
      def prism_report_electric
-          @properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
+        @properties = Property.where('finish_date' != nil)
 
         if params.has_key?(:zip) and params[:zip] != "" then 
           @properties = @properties.where(zipcode: params[:zip]) 
@@ -80,7 +80,7 @@ class FilteringController < ApplicationController
     end
 
     def prism_report_gas
-           @properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
+        @properties = Property.where('finish_date' != nil)
 
         if params.has_key?(:zip) and params[:zip] != "" then 
           @properties = @properties.where(zipcode: params[:zip]) 
