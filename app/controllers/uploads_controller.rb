@@ -123,7 +123,7 @@ class UploadsController < ApplicationController
 	status = upload_file filename, path, uploaded_io
         
 
-        if status != "Duplicate file found in uploads, file not uploaded"
+        if status != "Duplicate file found in uploads, file not uploaded" && status != "File not uploaded properly"
 		flash[:notice] = status
 		Thread.new do
 			if uploaded_io.content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -143,7 +143,7 @@ class UploadsController < ApplicationController
   end            
 
   def upload_file(filename, path, uploaded_io)
-	status = "Duplicate file found in uploads, file not uploaded"	
+	status = "File not uploaded properly"	
 	if !File.exists?(path + "//" + filename) && File.directory?(path)
             File.open(path + "//" + filename, 'w') do |file|
                 input = uploaded_io.read
@@ -152,6 +152,8 @@ class UploadsController < ApplicationController
             end
             Upload.create(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now)
 	    status = "File has been uploaded successfully, check the uploaded files to see its processing status."
+	elsif File.exists?(path + "//" + filename)
+	status = "Duplicate file found in uploads, file not uploaded" 
 	end
 	status
   end
@@ -180,7 +182,7 @@ class UploadsController < ApplicationController
 		            
 			    date = DateTime.new(1899,12,30) + Integer(date).days 
  			    if !Recording.exists?(:acctnum => acctnum, :read_date=>date)
-			    	Staging.where({"acctnum"=>acctnum, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
+			    	Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
 			    end
                     end
 		   
