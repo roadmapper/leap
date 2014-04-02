@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  test "null account has name" do
-    report = Report::NullAccount.new
-    assert report.name
-  end
+  #test "null account has name" do
+    #report_null = Report::NullAccount.new
+    #assert report_null.name
+  #end
 end
