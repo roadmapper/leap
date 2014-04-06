@@ -8,7 +8,8 @@ class CreateReportDominionReadyAccounts < ActiveRecord::Migration
         FROM
             temp_dominion_readings_good
         GROUP BY temp_dominion_readings_good.owner_name , temp_dominion_readings_good.acctnum
-        ORDER BY acceptedDatapoints DESC;)
+        HAVING acceptedDatapoints >= 20
+	ORDER BY acceptedDatapoints DESC;)
   end
 
   def down

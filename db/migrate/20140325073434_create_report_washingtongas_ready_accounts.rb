@@ -8,6 +8,7 @@ class CreateReportWashingtongasReadyAccounts < ActiveRecord::Migration
         FROM
             temp_washingtongas_readings_good
         GROUP BY temp_washingtongas_readings_good.owner_name , temp_washingtongas_readings_good.acctnum
+	HAVING acceptedDatapoints >= 20
         ORDER BY acceptedDatapoints DESC;)
   end
 
