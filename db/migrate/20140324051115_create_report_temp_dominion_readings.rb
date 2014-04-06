@@ -3,6 +3,7 @@ class CreateReportTempDominionReadings < ActiveRecord::Migration
     self.connection.execute %Q(CREATE OR REPLACE VIEW temp_dominion_readings AS 
         SELECT 
                 properties.owner_name,
+		    properties.id,
                     properties.customer_unique_id,
                     properties.finish_date,
                     record_lookups.company_name,

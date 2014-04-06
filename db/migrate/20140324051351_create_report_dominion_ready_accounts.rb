@@ -3,6 +3,7 @@ class CreateReportDominionReadyAccounts < ActiveRecord::Migration
     self.connection.execute %Q(CREATE OR REPLACE VIEW dominion_ready_accounts AS 
         SELECT 
             temp_dominion_readings_good.owner_name,
+	    temp_dominion_readings_good.customer_unique_id,
             temp_dominion_readings_good.acctnum,
             COUNT(temp_dominion_readings_good.gooddata) AS acceptedDatapoints
         FROM

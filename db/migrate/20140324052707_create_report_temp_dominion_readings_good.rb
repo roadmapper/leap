@@ -3,7 +3,8 @@ class CreateReportTempDominionReadingsGood < ActiveRecord::Migration
     self.connection.execute %Q(CREATE OR REPLACE VIEW temp_dominion_readings_good AS
             SELECT 
                 temp_dominion_readings.owner_name,
-                temp_dominion_readings.acctnum,
+                temp_dominion_readings.customer_unique_id,
+		temp_dominion_readings.acctnum,
                 temp_dominion_readings.read_date,
                 temp_dominion_readings.start_date,
                 temp_dominion_readings.end_date,
