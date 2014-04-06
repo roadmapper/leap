@@ -48,6 +48,7 @@ Public::Application.routes.draw do
   get 'analysis', to: 'analysis#index'
   get 'analysis/null_accounts'
   get 'analysis/dominion_ready_accounts'
+  get 'analysis/dominion_ready_accounts_prism'
   get 'analysis/cvillegas_ready_accounts'
   get 'analysis/washingtongas_ready_accounts'
 
