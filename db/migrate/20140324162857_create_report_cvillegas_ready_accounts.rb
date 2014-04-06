@@ -8,6 +8,7 @@ class CreateReportCvillegasReadyAccounts < ActiveRecord::Migration
         FROM
             temp_cvillegas_readings_good
         GROUP BY temp_cvillegas_readings_good.owner_name , temp_cvillegas_readings_good.acctnum
+	HAVING acceptedDatapoints >= 20
         ORDER BY acceptedDatapoints DESC;)
   end
 
