@@ -3,6 +3,7 @@ class CreateReportTempCvillegasReadingsGood < ActiveRecord::Migration
     self.connection.execute %Q(CREATE OR REPLACE VIEW temp_cvillegas_readings_good AS
             SELECT 
                 temp_cvillegas_readings.owner_name,
+                temp_cvillegas_readings.customer_unique_id,
                 temp_cvillegas_readings.acctnum,
                 temp_cvillegas_readings.read_date,
                 temp_cvillegas_readings.start_date,

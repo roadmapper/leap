@@ -3,6 +3,7 @@ class CreateReportWashingtongasReadyAccounts < ActiveRecord::Migration
     self.connection.execute %Q(CREATE OR REPLACE VIEW washingtongas_ready_accounts AS 
         SELECT 
             temp_washingtongas_readings_good.owner_name,
+            temp_washingtongas_readings_good.customer_unique_id,
             temp_washingtongas_readings_good.acctnum,
             COUNT(temp_washingtongas_readings_good.gooddata) AS acceptedDatapoints
         FROM
