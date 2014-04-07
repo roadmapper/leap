@@ -79,39 +79,58 @@ class AnalysisController < ApplicationController
 
   private
   def prism_report(customers, company_name)
+    customers = customers.map(&:inspect).join(', ')
     records_array = Array.new
-    header = ["Building ID", "Month", "Day", "Year", "Consumption", "Units", "P-Field", "Group", "Flag"]
-    fields = 9
-    customers.each do |i|
-      sql = "SELECT 
-                    *
-                FROM
-                    (SELECT 
-                        properties.customer_unique_id,
-                            MONTH(read_date) AS date_month,
-                            DAY(read_date) AS date_day,
-                            YEAR(recordings.read_date) AS date_year,
-                            recordings.consumption,
-                            utility_types.units,
-                            IF(recordings.read_date > properties.finish_date, 'POST', 'PRE') AS date_PRE_POST,
-                            'Carbon' AS 'Group',
-                            'R' AS 'Flag'
-                    FROM
-                        properties
-                    LEFT JOIN record_lookups ON properties.id = record_lookups.property_id
-                    LEFT JOIN recordings ON record_lookups.acct_num = recordings.acctnum
-                    LEFT JOIN utility_types ON utility_types.id = recordings.utility_type_id
-                    WHERE
-                        customer_unique_id IN ('" + i + "')
-                            AND record_lookups.company_name = '" + company_name + "'
-                    ORDER BY ABS(UNIX_TIMESTAMP(recordings.read_date) - UNIX_TIMESTAMP(properties.finish_date)) ASC
-                    LIMIT 22) temp
-                ORDER BY customer_unique_id ASC , date_year ASC , date_month ASC , date_day ASC;"
+    sql = "SELECT 
+			    temp.customer_unique_id,
+			    temp.date_month,
+			    temp.date_day,
+			    temp.date_year,
+			    temp.consumption,
+			    temp.units,
+			    temp.date_PRE_POST,
+			    temp.group_field,
+			    temp.flag
+			FROM
+			    (SELECT 
+			        temp.customer_unique_id,
+			            MONTH(temp.read_date) AS date_month,
+			            DAY(temp.read_date) AS date_day,
+			            YEAR(temp.read_date) AS date_year,
+			            temp.consumption,
+			            temp.units,
+			            IF(temp.read_date > temp.finish_date, 'POST', 'PRE') AS date_PRE_POST,
+			            'Carbon' AS 'group_field',
+			            'R' AS 'flag',
+			            IF(temp.read_date > temp.start_date
+			                AND temp.read_date < temp.end_date, 1, NULL) AS gooddata
+			    FROM
+			        (SELECT 
+			        properties.owner_name,
+			            properties.id,
+			            properties.customer_unique_id,
+			            properties.finish_date,
+			            record_lookups.company_name,
+			            recordings.acctnum,
+			            recordings.read_date,
+			            recordings.consumption,
+			            utility_types.units,
+			            IF(EXTRACT(DAY FROM properties.finish_date) < 15, DATE_SUB(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), DATE_ADD(DATE_SUB(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), INTERVAL 1 MONTH)) AS start_date,
+			            IF(EXTRACT(DAY FROM properties.finish_date) < 15, DATE_ADD(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), DATE_ADD(DATE_ADD(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), INTERVAL 1 MONTH)) AS end_date
+			    FROM
+			        properties
+			    INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+			    INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+			    LEFT JOIN utility_types ON utility_types.id = recordings.utility_type_id
+			    WHERE
+			        record_lookups.company_name = '" + company_name + "'
+			            AND properties.finish_date IS NOT NULL) temp) temp
+			WHERE
+			    temp.gooddata IS NOT NULL
+			        AND temp.customer_unique_id IN (" + customers + ")
+			ORDER BY temp.customer_unique_id ASC , temp.date_year ASC , temp.date_month ASC , temp.date_day ASC;"
 
-      current = ActiveRecord::Base.connection.execute(sql)
-      records_array = records_array.concat current.to_a
-    end
-   records_array
+   records_array = ActiveRecord::Base.connection.execute(sql)
   end
 
   def csv_export(header, data, fields)
