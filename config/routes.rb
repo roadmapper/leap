@@ -50,7 +50,9 @@ Public::Application.routes.draw do
   get 'analysis/dominion_ready_accounts'
   get 'analysis/dominion_ready_accounts_prism'
   get 'analysis/cvillegas_ready_accounts'
+  get 'analysis/cvillegas_ready_accounts_prism'
   get 'analysis/washingtongas_ready_accounts'
+  get 'analysis/washingtongas_ready_accounts_prism'
 
   get 'filtering', to: 'filtering#index'
   match '/filtering_reset' => 'filtering#reset', :as=>'reset'
