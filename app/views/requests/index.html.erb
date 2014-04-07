@@ -1,3 +1,6 @@
+<style type="text/css">
+	a:hover {color: #888;}
+</style>
 <div class="container marketing">
 	<h1>Requests</h1>
 	<ul class="nav nav-tabs">
@@ -18,40 +21,46 @@
 	<div class="tab-content">
 		<div class="tab-pane active" id="Dominion">
 			<div class="row">
-				<div class="col-lg-7">
-					<h3>Utility Request for Dominion Virginia Power Customers</h3>
+				<div class="col-lg-6">
+					<h4>Utility Request for Dominion Virginia Power Customers</h4>
 				</div>
-				<div class="col-lg-4">
-					</br>
-					<%= button_to "Generate HTML View", requests_dominion_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-					<%= button_to "Export to CSV", requests_dominion_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+				<div class="col-lg-3">
+					<%= button_to "Generate HTML View", requests_dominion_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-3">
+					<%= button_to "Export to CSV", requests_dominion_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
-			<div id="dominion_req"></div>	
+			<div id="dominion_req"></div>
+						</br>	
 		</div>
+
 		<div class="tab-pane" id="CvilleGas" href="#CvilleGas">
 			<div class="row">
-				<div class="col-lg-7">
-					<h3>Utility Request for Charlottesville Gas Customers</h3>
+				<div class="col-lg-6">
+					<h4>Utility Request for Charlottesville Gas Customers</h4>
 				</div>
-				<div class="col-lg-4">
-					</br>
-					<%= button_to "Generate HTML View", requests_cvillegas_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-					<%= button_to "Export to CSV", requests_cvillegas_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+				<div class="col-lg-3">
+					<%= button_to "Generate HTML View", requests_cvillegas_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-3">
+					<%= button_to "Export to CSV", requests_cvillegas_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
 			<div id="cvillegas_req"></div>		
 			</br>
 		</div>
+
 		<div class="tab-pane" id="WashingtonGas" href="#WashingtonGas">
 			<div class="row">
-				<div class="col-lg-7">
-					<h3>Utility Request for Washington Gas Customers</h3>
+				<div class="col-lg-6">
+					<h4>Utility Request for Washington Gas Customers</h4>
 				</div>
-				<div class="col-lg-4">
-					</br>
-					<%= button_to "Generate HTML View", requests_washingtongas_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-					<%= button_to "Export to CSV", requests_washingtongas_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+				<div class="col-lg-3">
+					<%= button_to "Generate HTML View", requests_washingtongas_request_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-3">
+					<%= button_to "Export to CSV", requests_washingtongas_request_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
 			<div id="washingtongas_req"></div>		

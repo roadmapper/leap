@@ -3,6 +3,7 @@ class CreateReportTempWashingtongasReadingsGood < ActiveRecord::Migration
     self.connection.execute %Q(CREATE OR REPLACE VIEW temp_washingtongas_readings_good AS
             SELECT 
                 temp_washingtongas_readings.owner_name,
+                temp_washingtongas_readings.customer_unique_id,
                 temp_washingtongas_readings.acctnum,
                 temp_washingtongas_readings.read_date,
                 temp_washingtongas_readings.start_date,

@@ -1,3 +1,6 @@
+<style type="text/css">
+	a:hover {color: #888;}
+</style>
 <div class="container marketing">
 	<h1>Analysis</h1>
 	<ul class="nav nav-tabs">
@@ -23,63 +26,75 @@
 	<div class="tab-content">
 		<div class="tab-pane active" id="Dominion">
 			<div class="row">
-				<div class="col-lg-7">
-					<h3>Ready to Analyze Dominion Virginia Power Customers</h3>
+				<div class="col-lg-6">
+					<h4>Ready to Analyze Dominion Virginia Power Customers</h4>
 				</div>
-				<div class="col-lg-4">
-					</br>
-						<%= button_to "Generate HTML View", analysis_dominion_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-						<%= button_to "Export to CSV", analysis_dominion_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+				<div class="col-lg-2">
+					<%= button_to "Generate HTML View", analysis_dominion_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-2">
+					<%= button_to "Export to CSV", analysis_dominion_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-2">
+					<%= button_to "Export to PRISM Format", analysis_dominion_ready_accounts_prism_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
 			<div id="dominion_rdy"></div>
-			
+			</br>
 		</div>
+
 		<div class="tab-pane" id="CvilleGas" href="#CvilleGas">
 			<div class="row">
-				<div class="col-lg-7">
-					<h3>Ready to Analyze Charlottesville Gas Customers</h3>
+				<div class="col-lg-6">
+					<h4>Ready to Analyze Charlottesville Gas Customers</h4>
 				</div>
-				<div class="col-lg-4">
-					</br>
-					<%= button_to "Generate HTML View", analysis_cvillegas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-					<%= button_to "Export to CSV", analysis_cvillegas_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+				<div class="col-lg-2">
+					<%= button_to "Generate HTML View", analysis_cvillegas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-2">
+					<%= button_to "Export to CSV", analysis_cvillegas_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-2">
+					<%= button_to "Export to PRISM Format", analysis_cvillegas_ready_accounts_prism_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
 			<div id="cvillegas_rdy"></div>
-						
-			</br>
+			</br>	
 		</div>
+
 		<div class="tab-pane" id="WashingtonGas" href="#WashingtonGas">
 			<div class="row">
-				<div class="col-lg-7">
-					<h3>Ready to Analyze Washington Gas Customers</h3>
+				<div class="col-lg-6">
+					<h4>Ready to Analyze Washington Gas Customers</h4>
 				</div>
-				<div class="col-lg-4">
-					</br>
-					<%= button_to "Generate HTML View", analysis_washingtongas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-					<%= button_to "Export to CSV", analysis_washingtongas_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+
+				<div class="col-lg-2">
+					<%= button_to "Generate HTML View", analysis_washingtongas_ready_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-2">
+					<%= button_to "Export to CSV", analysis_washingtongas_ready_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-2">
+					<%= button_to "Export to PRISM Format", analysis_washingtongas_ready_accounts_prism_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
 			<div id="washingtongas_rdy"></div>
-						
 			</br>
 		</div>
 		<div class="tab-pane" id="NullAccts" href="#NullAccts">
 			<div class="row">
-				<div class="col-lg-7">
-					<h3>Null Accounts</h3>
+				<div class="col-lg-6">
+					<h4>Null Accounts</h4>
 				</div>
-				<div class="col-lg-4">
-					</br>
-					<%= button_to "Generate HTML View", analysis_null_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary pull-left' %>
-					<%= button_to "Export to CSV", analysis_null_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary pull-right' %>
+				<div class="col-lg-3">
+					<%= button_to "Generate HTML View", analysis_null_accounts_path, :remote => true, :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
+				</div>
+				<div class="col-lg-3">
+					<%= button_to "Export to CSV", analysis_null_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
-			<div id="null_accts"><%# ajax_section :id => "null_accounts", :render => "null_accounts" %></div>
+			<div id="null_accts"></div>
 			<%# ajax_section :id => "null_accounts", :render => "null_accounts" %>
-
-			
 			</br>
 		</div>
 	</div>
