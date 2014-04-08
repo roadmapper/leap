@@ -5725,3 +5725,328 @@ Connecting to database specified by database.yml
   [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
   [1m[35m (0.0ms)[0m  BEGIN
   [1m[36m (4.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (12.0ms)[0m  DELETE FROM `record_lookups`
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2014-04-08 15:05:33', '2014-04-08 15:05:33', 980190962)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `property_measures`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM `uploads`
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `properties`[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM `installed_measure_types`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `utility_types`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 15:05:33', '2014-04-08 15:05:33', 298486374)[0m
+  [1m[35m (41.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `record_lookups`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2014-04-08 15:06:11', '2014-04-08 15:06:11', 980190962)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `property_measures`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `uploads`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `properties`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `installed_measure_types`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `utility_types`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 15:06:11', '2014-04-08 15:06:11', 298486374)[0m
+  [1m[35m (65.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `properties` (`city`, `consent_date`, `created_at`, `customer_unique_id`, `email`, `finish_date`, `owner_name`, `phone`, `plus_four`, `state`, `street_address`, `tenant_name`, `updated_at`, `zipcode`) VALUES (NULL, NULL, '2014-04-08 15:06:11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-04-08 15:06:11', NULL)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (39.0ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.3ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `record_lookups`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2014-04-08 16:19:57', '2014-04-08 16:19:57', 980190962)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `property_measures`[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `uploads`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `properties`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:19:57', '2014-04-08 16:19:57', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `installed_measure_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:19:58', '2014-04-08 16:19:58', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:19:58', '2014-04-08 16:19:58', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `utility_types`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:19:58', '2014-04-08 16:19:58', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:19:58', '2014-04-08 16:19:58', 298486374)[0m
+  [1m[35m (68.6ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.3ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM `record_lookups`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2014-04-08 16:25:56', '2014-04-08 16:25:56', 980190962)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `property_measures`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `uploads`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `properties`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM `installed_measure_types`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `utility_types`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:25:56', '2014-04-08 16:25:56', 298486374)[0m
+  [1m[35m (56.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `record_lookups`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2014-04-08 16:36:22', '2014-04-08 16:36:22', 980190962)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `property_measures`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `uploads`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `properties`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `installed_measure_types`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `utility_types`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:36:22', '2014-04-08 16:36:22', 298486374)[0m
+  [1m[35m (60.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `record_lookups`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `record_lookups` (`acct_num`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2014-04-08 16:52:43', '2014-04-08 16:52:43', 980190962)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `property_measures`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `property_measures` (`comment`, `created_at`, `updated_at`, `id`) VALUES ('MyText', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `uploads`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `uploads` (`file_name`, `status`, `upload_date`, `process_date`, `uploaded_by`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2013-11-30 13:39:03', '2013-11-30 13:39:03', 'MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `properties`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `properties` (`customer_unique_id`, `owner_name`, `tenant_name`, `street_address`, `zipcode`, `plus_four`, `state`, `phone`, `email`, `finish_date`, `consent_date`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'MyString', '2013-10-07', '2013-10-07', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `installed_measure_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `installed_measure_types` (`installed_measures`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `utility_types`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `utility_types` (`typeName`, `units`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-04-08 16:52:43', '2014-04-08 16:52:43', 298486374)[0m
+  [1m[35m (46.1ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml

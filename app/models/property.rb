@@ -1,4 +1,10 @@
 class Property < ActiveRecord::Base
+  validates :owner_name, presence: true
+  validates :street_address, presence: true
+  validates :city, presence: true
+  validates :state,  presence: true
+  validates :zipcode, presence: true
+
   has_many :record_lookups
   accepts_nested_attributes_for :record_lookups, :reject_if => lambda { |a| a[:content].blank? }
 
