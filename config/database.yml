@@ -7,7 +7,7 @@ development:
   pool: 5
   username: leap
   password: rx5MqhFF35
-  socket: /var/run/tmp/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 
 #
@@ -21,7 +21,7 @@ test:
   pool: 5
   username: leap
   password: rx5MqhFF35
-  socket: /var/run/tmp/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
@@ -29,5 +29,5 @@ production:
   pool: 5
   username: leap
   password: rx5MqhFF35
-  socket: /var/run/tmp/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
   timeout: 5000
