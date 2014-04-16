@@ -7,7 +7,8 @@ development:
   pool: 5
   username: leap
   password: rx5MqhFF35
-  socket: /tmp/mysql.sock
+  socket: /var/run/tmp/mysqld.sock
+
 
 #
 # Warning: The database defined as "test" will be erased and
@@ -20,7 +21,7 @@ test:
   pool: 5
   username: leap
   password: rx5MqhFF35
-  socket: /tmp/mysql.sock
+  socket: /var/run/tmp/mysqld.sock
 
 production:
   adapter: mysql2
@@ -28,5 +29,5 @@ production:
   pool: 5
   username: leap
   password: rx5MqhFF35
-  socket: /tmp/mysql.sock
+  socket: /var/run/tmp/mysqld.sock
   timeout: 5000
