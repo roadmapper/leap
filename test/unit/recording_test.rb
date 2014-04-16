@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class RecordingTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+   test "recording_count" do
+     assert_equal 1, Recording.count
+   end
+
+
+
 end

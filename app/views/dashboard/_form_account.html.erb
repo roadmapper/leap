@@ -19,8 +19,8 @@
   <%= f.text_field :acct_num %><br><br>
 
   <h7> Company Name (All Caps): </h7>
-  <%= f.text_field :company_name %><br><br>
-
+  <%= f.select :company_name, @companynames %> <br><br>
+  
   <h7> Utility Type: </h7>  
   <%= f.collection_select(:utility_type_id, @utilitytypes, :id, :typeName, prompt: true) %> <br><br>
   

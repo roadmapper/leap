@@ -7,7 +7,8 @@
 <h3><%= "Report for Customer #{@property.customer_unique_id}" %></h3>
 <hr>
 
-<a href="javascript:toggleDiv('accountform');"> <button class = "btn-xs btn-primary"> Add New Account </button></a> <br><br>
+<a href="javascript:toggleDiv('accountform');"> <button class = "btn-xs btn-primary"> Add New Account </button></a>
+<a href="javascript:toggleDiv('rawdata');"> <button class = "btn-xs btn-primary"> Display Raw Data </button></a> <br><br>
 
 <strong><p>Customer Name: </strong> <%= " " + @property.owner_name %></p>
 <p><%= @property.street_address %></p>
@@ -49,7 +50,7 @@
 	<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Gas Report - CSV</a>
 
 
-
+<div id="rawdata">
 <% if (@electric_recordings && @gas_recordings) %>
 
 	<h3> Raw Data </h3>
@@ -137,6 +138,7 @@
 		<% end %>
 	</table>
 <% end %>
+</div>
 
 <% if (@electric_recordings) %>
 	<h3> Gaps Report - Electricity </h3>

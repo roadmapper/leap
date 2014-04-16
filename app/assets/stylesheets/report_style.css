@@ -2,6 +2,10 @@
         display: none;
 }
 
+#rawdata{
+	display: none;
+}
+
 .addnewform{
 	float:left;
 }
