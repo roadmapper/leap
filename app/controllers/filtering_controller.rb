@@ -49,28 +49,67 @@ class FilteringController < ApplicationController
           enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
           @properties = @properties.where('finish_date < ?', enddate)
         end
-        @records_array = Array.new
+        @IDCollection = ""
         for @property in @properties
           if params[:owner]
               @property = Property.search(params[:owner])            
               @property = @property.shift
           end
           if @property
-              sql = "select properties.customer_unique_id, MONTH(read_date),DAY(read_date),YEAR(recordings.read_date),recordings.consumption,utility_types.units,
-      IF(recordings.read_date>properties.finish_date,'POST','PRE')
-      ,'Carbon' as 'Group','R' as 'Flag'
-      from properties 
-      left join record_lookups on properties.id = record_lookups.property_id 
-      left join recordings on record_lookups.acct_num = recordings.acctnum 
-      left join utility_types on utility_types.id = recordings.utility_type_id 
-      where customer_unique_id = '" + @property.customer_unique_id + "' and record_lookups.utility_type_id=1 
-      ORDER BY ABS(UNIX_TIMESTAMP(recordings.read_date) - UNIX_TIMESTAMP(properties.finish_date)) 
-      ASC LIMIT 22";
-              current = ActiveRecord::Base.connection.execute(sql)
-              @records_array = @records_array.concat current.to_a
+              @IDCollection = @IDCollection + "'" + @property.customer_unique_id + "'" + ","
           end
+ 
         end
-
+         @IDCollection.chop!
+          sql = "SELECT
+              temp.customer_unique_id,
+              temp.date_month,
+              temp.date_day,
+              temp.date_year,
+              temp.consumption,
+              temp.units,
+              temp.date_PRE_POST,
+              temp.group_field,
+              temp.flag
+          FROM
+              (SELECT
+                  temp.customer_unique_id,
+                      MONTH(temp.read_date) AS date_month,
+                      DAY(temp.read_date) AS date_day,
+                      YEAR(temp.read_date) AS date_year,
+                      temp.consumption,
+                      temp.units,
+                      IF(temp.read_date > temp.finish_date, 'POST', 'PRE') AS date_PRE_POST,
+                      '' AS 'group_field',
+                      'R' AS 'flag',
+                      IF(temp.read_date > temp.start_date
+                          AND temp.read_date < temp.end_date, 1, NULL) AS gooddata
+              FROM
+                  (SELECT
+                  properties.owner_name,
+                      properties.id,
+                      properties.customer_unique_id,
+                      properties.finish_date,
+                      record_lookups.company_name,
+                      recordings.acctnum,
+                      recordings.read_date,
+                      recordings.consumption,
+                      utility_types.units,
+                      IF(EXTRACT(DAY FROM properties.finish_date) < 15, DATE_SUB(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), DATE_ADD(DATE_SUB(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), INTERVAL 1 MONTH)) AS start_date,
+                      IF(EXTRACT(DAY FROM properties.finish_date) < 15, DATE_ADD(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), DATE_ADD(DATE_ADD(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), INTERVAL 1 MONTH)) AS end_date
+              FROM
+                  properties
+              INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+              INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+              LEFT JOIN utility_types ON utility_types.id = recordings.utility_type_id
+              WHERE
+                  record_lookups.utility_type_id = '1'
+                      AND properties.finish_date IS NOT NULL) temp) temp
+          WHERE
+              temp.gooddata IS NOT NULL
+                  AND temp.customer_unique_id IN (" + @IDCollection + ")
+          ORDER BY temp.customer_unique_id ASC , temp.date_year ASC , temp.date_month ASC , temp.date_day ASC;";
+          @records_array = ActiveRecord::Base.connection.execute(sql)
           header = ["Building ID", "Month", "Day", "Year","Consumption","Units","P-Field","Group","Flag"]
           fields = 9
           respond_to do |format|
@@ -97,28 +136,67 @@ class FilteringController < ApplicationController
           enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
           @properties = @properties.where('finish_date < ?', enddate)
         end
-        @records_array = Array.new
+        @IDCollection = ""
         for @property in @properties
           if params[:owner]
               @property = Property.search(params[:owner])            
               @property = @property.shift
           end
           if @property
-              sql = "select properties.customer_unique_id, MONTH(read_date),DAY(read_date),YEAR(recordings.read_date),recordings.consumption,utility_types.units,
-      IF(recordings.read_date>properties.finish_date,'POST','PRE')
-      ,'Carbon' as 'Group','R' as 'Flag'
-      from properties 
-      left join record_lookups on properties.id = record_lookups.property_id 
-      left join recordings on record_lookups.acct_num = recordings.acctnum 
-      left join utility_types on utility_types.id = recordings.utility_type_id 
-      where customer_unique_id = '" + @property.customer_unique_id + "' and record_lookups.utility_type_id=2
-      ORDER BY ABS(UNIX_TIMESTAMP(recordings.read_date) - UNIX_TIMESTAMP(properties.finish_date)) 
-      ASC LIMIT 22";
-              current = ActiveRecord::Base.connection.execute(sql)
-              @records_array = @records_array.concat current.to_a
+              @IDCollection = @IDCollection + "'" + @property.customer_unique_id + "'" + ","
           end
+ 
         end
-
+         @IDCollection.chop!
+          sql = "SELECT
+              temp.customer_unique_id,
+              temp.date_month,
+              temp.date_day,
+              temp.date_year,
+              temp.consumption,
+              temp.units,
+              temp.date_PRE_POST,
+              temp.group_field,
+              temp.flag
+          FROM
+              (SELECT
+                  temp.customer_unique_id,
+                      MONTH(temp.read_date) AS date_month,
+                      DAY(temp.read_date) AS date_day,
+                      YEAR(temp.read_date) AS date_year,
+                      temp.consumption,
+                      temp.units,
+                      IF(temp.read_date > temp.finish_date, 'POST', 'PRE') AS date_PRE_POST,
+                      '' AS 'group_field',
+                      'R' AS 'flag',
+                      IF(temp.read_date > temp.start_date
+                          AND temp.read_date < temp.end_date, 1, NULL) AS gooddata
+              FROM
+                  (SELECT
+                  properties.owner_name,
+                      properties.id,
+                      properties.customer_unique_id,
+                      properties.finish_date,
+                      record_lookups.company_name,
+                      recordings.acctnum,
+                      recordings.read_date,
+                      recordings.consumption,
+                      utility_types.units,
+                      IF(EXTRACT(DAY FROM properties.finish_date) < 15, DATE_SUB(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), DATE_ADD(DATE_SUB(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), INTERVAL 1 MONTH)) AS start_date,
+                      IF(EXTRACT(DAY FROM properties.finish_date) < 15, DATE_ADD(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), DATE_ADD(DATE_ADD(DATE_ADD(LAST_DAY(DATE_SUB(properties.finish_date, INTERVAL 1 MONTH)), INTERVAL 15 DAY), INTERVAL 1 YEAR), INTERVAL 1 MONTH)) AS end_date
+              FROM
+                  properties
+              INNER JOIN record_lookups ON record_lookups.property_id = properties.id
+              INNER JOIN recordings ON recordings.acctnum = record_lookups.acct_num
+              LEFT JOIN utility_types ON utility_types.id = recordings.utility_type_id
+              WHERE
+                  record_lookups.utility_type_id = '2'
+                      AND properties.finish_date IS NOT NULL) temp) temp
+          WHERE
+              temp.gooddata IS NOT NULL
+                  AND temp.customer_unique_id IN (" + @IDCollection + ")
+          ORDER BY temp.customer_unique_id ASC , temp.date_year ASC , temp.date_month ASC , temp.date_day ASC;";
+          @records_array = ActiveRecord::Base.connection.execute(sql)
           header = ["Building ID", "Month", "Day", "Year","Consumption","Units","P-Field","Group","Flag"]
           fields = 9
           respond_to do |format|
