@@ -9,11 +9,11 @@ Public::Application.routes.draw do
   resources :record_lookups
 
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "newusers" }
   devise_scope :user do
   authenticated :user do
        root :to =>'dashboard#index'
-       put 'users/sign_up' => 'devise/registrations#update', :as => 'new_user_registration'
+       #put 'users/sign_up' => 'devise/registrations#update', :as => 'new_user_registration'
 	end
     unauthenticated :user do
  	#root :to => 'devise/registrations#new'#, as: :unauthenticated_root
@@ -24,6 +24,8 @@ Public::Application.routes.draw do
 
   resources :recordings
   resources :properties
+  resources :newusers
+  resources :users
 
   get "dashboard/property_report"
 
