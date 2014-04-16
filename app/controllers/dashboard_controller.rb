@@ -26,15 +26,19 @@ class DashboardController < ApplicationController
     def property_report
         
         @utilitytypes = UtilityType.all.to_a
+        @companynames= RecordLookup.uniq.pluck(:company_name)
         @recording = Recording.new
         @record_lookup = RecordLookup.new
         @num_electric_recordings = 0
         @num_gas_recordings = 0
         
-        if params[:owner]
+        if params[:customer_unique_id]
+            @property = Property.find_by_customer_unique_id(params[:customer_unique_id])
+        elsif params[:owner]
             @property = Property.search(params[:owner])
             @property = @property.shift
         end
+        
         if (@property)
             
             @testoutdate = @property.finish_date

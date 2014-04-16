@@ -33,6 +33,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   # GET /properties/new.xml
   def new
+    @company_names = RecordLookup.uniq.pluck(:company_name)
     @property = Property.new
     @property.record_lookups.build
     @property.record_lookups.build

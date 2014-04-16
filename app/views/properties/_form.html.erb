@@ -52,10 +52,11 @@
   <%= f.fields_for :record_lookups, @property.record_lookups do |record_lookups_form| %>
   <div class="field">
     
-    <%= record_lookups_form.label :company_name %>
-    <%= record_lookups_form.text_field :company_name %><br />
-    <%= record_lookups_form.label :acct_num %>
+    <h7> Company Name: </h7>
+    <%= record_lookups_form.select :company_name, @company_names %> 
+    <h7> Account: </h7>
     <%= record_lookups_form.text_field :acct_num %>
+
   </div>
   <% end %>
 
