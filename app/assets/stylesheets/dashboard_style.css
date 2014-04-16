@@ -16,6 +16,11 @@
   vertical-align:bottom;
 }
 
+#bloodhound{
+  width: 100px;
+  height: 20px;
+}
+
 .twitter-typeahead .tt-hint
 {
     display: block;

@@ -11,7 +11,7 @@
   <%= ajax_loadzone do %>
   <% @accounts.each do |account| %>
     <tr>
-      <td><%= link_to account.owner_name, 'dashboard/property_report?owner=' + account.owner_name %></td>
+      <td><%= link_to account.owner_name, 'dashboard/property_report?customer_unique_id=' + account.customer_unique_id %></td>
       <td><%= account.acctnum %></td>
       <td><%= account.acceptedDatapoints %></td>
     </tr>
