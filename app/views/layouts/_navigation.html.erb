@@ -30,13 +30,14 @@
 				<li><%= link_to 'Requests', requests_path %></li>
 				<li><%= link_to 'Upload', uploads_path %></li>
 				<li><%= link_to 'Measures', installed_measure_types_path %></li>
+				<li><%= link_to 'New User', newusers_path, class: 'navbar-brand' %></li>
 				<li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
 			</ul>
 
 			<form class="navbar-form navbar-left" action="/dashboard/property_report" method="get"> 
 				<%= label_tag(:owner,"", class: "lead") %>
 				<div id ="bloodhound">
-				<%= text_field_tag :owner, params[:owner], class: "typeahead form-control", size: 60, placeholder: "Search Properties" %>
+				<%= text_field_tag :owner, params[:owner], class: "typeahead form-control", size: 40, placeholder: "Search Properties" %>
 				
 				<button type="submit" class="btn btn-primary" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true">Search</button> 
 				</div>

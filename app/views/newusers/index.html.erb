@@ -1,0 +1,23 @@
+<div class="container">
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="form-inline" role = "form">
+  <!--div class="span6 offset3"-->
+    <%= form_for(@user) do |f| %>
+
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+<br>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+<br>
+      <%= f.label :password_confirmation, "Confirmation" %><br>
+      <%= f.password_field :password_confirmation %>
+<br><br>
+      <%= f.submit "Create Account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  <!--/div-->
+</div>
+
+</div>
