@@ -159,7 +159,7 @@ class UploadsController < ApplicationController
   end
 
   def convert_to_stagingsXLSX(path, uploaded_io, type)
-	fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED Consumption }
+	fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 	rows_to_insert = []
 	Dir[path+"/*.xlsx"].each do |file|
                     file_path = "#{file}"
@@ -175,13 +175,13 @@ class UploadsController < ApplicationController
 
                     ((xlsx.first_row + 1)..xlsx.last_row).each do |row|
 
-		            acctnum = xlsx.row(row)[headers['ID_BA']]
-		            date = xlsx.row(row)[headers['DT_READ']]
-			    amt_kwh = xlsx.row(row)[headers['AMT_KWH']]
-			    days_used = xlsx.row(row)[headers['DAYS_USED']]
+		            acctnum = xlsx.row(row)[headers['AccountNum']]
+		            date = xlsx.row(row)[headers['DateRead']]
+			    amt_kwh = xlsx.row(row)[headers['Consumption']]
+			    days_used = xlsx.row(row)[headers['DaysUsed']]
 		            
 			    date = DateTime.new(1899,12,30) + Integer(date).days 
- 			    if !Recording.exists?(:acctnum => acctnum, :read_date=>date)
+ 			    if !Recording.exists?(:acctnum => acctnum.to_i, :read_date=>date)
 			    	Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
 			    end
                     end
@@ -194,7 +194,7 @@ class UploadsController < ApplicationController
   end
 
 	def convert_to_stagingsXLS(path, uploaded_io, type)
-		fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED Consumption }
+		fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 		rows_to_insert = []
 		Dir[path+"/*.xls"].each do |file|
 		            file_path = "#{file}"
@@ -210,10 +210,10 @@ class UploadsController < ApplicationController
 
 		            ((xls.first_row + 1)..xls.last_row).each do |row|
 
-				    acctnum = xls.row(row)[headers['ID_BA']]
-				    date = xls.row(row)[headers['DT_READ']]
-				    amt_kwh = xls.row(row)[headers['AMT_KWH']]
-				    days_used = xls.row(row)[headers['DAYS_USED']]
+				    acctnum = xls.row(row)[headers['AccountNum']]
+				    date = xls.row(row)[headers['DateRead']]
+				    amt_kwh = xls.row(row)[headers['Consumption']]
+				    days_used = xls.row(row)[headers['DaysUsed']]
 				    
 				    date = DateTime.new(1899,12,30) + Integer(date).days  
 				    Staging.where({"acctnum"=>acctnum, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
@@ -231,7 +231,7 @@ class UploadsController < ApplicationController
 	  end
 
 	def convert_to_stagingsCSV(path, uploaded_io, type)
-			fields_to_insert = %w{ ID_BA DT_READ AMT_KWH DAYS_USED Consumption }
+			fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 			rows_to_insert = []
 		
 			CSV.foreach(uploaded_io, headers: true) do |row|
@@ -239,12 +239,12 @@ class UploadsController < ApplicationController
 			 #row.to_hash.values_at(*fields_to_insert)
 			  #rows_to_insert << row_to_insert
 
-			  stringdate = row_to_insert["DT_READ"]
+			  stringdate = row_to_insert["DateRead"]
 		          date = DateTime.new(1899,12,30) + Integer(stringdate).days 
 			  
 	   		  #formatted_date = date.strftime('%a %b %d %Y')
 			  
-			Staging.where({"acctnum"=>row_to_insert["ID_BA"], "consumption"=>row_to_insert["AMT_KWH"], "days_in_month"=>row_to_insert["DAYS_USED"], "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
+			Staging.where({"acctnum"=>row_to_insert["AccountNum"], "consumption"=>row_to_insert["Consumption"], "days_in_month"=>row_to_insert["DaysUsed"], "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
 			end
 			Upload.update_all( {:status => 'Processed', :process_date => Time.now}, {:file_name => uploaded_io.original_filename})
 	end

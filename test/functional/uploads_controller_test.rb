@@ -30,6 +30,8 @@ include Devise::TestHelpers
      assert_difference('Upload.count', -1) do
        delete :destroy, id: @upload
      end
+   end
+
    test "should not upload" do
 	assert_equal("Duplicate file found in uploads, file not uploaded", upload.upload_file)
    end
