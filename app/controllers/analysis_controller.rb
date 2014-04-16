@@ -100,7 +100,7 @@ class AnalysisController < ApplicationController
 			            temp.consumption,
 			            temp.units,
 			            IF(temp.read_date > temp.finish_date, 'POST', 'PRE') AS date_PRE_POST,
-			            'Carbon' AS 'group_field',
+			            '' AS 'group_field',
 			            'R' AS 'flag',
 			            IF(temp.read_date > temp.start_date
 			                AND temp.read_date < temp.end_date, 1, NULL) AS gooddata
