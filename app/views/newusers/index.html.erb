@@ -1,23 +1,39 @@
 <div class="container">
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+	<% provide(:title, 'Sign up') %>
+	<h1>Create New User</h1>
 
-<div class="form-inline" role = "form">
-  <!--div class="span6 offset3"-->
-    <%= form_for(@user) do |f| %>
+	<div class="form-inline" role = "form">
+    		<%= form_for(@user) do |f| %>
 
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
-<br>
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-<br>
-      <%= f.label :password_confirmation, "Confirmation" %><br>
-      <%= f.password_field :password_confirmation %>
-<br><br>
-      <%= f.submit "Create Account", class: "btn btn-large btn-primary" %>
-    <% end %>
-  <!--/div-->
-</div>
+      			<%= f.label :email %><br>
+      			<%= f.text_field :email %>
+			<br>
+      			<%= f.label :password %><br>
+      			<%= f.password_field :password %>
+			<br>
+		        <%= f.label :password_confirmation, "Confirmation" %><br>
+      			<%= f.password_field :password_confirmation %>
+			<br><br>
+      			<%= f.submit "Create Account", class: "btn btn-large btn-primary" %>
+    		<% end %>
+	</div>
+	<br>
+	<h1>Existing Users</h1>
+	<table class="table table-striped">
+  		<tr>
+	    		<th>User Email</th>
+	    		<th></th>
+	    		<th></th>
+	    		<th></th>
+  		</tr>
 
+		<% @userlist.each do |user| %>
+	  		<tr>
+		    		<td><%= user.email %></td>
+		    		<!--td><%= link_to 'Edit', edit_newuser_path(user) %></td-->
+	  		</tr>
+		<% end %>
+	</table>
+
+	<br />
 </div>

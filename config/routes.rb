@@ -21,7 +21,6 @@ Public::Application.routes.draw do
    end
   end
 
-
   resources :recordings
   resources :properties
   resources :newusers
