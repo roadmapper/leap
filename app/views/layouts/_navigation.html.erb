@@ -30,18 +30,25 @@
 				<li><%= link_to 'Requests', requests_path %></li>
 				<li><%= link_to 'Upload', uploads_path %></li>
 				<li><%= link_to 'Measures', installed_measure_types_path %></li>
-				<li><%= link_to 'New User', newusers_path, class: 'navbar-brand' %></li>
-				<li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
+
+				<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+      				<ul class="dropdown-menu">
+						<li><%= link_to 'New User', newusers_path %></li>
+						<li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
+					</ul>
+        		</li>
 			</ul>
 
-			<form class="navbar-form navbar-left" action="/dashboard/property_report" method="get"> 
+			<form class="navbar-form" action="leap/dashboard/property_report" method="get" role="search"> 
 				<%= label_tag(:owner,"", class: "lead") %>
-				<div id ="bloodhound">
-				<%= text_field_tag :owner, params[:owner], class: "typeahead form-control", size: 40, placeholder: "Search Properties" %>
 				
-				<button type="submit" class="btn btn-primary" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true">Search</button> 
-				</div>
+				<%= text_field_tag :owner, params[:owner], id: 'type', class: "typeahead form-control", size: 50, placeholder: "Search Properties" %>
+				
+				<button type="submit" form ="type" class="btn btn-primary" >Search</button> 
 			</form>
+			
+			
 			
 		</div>  
 	</div>
@@ -68,7 +75,7 @@ var variables = new Bloodhound({
 
 variables.initialize();
 
-$('#bloodhound .typeahead').typeahead({
+$('#type .typeahead').typeahead({
 	hint: true,
 	highlight: true,
 	minLength: 1
