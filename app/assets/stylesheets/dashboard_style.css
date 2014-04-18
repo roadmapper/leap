@@ -87,6 +87,10 @@
      top:-20px;
     }
 
+.navbar .search-query, .navbar .tt-hint {
+        width: 200px;
+}
+
 #search {
      position:relative;
      top:-20px;
