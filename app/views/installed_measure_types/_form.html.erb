@@ -1,3 +1,4 @@
+<!--Creates the form to edit or create a new installed measure -->
 <%= form_for(@installed_measure_type) do |f| %>
   <% if @installed_measure_type.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-
+<!--One editable field-- the installed measure name -->
   <div class="field">
     <%= f.text_field :installed_measures %>
   </div>

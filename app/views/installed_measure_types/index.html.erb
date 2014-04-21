@@ -1,25 +1,21 @@
 <div class="container theme-showcase">
-
 	<h1>Installed Measures</h1>
+	<!--Button to add a new installed measure to the system -->
 	<%= link_to 'Add New Installed Measure', new_installed_measure_type_path, class: 'btn btn-default' %><br><br>
 	<%= link_to 'Associate Installed Measure with a Property', property_measures_path, class: 'btn btn-default' %><br>
 	<br />
+	<!-- create the table to show the entire list of installed measures -->
 	<table class="table table-striped">
 	  <tr>
-	    <th colspan=" 3">Installed measures:</th>
+	    <th>Installed measures:</th>
 	    <th></th>
-	    <th></th>
-
 	  </tr>
-
 	<% @installed_measure_types.each do |installed_measure_type| %>
 	  <tr>
 	    <td><%= installed_measure_type.installed_measures %></td>
+	    <!-- for each installed measure, have a button to edit the installed measure name -->
 	    <td><%= link_to 'Edit  ', edit_installed_measure_type_path(installed_measure_type) %></td>
-	    <td><%= link_to 'Destroy  ', installed_measure_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	  </tr>
 	<% end %>
 	</table>
-
-	
 </div>

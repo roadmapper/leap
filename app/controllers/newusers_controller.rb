@@ -1,3 +1,4 @@
+#this controller provides the functionality to create a new user
 class NewusersController < ApplicationController
 	def index
 		@user = User.new
@@ -13,9 +14,10 @@ class NewusersController < ApplicationController
 	      		redirect_to newusers_path
       			flash[:notice] = "#{ @user.email } created."
     		else
-    			#if the new user was not able to be created, flash message the errors that made it unsuccessful 
+    			#if the new user was not able to be created, flash message all errors that made it unsuccessful 
     			#and stay on the newuserpage
     	    		@messages = "User was not able to be created. "
+    	    		#parse the error messages and put it into a user readable version
     	    		@user.errors.full_messages.each do |message|
     	    			@messages = @messages + message + ". "
     	    		end
