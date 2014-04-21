@@ -1,17 +1,17 @@
 class ApplicationController < ActionController::Base
 
   USER, PASSWORD = 'dhh', 'secret'
-  #before_filter :authentication_check   #, :except => :index
-  before_filter :authenticate_user!, :unless => :devise_controller?, :except => [:newusers_controller]
+  #only authenticated users can access the system
+  before_filter :authenticate_user!, :unless => :devise_controller?
 
   protect_from_forgery
 
+  #url path to direct to after the user is authenticated
   def after_sign_in_path_for(user)
 	#redirect to home
 	"/leap/"
-	#""
 	#has to be "" on local machine
-  
+	#""
   end
 
   private

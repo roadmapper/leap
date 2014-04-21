@@ -44,7 +44,7 @@ class InstalledMeasureTypesController < ApplicationController
 
     respond_to do |format|
       if @installed_measure_type.save
-        format.html { redirect_to @installed_measure_type, notice: 'Installed measure type was successfully created.' }
+        format.html { redirect_to installed_measure_types_url, notice: 'Installed measure type was successfully created.' }
         format.json { render json: @installed_measure_type, status: :created, location: @installed_measure_type }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class InstalledMeasureTypesController < ApplicationController
 
     respond_to do |format|
       if @installed_measure_type.update_attributes(params[:installed_measure_type])
-        format.html { redirect_to @installed_measure_type, notice: 'Installed measure type was successfully updated.' }
+        format.html { redirect_to installed_measure_types_url, notice: 'Installed measure type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
