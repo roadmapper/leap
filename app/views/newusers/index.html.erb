@@ -1,3 +1,4 @@
+<!--Manage Users page -->
 <div class="container">
 	<% provide(:title, 'Sign up') %>
 	<h1>Create New User</h1>
@@ -27,12 +28,11 @@
 	    		<th></th>
 	    		<th></th>
   		</tr>
-
+		<!--for each existing user, display their email and a destroy button -->
 		<% @userlist.each do |user| %>
 	  		<tr>
 		    		<td><%= user.email %></td>
-		    		<!--td><%= link_to 'Destroy User', user, method: :delete, data: { confirm: 'Are you sure?' } %></td-->
-	  			<td><%= link_to "Destroy User", user, method: :delete, data: { confirm: "You sure?" } %></td>
+		    		<td><%= link_to "Destroy User", user, method: :delete, data: { confirm: "You sure?" } %></td>
 	  		</tr>
 		<% end %>
 	</table>
