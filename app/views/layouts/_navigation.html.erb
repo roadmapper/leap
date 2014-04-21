@@ -34,7 +34,7 @@
 				<li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
       				<ul class="dropdown-menu">
-						<li><%= link_to 'New User', newusers_path %></li>
+						<li><%= link_to 'Manage Users', newusers_path %></li>
 						<li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
 					</ul>
         		</li>
@@ -45,7 +45,7 @@
 				
 				<%= text_field_tag :owner, params[:owner], id: 'type', class: "typeahead form-control", size: 50, placeholder: "Search Properties" %>
 				
-				<!--button type="submit" form ="type" class="btn btn-primary" >Search</button--> 
+				<button type="submit" form ="type" class="btn btn-primary" >Search</button> 
 			</form>
 			
 			
