@@ -7,9 +7,8 @@ Public::Application.routes.draw do
 
 
   resources :record_lookups
-
-
-  devise_for :users, :controllers => {:registrations => "newusers" }
+  
+  devise_for :users, :controllers => {:registrations => "newusers", :destroy => "newusers"}
   devise_scope :user do
   authenticated :user do
        root :to =>'dashboard#index'
