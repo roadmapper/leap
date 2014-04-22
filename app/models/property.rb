@@ -6,6 +6,7 @@ class Property < ActiveRecord::Base
   validates :zipcode, presence: true
 
   has_many :record_lookups
+  has_many :propertymeasures
   accepts_nested_attributes_for :record_lookups, :reject_if => lambda { |a| a[:content].blank? }
 
    def self.search(owner)
