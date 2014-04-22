@@ -1,6 +1,6 @@
 Public::Application.routes.draw do
 
-  resources :property_measures
+  resources :propertymeasures
 
 
   resources :installed_measure_types
@@ -21,7 +21,7 @@ Public::Application.routes.draw do
 
   resources :recordings
   resources :properties
-  
+
   #user registration paths
   resources :newusers
   resources :users

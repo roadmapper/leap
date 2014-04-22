@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PropertyMeasureTest < ActiveSupport::TestCase
+class PropertymeasureTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
