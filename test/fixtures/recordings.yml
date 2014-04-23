@@ -1,0 +1,10 @@
+#fixture for recordings tests.
+
+one: 
+	acctnum: MyString
+	read_date: 2013-01-01
+	cosumption: 1
+	days_in_month: 30
+	utility_type_id: 1
+
+
