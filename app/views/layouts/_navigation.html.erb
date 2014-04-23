@@ -1,4 +1,5 @@
-<%= stylesheet_link_tag "dashboard_style" %>
+<%= stylesheet_link_tag "dashboard_format" %>
+
 <%# navigation styled for Bootstrap 3.0 %>
 <% if user_signed_in? %>
 <nav class="navbar navbar-inverse" role="navigation">
@@ -22,6 +23,7 @@
 						<li><%= link_to 'Add Property', new_property_path %></li>
             			<li class="divider"></li>
 						<li><%= link_to 'Filter', filtering_path %></li>
+						<li><%= link_to 'Installed Measures', installed_measure_types_path %></li>
           			</ul>
         		</li>
 				
@@ -29,7 +31,7 @@
 				<li><%= link_to 'Analyze', analysis_path %></li>
 				<li><%= link_to 'Requests', requests_path %></li>
 				<li><%= link_to 'Upload', uploads_path %></li>
-				<li><%= link_to 'Measures', installed_measure_types_path %></li>
+				
 
 				<li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
@@ -39,16 +41,11 @@
 					</ul>
         		</li>
 			</ul>
-
-			<form class="navbar-form" action="leap/dashboard/property_report" method="get" role="search"> 
+			<%= form_tag dashboard_property_report_path, :class => "navbar-form navbar-left", :method => "get" do  %>
 				<%= label_tag(:owner,"", class: "lead") %>
-				
-				<%= text_field_tag :owner, params[:owner], id: 'type', class: "typeahead form-control", size: 50, placeholder: "Search Properties" %>
-				
-				<button type="submit" form ="type" class="btn btn-primary" >Search</button> 
-			</form>
-			
-			
+				<%= text_field_tag :owner, params[:owner], :id => 'type', :class => "typeahead form-control", size: 50, placeholder: "Search Properties" %>
+				<button type="submit" class="btn btn-small" >Search</button> 
+			<%end %>
 			
 		</div>  
 	</div>
