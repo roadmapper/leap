@@ -4,27 +4,58 @@
 <div class="container">
 
 <% title "Customer #{@property.customer_unique_id}" %>
-<h3><%= "Report for Customer #{@property.customer_unique_id}" %></h3>
+
+<div class="row">
+	<div class="col-lg-5">
+		<h2><%= "Report for Customer #{@property.customer_unique_id}" %></h2>
+	</div>
+	<div class="col-lg-1">
+	</div>
+	<div class="col-lg-3">
+		<a href="<%= dashboard_prism_report_electric_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary btn-sm" style="color:white; margin-top:22px; margin-bottom:10px;">PRISM Format - Electric Data Export</a>
+	</div>
+	<div class="col-lg-2">
+		<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary btn-sm" style="color:white; margin-top:22px; margin-bottom:10px;">PRISM Format - Gas Data Export</a>
+	</div>
+</div>
 <hr>
 
-<a href="javascript:toggleDiv('accountform');"> <button class = "btn-xs btn-primary"> Add New Account </button></a>
-<a href="javascript:toggleDiv('rawdata');"> <button class = "btn-xs btn-primary"> Display Raw Data </button></a> <br><br>
 
-<strong><p>Customer Name: </strong> <%= " " + @property.owner_name %></p>
-<p><%= @property.street_address %></p>
-<p><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></p>
-<% if (!@electric_record_lookups.blank?) %>
-	<% for i in 0..(@electric_record_lookups.count - 1) %>
-		<p><%= "Account (" + @electric_record_lookups[i].company_name + "): " + @electric_record_lookups[i].acct_num %></p>
-	<% end %>
-	
-<% end %>
+<div class="row">
+	<div class="col-lg-6">
+		<h4><strong>Customer Name: </strong> <%= " " + @property.owner_name %></h4>
+		<h4><%= @property.street_address %></h4>
+		<h4><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></h4>
+		<% if (!@electric_record_lookups.blank?) %>
+			<% for i in 0..(@electric_record_lookups.count - 1) %>
+				<h5><%= "Account (" + @electric_record_lookups[i].company_name + "): " + @electric_record_lookups[i].acct_num %></h5>
+			<% end %>
+			
+		<% end %>
 
-<% if (!@gas_record_lookups.blank?) %>
-	<% for i in 0..(@gas_record_lookups.count - 1 ) %>
-		<p><%= "Account (" + @gas_record_lookups[i].company_name + "): " + @gas_record_lookups[i].acct_num %></p>
-	<% end %>
-<% end %>
+		<% if (!@gas_record_lookups.blank?) %>
+			<% for i in 0..(@gas_record_lookups.count - 1 ) %>
+				<h5><%= "Account (" + @gas_record_lookups[i].company_name + "): " + @gas_record_lookups[i].acct_num %></h5>
+			<% end %>
+		<% end %>
+		<% if (@property.finish_date) %>
+			<h5><strong> Test Out Date:  </strong> <%= " " + @testoutdate.strftime("%B %e, %Y")%></h5>
+		<%else%>
+			<%= render 'form_to' %>
+		<% end %>
+	</div>
+	<div class="col-lg-4">
+		<a href="javascript:toggleDiv('accountform');"> <button class = "btn btn-primary btn-sm"> Add New Account </button></a>
+		<div id ="accountform">
+			<%= render 'form_account' %>
+		</div>
+	</div>
+	<div class="col-lg-2">
+		<a href="javascript:toggleDiv('rawdata');"> <button class = "btn btn-primary btn-sm"> Display Raw Data </button></a>
+	</div>
+</div>
+
+
 
 <script type="text/javascript">
 	function toggleDiv(divId) {
@@ -33,21 +64,14 @@
 </script>
 
 
-<% if (@property.finish_date) %>
-	<p><strong> Test Out Date:  </strong> <%= " " + @testoutdate.strftime("%B %e, %Y")%></p>
-<%else%>
-	<%= render 'form_to' %>
-<% end %>
 
-<div id ="accountform">
-	<%= render 'form_account' %>
-</div>
 
-	<h3> PRISM Reports </h3>
 
-	<a href="<%= dashboard_prism_report_electric_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Electric Report - CSV</a>
 
-	<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary" style="color:white">Gas Report - CSV</a>
+
+
+
+	
 
 
 <div id="rawdata">
@@ -95,7 +119,7 @@
 
 <% if (@electric_recordings && !@gas_recordings) %>
 
-	<h3> Raw Data </h3>
+	<h4> Raw Data </h4>
 
 	<table class="table" border = 1>
 		<tr>
@@ -118,7 +142,7 @@
 
 <% if (!(@electric_recordings) && @gas_recordings) %>
 
-	<h3> Raw Data </h3>
+	<h4> Raw Data </h4>
 
 	<table class="table" border = 1>
 		<tr>
@@ -141,7 +165,7 @@
 </div>
 
 <% if (@electric_recordings) %>
-	<h3> Gaps Report - Electricity </h3>
+	<h4> Gaps Report - Electricity </h4>
 
 	<table class="table" border = 1>
 	  <tr>
@@ -190,7 +214,7 @@
 
 <% if (@gas_recordings) %>
 	
-	<h3> Gaps Report - Gas </h3>
+	<h4> Gaps Report - Gas </h4>
 
 	<table class="table" border = 1>
 	  <tr>
