@@ -67,7 +67,7 @@ class AnalysisController < ApplicationController
     end
   end
   
-  def washington_gas_ready_accounts_prism
+  def washingtongas_ready_accounts_prism
     customers = Report::WashingtongasReadyAccount.pluck(:customer_unique_id)
     @records_array = prism_report(customers, "WASHINGTONGAS")
     header = ["Building ID", "Month", "Day", "Year", "Consumption", "Units", "P-Field", "Group", "Flag"]
@@ -147,7 +147,6 @@ class AnalysisController < ApplicationController
       csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
       recordline = Array.new(fields)
       data.each do |record|
-        puts record
         fields.times{ |i| recordline[i] = record[i]}
         csv << recordline #[record[0], record[2], record[3], record[4]]
         recordline = Array.new(fields)
