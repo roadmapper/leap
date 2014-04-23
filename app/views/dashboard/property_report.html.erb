@@ -1,13 +1,11 @@
 
 <%= stylesheet_link_tag "report_style" %>
 
-<div class="container">
-
 <% title "Customer #{@property.customer_unique_id}" %>
-
+<div class="container">
 <div class="row">
 	<div class="col-lg-6">
-		<h2><%= "Report for Customer #{@property.customer_unique_id}" %></h2>
+		<h3><%= "Report for Customer #{@property.customer_unique_id}" %></h3>
 	</div>
 	
 	<div class="col-lg-3">
@@ -42,13 +40,14 @@
 		<%else%>
 			<%= render 'form_to' %>
 		<% end %>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
+		<%= button_to "Edit Property", edit_property_path(@property), type: 'button', :method => "get", class: 'btn btn-primary btn-sm' %>
+
+		
 	</div>
 	<div class="col-lg-4">
 		<a href="javascript:toggleDiv('accountform');"> <button class = "btn pull-left btn-primary btn-sm"> Add New Account </button></a>
+		<br/>
+		<br/>
 		<div id ="accountform">
 			<%= render 'form_account' %>
 		</div>
@@ -65,99 +64,100 @@
 </script>
 
 <div id="rawdata">
-<% if (@electric_recordings && @gas_recordings) %>
+	<% if (@electric_recordings && @gas_recordings) %>
 
-	<h3> Raw Data </h3>
+		<h3> Raw Data </h3>
 
-	<table class="table" border = 1>
-		<tr>
-			<th colspan="3"> Electricity</th>
-			<th colspan="3"> Gas</th>
-		</tr>
-		<tr>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-		</tr>
-		<% for i in 0..[@electric_recordings.count-1, @gas_recordings.count-1].max %>
+		<table class="table table-bordered">
 			<tr>
-				<%if(@electric_recordings[i])%>
+				<th colspan="3"> Electricity</th>
+				<th colspan="3"> Gas</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..[@electric_recordings.count-1, @gas_recordings.count-1].max %>
+				<tr>
+					<%if(@electric_recordings[i])%>
+						<td> <%= @electric_recordings[i].read_date %> </td>
+						<td> <%= @electric_recordings[i].consumption %> </td>
+						<td> <%= @electric_recordings[i].days_in_month %> </td>
+					<%else%>
+						<td></td>
+						<td></td>
+						<td></td>
+					<%end%>
+					<%if(@gas_recordings[i])%>
+						<td> <%= @gas_recordings[i].read_date %> </td>
+						<td> <%= @gas_recordings[i].consumption %> </td>
+						<td> <%= @gas_recordings[i].days_in_month %> </td>
+					<%else%>
+						<td></td>
+						<td></td>
+						<td></td>
+					<%end%>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+
+	<% if (@electric_recordings && !@gas_recordings) %>
+
+		<h4> Raw Data </h4>
+
+		<table class="table table-bordered">
+			<tr>
+				<th colspan="3"> Electricity</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..@electric_recordings.count-1 %>
+				<tr>
 					<td> <%= @electric_recordings[i].read_date %> </td>
 					<td> <%= @electric_recordings[i].consumption %> </td>
 					<td> <%= @electric_recordings[i].days_in_month %> </td>
-				<%else%>
-					<td></td>
-					<td></td>
-					<td></td>
-				<%end%>
-				<%if(@gas_recordings[i])%>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+
+	<% if (!(@electric_recordings) && @gas_recordings) %>
+
+		<h4> Raw Data </h4>
+
+		<table class="table table-bordered">
+			<tr>
+				<th colspan="3"> Gas</th>
+			</tr>
+			<tr>
+				<th> Read Date </th>
+				<th> Consumption </th>
+				<th> Days in Month </th>
+			</tr>
+			<% for i in 0..@gas_recordings.count-1 %>
+				<tr>
 					<td> <%= @gas_recordings[i].read_date %> </td>
 					<td> <%= @gas_recordings[i].consumption %> </td>
 					<td> <%= @gas_recordings[i].days_in_month %> </td>
-				<%else%>
-					<td></td>
-					<td></td>
-					<td></td>
-				<%end%>
-			</tr>
-		<% end %>
-	</table>
-<% end %>
-
-<% if (@electric_recordings && !@gas_recordings) %>
-
-	<h4> Raw Data </h4>
-
-	<table class="table" border = 1>
-		<tr>
-			<th colspan="3"> Electricity</th>
-		</tr>
-		<tr>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-		</tr>
-		<% for i in 0..@electric_recordings.count-1 %>
-			<tr>
-				<td> <%= @electric_recordings[i].read_date %> </td>
-				<td> <%= @electric_recordings[i].consumption %> </td>
-				<td> <%= @electric_recordings[i].days_in_month %> </td>
-			</tr>
-		<% end %>
-	</table>
-<% end %>
-
-<% if (!(@electric_recordings) && @gas_recordings) %>
-
-	<h4> Raw Data </h4>
-
-	<table class="table" border = 1>
-		<tr>
-			<th colspan="3"> Gas</th>
-		</tr>
-		<tr>
-			<th> Read Date </th>
-			<th> Consumption </th>
-			<th> Days in Month </th>
-		</tr>
-		<% for i in 0..@gas_recordings.count-1 %>
-			<tr>
-				<td> <%= @gas_recordings[i].read_date %> </td>
-				<td> <%= @gas_recordings[i].consumption %> </td>
-				<td> <%= @gas_recordings[i].days_in_month %> </td>
-			</tr>
-		<% end %>
-	</table>
-<% end %>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
 </div>
+
 
 <% if (@electric_recordings) %>
 	<h4> Gaps Report - Electricity </h4>
 
-	<table class="table" border = 1>
+	<table class="table table-bordered">
 	  <tr>
 	    <th colspan="12" > 12 Months Pre-Testout</th>
 	  </tr>
@@ -206,7 +206,7 @@
 	
 	<h4> Gaps Report - Gas </h4>
 
-	<table class="table" border = 1>
+	<table class="table table-bordered">
 	  <tr>
 	    <th colspan="12" > 12 Months Pre-Testout</th>
 	  </tr>
@@ -249,12 +249,20 @@
 		    
 	  </tr>
 	</table>
-<% end %>
+<% end %>	
 
-<% if(@num_electric_recordings < 24 || @num_gas_recordings < 24) %>
-	<%= render 'form_recording' %>
-<% end %>
+<hr>
 
+<div class="row">
+	<div class="col-lg-4">
+		<%= render 'form_recording' %>
+	</div>
+	
+	<div class="col-lg-4">
+		<%= render 'form_measure' %>
+	</div>
+	<div class="col-lg-4">
+		<%= render 'current_measures' %>
+	</div>
 </div>
-
 </div>

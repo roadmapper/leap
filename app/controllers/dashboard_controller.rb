@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     include DashboardHelper
     include PropertiesHelper
     
+    
     def index
         @variables = Property.find(:all).map { |x| x.owner_name+" - "+x.street_address }#&:owner_name)
         
@@ -29,8 +30,10 @@ class DashboardController < ApplicationController
         @companynames= RecordLookup.uniq.pluck(:company_name)
         @recording = Recording.new
         @record_lookup = RecordLookup.new
+        @propmeasure = Propertymeasure.new
         @num_electric_recordings = 0
         @num_gas_recordings = 0
+        @current_measures = nil;
         
         if params[:customer_unique_id]
             @property = Property.find_by_customer_unique_id(params[:customer_unique_id])
@@ -40,7 +43,8 @@ class DashboardController < ApplicationController
         end
         
         if (@property)
-            
+        
+            @current_measures = Propertymeasure.where("property_id = ?", @property.id).to_a
             @testoutdate = @property.finish_date
             
             @startdate = start_date(@testoutdate);
@@ -57,14 +61,14 @@ class DashboardController < ApplicationController
                     if(@electric_recordings)
                         if(@electric_recordings.length > 0)
                             @electric_gap_data = get_data(@electric_recordings, @startdate)
+                
+                            
                             @num_electric_recordings = get_data_count(@electric_recordings, @startdate)
-                            #@missing_electric_dates = get_missing_dates(@electric_recordings, @startdate)
                             else
                             @electric_recordings = nil;
                         end
                     end
                 end
-                
             end
             
             @gas_record_lookups = RecordLookup.where("property_id = ? AND utility_type_id = ?", @property.id, 2).to_a
@@ -76,8 +80,9 @@ class DashboardController < ApplicationController
                     if(@gas_recordings)
                         if(@gas_recordings.length > 0)
                             @gas_gap_data = get_data(@gas_recordings, @startdate)
+                            
+                            
                             @num_gas_recordings = get_data_count(@gas_recordings, @startdate)
-                            #@missing_gas_dates = get_missing_dates(@gas_recordings, @startdate)
                             else
                             @gas_recordings = nil;
                         end

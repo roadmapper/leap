@@ -1,5 +1,4 @@
-<hr> 
-
+<br>
 <%= form_for @record_lookup, :html => {:class => "form-inline"} do |f| %>
   <% if @record_lookup.errors.any? %>
     <div id="error_explanation">
@@ -27,5 +26,3 @@
   <%= f.submit "Save New Account", class: 'btn btn-primary btn-sm'%>
 
 <% end %>
-
-<hr>
