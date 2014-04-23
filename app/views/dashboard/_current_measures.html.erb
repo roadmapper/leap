@@ -1,0 +1,24 @@
+
+
+<% if (!@current_measures.nil?) %>
+	<table class="table">
+	  <tr> <th align="center" colspan="4"> Current Associations </th> </tr>
+	  <tr>
+	    <th>Type</th>
+	    <th>Comment</th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+
+	<% @current_measures.each do |propertymeasure| %>
+	  <tr>
+	    <td><%= propertymeasure.installed_measure_type_id %></td>
+	    <td><%= propertymeasure.comment %></td>
+	    <td><%= link_to 'Edit', edit_propertymeasure_path(propertymeasure) %></td>
+	    <td><%= link_to 'Destroy', propertymeasure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% else %>
+	<p> No current measures associated with this property. </p>
+<%end %>
