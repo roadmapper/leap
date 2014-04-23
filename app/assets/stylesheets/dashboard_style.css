@@ -17,8 +17,8 @@
 }
 
 #bloodhound{
-  width: 100px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
 
 .twitter-typeahead .tt-hint
@@ -85,13 +85,21 @@
 .twitter-typeahead{ 
      position:relative;
      top:-20px;
-    }
+}
 
 .navbar .search-query, .navbar .tt-hint {
-        width: 200px;
+        width: 436px;
+        position:relative;
+        top:10px;
 }
 
 #search {
      position:relative;
      top:-20px;
+}
+
+#navsearch {
+     position:relative;
+     top:-54px;
+     left: 442px;
 }
