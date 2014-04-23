@@ -17,7 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :installed_measure_type %><br />
-    <%= f.text_field :installed_measure_type_id %>
+    <!--%= f.text_field :installed_measure_type_id %-->
+    
+    <!--%= f.collection_select(:utility_type_id, @utilitytypes, :id, :typeName, prompt: true) %> <br><br-->
+    <!--%= f.collection_select(:installed_measure_type, InstalledMeasureType.all, :id, :installed_measures, prompt: true) %> <br><br-->
+    <%= f.collection_select(:installed_measure_type_id, InstalledMeasureType.all, :id, :installed_measures, prompt: true) %> <br><br>
   </div>
   <div class="field">
     <%= f.label :comment %><br />
