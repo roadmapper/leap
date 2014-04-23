@@ -6,16 +6,15 @@
 <% title "Customer #{@property.customer_unique_id}" %>
 
 <div class="row">
-	<div class="col-lg-5">
+	<div class="col-lg-6">
 		<h2><%= "Report for Customer #{@property.customer_unique_id}" %></h2>
 	</div>
-	<div class="col-lg-1">
+	
+	<div class="col-lg-3">
+		<a href="<%= dashboard_prism_report_electric_path + ".csv?owner=" + @property.owner_name%>" class="btn pull-left btn-primary btn-sm" style="color:white; margin-top:22px; margin-bottom:10px;">PRISM Format - Electric Data Export</a>
 	</div>
 	<div class="col-lg-3">
-		<a href="<%= dashboard_prism_report_electric_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary btn-sm" style="color:white; margin-top:22px; margin-bottom:10px;">PRISM Format - Electric Data Export</a>
-	</div>
-	<div class="col-lg-2">
-		<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn btn-primary btn-sm" style="color:white; margin-top:22px; margin-bottom:10px;">PRISM Format - Gas Data Export</a>
+		<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn pull-right btn-primary btn-sm" style="color:white; margin-top:22px; margin-bottom:10px;">PRISM Format - Gas Data Export</a>
 	</div>
 </div>
 <hr>
@@ -23,7 +22,7 @@
 
 <div class="row">
 	<div class="col-lg-6">
-		<h4><strong>Customer Name: </strong> <%= " " + @property.owner_name %></h4>
+		<h4><strong><%= " " + @property.owner_name %></strong></h4>
 		<h4><%= @property.street_address %></h4>
 		<h4><%= "#{@property.city}, #{@property.state} #{@property.zipcode}"%></h4>
 		<% if (!@electric_record_lookups.blank?) %>
@@ -43,36 +42,27 @@
 		<%else%>
 			<%= render 'form_to' %>
 		<% end %>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 	</div>
 	<div class="col-lg-4">
-		<a href="javascript:toggleDiv('accountform');"> <button class = "btn btn-primary btn-sm"> Add New Account </button></a>
+		<a href="javascript:toggleDiv('accountform');"> <button class = "btn pull-left btn-primary btn-sm"> Add New Account </button></a>
 		<div id ="accountform">
 			<%= render 'form_account' %>
 		</div>
 	</div>
 	<div class="col-lg-2">
-		<a href="javascript:toggleDiv('rawdata');"> <button class = "btn btn-primary btn-sm"> Display Raw Data </button></a>
+		<a href="javascript:toggleDiv('rawdata');"> <button class = "btn pull-right btn-primary btn-sm"> Display Raw Data </button></a>
 	</div>
 </div>
-
-
 
 <script type="text/javascript">
 	function toggleDiv(divId) {
 		$("#"+divId).toggle();
 	}
 </script>
-
-
-
-
-
-
-
-
-
-	
-
 
 <div id="rawdata">
 <% if (@electric_recordings && @gas_recordings) %>
