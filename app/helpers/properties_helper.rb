@@ -5,9 +5,9 @@ module PropertiesHelper
         #Start data retrieval on the 20th of the month to ensure capturing all relevant data.
         
         if(to_date.day < 15)
-            (to_date - 1.years).beginning_of_month + 14.days
+            (to_date - 1.years)
             else
-            (to_date - 1.years + 1.month).beginning_of_month + 14.days
+            (to_date - 1.years + 1.month)
         end
         
     end
@@ -15,9 +15,9 @@ module PropertiesHelper
     def end_date(to_date)
         #End data retrieval on the 20th of the month to ensure capturing all relevant data.
         if(to_date.day < 15)
-            (to_date + 1.years).beginning_of_month + 14.days
+            (to_date + 1.years)
             else
-            (to_date + 1.years + 1.month).beginning_of_month + 14.days
+            (to_date + 1.years + 1.month)
         end
     end
     
@@ -61,7 +61,7 @@ module PropertiesHelper
     end
     
     def get_data(records, startdate)
-        
+        puts startdate
         data = Array.new
         count = 0
         records.each do |rec|
@@ -69,11 +69,20 @@ module PropertiesHelper
             days_in_month = rec.days_in_month
             for i in count..23
                 currdate = startdate + i.months
-                if((currdate >= read_date - days_in_month.days) && (currdate < read_date.end_of_month))
+                puts i
+                puts rec.read_date
+                puts days_in_month
+                puts read_date - days_in_month.days
+                puts  currdate
+                puts read_date.end_of_month
+                puts rec.consumption
+                puts "-----"
+                
+                if((currdate >= read_date - days_in_month.days) && (currdate <= read_date.end_of_month))
                     data.push(rec.consumption)
                     count += 1;
                     break
-                    else
+                else
                     data.push("---");
                     count += 1;
                 end

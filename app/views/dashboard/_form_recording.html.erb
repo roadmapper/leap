@@ -1,5 +1,3 @@
-<hr>
-
 <h4> Enter New Recording </h4>
 
 
@@ -15,6 +13,7 @@
     </div>
   <% end %>		
   	<%= f.hidden_field :owner, :value => @property.owner_name %> 
+  
   <table cellpadding="6">
       <tr>
         <td><h7> Account Number: </h7>	</td>
@@ -40,5 +39,4 @@
   </table>
   <br>
     <%= f.submit "Save New Recording", class: 'btn btn-primary btn-sm' %>
-  </div>
 <% end %>
