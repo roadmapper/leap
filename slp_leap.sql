@@ -111,35 +111,6 @@ INSERT INTO `properties` VALUES (3073,'0','Account Dummy',NULL,'Invalid Street',
 UNLOCK TABLES;
 
 --
--- Table structure for table `property_measures`
---
-
-DROP TABLE IF EXISTS `property_measures`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `property_measures` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `property_id` int(11) DEFAULT NULL,
-  `measure_id` int(11) DEFAULT NULL,
-  `comment` text COLLATE utf8_unicode_ci,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_property_measures_on_property_id` (`property_id`),
-  KEY `index_property_measures_on_measure_id` (`measure_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `property_measures`
---
-
-LOCK TABLES `property_measures` WRITE;
-/*!40000 ALTER TABLE `property_measures` DISABLE KEYS */;
-/*!40000 ALTER TABLE `property_measures` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `record_lookups`
 --
 

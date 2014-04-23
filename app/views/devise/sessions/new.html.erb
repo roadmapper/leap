@@ -1,3 +1,4 @@
+<!-- styling of login screen -->
 <div class="container theme-showcase">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	</nav>
@@ -11,9 +12,6 @@
 				<div class="col-md-offset-2">
 				<div class="form-inline">
 					<br><h1>Data Management and Visualization System</h1>
-					<!--div class="col-md-offset-3">
-					<h2>Sign in </h2>
-					</div-->
 				</div>
 				</div>
 			</div>
@@ -22,7 +20,7 @@
 </div>
 	<div class="col-md-3 col-md-offset-4">
 	<h2 align="center">Sign in</h2>
-
+	<!-- form for login:  email, password, and option to remember password -->
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 	  <div><%= f.label :email %><br />
 	  <%= f.email_field :email, :autofocus => true %></div>

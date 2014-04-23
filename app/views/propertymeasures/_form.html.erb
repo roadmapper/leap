@@ -1,10 +1,10 @@
-<%= form_for(@property_measure) do |f| %>
-  <% if @property_measure.errors.any? %>
+<%= form_for(@propertymeasure) do |f| %>
+  <% if @propertymeasure.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@property_measure.errors.count, "error") %> prohibited this property_measure from being saved:</h2>
+      <h2><%= pluralize(@propertymeasure.errors.count, "error") %> prohibited this propertymeasure from being saved:</h2>
 
       <ul>
-      <% @property_measure.errors.full_messages.each do |msg| %>
+      <% @propertymeasure.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :property %><br />
-    <%= f.text_field :property %>
+    <%= f.text_field :property_id %>
   </div>
   <div class="field">
-    <%= f.label :measure %><br />
-    <%= f.text_field :measure %>
+    <%= f.label :installed_measure_type %><br />
+    <%= f.text_field :installed_measure_type_id %>
   </div>
   <div class="field">
     <%= f.label :comment %><br />
