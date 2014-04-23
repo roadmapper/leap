@@ -2,10 +2,10 @@
 
 one:
   property: 
-  measure: 
+  installed_measure_type: 
   comment: MyText
 
 two:
   property: 
-  measure: 
+  installed_measure_type: 
   comment: MyText

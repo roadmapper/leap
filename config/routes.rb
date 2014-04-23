@@ -1,29 +1,28 @@
 Public::Application.routes.draw do
 
-  resources :property_measures
+  resources :propertymeasures
 
 
   resources :installed_measure_types
 
 
   resources :record_lookups
-
-
-  devise_for :users, :controllers => {:registrations => "newusers" }
+  
+  #user authentication with devise, registration, and delete paths
+  devise_for :users, :controllers => {:registrations => "newusers", :destroy => "newusers"}
   devise_scope :user do
   authenticated :user do
        root :to =>'dashboard#index'
-       #put 'users/sign_up' => 'devise/registrations#update', :as => 'new_user_registration'
 	end
     unauthenticated :user do
- 	#root :to => 'devise/registrations#new'#, as: :unauthenticated_root
 	root :to => 'devise/sessions#new'
    end
   end
 
-
   resources :recordings
   resources :properties
+
+  #user registration paths
   resources :newusers
   resources :users
 
