@@ -95,7 +95,7 @@ class UploadsController < ApplicationController
 	status = upload_file filename, path, uploaded_io
         
 
-        if status != "Duplicate file found in uploads, file not uploaded"
+        if status != "Duplicate file found in uploads, file not uploaded" && status != "File not uploaded properly"
 		flash[:notice] = status
 		Thread.new do		
 			if uploaded_io.content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -161,7 +161,9 @@ class UploadsController < ApplicationController
   def convert_to_stagingsXLSX(path, uploaded_io, type)
 	fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 	rows_to_insert = []
-	Dir[path+"/*.xlsx"].each do |file|
+
+	Dir[path+"/" + uploaded_io.original_filename].each do |file|
+			
                     file_path = "#{file}"
                     file_basename = File.basename(file, ".xlsx")
                     xlsx = Excelx.new(file_path.to_s)
@@ -171,10 +173,11 @@ class UploadsController < ApplicationController
 		    xlsx.row(1).each_with_index {|header,i|
 		    headers[header] = i
 	            }
+
  
 
                     ((xlsx.first_row + 1)..xlsx.last_row).each do |row|
-
+			    
 		            acctnum = xlsx.row(row)[headers['AccountNum']]
 		            date = xlsx.row(row)[headers['DateRead']]
 			    amt_kwh = xlsx.row(row)[headers['Consumption']]
