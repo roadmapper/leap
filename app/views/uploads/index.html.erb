@@ -2,9 +2,9 @@
 <h1>Upload</h1>
 
 <h3>Processed Data</h3>
-<%= link_to 'Information to be Uploaded', stagings_path %>
+<%= link_to 'Click here to see any data currently uploaded using this page. You will be able to modify it before confirming that it is correct.', stagings_path %>
 
-<h3>Upload</h3>
+<h3>Upload for Electric Data</h3>
 		<%= form_tag({:action => :upload,  :controller=>"uploads"}, :multipart => true) do %>
 		  <%= file_field_tag 'file' %>
 		<br>
@@ -13,6 +13,7 @@
 		<% end %>
 		
     <br>
+<h3>Upload for Housing Data</h3>
 		<%= form_tag({:action => :uploadGas,  :controller=>"uploads"}, :multipart => true) do %>
 		  <%= file_field_tag 'file' %>
 		<br>
