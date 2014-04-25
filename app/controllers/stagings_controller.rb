@@ -97,5 +97,6 @@ class StagingsController < ApplicationController
     Staging.all.each do |staging|
 	Staging.destroy(staging)
     end
+	redirect_to :action => 'index'
   end
 end
