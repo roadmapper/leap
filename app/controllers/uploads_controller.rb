@@ -224,12 +224,7 @@ class UploadsController < ApplicationController
 				    Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
 				end
 		            end
-			   # to be removed depending on if want to continue using multiple sheets... 
-			   # $i = xlsx.sheets.length - 1
-		           #while $i >= 0 do
-		           #     xlsx.default_sheet = xlsx.sheets[$i]
-		           #     $i -=1
-		           # end
+
 		            Upload.update_all( {:status => 'Processed', :process_date => Time.now}, {:file_name => uploaded_io.original_filename})
 
 		end
