@@ -219,7 +219,7 @@ class UploadsController < ApplicationController
 				    amt_kwh = xls.row(row)[headers['Consumption']]
 				    days_used = xls.row(row)[headers['DaysUsed']]
 				    
-				    date = DateTime.new(1899,12,30) + Integer(date).days
+				    #date = DateTime.new(1899,12,30) + Integer(date).days
 				if !Recording.exists?(:acctnum => acctnum.to_i, :read_date=>date)  
 				    Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
 				end
