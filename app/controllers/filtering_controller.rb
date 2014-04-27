@@ -115,7 +115,7 @@ class FilteringController < ApplicationController
           fields = 9
           respond_to do |format|
               format.html
-              format.csv { send_data csv_export(header, @records_array, fields) }
+              format.csv { send_data csv_export(header, @records_array, fields),filename: "PRISM_Electric.csv" }
           end
     end
 
@@ -202,7 +202,7 @@ class FilteringController < ApplicationController
           fields = 9
           respond_to do |format|
               format.html
-              format.csv { send_data csv_export(header, @records_array, fields) }
+              format.csv { send_data csv_export(header, @records_array, fields), filename: "PRISM_Gas.csv" }
           end
     end
 
