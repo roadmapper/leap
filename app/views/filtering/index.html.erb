@@ -4,10 +4,9 @@
         <h1>Filter by...</h1>
     </div>
     <div class="col-md-6 text-center"></div>
-    <div class="col-md-2 text-center"><br><%= link_to "Electric Report - CSV",filtering_prism_report_electric_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :class=> "btn btn-primary", :style=>"color:white" %></div>
-    <div class="col-md-2 text-center"><br><%= link_to "Gas Report - CSV", filtering_prism_report_gas_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :class=> "btn btn-primary", :style=>"color:white" %></div>
+    
 </div>
-<br>
+
 <%= form_tag filtering_path, class: "form-horizontal", :method => "get" do %>
     <div class="row">
     	<div class="form_group">
@@ -34,110 +33,45 @@
         </div>
     </div>
     <br>
+    <% count = 0 %>
+    <% @measures.each do |measure| %>
+        <% if count%3 == 0 %>
+            <div class="row">
+                <div class="col-md-1 text-right">
+                    <%= check_box_tag(measure.installed_measures, value='1', checked=params[measure.installed_measures] ||= false, class: "form-control-small",:disabled => false) %>
+                </div>
+                <div class="col-md-3 text-left"><p><b><%=measure.installed_measures%></b></p></div>
+        <% elsif count%3 == 2 %>
+            <div class="col-md-1 text-right">
+                <%= check_box_tag(measure.installed_measures, value='1', checked=params[measure.installed_measures] ||= false, class: "form-control-small",:disabled => false) %>
+            </div>
+            <div class="col-md-3 text-left"><p><b><%=measure.installed_measures%></b></p></div>
+            </div>
+        <% else %> 
+            <div class="col-md-1 text-right">
+                <%= check_box_tag(measure.installed_measures, value='1', checked=params[measure.installed_measures] ||= false, class: "form-control-small",:disabled => false) %>
+            </div>
+            <div class="col-md-3 text-left"><p><b><%=measure.installed_measures%></b></p></div>
+        <% end %>
+        <% count = count + 1 %>
+    <%end%>
+    
     <div class="row">
-        <div class="col-md-1 text-center"><p><b>Furnace:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Boiler:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Wood Stove:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Water Heater:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Heat Pump:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Heat Pump Tune Up:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Programmable Thermostat:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Air Conditioner:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Duct Sealer:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Duct Insulation:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Mechanical Ventilation:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Attic Insulation:</b></p></div>
-    </div>
-    <div class="row">
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:furnace, value='1', checked=params[:furnace] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:boiler, value='1', checked=params[:boiler] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:woodstove, value='1', checked=params[:woodstove] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:waterheater, value='1', checked=params[:waterheater] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:heatpump, value='1', checked=params[:heatpump] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:HPTuneUp, value='1', checked=params[:HPTuneUp] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:thermostat, value='1', checked=params[:thermostat] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:solarpanels, value='1', checked=params[:solarpanels] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:ductsealer, value='1', checked=params[:ductsealer] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:ductinsulation, value='1', checked=params[:ductinsulation] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:ventilation, value='1', checked=params[:ventilation] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:atticinsulation, value='1', checked=params[:atticinsulation] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-1 text-center"><p><b>Wall Insulation:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Floor/Foundation Insulation:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Air Sealing:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Windows:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Exterior Doors:</b></p></div>
-        <div class="col-md-1 text-center"><p><b>Renewable Energy System:</b></p></div>
-        <div class="col-md-1 text-center"><a href="<%= filtering_path%>" class="btn btn-primary" style="color:white">Reset</a></div>
-        <div class="col-md-1 text-center"></div>
-        <div class="col-md-1 text-center"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:wallinsulation, value='1', checked=params[:wallinsulation] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:floorinsulation, value='1', checked=params[:floorinsulation] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:airsealing, value='1', checked=params[:airsealing] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:windows, value='1', checked=params[:windows] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:exteriordoors, value='1', checked=params[:exteriordoors] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center">
-            <%= check_box_tag(:renewableenergy, value='1', checked=params[:renewableenergy] ||= false, class: "form-control-small",:disabled => false) %>
-        </div>
-        <div class="col-md-1 text-center"><%= submit_tag("Filter", class: 'btn btn-primary') %></div>
-        <div class="col-md-1 text-center"></div>
-        <div class="col-md-1 text-center"></div>
-    </div>
-    </br>
-    <div class="row">
-        <div class="col-md-5 text-center"></div>
-        <div class="col-md-2 text-center">
-        </div>
+        <div class="col-md-3 text-center"><%= submit_tag("Filter", class: 'btn btn-primary') %></div>
+        <div class="col-md-3 text-center"><a href="<%= filtering_path%>" class="btn btn-primary" style="color:white">Reset</a><br></div>
+        <div class="col-md-3 text-center"><%= link_to "Electric Report - CSV",filtering_prism_report_electric_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :format => "csv", :class=> "btn btn-primary", :style=>"color:white" %></div>
+    <div class="col-md-3 text-center"><%= link_to "Gas Report - CSV", filtering_prism_report_gas_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :class=> "btn btn-primary", :style=>"color:white" %></div>
     </div>
 <% end %>
 
 <table class="table table-striped">
   <tr>
-    <th><%= sortable "customer_unique_id" %></th>
-    <th><%= sortable "owner_name" %></th>
-    <th><%= sortable "street_address" %></th>
-    <th><%= sortable "state"%></th>
-    <th><%= sortable "zipcode"%></th>
-    <th><%= sortable "finish_date"%></th>
-    <th></th>
-    <th></th>
+    <th>Customer Unique ID</th>
+    <th>Owner Name</th>
+    <th>Street Address</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Finish Date</th>
   </tr>
 
 <% @properties.each do |property| %>
