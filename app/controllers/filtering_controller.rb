@@ -3,6 +3,8 @@ class FilteringController < ApplicationController
   helper_method :sort_column, :sort_direction, :reset
 
   def index
+    @measures = InstalledMeasureType.all
+
   	@properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
     #zip validation
     if params.has_key?(:zip) and params[:zip] != "" then 
@@ -22,7 +24,6 @@ class FilteringController < ApplicationController
       @properties = @properties.where('finish_date < ?', enddate)
     end
     #installed measures validation
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
