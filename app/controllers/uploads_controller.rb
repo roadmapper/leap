@@ -183,6 +183,7 @@ class UploadsController < ApplicationController
 			    amt_kwh = xlsx.row(row)[headers['Consumption']]
 			    days_used = xlsx.row(row)[headers['DaysUsed']]
 		            
+			    #type = acctnum.at 0
 			    date = DateTime.new(1899,12,30) + Integer(date).days 
  			    if !Recording.exists?(:acctnum => acctnum.to_i, :read_date=>date)
 			    	Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
@@ -199,7 +200,7 @@ class UploadsController < ApplicationController
 	def convert_to_stagingsXLS(path, uploaded_io, type)
 		fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 		rows_to_insert = []
-		Dir[path+"/*.xls"].each do |file|
+		Dir[path+"/" + uploaded_io.original_filename].each do |file|
 		            file_path = "#{file}"
 		            file_basename = File.basename(file, ".xls")
 		            xls = Excel.new(file_path.to_s)
@@ -218,15 +219,12 @@ class UploadsController < ApplicationController
 				    amt_kwh = xls.row(row)[headers['Consumption']]
 				    days_used = xls.row(row)[headers['DaysUsed']]
 				    
-				    date = DateTime.new(1899,12,30) + Integer(date).days  
-				    Staging.where({"acctnum"=>acctnum, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
+				    #date = DateTime.new(1899,12,30) + Integer(date).days
+				if !Recording.exists?(:acctnum => acctnum.to_i, :read_date=>date)  
+				    Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
+				end
 		            end
-			   # to be removed depending on if want to continue using multiple sheets... 
-			   # $i = xlsx.sheets.length - 1
-		           #while $i >= 0 do
-		           #     xlsx.default_sheet = xlsx.sheets[$i]
-		           #     $i -=1
-		           # end
+
 		            Upload.update_all( {:status => 'Processed', :process_date => Time.now}, {:file_name => uploaded_io.original_filename})
 
 		end
