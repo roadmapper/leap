@@ -33,6 +33,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   # GET /properties/new.xml
   def new
+    @utilitytypes = UtilityType.all.to_a
     @company_names = RecordLookup.uniq.pluck(:company_name)
     @property = Property.new
     @property.record_lookups.build
@@ -46,9 +47,10 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
+    @utilitytypes = UtilityType.all.to_a
     @company_names = RecordLookup.uniq.pluck(:company_name)
     @property = Property.find(params[:id])
-    @property.record_lookups.build
+    @property.record_lookups.build;
   end
 
   # POST /properties
