@@ -44,7 +44,7 @@
 			<%= form_tag dashboard_property_report_path, :class => "navbar-form navbar-left", :method => "get" do  %>
 				<%= label_tag(:owner,"", class: "lead") %>
 			<div id = "bloodhound">
-				<%= text_field_tag :owner, params[:owner], :id => 'type', :class => "typeahead form-control", size: 50, placeholder: "Search Properties" %>
+				<%= text_field_tag :owner, params[:owner], :id => 'type', :class => "typeahead form-control", size: 55.85, placeholder: "Search Properties" %>
 				<button id = "navsearch" type="submit" class="btn btn-small" >Search</button> 
 			<%end %>
 			</div>

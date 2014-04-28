@@ -45,7 +45,6 @@
     <%= f.date_select :finish_date %>
   </div>
 
-  <br>
   
   <h5> Account Information:</h5>
 
@@ -53,9 +52,11 @@
   <div class="field">
     
     <h7> Company Name: </h7>
-    <%= record_lookups_form.select :company_name, @company_names %> 
+    <%= record_lookups_form.select :company_name, @company_names%> 
     <h7> Account: </h7>
     <%= record_lookups_form.text_field :acct_num %>
+    <h7> Utility Type: </h7>  
+    <%= record_lookups_form.collection_select(:utility_type_id, @utilitytypes, :id, :typeName, prompt: true) %>
 
   </div>
   <% end %>
