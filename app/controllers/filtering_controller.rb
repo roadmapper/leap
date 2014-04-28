@@ -5,25 +5,55 @@ class FilteringController < ApplicationController
   def index
     @measures = InstalledMeasureType.all
 
-  	@properties = Property.paginate(:page => params[:page]).order(sort_column + ' ' + sort_direction)
-    #zip validation
-    if params.has_key?(:zip) and params[:zip] != "" then 
-      @properties = @properties.where(zipcode: params[:zip]) 
+  	#@properties = Property.paginate(:page => params[:page])
+    @measurescount = 0
+    @sql = ""
+    @measures_array = []
+    @measures.each do |measure|
+      if params[eval(":attr" + measure.id.to_s)] == 'on' and params.has_key?(eval(":attr" + measure.id.to_s)) then
+        @measurescount = @measurescount + 1
+        @measures_array.push(measure.id)
+      end
     end
-    #date validation
-    if params[:startdate] != "" and params.has_key?(:startdate) and params.has_key?(:enddate) and params[:enddate] != "" then
-      startdate = Date.strptime(params[:startdate],'%m/%d/%Y')
-      enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
-      @properties = @properties.where(finish_date: (startdate..enddate))
-    elsif params[:startdate] != "" and params.has_key?(:startdate)
-      startdate = Date.strptime(params[:startdate],'%m/%d/%Y')
-      @properties = @properties.where(finish_date: (startdate..Date.today))
-    elsif params[:enddate] != "" and params.has_key?(:enddate) 
-      startdate = Date.strptime("01/01/2001",'%m/%d/%Y')
-      enddate = Date.strptime(params[:enddate],'%m/%d/%Y')
-      @properties = @properties.where('finish_date < ?', enddate)
+    if @measurescount != 0 then 
+      @sql = "SELECT * From ((Select properties.* From properties Inner Join propertymeasures ON `propertymeasures`.`property_id` = `properties`.`id` WHERE `propertymeasures`.`installed_measure_type_id` = "
+
+      @measures_array.each do |mid|
+        @sql = @sql + mid.to_s + " ) Union All (Select properties.* From properties Inner Join propertymeasures ON `propertymeasures`.`property_id` = `properties`.`id` WHERE `propertymeasures`.`installed_measure_type_id` = "       
+      end
+
+      @sql = @sql.chomp("Union All (Select properties.* From properties Inner Join propertymeasures ON `propertymeasures`.`property_id` = `properties`.`id` WHERE `propertymeasures`.`installed_measure_type_id` = ")
+
+      @sql = @sql + ") AS tbl "
+      if (params.has_key?(:zip) and params[:zip] != "" and ((params.has_key?(:startdate) and params[:startdate] != "") or (params.has_key?(:enddate) and params[:enddate] != ""))) then
+      #zip validation
+          #@properties = @properties.where(zipcode: params[:zip]) 
+        @sql = @sql + "where tbl.zipcode=" + params[:zip]
+        #date validation
+        if params[:startdate] != "" and params.has_key?(:startdate) and params.has_key?(:enddate) and params[:enddate] != "" then
+          @sql = @sql + " and tbl.finish_date BETWEEN " + params[:startdate] + " AND " + params[:enddate]
+        elsif params[:startdate] != "" and params.has_key?(:startdate)
+          @sql = @sql + " and tbl.finish_date > " + params[:startdate]
+        elsif params[:enddate] != "" and params.has_key?(:enddate) 
+          @sql = @sql + " and tbl.finish_date < " + params[:enddate]
+        end 
+      elsif (params.has_key?(:startdate) and params[:startdate] != "") or (params.has_key?(:enddate) and params[:enddate] != "")
+        @sql = @sql + " where "
+        if params[:startdate] != "" and params.has_key?(:startdate) and params.has_key?(:enddate) and params[:enddate] != "" then
+          @sql = @sql + "tbl.finish_date BETWEEN " + params[:startdate] + " AND " + params[:enddate]
+        elsif params[:startdate] != "" and params.has_key?(:startdate)
+          @sql = @sql + "tbl.finish_date > " + params[:startdate]
+        elsif params[:enddate] != "" and params.has_key?(:enddate) 
+          @sql = @sql + "tbl.finish_date < " + params[:enddate]
+        end 
+      end
+
+      @sql = @sql + " GROUP BY tbl.ID HAVING COUNT(*)=" + @measurescount.to_s + ";"
+      puts(@sql)
+    else
+      @sql = "select * from properties;"
     end
-    #installed measures validation
+    @properties = ActiveRecord::Base.connection.execute(@sql)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
