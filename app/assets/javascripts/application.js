@@ -18,5 +18,5 @@
 //= require bootstrap
 //= require on_the_spot
 //= require ajax_pagination
-//= require bootstrap-datetimepicker
+//= require bootstrap-datepicker
 //= require_tree .
