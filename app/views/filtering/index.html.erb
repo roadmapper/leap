@@ -16,7 +16,7 @@
         <div class="form_group">
             <%= label_tag(:startdate,"Start Date: ", class:"col-md-1 control-label")%>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="startdate" name="startdate" placeholder ="MM/DD/YY" value="<%= params[:startdate] %>" >
+                <input type="text" class="form-control" id="startdate" name="startdate" placeholder ="MM/DD/YYYY" value="<%= params[:startdate] %>" >
                 <span class="add-on">
                     <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                     </i>
@@ -24,14 +24,15 @@
             </div>
         </div>
         <div class="form_group">
-            <%= label_tag(:enddate,"End Date: ", class:"col-md-1 control-label")%>
+            <%= label_tag(:text,"End Date: ", class:"col-md-1 control-label")%>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="enddate" name="enddate" placeholder ="MM/DD/YY" value="<%= params[:enddate] %>" data-behaviour='datepicker'>
+                <input type="text" class="form-control" data-behaviour='datepicker' id="enddate" name="enddate" placeholder ="MM/DD/YYYY" value="<%= params[:enddate] %>" >
             </div>
         </div>
     </div>
     <br>
     <% count = 0 %>
+    <!-- Prints out each measure that can be filtered on into rows of 3-->
     <% @measures.each do |measure| %>
         <% if count%3 == 0 %>
             <div class="row">
@@ -68,15 +69,21 @@
         <% end %>
         <% count = count + 1 %>
     <%end%>
-    
+    <% if count%3 != 0 %>
+        </div>
+    <% end %>
     <div class="row">
         <div class="col-md-3 text-center"><%= submit_tag("Filter", class: 'btn btn-primary') %></div>
         <div class="col-md-3 text-center"><a href="<%= filtering_path%>" class="btn btn-primary" style="color:white">Reset</a><br></div>
-        <div class="col-md-3 text-center"><%= link_to "Electric Report - CSV",filtering_prism_report_electric_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :format => "csv", :class=> "btn btn-primary", :style=>"color:white" %></div>
-    <div class="col-md-3 text-center"><%= link_to "Gas Report - CSV", filtering_prism_report_gas_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :class=> "btn btn-primary", :style=>"color:white" %></div>
+        <!-- Pass along arguments to reports -->
+
+        <div class="col-md-3 text-center"><%= link_to "Electric Report - CSV",params.merge({:controller=>"filtering",:action=>"prism_report_electric"}), :format => "csv", :class=> "btn btn-primary", :style=>"color:white" %></div>
+        <div class="col-md-3 text-center"><%= link_to "Gas Report - CSV", params.merge({:controller=>"filtering",:action=>"prism_report_gas"}), :class=> "btn btn-primary", :style=>"color:white" %></div>
     </div>
 <% end %>
 <br>
+<!-- Prints out each property associated with each filter -->
+
 <table class="table table-striped">
   <tr>
     <th>Customer Unique ID</th>
@@ -89,23 +96,23 @@
 
 <% @properties.each do |property| %>
   <tr>
-    <td><%= property[1] %></td>
-    <td><%= property[2] %></td>
-    <td><%= property[4] %></td>
-    <td><%= property[6] %></td>
-    <td><%= property[7] %></td>
-    <td><%= property[8] %></td>
+    <td><%= property.customer_unique_id %></td>
+    <td><%= link_to property.owner_name, url_for(:controller => "dashboard", :action => "property_report", :customer_unique_id => property.customer_unique_id) %></td>
+    <td><%= property.street_address %></td>
+    <td><%= property.state %></td>
+    <td><%= property.zipcode %></td>
+    <td><%= property.finish_date %></td>
 
   </tr>
 <% end %>
+<%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
 
 </table>
+<%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
 
 <script type="text/javascript">
-  $(function() {
-    $('#startdate').datetimepicker({
-      pickTime: false
-    });
-  });
+  $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker();
+  })
 </script>
 </div>
