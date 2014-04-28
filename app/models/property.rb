@@ -7,7 +7,8 @@ class Property < ActiveRecord::Base
 
   has_many :record_lookups
   has_many :propertymeasures
-  accepts_nested_attributes_for :record_lookups, :reject_if => lambda { |a| a[:content].nil? }
+  
+  accepts_nested_attributes_for :record_lookups, :allow_destroy => true, :reject_if => proc {|attributes| attributes.all? {|k,v| v.blank?}}
 
    def self.search(owner)
         #if search

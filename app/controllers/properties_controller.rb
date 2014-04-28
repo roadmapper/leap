@@ -36,8 +36,6 @@ class PropertiesController < ApplicationController
     @utilitytypes = UtilityType.all.to_a
     @company_names = RecordLookup.uniq.pluck(:company_name)
     @property = Property.new
-    @property.record_lookups.build
-    @property.record_lookups.build
     
     respond_to do |format|
       format.html # new.html.erb
@@ -50,7 +48,6 @@ class PropertiesController < ApplicationController
     @utilitytypes = UtilityType.all.to_a
     @company_names = RecordLookup.uniq.pluck(:company_name)
     @property = Property.find(params[:id])
-    @property.record_lookups.build;
   end
 
   # POST /properties
