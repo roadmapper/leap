@@ -39,6 +39,7 @@
 					<%= button_to "Export to PRISM Format", analysis_dominion_ready_accounts_prism_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
+                        <br/>
 			<div id="dominion_rdy"></div>
 			</br>
 		</div>
@@ -58,6 +59,7 @@
 					<%= button_to "Export to PRISM Format", analysis_cvillegas_ready_accounts_prism_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
+                        <br/>
 			<div id="cvillegas_rdy"></div>
 			</br>	
 		</div>
@@ -78,7 +80,8 @@
 					<%= button_to "Export to PRISM Format", analysis_washingtongas_ready_accounts_prism_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
-			<div id="washingtongas_rdy"></div>
+			<br/>
+                        <div id="washingtongas_rdy"></div>
 			</br>
 		</div>
 		<div class="tab-pane" id="NullAccts" href="#NullAccts">
@@ -93,6 +96,7 @@
 					<%= button_to "Export to CSV", analysis_null_accounts_path(:format => "csv"), :method => "get", type: 'button', class: 'btn btn-primary center-block', style: 'margin-top:5px; margin-bottom:10px;' %>
 				</div>
 			</div>
+                        <br/>
 			<div id="null_accts"></div>
 			<%# ajax_section :id => "null_accounts", :render => "null_accounts" %>
 			</br>
