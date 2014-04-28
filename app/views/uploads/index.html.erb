@@ -2,7 +2,7 @@
 <h1>Upload</h1>
 
 <!--<h3>Processed Data</h3>-->
-<%= button_to "Processed Data", stagings_path, type: 'button', class: "btn btn-primary btn-sm", data: { toggle:"tooltip", placement:"right"}, title: "Click here to see any data currently uploaded using this page. You will be able to modify it before confirming that it is correct."%>
+<%= button_to "Processed Data", stagings_path, :method => "get", type: 'button', class: "btn btn-primary btn-sm", data: { toggle:"tooltip", placement:"right"}, title: "Click here to see any data currently uploaded using this page. You will be able to modify it before confirming that it is correct."%>
 
 <h3>Upload Data Format</h3>
 <table class="table table-striped table-bordered">
