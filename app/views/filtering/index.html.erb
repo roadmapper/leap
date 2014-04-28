@@ -36,18 +36,33 @@
         <% if count%3 == 0 %>
             <div class="row">
                 <div class="col-md-1 text-right">
-                    <%= check_box_tag(measure.installed_measures, value='1', checked=params[measure.installed_measures] ||= false, class: "form-control-small",:disabled => false) %>
+                    <input type="checkbox" class="form-control-small" name = "<%= "attr" + measure.id.to_s %>" 
+                        <% if params[eval(":attr" + measure.id.to_s)]%>
+                            checked = true>
+                        <% else %>
+                        >
+                        <% end %>
                 </div>
                 <div class="col-md-3 text-left"><p><b><%=measure.installed_measures%></b></p></div>
         <% elsif count%3 == 2 %>
             <div class="col-md-1 text-right">
-                <%= check_box_tag(measure.installed_measures, value='1', checked=params[measure.installed_measures] ||= false, class: "form-control-small",:disabled => false) %>
+                <input type="checkbox" class="form-control-small" name = "<%= "attr" + measure.id.to_s %>" 
+                    <% if params[eval(":attr" + measure.id.to_s)]%>
+                        checked = true>
+                    <% else %>
+                    >
+                    <% end %>
             </div>
             <div class="col-md-3 text-left"><p><b><%=measure.installed_measures%></b></p></div>
             </div>
         <% else %> 
             <div class="col-md-1 text-right">
-                <%= check_box_tag(measure.installed_measures, value='1', checked=params[measure.installed_measures] ||= false, class: "form-control-small",:disabled => false) %>
+                <input type="checkbox" class="form-control-small" name = "<%= "attr" + measure.id.to_s %>" 
+                    <% if params[eval(":attr" + measure.id.to_s)]%>
+                        checked = true>
+                    <% else %>
+                    >
+                    <% end %>
             </div>
             <div class="col-md-3 text-left"><p><b><%=measure.installed_measures%></b></p></div>
         <% end %>
@@ -61,7 +76,7 @@
     <div class="col-md-3 text-center"><%= link_to "Gas Report - CSV", filtering_prism_report_gas_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :class=> "btn btn-primary", :style=>"color:white" %></div>
     </div>
 <% end %>
-
+<br>
 <table class="table table-striped">
   <tr>
     <th>Customer Unique ID</th>
@@ -74,19 +89,17 @@
 
 <% @properties.each do |property| %>
   <tr>
-    <td><%= property.customer_unique_id %></td>
-    <td><%= link_to property.owner_name, url_for(:controller => "dashboard", :action => "property_report", :owner => property.owner_name) %></td>
-    <td><%= property.street_address %></td>
-    <td><%= property.state %></td>
-    <td><%= property.zipcode %></td>
-    <td><%= property.finish_date %></td>
+    <td><%= property[1] %></td>
+    <td><%= property[2] %></td>
+    <td><%= property[4] %></td>
+    <td><%= property[6] %></td>
+    <td><%= property[7] %></td>
+    <td><%= property[8] %></td>
 
   </tr>
 <% end %>
-<%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
 
 </table>
-<%= will_paginate @properties, renderer: BootstrapPagination::Rails %>
 
 <script type="text/javascript">
   $(function() {
