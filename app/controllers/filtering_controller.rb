@@ -61,7 +61,7 @@ class FilteringController < ApplicationController
           @sql = @sql + "tbl.finish_date < " + params[:enddate]
         end 
       end
-      @sql = @sql + " GROUP BY tbl.ID HAVING COUNT(*)=" + @measurescount.to_s + ";"
+      @sql = @sql + " GROUP BY tbl.ID HAVING COUNT(*)=" + @measurescount.to_s
     else
       if (ziptest and !(startdatetest or enddatetest)) then
         @sql = "select * from properties where properties.zipcode = " + params[:zip]
@@ -76,13 +76,14 @@ class FilteringController < ApplicationController
           @sql = @sql + " and properties.finish_date < " + params[:enddate]
         end 
       else
-        @sql = "select * from properties;"
+        @sql = "select * from properties"
       end
     end
     puts("===========================================")
     puts(@sql)
     puts("===========================================")
-    @properties = ActiveRecord::Base.connection.execute(@sql)
+    @properties = Property.paginate_by_sql(@sql, :page => params[:page],:per_page => 30)
+    #@properties = ActiveRecord::Base.connection.execute(@sql).paginate(:page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
