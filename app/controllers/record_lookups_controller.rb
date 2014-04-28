@@ -56,6 +56,7 @@ class RecordLookupsController < ApplicationController
   # PUT /record_lookups/1
   # PUT /record_lookups/1.json
   def update
+
     @record_lookup = RecordLookup.find(params[:id])
 
     respond_to do |format|
