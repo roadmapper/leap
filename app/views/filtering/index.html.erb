@@ -68,12 +68,14 @@
         <% end %>
         <% count = count + 1 %>
     <%end%>
-    
+    <% if count%3 != 0 %>
+        </div>
+    <% end %>
     <div class="row">
         <div class="col-md-3 text-center"><%= submit_tag("Filter", class: 'btn btn-primary') %></div>
         <div class="col-md-3 text-center"><a href="<%= filtering_path%>" class="btn btn-primary" style="color:white">Reset</a><br></div>
-        <div class="col-md-3 text-center"><%= link_to "Electric Report - CSV",filtering_prism_report_electric_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :format => "csv", :class=> "btn btn-primary", :style=>"color:white" %></div>
-    <div class="col-md-3 text-center"><%= link_to "Gas Report - CSV", filtering_prism_report_gas_path(:zip => params[:zip], :startdate=> params[:startdate], :enddate=>params[:enddate]), :class=> "btn btn-primary", :style=>"color:white" %></div>
+        <div class="col-md-3 text-center"><%= link_to "Electric Report - CSV",params.merge({:controller=>"filtering",:action=>"prism_report_electric"}), :format => "csv", :class=> "btn btn-primary", :style=>"color:white" %></div>
+    <div class="col-md-3 text-center"><%= link_to "Gas Report - CSV", params.merge({:controller=>"filtering",:action=>"prism_report_gas"}), :class=> "btn btn-primary", :style=>"color:white" %></div>
     </div>
 <% end %>
 <br>
@@ -90,7 +92,7 @@
 <% @properties.each do |property| %>
   <tr>
     <td><%= property[1] %></td>
-    <td><%= property[2] %></td>
+    <td><%= link_to property[2], url_for(:controller => "dashboard", :action => "property_report", :customer_unique_id => property[1]) %></td>
     <td><%= property[4] %></td>
     <td><%= property[6] %></td>
     <td><%= property[7] %></td>
