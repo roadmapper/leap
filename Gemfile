@@ -22,8 +22,8 @@ gem 'devise-encryptable'
 
 gem 'googlecharts'
 
-gem 'roo', '1.2.3'
-gem 'rubyzip', '< 1.0.0'
+gem 'roo', '1.13.2'
+gem 'rubyzip', '1.1.3'
 
 gem "therubyracer"
 

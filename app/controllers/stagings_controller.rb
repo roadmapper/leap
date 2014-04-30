@@ -1,5 +1,5 @@
 class StagingsController < ApplicationController
-
+  #Stagings are used as a way to review data before its final push into the full system. Seperates them so no erroneous data gets through and data can be reviewed before being uploaded. can_edit_on_the_spot respond to :json needs to be here so that the files can be edited on the spot using the on the spot gem.
   # GET /stagings
   # GET /stagings.json
   can_edit_on_the_spot
@@ -92,7 +92,7 @@ class StagingsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+ #REMOVES ALL STAGINGS not just one. Useful for clearing erroneously uploaded data.
   def destroyAll
     Staging.all.each do |staging|
 	Staging.destroy(staging)
