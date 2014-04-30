@@ -174,7 +174,7 @@ class UploadsController < ApplicationController
 		    #handles the first sheet and first sheet only
                     file_path = "#{file}"
                     file_basename = File.basename(file, ".xlsx")
-                    xlsx = Excelx.new(file_path.to_s)
+                    xlsx = Roo::Excelx.new(file_path.to_s)
                     $i = xlsx.sheets.length - 1
 		    xlsx.default_sheet = xlsx.sheets[0]
 		    headers = Hash.new
@@ -192,7 +192,7 @@ class UploadsController < ApplicationController
 			    days_used = xlsx.row(row)[headers['DaysUsed']]
 		            
 			    #Handles excelx formate Dates
-			    date = DateTime.new(1899,12,30) + Integer(date).days 
+			    #date = DateTime.new(1899,12,30) + Integer(date).days 
 			    #Creates a staging IF staging does not already exist AND IF recording with same date and acct num does not exist in the Database
  			    if !Recording.exists?(:acctnum => acctnum.to_i, :read_date=>date)
 			    	Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
@@ -212,7 +212,7 @@ class UploadsController < ApplicationController
 		Dir[path+"/" + uploaded_io.original_filename].each do |file|
 		            file_path = "#{file}"
 		            file_basename = File.basename(file, ".xls")
-		            xls = Excel.new(file_path.to_s)
+		            xls = Roo::Excel.new(file_path.to_s)
 		            $i = xls.sheets.length - 1
 			    xls.default_sheet = xls.sheets[0]
 			    headers = Hash.new
