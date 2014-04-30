@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json 
-#thought I should have stagings directly in here but maybe should link instead... bleh
+
   def index
     @uploads = Upload.all
 
@@ -85,16 +85,23 @@ class UploadsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  #Main function of this page
+  #Uploaded_io = the file information
+  #Uploaded_io is used to access further information on the file
+  #Status = Success of upload
+  #There are two upload functions that are slightly different. This is done to handle the two different forms of input, Gas, and Electric, since there is nothing in the files to indicate which is which.
+  #Currently both function identically besides uploadGas indicating a 2 to the convert_to_stagings Methods.
   def upload
         uploaded_io = params[:file]
         railspath =  Rails.root.join('..', 'uploads')
         path = railspath.to_s
         filename = uploaded_io.original_filename
 
+	#Goes to the generic upload_file portion of the code, handles the actual file uploading
 	status = upload_file filename, path, uploaded_io
         
 
+	#Checks if the file uploaded properly and then handles them appropiately based on the file type. Processing unfortunately currently indicates that the file has attempted to process. If for some reason the file stops processing, it will remain in the processing status.
         if status != "Duplicate file found in uploads, file not uploaded" && status != "File not uploaded properly"
 		flash[:notice] = status
 		Thread.new do		
@@ -113,7 +120,7 @@ class UploadsController < ApplicationController
 
 	redirect_to :action => 'index'	
   end
-
+  #This method functions identical to the previous upload function but replaces 1 with 2 to indicate Gas to the conversion methods
   def uploadGas
         uploaded_io = params[:file]
         railspath =  Rails.root.join('..', 'uploads')
@@ -142,6 +149,7 @@ class UploadsController < ApplicationController
 	redirect_to :action => 'index'	
   end            
 
+#handles actual file upload, creates the file and places it in an upload directory. Will fail if no upload directory exists. This needs to be in level above where your application is running. 
   def upload_file(filename, path, uploaded_io)
 	status = "File not uploaded properly"	
 	if !File.exists?(path + "//" + filename) && File.directory?(path)
@@ -157,16 +165,16 @@ class UploadsController < ApplicationController
 	end
 	status
   end
-
+  #PRocesses the xlsx file, looking for headers in the xlsx file named AccountNum, DateRead, Consumption, and DaysUsed. Order and additional columns do not matter as long as these match. Uses the gem roo's excelx class to handle reading the file.
   def convert_to_stagingsXLSX(path, uploaded_io, type)
 	fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 	rows_to_insert = []
 
 	Dir[path+"/" + uploaded_io.original_filename].each do |file|
-			
+		    #handles the first sheet and first sheet only
                     file_path = "#{file}"
                     file_basename = File.basename(file, ".xlsx")
-                    xlsx = Excelx.new(file_path.to_s)
+                    xlsx = Roo::Excelx.new(file_path.to_s)
                     $i = xlsx.sheets.length - 1
 		    xlsx.default_sheet = xlsx.sheets[0]
 		    headers = Hash.new
@@ -175,7 +183,7 @@ class UploadsController < ApplicationController
 	            }
 
  
-
+		    #Looks at each row and extracts the data
                     ((xlsx.first_row + 1)..xlsx.last_row).each do |row|
 			    
 		            acctnum = xlsx.row(row)[headers['AccountNum']]
@@ -183,8 +191,9 @@ class UploadsController < ApplicationController
 			    amt_kwh = xlsx.row(row)[headers['Consumption']]
 			    days_used = xlsx.row(row)[headers['DaysUsed']]
 		            
-			    #type = acctnum.at 0
-			    date = DateTime.new(1899,12,30) + Integer(date).days 
+			    #Handles excelx formate Dates
+			    #date = DateTime.new(1899,12,30) + Integer(date).days 
+			    #Creates a staging IF staging does not already exist AND IF recording with same date and acct num does not exist in the Database
  			    if !Recording.exists?(:acctnum => acctnum.to_i, :read_date=>date)
 			    	Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
 			    end
@@ -196,14 +205,14 @@ class UploadsController < ApplicationController
         end
 
   end
-
+#Functions virtually simular to XLSX but uses Roos Excel class instead. All xlsx and excelx instances replaced with xls and excel. Needs to handle date differently for XLS files than XLSX. 
 	def convert_to_stagingsXLS(path, uploaded_io, type)
 		fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 		rows_to_insert = []
 		Dir[path+"/" + uploaded_io.original_filename].each do |file|
 		            file_path = "#{file}"
 		            file_basename = File.basename(file, ".xls")
-		            xls = Excel.new(file_path.to_s)
+		            xls = Roo::Excel.new(file_path.to_s)
 		            $i = xls.sheets.length - 1
 			    xls.default_sheet = xls.sheets[0]
 			    headers = Hash.new
@@ -219,6 +228,7 @@ class UploadsController < ApplicationController
 				    amt_kwh = xls.row(row)[headers['Consumption']]
 				    days_used = xls.row(row)[headers['DaysUsed']]
 				    
+				    #Needs to handle date differently for XLS files than XLSX. 
 				    #date = DateTime.new(1899,12,30) + Integer(date).days
 				if !Recording.exists?(:acctnum => acctnum.to_i, :read_date=>date)  
 				    Staging.where({"acctnum"=>acctnum.to_i, "consumption"=>amt_kwh, "days_in_month"=>days_used, "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
@@ -230,20 +240,15 @@ class UploadsController < ApplicationController
 		end
 
 	  end
-
+#Handles csv input. Uses  Ruby's default CSV class to handle the processing. Simply reads each row based on the headers. Staging upload is similar to the other two processing functions
 	def convert_to_stagingsCSV(path, uploaded_io, type)
 			fields_to_insert = %w{ AccountNum DateRead Consumption DaysUsed }
 			rows_to_insert = []
 		
 			CSV.foreach(uploaded_io, headers: true) do |row|
 			  row_to_insert = row.to_hash.select { |k, v| fields_to_insert.include?(k) }
-			 #row.to_hash.values_at(*fields_to_insert)
-			  #rows_to_insert << row_to_insert
 
 			  stringdate = row_to_insert["DateRead"]
-		          date = DateTime.new(1899,12,30) + Integer(stringdate).days 
-			  
-	   		  #formatted_date = date.strftime('%a %b %d %Y')
 			  
 			Staging.where({"acctnum"=>row_to_insert["AccountNum"], "consumption"=>row_to_insert["Consumption"], "days_in_month"=>row_to_insert["DaysUsed"], "read_date"=>date, "utility_type_id" => type}).first_or_create(:locked => false)
 			end
