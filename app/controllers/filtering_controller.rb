@@ -35,9 +35,7 @@ class FilteringController < ApplicationController
     #Validate zip code
     if (ziptest) then
       if params[:zip] =~ /\d{5}/ then
-        puts("Zip Regex Match")
       else
-        puts("Zip Regex Fail")
         ziptest = false
         zipflash = true
       end
@@ -46,44 +44,31 @@ class FilteringController < ApplicationController
     #Validate Start Date
     if (startdatetest) then
       begin 
+        # try format mm/dd/yyyy. single digit m/d allowed also
         @startdate = Date.strptime(params[:startdate],"%m/%d/%Y").to_s
-        if @startdate = "" then
-          @startdate = Date.strptime(params[:startdate],"%m/%d/%y").to_s
-        else
-          flash.now[:alert] = "Improper Start Date Format"
+        if @startdate == "" then
           startdatetest = false
           startdateflash = true
         end
       rescue ArgumentError
-        puts("IMPROPER start DATE FORMAT")
-        #@startdatetest = false
         startdatetest = false
         startdateflash = true
       end
-      puts("Startdate: "+ @startdate.to_s)
     end
 
     #Validate Enddate
     if (enddatetest) then
       begin 
+        # try format mm/dd/yyyy. single digit m/d allowed also
         @enddate = Date.strptime(params[:enddate],"%m/%d/%Y").to_s
-        if @enddate = "" then
-          @enddate = Date.strptime(params[:enddate],"%m/%d/%y").to_s
-        else
-          flash.now[:alert] = "Improper End Date Format"
-          puts("could not parse enddate")
+        if @enddate == "" then
           enddatetest = false
           enddateflash = true
         end
       rescue ArgumentError
-        puts("IMPROPER End DATE FORMAT")
-        #@startdatetest = false
         enddatetest = false
         enddateflash = true
       end
-      puts("ENDDATE: "+ @startdate.to_s)
-
-      #puts("STARTDATE: "+ @startdate)
     end
 
     #Will contain the final message to flash
@@ -111,14 +96,7 @@ class FilteringController < ApplicationController
     else
       flash[:error] = nil
     end
-    puts("datetest:" + (startdatetest or @enddatetest).to_s )
 
-    fullclausetest = (measuretest or ziptest) or (startdatetest or enddatetest)
-    puts("measurescount > 0: " + measuretest.to_s)
-    puts("has zip: " + ziptest.to_s)
-    puts("has startdate: " + startdatetest.to_s)
-    puts("has enddate:" + enddatetest.to_s)
-    puts("full clause: " + fullclausetest.to_s)
 
     #If filtering based on measures
     if (measuretest) then 
@@ -136,7 +114,6 @@ class FilteringController < ApplicationController
       
       #Add zip code
       if(ziptest) then
-        puts("zip")
         @sql = @sql + "where tbl.zipcode=" + params[:zip]
         #zip and maybe dates
         if startdatetest and enddatetest then
@@ -147,8 +124,6 @@ class FilteringController < ApplicationController
           @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
         end 
       elsif(startdatetest or enddatetest)
-        puts("nozip")
-        puts("startdate or enddate")
         #dates but no zip
         @sql = @sql + " where "
         if startdatetest and enddatetest then
@@ -166,10 +141,10 @@ class FilteringController < ApplicationController
         #zip but no dates
         @sql = "select * from properties where properties.zipcode = " + params[:zip]
       elsif (ziptest and (startdatetest or enddatetest))
-        @sql = @sql + "where properties.zipcode=" + params[:zip]
+        @sql = "select * from properties where properties.zipcode='" + params[:zip] + "'"
         #zip and maybe dates
         if startdatetest and enddatetest then
-          @sql = @sql + " and properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
+          @sql = @sql + " and (properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "')"
         elsif startdatetest
           @sql = @sql + " and properties.finish_date > '" + @startdate + "'"
         elsif enddatetest
@@ -190,12 +165,8 @@ class FilteringController < ApplicationController
         @sql = "select * from properties"
       end
     end
-    puts("===========================================")
-    puts(@sql)
-    puts("===========================================")
     #add pagination
     @properties = Property.paginate_by_sql(@sql, :page => params[:page],:per_page => 30)
-    #@properties = ActiveRecord::Base.connection.execute(@sql).paginate(:page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @properties }
@@ -228,18 +199,11 @@ class FilteringController < ApplicationController
 
     if (startdatetest) then
       @startdate = Date.parse(params[:startdate]).strftime("%m/%d/%Y")
-      puts("STARTDATE: "+ @startdate)
     end
 
     if enddatetest then
       @enddate = Date.parse(params[:enddate]).strftime("%m/%d/%Y")
     end
-
-    puts("measurescount > 0: " + measuretest.to_s)
-    puts("has zip: " + ziptest.to_s)
-    puts("has startdate: " + startdatetest.to_s)
-    puts("has enddate:" + enddatetest.to_s)
-    puts("full clause: " + fullclausetest.to_s)
 
       #If filtering based on measures
     if (measuretest) then 
@@ -257,7 +221,6 @@ class FilteringController < ApplicationController
       
       #Add zip code
       if(ziptest) then
-        puts("zip")
         @sql = @sql + "where tbl.zipcode=" + params[:zip]
         #zip and maybe dates
         if startdatetest and enddatetest then
@@ -268,8 +231,6 @@ class FilteringController < ApplicationController
           @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
         end 
       elsif(startdatetest or enddatetest)
-        puts("nozip")
-        puts("startdate or enddate")
         #dates but no zip
         @sql = @sql + " where "
         if startdatetest and enddatetest then
@@ -311,9 +272,6 @@ class FilteringController < ApplicationController
         @sql = "select * from properties"
       end
     end
-    puts("===========================================")
-    puts(@sql)
-    puts("===========================================")
 
     #execute sql
     @properties = ActiveRecord::Base.connection.execute(@sql + ";")
@@ -408,18 +366,12 @@ def prism_report_gas
 
     if (startdatetest) then
       @startdate = Date.parse(params[:startdate]).strftime("%m/%d/%Y")
-      puts("STARTDATE: "+ @startdate)
     end
 
     if enddatetest then
       @enddate = Date.parse(params[:enddate]).strftime("%m/%d/%Y")
     end
 
-    puts("measurescount > 0: " + measuretest.to_s)
-    puts("has zip: " + ziptest.to_s)
-    puts("has startdate: " + startdatetest.to_s)
-    puts("has enddate:" + enddatetest.to_s)
-    puts("full clause: " + fullclausetest.to_s)
 
       #If filtering based on measures
     if (measuretest) then 
@@ -437,7 +389,6 @@ def prism_report_gas
       
       #Add zip code
       if(ziptest) then
-        puts("zip")
         @sql = @sql + "where tbl.zipcode=" + params[:zip]
         #zip and maybe dates
         if startdatetest and enddatetest then
@@ -448,8 +399,6 @@ def prism_report_gas
           @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
         end 
       elsif(startdatetest or enddatetest)
-        puts("nozip")
-        puts("startdate or enddate")
         #dates but no zip
         @sql = @sql + " where "
         if startdatetest and enddatetest then
@@ -491,10 +440,6 @@ def prism_report_gas
         @sql = "select * from properties"
       end
     end
-    puts("===========================================")
-    puts(@sql)
-    puts("===========================================")
-
     #execute sql
     @properties = ActiveRecord::Base.connection.execute(@sql + ";")
 
@@ -564,6 +509,7 @@ def prism_report_gas
     end
 end
 
+#Function to Simplify CSV Export
 def csv_export(header, data, fields)
   CSV.generate do |csv|
     csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
