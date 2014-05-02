@@ -45,7 +45,7 @@ class FilteringController < ApplicationController
     if (startdatetest) then
       begin 
         # try format mm/dd/yyyy. single digit m/d allowed also
-        @startdate = Date.strptime(params[:startdate],"%m/%d/%Y").to_s
+        @startdate = Date.strptime(params[:startdate],"%m/%d/%y").to_s
         if @startdate == "" then
           startdatetest = false
           startdateflash = true
@@ -60,7 +60,7 @@ class FilteringController < ApplicationController
     if (enddatetest) then
       begin 
         # try format mm/dd/yyyy. single digit m/d allowed also
-        @enddate = Date.strptime(params[:enddate],"%m/%d/%Y").to_s
+        @enddate = Date.strptime(params[:enddate],"%m/%d/%y").to_s
         if @enddate == "" then
           enddatetest = false
           enddateflash = true
@@ -119,19 +119,19 @@ class FilteringController < ApplicationController
         if startdatetest and enddatetest then
           @sql = @sql + " and tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and tbl.finish_date > '" + @startdate + "'"
+          @sql = @sql + " and tbl.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
+          @sql = @sql + " and tbl.finish_date <= '" + @enddate + "'"
         end 
       elsif(startdatetest or enddatetest)
         #dates but no zip
         @sql = @sql + " where "
         if startdatetest and enddatetest then
-          @sql = @sql + " and tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
+          @sql = @sql + " tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and tbl.finish_date > '" + @startdate + "'"
+          @sql = @sql + " tbl.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
+          @sql = @sql + " tbl.finish_date <= '" + @enddate + "'"
         end 
       end
       @sql = @sql + " GROUP BY tbl.ID HAVING COUNT(*)=" + @measurescount.to_s;
@@ -146,9 +146,9 @@ class FilteringController < ApplicationController
         if startdatetest and enddatetest then
           @sql = @sql + " and (properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "')"
         elsif startdatetest
-          @sql = @sql + " and properties.finish_date > '" + @startdate + "'"
+          @sql = @sql + " and properties.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and properties.finish_date < '" + @enddate + "'"
+          @sql = @sql + " and properties.finish_date <= '" + @enddate + "'"
         end 
       elsif (!ziptest and (startdatetest or enddatetest)) then
         #no zip but dates
@@ -156,9 +156,9 @@ class FilteringController < ApplicationController
         if startdatetest and enddatetest then
           @sql = @sql + " where properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " where properties.finish_date > '" + @startdate + "'"
+          @sql = @sql + " where properties.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " where properties.finish_date < '" + @enddate + "'"
+          @sql = @sql + " where properties.finish_date <= '" + @enddate + "'"
         end 
       else
         #no zip no dates no measures
@@ -198,11 +198,16 @@ class FilteringController < ApplicationController
     @enddate
 
     if (startdatetest) then
-      @startdate = Date.parse(params[:startdate]).strftime("%m/%d/%Y")
+      @startdate = Date.strptime(params[:startdate],"%m/%d/%y").to_s
+      puts("\033[31mSTART DATE FROM PARAMS: " + params[:startdate] + "\033[0m")
+
+      puts("\033[31mSTART DATE: " + @startdate + "\033[0m")
     end
 
     if enddatetest then
-      @enddate = Date.parse(params[:enddate]).strftime("%m/%d/%Y")
+      @enddate = Date.strptime(params[:enddate],"%m/%d/%y").to_s
+      puts("\033[31mEND DATE FROM PARAMS: " + params[:enddate] + "\033[0m")
+      puts("\033[31mEND DATE: " + @enddate + "\033[0m")
     end
 
       #If filtering based on measures
@@ -226,19 +231,19 @@ class FilteringController < ApplicationController
         if startdatetest and enddatetest then
           @sql = @sql + " and tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and tbl.finish_date > '" + @startdate + "'"
+          @sql = @sql + " and tbl.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
+          @sql = @sql + " and tbl.finish_date <= '" + @enddate + "'"
         end 
       elsif(startdatetest or enddatetest)
         #dates but no zip
         @sql = @sql + " where "
         if startdatetest and enddatetest then
-          @sql = @sql + " and tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
+          @sql = @sql + " tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and tbl.finish_date > '" + @startdate + "'"
+          @sql = @sql + " tbl.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
+          @sql = @sql + " tbl.finish_date <= '" + @enddate + "'"
         end 
       end
       @sql = @sql + " GROUP BY tbl.ID HAVING COUNT(*)=" + @measurescount.to_s;
@@ -248,14 +253,14 @@ class FilteringController < ApplicationController
         #zip but no dates
         @sql = "select * from properties where properties.zipcode = " + params[:zip]
       elsif (ziptest and (startdatetest or enddatetest))
-        @sql = @sql + "where properties.zipcode=" + params[:zip]
+        @sql = @sql + "select * from properties where properties.zipcode=" + params[:zip]
         #zip and maybe dates
         if startdatetest and enddatetest then
           @sql = @sql + " and properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and properties.finish_date > '" + @startdate + "'"
+          @sql = @sql + " and properties.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and properties.finish_date < '" + @enddate + "'"
+          @sql = @sql + " and properties.finish_date <= '" + @enddate + "'"
         end 
       elsif (!ziptest and (startdatetest or enddatetest)) then
         #no zip but dates
@@ -263,9 +268,9 @@ class FilteringController < ApplicationController
         if startdatetest and enddatetest then
           @sql = @sql + " where properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " where properties.finish_date > '" + @startdate + "'"
+          @sql = @sql + " where properties.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " where properties.finish_date < '" + @enddate + "'"
+          @sql = @sql + " where properties.finish_date <= '" + @enddate + "'"
         end 
       else
         #no zip no dates no measures
@@ -365,11 +370,11 @@ def prism_report_gas
     @enddate
 
     if (startdatetest) then
-      @startdate = Date.parse(params[:startdate]).strftime("%m/%d/%Y")
+      @startdate = Date.strptime(params[:startdate],"%m/%d/%y").to_s
     end
 
     if enddatetest then
-      @enddate = Date.parse(params[:enddate]).strftime("%m/%d/%Y")
+      @enddate = Date.strptime(params[:enddate],"%m/%d/%y").to_s
     end
 
 
@@ -394,19 +399,19 @@ def prism_report_gas
         if startdatetest and enddatetest then
           @sql = @sql + " and tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and tbl.finish_date > '" + @startdate + "'"
+          @sql = @sql + " and tbl.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
+          @sql = @sql + " and tbl.finish_date <= '" + @enddate + "'"
         end 
       elsif(startdatetest or enddatetest)
         #dates but no zip
         @sql = @sql + " where "
         if startdatetest and enddatetest then
-          @sql = @sql + " and tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
+          @sql = @sql + " tbl.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and tbl.finish_date > '" + @startdate + "'"
+          @sql = @sql + " tbl.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and tbl.finish_date < '" + @enddate + "'"
+          @sql = @sql + " tbl.finish_date <= '" + @enddate + "'"
         end 
       end
       @sql = @sql + " GROUP BY tbl.ID HAVING COUNT(*)=" + @measurescount.to_s;
@@ -416,14 +421,14 @@ def prism_report_gas
         #zip but no dates
         @sql = "select * from properties where properties.zipcode = " + params[:zip]
       elsif (ziptest and (startdatetest or enddatetest))
-        @sql = @sql + "where properties.zipcode=" + params[:zip]
+        @sql = @sql + "select * from properties where properties.zipcode=" + params[:zip]
         #zip and maybe dates
         if startdatetest and enddatetest then
           @sql = @sql + " and properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " and properties.finish_date > '" + @startdate + "'"
+          @sql = @sql + " and properties.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " and properties.finish_date < '" + @enddate + "'"
+          @sql = @sql + " and properties.finish_date <= '" + @enddate + "'"
         end 
       elsif (!ziptest and (startdatetest or enddatetest)) then
         #no zip but dates
@@ -431,9 +436,9 @@ def prism_report_gas
         if startdatetest and enddatetest then
           @sql = @sql + " where properties.finish_date BETWEEN '" + @startdate + "' AND '" + @enddate + "'"
         elsif startdatetest
-          @sql = @sql + " where properties.finish_date > '" + @startdate + "'"
+          @sql = @sql + " where properties.finish_date >= '" + @startdate + "'"
         elsif enddatetest
-          @sql = @sql + " where properties.finish_date < '" + @enddate + "'"
+          @sql = @sql + " where properties.finish_date <= '" + @enddate + "'"
         end 
       else
         #no zip no dates no measures
