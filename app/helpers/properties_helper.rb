@@ -61,7 +61,6 @@ module PropertiesHelper
     end
     
     def get_data(records, startdate)
-        puts startdate
         data = Array.new
         count = 0
         records.each do |rec|
@@ -69,15 +68,6 @@ module PropertiesHelper
             days_in_month = rec.days_in_month
             for i in count..23
                 currdate = startdate + i.months
-                puts i
-                puts rec.read_date
-                puts days_in_month
-                puts read_date - days_in_month.days
-                puts  currdate
-                puts read_date.end_of_month
-                puts rec.consumption
-                puts "-----"
-                
                 if((currdate >= read_date - days_in_month.days) && (currdate <= read_date.end_of_month))
                     data.push(rec.consumption)
                     count += 1;

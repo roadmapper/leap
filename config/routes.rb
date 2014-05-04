@@ -1,11 +1,7 @@
 Public::Application.routes.draw do
 
   resources :propertymeasures
-
-
   resources :installed_measure_types
-
-
   resources :record_lookups
   
   #user authentication with devise, registration, and delete paths

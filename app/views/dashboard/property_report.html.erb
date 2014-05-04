@@ -15,7 +15,7 @@
 		<a href="<%= dashboard_prism_report_gas_path + ".csv?owner=" + @property.owner_name%>" class="btn pull-right btn-primary btn-sm" style="color:white; margin-top:22px; margin-bottom:10px;">PRISM Format - Gas Data Export</a>
 	</div>
 </div>
-<hr>
+
 
 
 <div class="row">
@@ -42,8 +42,10 @@
 		<% end %>
 		<%= button_to "Edit Property", edit_property_path(@property), type: 'button', :method => "get", class: 'btn btn-primary btn-sm' %>
 
-		
+	
 	</div>
+	<hr>
+
 	<div class="col-lg-4">
 		<a href="javascript:toggleDiv('accountform');"> <button class = "btn pull-left btn-primary btn-sm"> Add New Account </button></a>
 		<br/>
@@ -62,7 +64,7 @@
 		$("#"+divId).toggle();
 	}
 </script>
-
+<hr>
 <div id="rawdata">
 	<% if (@electric_recordings && @gas_recordings) %>
 
