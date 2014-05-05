@@ -3,6 +3,7 @@ class AnalysisController < ApplicationController
   def index
   end
 
+  #Gets all the null accounts from the Report module, NullAccount class
   def null_accounts
     @n_accounts = Report::NullAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
@@ -14,6 +15,7 @@ class AnalysisController < ApplicationController
     end
   end
 
+  #Gets all the ready to analyze Dominion accounts from the Report module, DominionReadyAccount class, paginated
   def dominion_ready_accounts
     @accounts = Report::DominionReadyAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Account Number", "Meter Readings"]
@@ -25,6 +27,7 @@ class AnalysisController < ApplicationController
     end
   end
 
+  #Gets all the ready to analyze Dominion accounts from the Report module, DominionReadyAccount class, PRISM formatted
   def dominion_ready_accounts_prism
     customers = Report::DominionReadyAccount.pluck(:customer_unique_id)
     @records_array = prism_report(customers, "DOMINION")
@@ -35,6 +38,7 @@ class AnalysisController < ApplicationController
     end
   end
 
+  #Gets all the ready to analyze Charlottesville Gas accounts from the Report module, CvillegasReadyAccount class, paginated
   def cvillegas_ready_accounts
     @c_accounts = Report::CvillegasReadyAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Account Number", "Meter Readings"]
@@ -46,6 +50,7 @@ class AnalysisController < ApplicationController
     end
   end
 
+  #Gets all the ready to analyze Charlottesville Gas accounts from the Report module, CvillegasReadyAccount class, PRISM formatted
   def cvillegas_ready_accounts_prism
     customers = Report::CvillegasReadyAccount.pluck(:customer_unique_id)
     @records_array = prism_report(customers, "CVILLEGAS")
@@ -56,6 +61,7 @@ class AnalysisController < ApplicationController
     end
   end
 
+  #Gets all the ready to analyze Washington Gas accounts from the Report module, WashingtongasReadyAccount class, pagination
   def washingtongas_ready_accounts
     @accounts = Report::WashingtongasReadyAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Account Number", "Meter Readings"]
@@ -66,7 +72,8 @@ class AnalysisController < ApplicationController
       ajax_respond format, :section_id => "cvillegas_ready_accounts"
     end
   end
-  
+ 
+  #Gets all the ready to analyze Washington Gas accounts from the Report module, WashingtongasReadyAccount class, PRISM formatted
   def washingtongas_ready_accounts_prism
     customers = Report::WashingtongasReadyAccount.pluck(:customer_unique_id)
     @records_array = prism_report(customers, "WASHINGTONGAS")
@@ -78,6 +85,7 @@ class AnalysisController < ApplicationController
   end
 
   private
+  #SQL that needs to be run for acquiring all the utility data for given customer unique IDs (aggregated), outputs to PRISM format
   def prism_report(customers, company_name)
     customers = customers.map(&:inspect).join(', ')
     records_array = Array.new
@@ -133,6 +141,7 @@ class AnalysisController < ApplicationController
    records_array = ActiveRecord::Base.connection.execute(sql)
   end
 
+  #CSV export function that takes in the header, data, and the fields from the ActiveRecord
   def csv_export(header, data, fields)
     CSV.generate do |csv|
       csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
@@ -141,7 +150,8 @@ class AnalysisController < ApplicationController
       end
     end
   end
-
+  
+  #CSV export function that takes in the header, data, fields for raw SQL output
   def csv_export_raw_sql(header, data, fields)
     CSV.generate do |csv|
       csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]

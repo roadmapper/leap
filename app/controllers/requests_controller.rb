@@ -3,6 +3,8 @@ class RequestsController < ApplicationController
   def index
   end
 
+
+  #Gets all the Dominion accounts that need utility data requests for specific date ranges from the Report module, DominionRequestAccount class, paginated
   def dominion_request_accounts
     @accounts = Report::DominionRequestAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Account Number", "Request Start Date", "Request End Date", "Meter Readings"]
@@ -14,6 +16,7 @@ class RequestsController < ApplicationController
     end
   end
 
+  #Gets all the Charlottesville Gas accounts that need utility data requests for specific date ranges from the Report module, CvillegasRequestAccount class, paginated
   def cvillegas_request_accounts
     @accounts = Report::CvillegasRequestAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Account Number", "Request Start Date", "Request End Date", "Meter Readings"]
@@ -24,7 +27,8 @@ class RequestsController < ApplicationController
       ajax_respond format, :section_id => "cvillegas_request_accounts"
     end
   end
-
+  
+  #Gets all the Washington Gas accounts that need utility data requests for specific date ranges from the Report module, WashingtongasRequestAccount class, paginated
   def washingtongas_request_accounts
     @accounts = Report::WashingtongasRequestAccount.paginate(:page => params[:page])
     header = ["Owner Name", "Account Number", "Request Start Date", "Request End Date", "Meter Readings"]
@@ -37,6 +41,7 @@ class RequestsController < ApplicationController
   end
 
   private
+  #CSV export function that takes in the header, data, and the fields from the ActiveRecord
   def csv_export(header, data, fields)
     CSV.generate do |csv|
       csv << header #["Owner Name", "Customer Unique ID", "Company Name", "Account Number"]
