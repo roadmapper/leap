@@ -77,8 +77,8 @@
         <div class="col-md-3 text-center"><a href="<%= filtering_path%>" class="btn btn-primary" style="color:white">Reset</a><br></div>
         <!-- Pass along arguments to reports -->
 
-        <div class="col-md-3 text-center"><%= link_to "Electric Report - CSV",params.merge({:controller=>"filtering",:action=>"prism_report_electric"}), :format => "csv", :class=> "btn btn-primary", :style=>"color:white" %></div>
-        <div class="col-md-3 text-center"><%= link_to "Gas Report - CSV", params.merge({:controller=>"filtering",:action=>"prism_report_gas"}), :class=> "btn btn-primary", :style=>"color:white" %></div>
+        <div class="col-md-3 text-center"><%= link_to "Electric PRISM Report",params.merge({:controller=>"filtering",:action=>"prism_report_electric"}), :format => "csv", :class=> "btn btn-primary", :style=>"color:white" %></div>
+        <div class="col-md-3 text-center"><%= link_to "Gas PRISM Report", params.merge({:controller=>"filtering",:action=>"prism_report_gas"}), :class=> "btn btn-primary", :style=>"color:white" %></div>
     </div>
 <% end %>
 <br>
