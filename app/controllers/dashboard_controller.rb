@@ -46,11 +46,11 @@ class DashboardController < ApplicationController
         
             @current_measures = Propertymeasure.where("property_id = ?", @property.id).to_a
             @testoutdate = @property.finish_date
-            
-            @startdate = start_date(@testoutdate);
-            @enddate = end_date(@testoutdate);
-            
-            @months = gap_months(@startdate)
+            if(@testoutdate)
+                @startdate = start_date(@testoutdate);
+                @enddate = end_date(@testoutdate);
+                @months = gap_months(@startdate)
+            end
             
             @electric_record_lookups = RecordLookup.where("property_id = ? AND utility_type_id = ?", @property.id, 1).to_a #ID and Electric
             
