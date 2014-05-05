@@ -6,8 +6,7 @@
     <th>Read date</th>
     <th>Consumption</th>
     <th>Days in month</th>
-    <th>Utility ID</th>
-    <th></th>
+    <!--<th>Utility ID</th>-->
     <th></th>
     <th></th>
     <th></th>
@@ -19,24 +18,22 @@
     <td><%= on_the_spot_edit staging, :read_date, :type => :textarea, :rows => 1, :columns => 10  %></td>
     <td><%= on_the_spot_edit staging, :consumption, :type => :textarea, :rows => 1, :columns => 10  %></td>
     <td><%= on_the_spot_edit staging, :days_in_month, :type => :textarea, :rows => 1, :columns => 10  %></td>
-    <td><%= on_the_spot_edit staging, :utility_type_id, :type => :textarea, :rows => 1, :columns => 10  %></td>
+    <!--<td><%# on_the_spot_edit staging, :utility_type_id, :type => :textarea, :rows => 1, :columns => 10  %></td>-->
     <td><%= link_to 'Show', staging %></td>
     <td><%= link_to 'Edit', edit_staging_path(staging) %></td>
     <td><%= link_to 'Destroy', staging, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-<%= will_paginate @stagings %>
+<%= will_paginate @stagings, renderer: BootstrapPagination::Rails %>
 </table>
+<%= will_paginate @stagings, renderer: BootstrapPagination::Rails %>
 
 <br />
 
 <%= form_tag({:action => :destroyAll}, :multipart => false) do %>
-		<%= submit_tag( "Remove All Data from Stagings", class: 'btn btn-primary') %>
-		<% end %>
-        <br>
+    <%= submit_tag( "Remove All Data from Stagings", class: 'btn btn-primary') %>
+<% end %>
+<br/>
 <%= form_tag({:action => :insert}, :multipart => false) do %>
-		
-		<%= submit_tag( "Insert All Into Database", class: 'btn btn-primary') %>
-		<% end %>
-
-        <br>
+	<%= submit_tag( "Insert All Into Database", class: 'btn btn-primary') %>
+<% end %>
