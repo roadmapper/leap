@@ -158,7 +158,10 @@ class UploadsController < ApplicationController
                 input.force_encoding('UTF-8')
                 file.write(input)
             end
-            Upload.create(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now, :uploaded_by => current_user.email)
+            Upload.create(:file_name => uploaded_io.original_filename, :status => 'Not Processed', :upload_date => Time.now)
+            upload_record = Upload.find_by_file_name(uploaded_io.original_filename)
+            upload_record.uploaded_by = current_user.email
+            upload_record.save
 	    status = "File has been uploaded successfully, check the uploaded files to see its processing status."
 	elsif File.exists?(path + "//" + filename)
 	status = "Duplicate file found in uploads, file not uploaded" 
